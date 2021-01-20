@@ -1,0 +1,517 @@
+﻿@charset "utf-8";
+/* CSS Document */
+body{
+	margin:0;
+	padding:0;
+	background:#f3f3f3;
+	font-family: '微软雅黑';
+}
+.suspendNav{
+	width:100%;
+	height: 2.5rem;
+	line-height: 2.4rem;
+	text-align: center;
+	position:fixed;
+	top:0;
+	z-index:3;
+	background:#fff;
+}
+.suspendNav ul{
+	margin:0;
+	padding:0;
+	list-style:none;
+	margin:auto;
+	height: 2.3rem;
+}
+.suspendNav ul li{
+	font-size:1rem;
+	text-align:center;
+	display: inline-block;
+	margin-left: 5%;
+	margin-right: 5%;
+	color:#434343;
+}
+.suspendNav ul .thisnav{
+	border-bottom:3px solid #434343;
+}
+.tabOne{
+	width:100%;
+	min-height:10rem;
+	margin-bottom:3rem;
+	margin-top: 2.5rem;
+}
+.swiper-container{
+	height:92vw;
+}
+.swiper-slide img{
+	width:100%;
+}
+.namePrice{
+	width:100%;
+	min-height:2rem;
+	background:#fff;
+	padding-top: 0.6rem;
+	padding-bottom: 1rem;
+}
+.namePrice ul{
+	margin:0;
+	padding:0;
+	list-style:none;
+}
+.namePrice ul li{
+	width: 93%;
+	margin-left: 2%;
+	font-size: 1rem;
+	line-height: 1.5rem;
+	min-height:1.5rem;
+}
+.namePrice ul .Price{
+	font-size:1.2rem;
+	margin-top: 0.6rem;
+	color:#ef0505;
+}
+.namePrice ul .Price span{
+	float:left;
+}
+.namePrice ul .Price .zk{
+	font-size: 0.7rem;
+	font-style:normal;
+	padding: 0 3%;
+	display: inline-block;
+	border: 1px solid;
+	margin-left: 4%;
+	margin-top: 0.3rem;
+	height: 0.8rem;
+	line-height: 0.8rem;
+	float: left;
+	color:#ef0505;
+}
+.namePrice ul .ls{
+	font-size: 0.7rem;
+	color:#cccccc;
+	text-decoration: line-through;
+	line-height: 1.4rem;
+}
+.option{
+	width:100%;
+	height:2.5rem;
+	line-height:2.5rem;
+	background:#fff;
+	margin-top:0.5rem;
+}
+.option input{
+	width: 98%;
+	height:2.5rem;
+	line-height:2.5rem;
+	background:url(../images/xz.png) no-repeat;
+	background-position:center right;
+	border: 0;
+	background-size: 3%;
+	padding-left:3%;
+	outline:none;
+	font-size: 0.9rem;
+	font-family: '微软雅黑';
+}
+
+
+
+/*商品详情底部*/
+.comfooter{
+	width:100%;
+	height:3rem;
+	line-height:3rem;
+	background:#fff;
+	position:fixed;
+	bottom:0;
+}
+.comfooter ul{
+	margin:0;
+	padding:0;
+	list-style:none;
+}
+.comfooter ul li{
+	height:3rem;
+	float:left;
+}
+.comfooter ul .shouchang{
+	width:20%;
+	background:url(../images/shoucang.png) no-repeat;
+	background-position:center top;
+	background-size: 36%;
+	background-position-y: 0.3rem;
+}
+.comfooter ul .yisc{
+	width:20%;
+	background:url(../images/yisc.png) no-repeat;
+	background-position:center top;
+	background-size: 35.8%;
+	background-position-y: 0.2rem;
+}
+.shouchang a,.yisc a{
+	display:block;
+	width:100%;
+	height:3rem;
+	text-decoration:none;
+	color:#434343;
+}
+.shouchang a em , .yisc a em{
+	display:inline-block;
+	width:100%;
+	text-align:center;
+	font-size: 0.7rem;
+	font-style:normal;
+	height: 1rem;
+	line-height: 1rem;
+	margin-top: 1.8rem;
+}
+.comfooter ul .car{
+	width:40%;
+	height:3rem;
+}
+.comfooter ul .car a{
+	display:inline-block;
+	width:100%;
+	height:3rem;
+	text-decoration:none;
+	color:#fff;
+	font-size:0.9rem;
+	background:#ff9402;
+	text-align:center;
+}
+.comfooter ul .buy{
+	width:40%;
+	height:3rem;
+}
+.comfooter ul .buy a{
+	display:inline-block;
+	width:100%;
+	height:3rem;
+	text-decoration:none;
+	color:#fff;
+	font-size:0.9rem;
+	background:#3dbd87;
+	text-align:center;
+}
+
+/*商品详情*/
+.xqnav{
+	width:100%;
+	height:2.5rem;
+	background:#fff;
+	position:fixed;
+	top:2.5rem;
+	border-top:1px solid #e1e1e1;
+}
+.xqnav ul{
+	margin:0;
+	padding:0;
+	list-style:none;
+}
+.xqnav ul li{
+	float:left;
+	width:33%;
+	height: 1rem;
+	line-height: 1rem;
+	margin-top: 0.75rem;
+	border-right: 1px solid #ddd;
+	text-align: center;
+	font-size: 0.9rem;
+}
+.xqnav ul li:nth-child(3){
+	border-right:0;
+}
+.xqnav ul .dqcd{
+	color:#3dbd87;
+}
+.conter{
+	width:100%;
+	margin-top: 5rem;
+	min-height: 5.6rem;
+	background:#fff;
+}
+.jieshao img{
+	width:90%;
+	margin-left: 5%;
+	margin-top: 0.5rem;
+	margin-bottom: 0.5rem;
+	height: 8.3rem;
+}
+.jieshao .ms{
+	margin:0;
+	font-size: 0.9rem;
+	width:90%;
+	margin-left:5%;
+}
+.canshu{
+	width:100%;
+	min-height:5rem;
+	padding-bottom: 0.6rem;
+	border-bottom:1px solid #e1e1e1;
+	display: none;
+}
+.canshu ul{
+	margin:0;
+	padding:0;
+	list-style:none;
+}
+.canshu ul li{
+	width:100%;
+	min-height: 3rem;
+	border-bottom: 1px solid #f2f4f6;
+}
+.canshu ul li:last-child{
+	border:0;
+}
+.canshu ul li span{
+	width: 25%;
+	padding-left:5%;
+	display:inline-block;
+	color:#434343;
+	font-size:0.9rem;
+	line-height: 3rem;
+	min-height: 3rem;
+	float: left;
+}
+.canshu ul li em{
+	width:65%;
+	font-style:normal;
+	color:#434343;
+	font-size:0.9rem;
+	margin-top: 1rem;
+	display: inline-block;
+}
+.bzsh{
+	display:none;
+}
+.bzsh .ptitle{
+	margin-left:5%;
+	font-size: 1rem;
+	margin-top: 1rem;
+
+	display: inline-block;
+}
+.bzsh .pmingcheng{
+	margin: 0;
+	line-height: 1.2rem;
+	margin-left: 10%;
+	font-size: 0.9rem;
+}
+.spxq{
+	display:none;
+}
+.zhezhao{
+	height:100%;
+	width:100%;
+	background: rgba(0, 0,0, 0.50);
+	position:fixed;
+	top:0;
+	z-index: 11;
+	display: none;
+}
+.classify{
+	width:100%;
+	height: 145vw;
+	position: absolute;
+	bottom:0;
+	background:#fff;
+	z-index: 10;
+	display: none;
+}
+.sphead{
+	width:100%;
+	min-height: 20vw;
+	position:relative;
+	padding-bottom: 1rem;
+	border-bottom: 1px solid #f2f4f6;
+}
+.topimg{
+	width: 19%;
+	padding:3%;
+	position: absolute;
+	top: -5.9vw;`
+	background: #fff;
+	border: 1px solid #ddd;
+	border-radius: 8px;
+	height: 20vw;
+	left: 3%;
+	background: #fff;
+}
+.topimg img{
+	width:100%;
+	height: 100%;
+}
+.topgui{
+	min-height:1.5rem;
+	width:70%;
+	position:absolute;
+	left: 30%;
+	top: 3vw;
+}
+.topgui ul{
+	margin:0;
+	padding:0;
+	list-style:none;
+	position: relative;
+}
+.topgui ul .zhekou{
+	width: 100%;
+	min-height: 1.5rem;
+}
+.topgui ul .zhekou span{
+	display:inline-block;
+	font-size: 1rem;
+	color:#ef0505;
+	float: left;
+}
+.topgui ul .zhekou em{
+	font-size: 0.7rem;
+	font-style:normal;
+	padding: 0 3%;
+	display: inline-block;
+	border: 1px solid;
+	margin-left: 4%;
+	margin-top: 0.3rem;
+	height: 0.8rem;
+	line-height: 0.8rem;
+	float: left;
+	color:#ef0505;
+}
+.topgui ul .lingshou{
+	font-size: 0.7rem;
+	color:#cccccc;
+	text-decoration: line-through;
+	line-height: 1.4rem;
+}
+.topgui ul .fenlei{
+	font-size: 0.8rem;
+	color:#434343;
+	position: absolute;
+	top: 3rem;
+}
+.topgui ul li{
+	margin-left: 5%;
+}
+.classify .lei{
+	width: 100%;
+	margin-left: 0%;
+	border-bottom: 1px solid #f2f4f6;
+	padding-top:0.5rem;
+	padding-bottom:0.5rem;
+	min-height: 3rem;
+	float: left;
+}
+.classify .lei p{
+	margin:0;
+	padding:0;
+	font-size:0.9rem;
+	margin-left: 3%;
+	margin-bottom: 0.5rem;
+}
+.classify .lei ul{
+	margin:0;
+	padding:0;
+	list-style:none;
+	margin-left: 3%;
+}
+.classify .lei ul li{
+	float:left;
+	margin-right:3%;
+	font-size: 0.9rem;
+	line-height: 1.7rem;
+	height: 1.7rem;
+	padding: 0 2%;
+	background: #f3f3f3;
+	margin-bottom: 0.9rem;
+	border-radius: 4px;
+}
+.classify .lei .xz{
+	color:#fff;
+	background:#3dbd87;
+}
+.shuliang{
+	width:100%;
+	height:2.5rem;
+	line-height:2.5rem;
+	float: left;
+	border-bottom: 1px solid #f2f4f6;
+}
+.shuliang span{
+	display:inline-block;
+	margin-left:3%;
+	font-size:0.9rem;
+	color:#434343;
+}
+.jiajian{
+	float:right;
+	margin-right: 0%;
+	width: 30%;
+}
+.jiajian a{
+	font-size:2rem;
+	text-decoration:none;
+}
+.jiajian a img{
+	width: 23.7%;
+	margin-top: 0.5rem;
+	float: left;
+}
+.jiajian input{
+	float:left;
+	margin-top: 0.5rem;
+	height: 6.5vw;
+	outline: none;
+	width: 41%;
+	text-align: center;
+	border: 1px solid #cccccc;
+	border-left: 0;
+	border-right: 0;
+}
+.classfooter{
+	width:100%;
+	height:3rem;
+	position:absolute;
+	bottom:0;
+	line-height:3rem;
+}
+.classfooter ul{
+	margin:0;
+	padding:0;
+	list-style:none;
+}
+.classfooter ul li a{
+	display:inline-block;
+	width:100%;
+	height:3rem;
+	text-decoration:none;
+	text-align:center;
+	font-size:1rem;
+	color:#fff;
+}
+.classfooter ul .car1{
+	width:50%;
+	height:3rem;
+	float:left;
+	background:#ff9402;
+}
+.classfooter ul .car2{
+	width:100%;
+	height:3rem;
+	float:left;
+	background:#ff9402;
+	display:none;
+}
+.classfooter ul .buy1{
+	width:50%;
+	height:3rem;
+	float:left;
+	background:#3dbd87;
+}
+.classgb{
+	width: 5%;
+	position:absolute;
+	top: 3vw;
+	right: 3%;
+}
+.classgb img{
+	width:100%;
+}

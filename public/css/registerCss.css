@@ -1,0 +1,130 @@
+@charset "utf-8";
+/* CSS Document */
+body{
+	margin:0;
+	padding:0;
+}
+ul{
+	margin:0;
+	padding:0;
+	list-style:none;
+}
+.title{
+	width:100%;
+	height: 5rem;
+	line-height: 5rem;
+	text-align:center;
+	color: #f23030;
+	margin-top: 2rem;
+	font-family: '微软雅黑';
+	font-size: 1rem;
+}
+.title h3{
+	padding:0;
+	margin:0;
+	font-weight: 500;
+}
+.zhanghao{
+	width:90%;
+	margin-left:5%;
+	height:6rem;
+	border:1px solid #ddd;
+	border-radius:8px;
+	margin-bottom:1rem;
+}
+.zhanghao1{
+	height:3rem;
+}
+.zhanghao1 li{
+	border:0 !important;
+}
+.zhanghao li{
+	width:100%;
+	height:3rem;
+	line-height:3rem;
+	border-bottom:1px solid #ddd;
+	position:relative;
+}
+.zhanghao li .huoqu{
+	position: absolute;
+	display: block;
+	right: 3%;
+	font-size: 0.9rem;
+	text-decoration: none;
+	background: #f23030;
+	height: 2rem;
+	line-height: 2rem;
+	padding-left: 1.5%;
+	padding-right: 1.5%;
+	margin-top: 0.5rem;
+	border-radius: 4px;
+	color: #fff;
+	width: 27%;
+	-webkit-appearance: none;
+}
+.zhanghao li .gain{
+	background:#b2b2b2;
+}
+ul li:nth-child(2){
+	border:0;
+}
+.zhanghao li label{
+	display:inline-block;
+	width: 28%;
+	font-size:0.9rem;
+	color:#434343;
+	text-indent:5%;
+	float: left;
+}
+.zhanghao li input{
+	width:70%;
+	height: 2.96rem;
+	border:0;
+	margin-top: 0;
+	outline: none;
+	float: left;
+}
+.queding{
+	display:inline-block;
+	width:90%;
+	margin-left:5%;
+	background:#f23030;
+	height:2.5rem;
+	line-height:2.5rem;
+	color:#fff;
+	font-family:'微软雅黑';
+	font-size:1rem;
+	text-align:center;
+	text-decoration:none;
+	border-radius:4px;
+}
+.xieyi{
+	width: 82%;
+	margin:0;
+	padding:0;
+	height:2.5rem;
+	margin-top:1rem;
+	line-height:2.5rem;
+	background:url(../images/Unchecked.png) no-repeat;
+	background-position:center left;
+	background-size: 6%;
+	font-size:0.9rem;
+	text-indent: 7%;
+	margin: auto;
+	color:#949393;
+	margin-top: 1rem;
+}
+.xieyi-no{
+	background:url(../images/qued.png) no-repeat;
+	background-size: 6%;
+	background-position:center left;
+	color:#f23030;
+}
+.xieyi a{
+	color:#434343;
+	font-style:normal;
+	text-decoration:none;
+}
+.xieyi-no a{
+	color:#f23030;
+}

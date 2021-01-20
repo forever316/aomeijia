@@ -1,0 +1,223 @@
+﻿@charset "utf-8";
+/* CSS Document */
+body{
+	margin:0;
+	padding:0;
+	background:#f3f3f3;
+	font-family: '微软雅黑';
+}
+.BODY{
+	width:100%;
+	height:100%;
+	overflow:hidden;
+}
+ul{
+	margin:0;
+	padding:0;
+	list-style:none;
+}
+.search{
+	width:100%;
+	background:#fff;
+	min-height:3rem;
+	position: fixed;
+	top: 0;
+	z-index: 1;
+}
+.searchDiv{
+	width:80%;
+	height:2.5rem;
+	margin-left: 10%;
+}
+.searchDiv input{
+	width:100%;
+	height: 1.8rem;
+	margin-top: 0.7rem;
+	border:0;
+	background:url(../images/search.png) no-repeat #f9f9f9;
+	background-position:center left;
+	padding-left: 10%;
+	background-size: 7%;
+	background-position-x: 2%;
+	outline: none;
+	border-radius: 4px;
+}
+.screen{
+	width:100%;
+	min-height: 2rem;
+	line-height: 2rem;
+	font-size: 0.9rem;
+	margin-top: 0.7rem;
+	border-top: 1px solid #f2f4f6;
+}
+.screen ul{
+	margin:0;
+	padding:0;
+	list-style:none;
+	width:80%;
+	margin-left:10%;
+	position: relative;
+}
+.screen ul .onesc{
+	display: block;
+	float: left;
+	background:url(../images/xia.png) no-repeat;
+	width: 14%;
+	background-size: 25%;
+	background-position: center right;
+	color: #3dbd87;
+}
+.screen ul .onesc_01{
+	background:url(../images/shangla.png) no-repeat;
+	background-size: 25%;
+	background-position: center right;
+	color: #3dbd87;
+	width: 14%;
+}
+.screen ul .onesc_02{
+	background:url(../images/xiala.png) no-repeat;
+	background-size: 39%;
+	background-position: center right;
+	color: #434343;
+	width: 16%;
+}
+.screen ul .twosc{
+	width: 10%;
+	margin:auto;
+	height: 32px;
+	display:block;
+}
+.screen ul .twothis a{
+	color:#3dbd87;
+}
+.screen ul .threesc{
+	display: block;
+	position: absolute;
+	right: 0;
+	top: 0;
+	width:14%;
+}
+.screen ul .threesc-01{
+	color: #3dbd87;
+}
+.threesc .shang{
+	background:url(../images/shang.png) no-repeat;
+	display:inline-block;
+	position:absolute;
+	width: 41%;
+	height: 0.5rem;
+	background-size: 100%;
+	top: 0.5rem;
+}
+.threesc .shang-01{
+	background:url(../images/shangla.png) no-repeat;
+	background-size: 55%;
+	background-position: center;
+}
+.threesc .xia{
+	background:url(../images/xiala.png) no-repeat;
+	display:inline-block;
+	position:absolute;
+	width: 41%;
+	height: 0.5rem;
+	background-size: 100%;
+	top: 0.9rem;
+}
+.threesc .xia-01{
+	background:url(../images/xia.png) no-repeat;
+	background-size: 61%;
+	background-position: center;
+}
+.screen ul a{
+	color:#434343;
+	text-decoration:none;
+}
+
+/*我的收藏*/
+.collect{
+	width:100%;
+	background:#fff;
+	min-height:3rem;
+	float: left;
+	margin-top: 5.6rem;
+}
+.collect a{
+	text-decoration:none;
+}
+.oneCollect{
+	width:100%;
+	min-height:3rem;
+	padding-top: 0.8rem;
+	float: left;
+}
+.oneCollect .img{
+	width: 25%;
+    margin-left: 3%;
+	float:left;
+}
+.img img{
+	width:100%;
+	height: 28.5vw;
+}
+.oneCollect .xq{
+	width: 69%;
+	float:left;
+	margin-left:3%;
+	padding-bottom: 0.6rem;
+	border-bottom: 1px solid #f2f4f6;
+	position:relative;
+}
+.xq li{
+	font-size:0.9rem;
+	line-height:1.2rem;
+	color:#434343;
+}
+.xq .spname{
+	width: 77%;
+	height:2.4rem;
+}
+.xq .guige{
+	color:#cccccc;
+	margin-top: 0.6rem;
+	margin-bottom: 1rem;
+}
+.xq .jiage{
+	color:#ef0505;
+	font-size: 1rem;
+}
+.xqdel{
+	position:absolute;
+	right: 2%;
+	top: 0.1rem;
+}
+.xqdel img{
+	width:66%;
+}
+.zzc{
+	width:100%;
+	background: rgba(0, 0, 0, 0.5);
+	position:fixed;
+	height:100%;
+	top: 5.2rem;
+	left: 0;
+	display:none;
+}
+.zzc ul{
+	width:100%;
+	margin-left:0;
+}
+.zzc ul li{
+	width:90%;
+	background:#fff;
+	padding-left:10%;
+	height:2.5rem;
+	line-height: 2.5rem;
+}
+.zzc ul .xzthis{
+	background:url(../images/dui.png) no-repeat #fff;
+	background-position: center right 11%;
+	background-size: 5%;
+}
+.zzc ul .xzthis a{
+	color:#3dbd87;
+}

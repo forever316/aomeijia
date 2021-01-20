@@ -1,0 +1,478 @@
+﻿@charset "utf-8";
+/* CSS Document */
+body{
+	margin:0;
+	font-family: '微软雅黑';
+	padding:0;
+}
+.bgcolor{
+	background: #f3f3f3;
+}
+
+/*兑换成功样式*/
+.triumph{
+	width:100%;
+	min-height:5rem;
+	font-size:0.9rem;
+	text-align:center;
+}
+.triumph img{
+	width: 24%;
+	margin-top:4rem;
+}
+.triumph b{
+	width:100%;
+	display:inline-block;
+	margin-top: 1.2rem;
+	font-size: 1.2rem;
+	font-weight:normal;
+	color:#434343;
+}
+.triumph span{
+	width:100%;
+	display:inline-block;
+	font-size: 0.9rem;
+	color:#434343;
+	margin-top: 0.5rem;
+}
+
+
+/*积分兑现*/
+.cash{
+	width:90%;
+	margin-left:5%;
+	background: #fff;
+	min-height: 10rem;
+	margin-top: 0.8rem;
+	float: left;
+}
+.cash h3{
+	margin: 0;
+	font-size: 1rem;
+	color:#434343;
+	margin-top: 1rem;
+	float: left;
+	margin-left: 5%;
+	font-weight: 400;
+}
+.cash input{
+	width:90%;
+	margin-left:5%;
+	margin-top:1rem;
+	background:url(../images/money.png) no-repeat;
+	border:0;
+	border-bottom:1px solid #f2f4f6;
+	font-size: 2.5rem;
+	padding-left: 9%;
+	background-size: 8%;
+	background-position-y: 0.5rem;
+	outline: none;
+}
+.cash input::-webkit-input-placeholder{
+	font-size:1rem;
+}
+.cash input:-moz-placeholder{
+	font-size:1rem;
+}
+.cash input::-moz-placeholder{
+	font-size:1rem;
+}
+.cash input:-ms-input-placeholder {
+	font-size:1rem;
+}
+.cash p{
+	margin-left:5%;
+	font-size:0.9rem;
+	float: left;
+}
+.cash p em{
+	font-style:normal;
+	color:#3dbd87;
+}
+.keti{
+	font-size:0.9rem;
+	color:#999999;
+	float:left;
+	margin-left: 7%;
+}
+.queren{
+	width:90%;
+	height:2.5rem;
+	display:inline-block;
+	text-align:center;
+	line-height:2.5rem;
+	text-decoration:none;
+	font-size: 1rem;
+	margin-left: 5%;
+	color:#fff;
+	background:#3dbd87;
+	border-radius:4px;
+}
+
+
+
+/*积分明细*/
+.detailList{
+	width:100%;
+	min-height:10rem;
+}
+.detailList .detailOne{
+	width:100%;
+	min-height: 2rem;
+	border-bottom: 1px solid #f2f4f6;
+	background:#fff;
+	padding-top: 0.5rem;
+	padding-bottom: 0.4rem;
+}
+.detailOne ul{
+	margin:0;
+	padding:0;
+	list-style:none;
+}
+.detailOne ul li{
+	width:100%;
+	height: 1.3rem;
+	line-height: 1.3rem;
+	font-size: 0.8rem;
+}
+.detailOne ul li span{
+	display:block;
+	float:left;
+	margin-left:5%;
+	font-size: 1rem;
+	font-family:Glamazon;
+	color: #373737;
+}
+.detailOne ul li em{
+	font-style:normal;
+	font-size: 0.8rem;
+	color:#999;
+	display:block;
+	float:right;
+	margin-right:5%;
+}
+.detailOne ul li b{
+	display:block;
+	float:left;
+	margin-left:5%;
+	font-size:0.9rem;
+	font-family:Glamazon;
+	font-weight:normal;
+	color: #373737;
+}
+.detailOne ul li i{
+	font-style:normal;
+	float:right;
+	margin-right:5%;
+	font-size: 1rem;
+	font-family:Glamazon;
+	color: #373737;
+}
+
+
+
+/*积分商城*/
+.dateil{
+	width:100%;
+	background:#fff;
+	min-height:5rem;
+	float: left;
+	overflow-x: auto;
+}
+.suspension{
+	width:100%;
+	height:2.5rem;
+	line-height:2.5rem;
+	color:#434343;
+	position: fixed;
+	background: #fff;
+	border-top: 5px solid #f3f3f3;
+}
+.suspension b{
+	font-size: 1rem;
+	color: #434343;
+	font-family: '黑体';
+	margin-left: 3%;
+	font-weight: 400;
+}
+.suspension span{
+	font-size:0.9rem;
+	float:right;
+	margin-right:4%;
+	background:url(../images/money-01.png) no-repeat;
+	display:inline-block;
+	background-position: center right;
+	padding-right: 4%;
+	background-size: 8%;
+	background-position-y: 1rem;
+}
+.suspension span em{
+	font-style:normal;
+	color:#3dbd87;
+	
+}
+.splist{
+	width:100%;
+	min-height:5rem;
+	margin-top: 2.5rem;
+	float: left;
+	background: #fff;
+}
+.onesp{
+	width: 49.8%;
+	min-height:5rem;
+	float:left;
+	border-right:1px solid #e1e1e1;
+	border-bottom:1px solid #e1e1e1;
+	padding-top: 0.5rem;
+	padding-bottom: 0.8rem;
+}
+.onesp a{
+	text-decoration:none;
+}
+.onesp:nth-child(even){
+	border-right:0;
+}
+.onesp ul{
+	margin:0;
+	padding:0;
+	list-style:none;
+	margin-left: 7%;
+	font-size: 0.9rem;
+	color:#434343;
+}
+.onesp ul .spname{
+	line-height:1.5rem;
+}
+.onesp ul .gg{
+	font-size:0.8rem;
+	color:#cccccc;
+}
+.spimg{
+	width: 33%;
+	margin-left: 13%;
+	margin-top: 1rem;
+	height: 5rem;
+	float: left;
+}
+.spimg img{
+	width:100%;
+	height: 4.3rem;
+}
+.jiage{
+	width: 53%;
+	float:right;
+	height:5rem;
+}
+.jiage .jifen{
+	color: #3dbd87;
+	height: 1.5rem;
+	line-height: 1.5rem;
+	font-size: 0.9rem;
+	margin-top: 2.6rem;
+}
+.jifen em{
+	color: #3dbd87;
+	font-style:normal;
+	display:inline-block;
+	float:right;
+	margin-right: 10%;
+}
+.jifen img{
+	display:inline-block;
+	margin-top: 0.2rem;
+	float: right;
+	width: 20%;
+	margin-right: 5%;
+}
+.jiage .jiaqian{
+	color:#ef0505;
+	font-size: 0.9rem;
+	text-align:right;
+	margin-right: 10%;
+	text-decoration: line-through;
+}
+
+
+
+/*积分商品详情*/
+.datu{
+	width:100%;
+	height: 14.3rem;
+}
+.datu img{
+	width:100%;
+	height: 14.3rem;
+}
+.canshu{
+	width:100%;
+	min-height: 4.8rem;
+	border-bottom:1px solid #f2f4f6;
+	position: relative;
+}
+.canshu ul{
+	margin:0;
+	padding:0;
+	list-style:none;
+}
+.canshu ul li{
+	margin-left:2%;
+}
+.canshu ul .xqjiege{
+	font-size: 1.8rem;
+	color:#3dbd87;
+	margin-top: 0.5rem;
+}
+.canshu ul .xqjiege img{
+	width: 4%;
+	margin-left: 1%;
+}
+.canshu ul .zsjiege{
+	font-size: 1.2rem;
+	color:#b9b8b8;
+	text-decoration: line-through;
+	font-family: '宋体';
+}
+.duihuan{
+	position:absolute;
+	right:5%;
+	display:inline-block;
+	line-height: 2.3rem;
+	height: 2.3rem;
+	width: 33%;
+	text-decoration:none;
+	background:#3dbd87;
+	color:#fff;
+	font-size:1rem;
+	text-align: center;
+	top: 1.25rem;
+	border-radius: 4px;
+}
+.particulars{
+	width:100%;
+	min-height:5rem;
+}
+.particulars .ptitle{
+	margin-left:5%;
+	font-size: 1rem;
+	margin-top: 1rem;
+	display: inline-block;
+}
+.particulars .pmingcheng{
+	margin: 0;
+    line-height: 2rem;
+    margin-left: 10%;
+    font-size: 0.9rem;
+}
+.particulars img{
+	width:90%;
+	margin-left: 5%;
+	margin-top: 0.5rem;
+	margin-bottom: 0.5rem;
+	height: 8.3rem;
+}
+.particulars .ms{
+	margin:0;
+	font-size: 0.9rem;
+	width:90%;
+	margin-left:5%;
+}
+
+
+
+/*我的积分样式*/
+.myintegral{
+	width:100%;
+	min-height:5rem;
+}
+.myintegral .thisjifen{
+	background:#fff;
+	border-bottom:1px solid #dddddd;
+	width:100%;
+	min-height:5rem;
+	float: left;
+	padding-bottom: 2rem;
+}
+.thisjifen ul{
+	margin:0;
+	padding:0;
+	list-style:none;
+}
+.thisjifen ul li{
+	width:100%;
+}
+.thisjifen ul .jifentitle{
+	position:relative;
+	height:2.5rem;
+	line-height:2.5rem;
+	text-align:center;
+	color:#434343;
+	font-size:0.9rem;
+	margin-top: 0.5rem;
+	float: left;
+}
+.jifentitle a{
+	text-decoration:none;
+	position:absolute;
+	color:#434343;
+	right: 5%;
+}
+.thisjifen ul .jifenzhi{
+	font-size:2rem;
+	color:#3dbd87;
+	text-align:center;
+	width: 100%;
+	float: left;
+}
+.jifenzhi em{
+	padding-bottom: 0.4rem;
+	font-style:normal;
+	box-shadow: 0px 14px 30px -15px;
+}
+.jifennav{
+	width:100%;
+	min-height:2rem;
+	background:#fff;
+	margin-top:0.5rem;
+	float:left;
+	border-bottom: 1px solid #f2f4f6;
+}
+.jifennav ul{
+	margin:0;
+	padding:0;
+	list-style:none;
+}
+.jifennav ul li{
+	height:2.5rem;
+	line-height:2.5rem;
+	width:96%;
+	margin-left:4%;
+	border-bottom:1px solid #f2f4f6;
+	background:url(../images/xz.png) no-repeat;
+	background-position:center right;
+	background-size: 2.4%;
+	background-position-x: 97%;
+	font-size:0.9rem;
+	color:#434343;
+}
+.jifennav ul li a{
+	display:inline-block;
+	width:100%;
+	text-decoration:none;
+	color:#434343;
+}
+.jifennav ul li:nth-child(even){
+	border-bottom:0;
+}
+.jifennav ul .jfdh img{
+	width: 5.5%;
+	margin-top: 0.6rem;
+	float: left;
+	margin-right: 2%;
+}
+.jifennav ul .jfsc img{
+	width: 5%;
+	margin-top: 0.6rem;
+	float: left;
+	margin-right: 2%;
+}

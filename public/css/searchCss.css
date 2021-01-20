@@ -1,0 +1,135 @@
+﻿@charset "utf-8";
+/* CSS Document */
+body{
+	margin:0;
+	padding:0;
+	font-family: '微软雅黑';
+}
+/*搜索样式*/
+.search{
+	width:100%;
+	background:#fff;
+	min-height:3rem;
+	border-bottom: 1px solid #f2f4f6;
+}
+.searchDiv{
+	width: 94%;
+	height:2.5rem;
+	margin-left: 3%;
+}
+.searchDiv input{
+	width: 90%;
+	height: 1.8rem;
+	margin-top: 0.7rem;
+	border:0;
+	background:url(../images/search.png) no-repeat #f9f9f9;
+	background-position:center left;
+	padding-left: 10%;
+	background-size: 7%;
+	background-position-x: 2%;
+	outline: none;
+	border-radius: 4px;
+	float:left;
+}
+.searchDiv a{
+	float:left;
+	display: inline-block;
+	margin-top: 0.7rem;
+	line-height: 1.8rem;
+	width: 10%;
+	text-align: center;
+	font-size: 0.9rem;
+	text-decoration: none;
+	color: #797b7f;
+}
+.lisi{
+	width:100%;
+	min-height:10rem;
+	margin-top: 1.2rem;
+}
+.lisi h2{
+	margin:0;
+	padding:0;
+	margin-left: 3%;
+	font-size: 1rem;
+	font-weight: 400;
+}
+.lisi ul{
+	margin:0;
+	padding:0;
+	list-style:none;
+	width:94%;
+	margin-left:3%;
+}
+.lisi ul li {
+	text-align:center;
+	display:inline-block;
+	font-size:0.9rem;
+	height: 1.8rem;
+	line-height: 1.8rem;
+	padding: 0 3%;
+	background: #f3f3f3;
+	margin-top: 0.8rem;
+	margin-right: 3%;
+	border-radius: 4px;
+}
+.lisi ul li a{
+	text-decoration:none;
+	color: #434343;
+}
+
+
+/*系统消息*/
+.bgco{
+	background:#f3f3f3
+}
+.xxlist{
+	width:100%;
+	background:#fff;
+	min-height:3rem;
+	float: left;
+}
+.xxlist .onexiaoxi{
+	width:100%;
+	padding: 0.5rem 0;
+	float: left;
+	padding-bottom: 0;
+}
+.onexiaoxi .img{
+	width: 16%;
+	float:left;
+	margin-left: 3%;
+}
+.img img{
+	width:100%;
+}
+.text{
+	width:75%;
+	float:left;
+	margin-left: 3%;
+	border-bottom:1px solid #f2f4f6;
+	padding-bottom: 0.5rem;
+}
+.text ul{
+	margin:0;
+	padding:0;
+	list-style:none;
+	margin-top: 0.3rem;
+}
+.text ul span{
+	display:inline-block;
+	font-size: 1rem;
+	color: #434343;
+	font-weight: 600;
+}
+.text ul em{
+	font-style:normal;
+	float:right;
+	color:#cccccc;
+	font-size: 0.9rem;
+}
+.text ul strong{
+	font-weight:400;
+	font-size:0.9rem;
+	color:#666666;
+}

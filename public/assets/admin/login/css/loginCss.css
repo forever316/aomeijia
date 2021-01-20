@@ -1,0 +1,94 @@
+@charset "utf-8";
+/* CSS Document */
+body{
+	margin:0;
+	padding:0;
+	width:100%;
+	height:100%;
+	background:url(../images/loginBG.png) no-repeat;
+	background-size:100% 100%;
+}
+.kuang{
+	width: 100%;
+	height: 485px;
+	float: left;
+	margin-top: 16.8vw;
+}
+.textshu{
+	width: 650px;
+	height: 485px;
+	margin:auto;
+	background: url(../images/lohinborder.png) no-repeat center top;
+	position:relative;
+}
+.textshu .formdiv{
+	width: 393px;
+	height: 163px;
+	position: absolute;
+	top: 147px;
+	left: 68px;
+}
+.formdiv ul{
+	margin:0;
+	padding:0;
+	list-style:none;
+	margin-top:30px;
+}
+.formdiv ul li{
+	width:100%;
+	height:30px;
+	margin-bottom: 8px;
+}
+.formdiv ul li label{
+	color:#fff;
+	display:inline-block;
+	float:left;
+	margin-left:66px;
+	font-size:14px;
+	height: 30px;
+	line-height: 30px;
+}
+.formdiv ul li span{
+	font-family:'微软雅黑';
+	color:#fff;
+	display:block;
+	float:left;
+	line-height:30px;
+	height:30px;
+}
+.formdiv ul li input{
+	width:200px;
+	height:30px;
+	border-radius:4px;
+	border: 0;
+	margin-left: 8px;
+	outline:none;
+	text-indent: 10px;
+	float:left;
+}
+.formdiv ul li .yanzheng{
+	width:100px;
+}
+.formdiv ul li .ma{
+	width:95px;
+	height:30px;
+	float:left;
+	margin-left:5px;
+}
+.formdiv ul li .ma img{
+	width:95px;
+	height:30px;
+}
+.denglu{
+	width: 168px;
+	height: 170px;
+	background:url(../images/denglu.png) no-repeat;
+	position: absolute;
+	left: 435px;
+	top: 158px;
+}
+.denglu a{
+	display:inline-block;
+	width:168px;
+	height:170px;
+}

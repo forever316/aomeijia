@@ -1,0 +1,35 @@
+<!DOCTYPE>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,user-scalable=no,initial-scale=1.0, maximum-scale=1.0">
+<link type="text/css" rel="stylesheet" href="../css/signCss.css">
+<script type="text/javascript" src="/assets/client/jQuery v1.7.1 .js"></script>
+<title>签到</title>
+</head>
+<body>
+    <div class="sign">
+       <p style="display:none;">按实际的方便技术部可是点半看阿斯利康东方红卡世纪东方</p>
+    </div>
+
+    <div class="jiazaizhong" id="jiazai">
+        <div class="ui-loading-css-07"></div>
+        <p>加载中...</p>
+    </div>
+</body>
+<script>
+		
+		
+        $.ajax({
+        type:"post",
+        url : 'http://api.qsybeg.com/api/getSignText',
+        dataType:'json',
+        beforeSend: function(XMLHttpRequest){
+            $("#jiazai").show();
+        },success:function(data){
+            $("#jiazai").hide();
+            $('.sign').html(data.msg)
+        }
+    })
+</script>
+</html>

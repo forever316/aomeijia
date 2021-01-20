@@ -1,0 +1,119 @@
+@charset "utf-8";
+/* CSS Document */
+body{
+    margin:0;
+    padding:0;
+    background:#f3f3f3;
+}
+.ran{
+    padding: 53px;
+}
+.oneshuju{
+    width: 100%;
+    float: left;
+}
+* {
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+}
+::-webkit-scrollbar {
+    width: 6px;
+    background-color: #F5F5F5;
+}
+.ranTitle{
+    width:100%;
+    height: 39px;
+    line-height: 39px;
+    text-align:center;
+    font-size:28px;
+    color:#434343;
+    margin-bottom: 12px;
+    float: left;
+    margin-top: 10px;
+    font-family: '微软雅黑';
+}
+.ranTitle img{
+    vertical-align:bottom;
+    width: 40px;
+    margin-right: 13px;
+}
+.rowCss{
+    margin-right: -15px;
+    margin-left: -15px;
+    float: left;
+    width: 100%;
+}
+.onege{
+    padding-right: 30px;
+    padding-left: 30px;
+    float: left;
+    margin-bottom: 25px;
+}
+.onege p{
+    height:58px;
+    line-height:58px;
+}
+.onege p span{
+    font-size:24px;
+    display:inline-block;
+    float:left;
+    font-family:'黑体';
+    color:#434343;
+}
+.onege p a{
+    float:right;
+    display:inline-block;
+    font-size:20px;
+    color:#434343;
+    text-decoration:none;
+    font-family:'微软雅黑';
+}
+.bang_title{
+    background:#2f4050;
+    height:55px;
+    line-height:55px;
+    float: left;
+    color:#fff;
+    width: 100%;
+}
+.bang_title ul li{
+    font-family:'微软雅黑';
+    font-size: 18px;
+}
+.onege ul{
+    margin:0;
+    padding:0;
+    list-style:none;
+}
+.onege ul li{
+    text-align:center;
+    float: left;
+}
+.wu{
+    width: 37%;
+}
+.wu ul li{
+    width:20%;
+    height: 40px;
+}
+.si{
+    width: 31%;
+}
+.si ul li{
+    width:25%;
+}
+.shuju{
+    padding-top: 10px;
+    background:#fff;
+    float: left;
+    width: 100%;
+}
+.shuju ul li{
+    line-height:40px;
+    font-size: 18px;
+    color:#434343;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}

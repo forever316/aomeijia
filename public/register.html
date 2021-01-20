@@ -1,0 +1,113 @@
+﻿<!DOCTYPE>
+<html>
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,user-scalable=no,initial-scale=1.0, maximum-scale=1.0">
+<link rel="stylesheet" href="../css/registerCss.css">
+<link href="/assets/admin/js/plugins/layer/new/skin/layer.css" rel="stylesheet">
+<title>注册</title>
+</head>
+<body>
+    <div class="title">
+       <h3>互联网＋O2O＋创新分享</h3>
+    </div>
+    
+    <form>
+    <div class="zhanghao">
+       <ul>
+          <li><label>手机号码</label><input type="text" placeholder="请输入手机号" name="phone" class="phone"></li>
+          <li><label>验证码</label><input type="text" placeholder="请输入收到的验证码" name="varyCode"><input type="button" class="huoqu" id="gain" onClick="sendemail()" value="获取验证码"/> </li>
+          <input type="hidden" name="type" value="1">
+          <input type="hidden" name="recommend_id" id="recommend_id">
+       </ul>
+    </div>
+    
+    <div class="zhanghao">
+       <ul>
+          <li><label>登录密码</label><input type="password" name="password" placeholder="请输入长度不小于6位数的密码"></li>
+          <li><label>确认密码</label><input type="password" name="confirmPassword" placeholder="请再次输入密码"></li>
+       </ul>
+    </div>
+    
+    
+    <a href="javascript:void(0)" class="queding">注册</a>
+    <p class="xieyi xieyi-no">我已阅读并同意<a href="xieyi.html">《致富服务协议》</a></p>
+    </form>
+</body>
+<script src="/assets/admin/js/jquery.min.js?v=2.1.4"></script>
+<script src="/assets/common/jquery.cookie.js"></script>
+<script src="/assets/admin/js/plugins/layer/new/layer.js"></script>
+<script src="/assets/common/common.js"></script>
+<script>
+    function getQueryString(name) {
+        var reg = new RegExp("(^|&)" + name + "=([^&]*)(&|$)", "i");
+        var r = window.location.search.substr(1).match(reg);
+        if (r != null) return unescape(r[2]); return null;
+    }
+    var recommend_id=getQueryString('recommend_id').replace('YB','');
+    $("#recommend_id").val(recommend_id);
+var countdown=60; 
+function sendemail(){
+	var re =/^1[3|7|5|8]\d{9}$/;
+	var phone=$(".phone").val();
+    var obj = $("#gain");
+    var datas;
+	if(phone!=""){
+	   if(re.test(phone)){
+		   $("#gain").addClass('gain');
+		   $.ajax({
+               type:"post",
+               url : '/api/sms',
+               data:{rel:phone},
+               dataType:'json',
+               success:function(data) {
+                   if(data.result.success){
+                       layer.msg('验证码发送成功');
+                   }else{
+                       layer.msg('验证码发送失败');
+                   }
+               }
+		   })
+		   settime(obj); 
+		}else{
+           layer.msg('请输入正确的手机号码');
+		 }
+   	}else{
+            layer.msg('手机号不能为空');
+   		}
+ }
+function settime(obj) { //发送验证码倒计时
+    if (countdown == 0) { 
+        obj.attr('disabled',false); 
+		obj.removeClass("gain");
+        obj.val("获取验证码");
+        countdown = 60; 
+        return;
+    } else { 
+        obj.attr('disabled',true);
+        obj.val("重新发送(" + countdown + ")");
+        countdown--; 
+    } 
+setTimeout(function() { 
+    settime(obj) }
+    ,1000) 
+}
+
+$(".queding").click(function(){
+    $.ajax({
+        type: "post",
+        url : '/api/register',
+        data: $("form").serialize(),
+        dataType:'json',
+        success: function (data) {
+           if(data.status==500){
+               layer.msg(data.error);
+           }else {
+               window.location.href="http://a.app.qq.com/o/simple.jsp?pkgname=com.weili.goldingoteshop";
+           }
+        }
+    })
+
+})
+</script>
+</html>

@@ -1,0 +1,241 @@
+@charset "utf-8";
+/* CSS Document */
+body{
+    margin:0;
+    padding:0;
+}
+/*扫一扫样式*/
+.RichScan {
+    width:100%;
+    min-height:10rem;
+    border-top:5px solid #f3f3f3;
+}
+.RichScan .Rtitle{
+    font-size:1rem;
+    text-align:center;
+    margin-top: 3rem;
+}
+.Rtitle img{
+    width: 13%;
+    margin-right: 2%;
+    margin-top: 0rem;
+    float: left;
+    position: relative;
+    left: 26%;
+}
+.Rtitle em{
+    display:inline-block;
+    font-style:normal;
+}
+@media screen and (min-width: 375px) {/*苹果6*/
+    .Rtitle img{
+        width: 13%;
+        margin-right: 2%;
+        margin-top: 0rem;
+        float: left;
+        position: relative;
+        left: 26%;
+    }
+}
+@media screen and (max-width: 370px) {/*苹果5*/
+    .Rtitle img{
+        width: 13%;
+        margin-right: 2%;
+        margin-top: 0.2rem;
+        float: left;
+        position: relative;
+        left: 23%;
+    }
+}
+@media screen and (max-width: 414px) and (min-width: 376px){/*苹果6puls*/
+    .Rtitle img{
+        width: 13%;
+        margin-right: 2%;
+        margin-top: 0rem;
+        float: left;
+        position: relative;
+        left: 27%;
+    }
+}
+.youqi{
+    width:80%;
+    margin-left:10%;
+    margin-top: 2rem;
+}
+.youqi img{
+    width:100%;
+}
+.zhi{
+    width:100%;
+    text-align:center;
+    color:#3dbd87;
+    font-size: 1.4rem;
+}
+.huoqu{
+    width:90%;
+    height:2.5rem;
+    margin-left:5%;
+    text-align:center;
+    color:#fff;
+    background:#3dbd87;
+    border-radius:4px;
+    display:inline-block;
+    text-decoration:none;
+    line-height:2.5rem;
+    font-size:1rem;
+}
+.youqi1{
+    width:80%;
+    margin-left:10%;
+    margin-top: 6rem;
+}
+.youqi1 img{
+    width:100%;
+}
+.Rtitle1{
+    font-size: 1.4rem;
+    text-align:center;
+    margin-top: 2rem;
+    color:#434343;
+}
+/*扫一扫样式*/
+.RichScan {
+    width:100%;
+    min-height:10rem;
+    border-top:5px solid #f3f3f3;
+}
+.RichScan .Rtitle{
+    font-size:1rem;
+    text-align:center;
+    margin-top: 3rem;
+}
+.Rtitle img{
+    width: 13%;
+    margin-right: 2%;
+    margin-top: 0rem;
+    float: left;
+    position: relative;
+    left: 26%;
+}
+.Rtitle em{
+    display:inline-block;
+    font-style:normal;
+}
+@media screen and (min-width: 375px) {/*苹果6*/
+    .Rtitle img{
+        width: 13%;
+        margin-right: 2%;
+        margin-top: 0rem;
+        float: left;
+        position: relative;
+        left: 26%;
+    }
+}
+@media screen and (max-width: 370px) {/*苹果5*/
+    .Rtitle img{
+        width: 13%;
+        margin-right: 2%;
+        margin-top: 0.2rem;
+        float: left;
+        position: relative;
+        left: 23%;
+    }
+}
+@media screen and (max-width: 414px) and (min-width: 376px){/*苹果6puls*/
+    .Rtitle img{
+        width: 13%;
+        margin-right: 2%;
+        margin-top: 0rem;
+        float: left;
+        position: relative;
+        left: 27%;
+    }
+}
+.youqi{
+    width:80%;
+    margin-left:10%;
+    margin-top: 2rem;
+}
+.youqi img{
+    width:100%;
+}
+.zhi{
+    width:100%;
+    text-align:center;
+    color:#3dbd87;
+    font-size: 1.4rem;
+}
+.huoqu{
+    width:90%;
+    height:2.5rem;
+    margin-left:5%;
+    text-align:center;
+    color:#fff;
+    background:#3dbd87;
+    border-radius:4px;
+    display:inline-block;
+    text-decoration:none;
+    line-height:2.5rem;
+    font-size:1rem;
+}
+.youqi1{
+    width:80%;
+    margin-left:10%;
+    margin-top: 2rem;
+}
+.youqi1 img{
+    width:100%;
+}
+.Rtitle1{
+    font-size: 1.3rem;
+    text-align:center;
+    margin-top: 2rem;
+    color:#434343;
+}
+.zhichi{
+    width:100%;
+    font-size:1rem;
+    color:#3dbd87;
+    text-align:center;
+    margin-top: 3rem;
+}
+.jifenma{
+    width:80%;
+    height:2.5rem;
+    margin-left: 10%;
+    background: #f3f3f3;
+    border: 0;
+    font-size: 1rem;
+    padding-left: 3%;
+    margin-top: 1.5rem;
+    border-radius: 4px;
+    outline: none;
+}
+.huoqu1{
+    width:80%;
+    height:2.5rem;
+    margin-left:10%;
+    text-align:center;
+    color:#fff;
+    background:#3dbd87;
+    border-radius:4px;
+    display:inline-block;
+    text-decoration:none;
+    line-height:2.5rem;
+    font-size:1rem;
+    margin-top: 4rem;
+}
+.huoqu2{
+    width:80%;
+    height:2.5rem;
+    margin-left:10%;
+    text-align:center;
+    color:#fff;
+    background:#3dbd87;
+    border-radius:4px;
+    display:inline-block;
+    text-decoration:none;
+    line-height:2.5rem;
+    font-size:1rem;
+    margin-top: 1.5rem;
+}

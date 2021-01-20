@@ -1,0 +1,54 @@
+<div class="form-group">
+    <label class="col-sm-1 control-label">上级部门</label>
+    <div class="col-sm-10" style="width: 70%">
+        <ul id="tree" class="ztree"></ul>
+        <input type="hidden" class="form-control" @if(isset($detailData)) value="{{$detailData->pid}}" @endif id="pid" name="pid"/>
+        <input type="text" readonly class="form-control" id="pid_show" @if(isset($detailData)) value="{{$detailData->pname}}" @endif />
+        <span class="help-block m-b-none">点击树形部门选择上级部门</span>
+    </div>
+    <script type="text/javascript">
+        $(function(){
+            var setting = {
+                async: {
+                    enable: true,
+                    url:"/department/ajaxDepartmentList"
+                    @if(isset($detailData))
+                        ,otherParam: {"id":'{{$detailData->id}}'}
+                    @endif
+                },
+                data:{
+                    simpleData:{
+                        enable: true,
+                        idKey: "id",
+                        pIdKey: "pid"
+                    }
+                },
+                view:{
+                    showIcon:false,
+                    selectedMulti: false
+                },
+                callback: {
+                    onClick: zTreeOnClick,
+                    onAsyncSuccess:function(event, treeId, treeNode, msg){
+
+                        @if(isset($detailData))
+                        var zTree = $.fn.zTree.getZTreeObj(""+treeId);
+                        var node = zTree.getNodeByParam("id",{{$detailData->pid}},null);
+                        zTree.selectNode(node);
+                        @endif
+
+                    }
+                }
+            };
+            function zTreeOnClick(event, treeId, treeNode) {
+                    $("#pid").val(treeNode.id);
+                    $("#pid_show").val(treeNode.name);
+//                if(treeNode.id != 0){
+//                    $("#pid").val(treeNode.id);
+//                    $("#pid_show").val(treeNode.name);
+//                }
+            };
+            $.fn.zTree.init($("#tree"), setting);
+        })
+    </script>
+</div>
