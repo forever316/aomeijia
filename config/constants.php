@@ -6,4 +6,8 @@
  * Time: 16:41
  */
 
-define('WEBNAME', '致富管理后台');
+define('WEBNAME', '澳美家管理后台');
+
+define('ADMINWEBSITE', 'admin.aomeijia.com');//后台地址
+
+define('FRONTWEBSITE', 'www.aomeijia.com');//前台地址

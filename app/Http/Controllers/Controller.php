@@ -18,7 +18,7 @@ class Controller extends BaseController
 
     /**
      **获取请求参数
-     **ljf
+     **wlf
      * @param array $data
      * @param Request $request
      * @return array
@@ -47,7 +47,7 @@ class Controller extends BaseController
     }
     /**
      **验证表单
-     **ljf
+     **wlf
      */
     protected function verifyForm($form,$data){
         $error = [];
@@ -112,7 +112,7 @@ class Controller extends BaseController
 
     /**
      * 计算字符串的长度
-     * ljf
+     * wlf
      * @param $str
      * @return int
      */
@@ -129,11 +129,9 @@ class Controller extends BaseController
         }
     }
 
-
-
     /**
      **json格式返回
-     **ljf
+     **wlf
      */
     protected function returnJson($bool=true,$msg='',$type="input"){
         $return = [];
@@ -168,7 +166,7 @@ class Controller extends BaseController
 
     /**
      *获取当前控制器与方法
-     *ljf
+     *wlf
      */
     public function getCurrentAction()
     {
@@ -177,23 +175,10 @@ class Controller extends BaseController
 
         return ['controller' => $class, 'method' => $method];
     }
-    //微商城中获得access_key
-    public function getAccess_key()
-    {
-        $urlArray = explode('.', $_SERVER['HTTP_HOST']);
-        return $urlArray[0];
-    }
-    //微商城中获得用户access_token
-    public function getAccess_token()       
-    {
-        // $request->session()->forget('user');
-        $user = Session::get('wechat_user');
-        $openid = $user['id'];
-        $data = WechatMember::where('openid',$openid)->first();
-        $data = User::where('id',$data['user_id'])->first();
-        return $data['access_token'];
-    }
-
+    /*
+     * 获取后台用户数组
+     * id=>name 
+    */
     function getAdminUserIdName(){
         $userArray = array();
         $user = DB::table('admin_user')->get(array('id','name'));
@@ -201,6 +186,30 @@ class Controller extends BaseController
             $userArray[$item->id] = $item->name;
         }
         return $userArray;
+    }
+
+    function findChild(&$arr,$id){
+        $childs=array();
+        foreach ($arr as $k => $v){
+            if($v['pid']== $id){
+                $childs[]=$v;
+            }
+        }
+        return $childs;
+    }
+
+    function build_tree($rows,$root_id){
+        $childs=$this->findChild($rows,$root_id);
+        if(empty($childs)){
+            return null;
+        }
+        foreach ($childs as $k => $v){
+            $rescurTree=$this->build_tree($rows,$v['id']);
+            if( null != $rescurTree){
+                $childs[$k]['childs']=$rescurTree;
+            }
+        }
+        return $childs;
     }
 
 

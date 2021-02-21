@@ -1,0 +1,70 @@
+body, button, div,footer, form, h1, h2, h3, h4, h5, h6, header, hgroup, hr, input, legend, li, menu, nav, ol, p, pre, section, td, textarea, th, ul {
+    margin: 0;
+    padding: 0;
+    outline: none;
+}
+.header-inner-wrapper{
+	
+}
+.header-inner-wrapper a{
+	text-decoration: none;
+	color: #fff;
+}
+.header-wrapper ul{
+	list-style: none;
+	margin:0;
+	padding: 0;
+}
+.header-wrapper{
+	position: relative;
+	width:100%;
+	background-color: #1a1c1c;
+}
+.header-inner-wrapper{
+	width: 1200px;
+	height: 80px;
+	margin:0 auto;
+	/*max-width: 1920px;*/
+}
+.nav-wrapper{
+	float: left;
+}
+.header-logo{
+	width:91px;
+	height:80px;
+	float: left;
+}
+.header-logo img{
+	width:91px;
+	height:80px;
+}
+.header-nav{
+	height: 80px;
+	color: #fff;
+	margin-left: 30px;
+	float: left;
+	display: flex;
+	line-height: 80px;
+	font-size: 18px;
+}
+.header-nav li{
+	position: relative;
+	margin-left: 10px;
+
+}
+.header-nav li .active{
+	color: #ee8300
+}
+.header-phone{
+	color: #fff;
+	font-size: 24px;
+	font-weight: 700;
+	line-height: 30px;
+	margin-top: 30px;
+	background:url("../images/header-phone-icon.jpeg") no-repeat;
+	float: right;
+}
+.header-phone span{
+	margin-left: 50px;
+}
+

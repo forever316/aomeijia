@@ -113,6 +113,8 @@ jQuery.kh = {
 
         //图片加入之前，验证是否超出限定文件个数
         $_element.on('beforeFileQueued',function(file){
+            console.log('aaa',element);
+            console.log($("#"+element+'_val'));
             var imgsUrl = $("#"+element+'_val').val();
             if(imgsUrl != ''){
                 if(limit > 1){

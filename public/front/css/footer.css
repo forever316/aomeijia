@@ -1,0 +1,142 @@
+body, button, div,footer, form, h1, h2, h3, h4, h5, h6, header, hgroup, hr, input, legend, li, menu, nav, ol, p, pre, section, td, textarea, th, ul {
+    margin: 0;
+    padding: 0;
+    outline: none;
+}
+a{
+	text-decoration: none;
+}
+.footer-wrapper{
+	width: 100%;
+	height: 600;
+	margin-top: 69px;
+	background-color: #1a1c1c;
+	display: flex;
+	flex-direction: column;
+}
+.footer-wrapper ul li{
+	list-style: none;
+	margin:0;
+	padding: 0;
+}
+.footer-inner{
+	width: 1200px;
+    height:280px;
+	margin: 0 auto;
+	padding: 70px 40px;
+	border-bottom: 1px solid #88898a;
+	display: flex;
+	justify-content: space-between;
+   
+}
+.footer-inner .footer-left{    
+	width: 300px;	
+}
+.footer-inner .footer-left .footer-logo,.footer-logo img{
+	width: 300px;
+	height: 100px;
+}
+.footer-inner .footer-left .footer-phone{
+	width: 300px;
+	height: 150px;
+	padding-top:30px;
+}
+.footer-inner .footer-left .footer-phone .phone-title{
+	width: 150px;
+	height: 30px;
+	margin-left: 20px;
+	background: url("../images/phone-icon.jpeg") no-repeat;
+}
+.phone-title span{
+	font-size: 18px;
+	font-weight: 200;
+	color: #fff;
+	line-height: 30px;
+	margin-left: 35px;
+}
+.footer-inner .footer-left .footer-phone .phone-number{
+	color: #ee8300;
+	font-size: 30px;
+	font-weight: 400;
+	margin-top: 10px;
+	margin-left: 20px;
+}
+.footer-inner .footer-center{
+	width: 450px;
+	height: 250px;
+	color: #fff;
+	margin-top: 30px;
+	display: flex;
+	justify-content: space-between;
+}
+.footer-center .first-li{
+	font-size:18px;
+	margin-bottom:20px;
+}
+.footer-center .first-li~li a{
+	color: #88898a;
+	font-size: 15px;
+	line-height: 30px;
+}
+.footer-center .first-li~li a:hover{
+	color: #ee8300;
+}
+.footer-inner .footer-right{
+	width: 350px;
+	height:250px;
+	margin-top: 30px;
+}
+.footer-right-ul{
+	display: flex;
+	justify-content: space-between;
+	color: #fff;
+}
+.footer-right-ul li p{
+	text-align: center;
+	margin-top: 20px;
+}
+.footer-bottom{
+	width: 1300px;
+	height: 120px;
+	font-size: 15px;
+	color: #88898a;
+	margin: 50px auto;
+}
+.friend-links{
+	width: 100%;
+	height:30px;
+	margin:0 auto;
+}
+.friend-links ul{
+	display: flex;
+	justify-content: center;
+}
+.friend-links ul li a{
+	color: #88898a;
+}
+.firend-linkd-first~li a{
+	margin-left:50px;
+}
+.friend-links ul li a:hover{
+	text-decoration: underline;
+}
+.footer-copyright{
+	margin-top: 20px;
+	text-align: center;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
