@@ -56,6 +56,7 @@ class OverseaHouseController extends Controller
             $arr['total'] = $objCount->count();
             $dataList1 = $dataList1->toArray();
 
+			$cityData = $this->getCityIdName();
             //显示隐藏
             foreach ($dataList1['data'] as $key=>$row){
                 foreach($this->form['field'] as $k=>$item){
@@ -65,6 +66,8 @@ class OverseaHouseController extends Controller
                         $arr['rows'][$key][$k] = $row[$k];
                     }
                 }
+				//城市名称
+				$arr['rows'][$key]['city_id'] = isset($cityData[$row['city_id']]) && $cityData[$row['city_id']] ? $cityData[$row['city_id']] : $row['city_id'];
             }
             return response()->json($arr);
         }else{
@@ -166,11 +169,7 @@ class OverseaHouseController extends Controller
             abort(404);
         }else{
             // //1房产类型,2房产标签,3房产特色
-            $objType = Enum::select(['id','name','type'])->where('status',1)->whereIn('type',array(1,2,3))->orderBy('sort','desc')->get();
-            $typeData = array();
-            foreach($objType as $item){
-                $typeData[$item->id] = $item->name;
-            }
+			$typeData = $this->getEnumByType([1,2,3]);
             //类型名称
             $data->type_id = isset($typeData[$data->type_id]) && $typeData[$data->type_id] ? $typeData[$data->type_id] : $data->type_id;
             //特色名称

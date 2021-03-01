@@ -37,6 +37,8 @@
                                         <input onclick="laydate({format: 'YYYY-MM-DD hh:mm:ss',istime: true})" style="width: auto;border: 1px solid #e5e6e7;height: 34px;" type="text" class="form-control layer-date laydate-icon" id="{{$key}}" name="{{$key}}">
                                     @elseif($item['type'] == 'date')
                                         <input onclick="laydate({format: 'YYYY-MM-DD'})" style="width: auto;border: 1px solid #e5e6e7;height: 34px;" type="text" class="form-control layer-date laydate-icon" id="{{$key}}" name="{{$key}}" @if(isset($item['value']) && !empty($item['value'])) value="{{$item['value']}}" @endif>
+                                    @elseif($item['type'] == 'hidden')
+                                    <input style="width: auto;" type="hidden" class="form-control" id="{{$key}}" name="{{$key}}" value="{{$item['value']}}">
                                     @endif
                                         </div>
                                     </div>

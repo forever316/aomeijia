@@ -237,6 +237,10 @@
                                 </div>
                             @endif
 
+                            @if($item['type'] == 'hidden')
+                                <input style="width: auto;" type="hidden" class="form-control" id="{{$key}}" name="{{$key}}" value="{{$item['value']}}">
+                            @endif
+
                             <div class="hr-line-dashed"></div>
                             @endforeach
                             {{--<!-- 通用表单结束 -->--}}

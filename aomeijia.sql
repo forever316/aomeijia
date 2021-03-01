@@ -10,7 +10,7 @@ Target Server Type    : MYSQL
 Target Server Version : 50726
 File Encoding         : 65001
 
-Date: 2021-02-21 23:24:27
+Date: 2021-03-01 23:52:55
 */
 
 SET FOREIGN_KEY_CHECKS=0;
@@ -36,7 +36,7 @@ CREATE TABLE `admin_user` (
 -- Records of admin_user
 -- ----------------------------
 INSERT INTO `admin_user` VALUES ('59', 'kefu', 'fdsfs', '111@qq.com', null, null, '');
-INSERT INTO `admin_user` VALUES ('60', 'admin', '$2y$10$/yP3Y94WrtzAIdha060fj.YIjfT/hcZ1BV5K/0dUs9aS7PDec4KPi', '3756@qq.com', 'pQvzIYfRoHtvJ8q6fYcJYM4vmSn56gtlVU7RvecV29cX3EAoSJzXIQjxFDIv', '14', '1C694C95');
+INSERT INTO `admin_user` VALUES ('60', 'admin', '$2y$10$/yP3Y94WrtzAIdha060fj.YIjfT/hcZ1BV5K/0dUs9aS7PDec4KPi', '3756@qq.com', 'BIOwnB9dZ3I9aJ7CQLMHLYeqIUWCf6fmFOH0jxMn6Vnw4S7hushnfEUK3qG9', '14', '1C694C95');
 INSERT INTO `admin_user` VALUES ('61', 'hsy', '$2y$10$ruMYUY.tWiB0MBHu9FpiTOWci2XkD4npD6K9YRzmFeQzYAovdzky6', 's@qq.com', null, '16', '');
 INSERT INTO `admin_user` VALUES ('62', 'wulanfang', '$2y$10$VlZz/5oFkKd90o9VhsN0OOhQHbTg0I7CIZvFoRYbZqyvGPXGcqFg.', '1016104367@qq.com', 'Z2IFxWgbg5syvccFpmL30FwRlqJGqY3F1VJpsqoNDC37mPmjEoECC3cRCgm4', '16', '');
 
@@ -108,7 +108,7 @@ INSERT INTO `api_modular` VALUES ('8', '积分商城', 'uploads/images/mo3IeNDZ5
 DROP TABLE IF EXISTS `article`;
 CREATE TABLE `article` (
   `id` int(13) unsigned NOT NULL AUTO_INCREMENT,
-  `type` int(11) NOT NULL DEFAULT '0' COMMENT '文章类型',
+  `type` int(11) NOT NULL DEFAULT '0' COMMENT '文章类型，''1公司简介,2加入我们,3联系我们,4集团动态,5项目动态,6投资主题''',
   `thumb` varchar(255) NOT NULL DEFAULT '' COMMENT '封面图',
   `title` varchar(25) NOT NULL DEFAULT '' COMMENT '文章标题',
   `describe` varchar(255) NOT NULL DEFAULT '' COMMENT '文章描述',
@@ -117,40 +117,26 @@ CREATE TABLE `article` (
   `status` tinyint(1) NOT NULL DEFAULT '1' COMMENT '是否显示',
   `read` int(11) NOT NULL DEFAULT '0' COMMENT '阅读量',
   `real_read` int(11) DEFAULT '0' COMMENT '真实阅读量',
+  `project_id` int(11) DEFAULT NULL COMMENT '项目id,主要是针对海外房产的项目动态',
   `publish_date` date DEFAULT NULL COMMENT '发布时间',
   `created_at` varchar(25) NOT NULL,
   `updated_at` varchar(25) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=13 DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Records of article
 -- ----------------------------
-INSERT INTO `article` VALUES ('1', '2', 'uploads/images/8XB9HBqBTk.jpg', '这是加入我们的文章', '', '<p style=\"border: 0px none; margin-top: 30px; margin-bottom: 0px; padding: 0px; vertical-align: baseline; color: rgb(99, 99, 99); line-height: 30px; font-family: &quot;Microsoft YaHei&quot;, Helvetica, &quot;STHeiti STXihei&quot;, &quot;Microsoft JhengHei&quot;, Arial; white-space: normal;\"><span style=\"border: 0px none; margin: 0px; padding: 0px; vertical-align: baseline; font-family: arial, helvetica, sans-serif;\">Aumeca Group is a professional and earliest overseas real estate agent service company in China, with many years’ development, our company becomes the leading agency in China. Our head office located in Melbourne, Australia, we also have offices in Shenzhen, Shanghai, Guangzhou, Hefei in Mainland China.</span></p><p style=\"border: 0px none; margin-top: 30px; margin-bottom: 0px; padding: 0px; vertical-align: baseline; color: rgb(99, 99, 99); line-height: 30px; font-family: &quot;Microsoft YaHei&quot;, Helvetica, &quot;STHeiti STXihei&quot;, &quot;Microsoft JhengHei&quot;, Arial; white-space: normal;\"><span style=\"border: 0px none; margin: 0px; padding: 0px; vertical-align: baseline; font-family: arial, helvetica, sans-serif;\">Aumeca Group focus on provide professional overseas real estate consultation service to our customers, and we work closely with overseas developers and become one of the leading partners for major Australian developers for project sales and marketing into China. With expert team and experience on overseas property, we won our customers&#39; trust.</span></p><p style=\"border: 0px none; margin-top: 30px; margin-bottom: 0px; padding: 0px; vertical-align: baseline; color: rgb(99, 99, 99); line-height: 30px; font-family: &quot;Microsoft YaHei&quot;, Helvetica, &quot;STHeiti STXihei&quot;, &quot;Microsoft JhengHei&quot;, Arial; white-space: normal;\"><span style=\"border: 0px none; margin: 0px; padding: 0px; vertical-align: baseline; font-family: arial, helvetica, sans-serif;\">We also cooperate with leading migration companies to provide our customers tailor solution of migration and studying abroad.</span></p><p><br/></p>', '0', '1', '0', '0', '2021-02-19', '2021-02-13 22:04:27', '2021-02-13 22:04:27');
-INSERT INTO `article` VALUES ('3', '3', 'uploads/images/nUrqsewHUj.jpg', '这是联系我们', '这是联系我们的描述', '<p style=\"text-align:center\"><img src=\"http://admin.aomeijia.com/uploads/ueditor/image/20210213/1613225383128160.jpg\" title=\"1613225383128160.jpg\"/></p><p style=\"text-align: center;\">回复IE很温柔给个</p><p style=\"text-align:center\"><br/></p><p style=\"text-align: center;\">鸡飞狗叫法迪欧过节费都</p><p style=\"text-align:center\"><img src=\"http://admin.aomeijia.com/uploads/ueditor/image/20210213/1613225385558313.jpg\" title=\"1613225385558313.jpg\"/></p><p style=\"text-align: center;\">和VB会计法单鹄寡凫结婚古代&nbsp;</p><p><br/></p>', '2', '1', '0', '0', null, '2021-02-13 22:10:19', '2021-02-13 22:15:28');
-INSERT INTO `article` VALUES ('4', '1', 'uploads/images/RGdfIsTYnc.jpg', '不吧v', '放到沙发上', '<p>555555555555555555555555555555555555555555</p>', '2', '1', '0', '0', null, '2021-02-13 22:12:08', '2021-02-13 22:12:08');
-INSERT INTO `article` VALUES ('5', '1', 'uploads/images/XWTAnCE2K0.jpg', '11', '11', '<p>范德萨发发生</p>', '0', '1', '0', '0', null, '2021-02-21 12:42:50', '2021-02-21 12:42:50');
-INSERT INTO `article` VALUES ('6', '4', 'uploads/images/zW8CLUvPDf.jpg', '223', '223', '<p>范德萨范德萨发放到沙发上aaa</p>', '0', '2', '2233', '0', '2021-02-23', '2021-02-21 12:45:28', '2021-02-21 12:47:18');
-
--- ----------------------------
--- Table structure for article_type
--- ----------------------------
-DROP TABLE IF EXISTS `article_type`;
-CREATE TABLE `article_type` (
-  `id` int(13) unsigned NOT NULL AUTO_INCREMENT,
-  `name` varchar(25) NOT NULL DEFAULT '' COMMENT '名称',
-  `created_at` varchar(25) NOT NULL,
-  `updated_at` varchar(25) NOT NULL,
-  PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8;
-
--- ----------------------------
--- Records of article_type
--- ----------------------------
-INSERT INTO `article_type` VALUES ('1', '公司简介', '2021-01-01', '2021-01-01');
-INSERT INTO `article_type` VALUES ('2', '加入我们', '2021-01-01', '2021-01-01');
-INSERT INTO `article_type` VALUES ('3', '联系我们', '2021-01-01', '2021-01-01');
-INSERT INTO `article_type` VALUES ('4', '项目动态', '2021-01-01', '2021-01-01');
+INSERT INTO `article` VALUES ('1', '2', 'uploads/images/8XB9HBqBTk.jpg', '这是加入我们的文章', '', '<p style=\"border: 0px none; margin-top: 30px; margin-bottom: 0px; padding: 0px; vertical-align: baseline; color: rgb(99, 99, 99); line-height: 30px; font-family: &quot;Microsoft YaHei&quot;, Helvetica, &quot;STHeiti STXihei&quot;, &quot;Microsoft JhengHei&quot;, Arial; white-space: normal;\"><span style=\"border: 0px none; margin: 0px; padding: 0px; vertical-align: baseline; font-family: arial, helvetica, sans-serif;\">Aumeca Group is a professional and earliest overseas real estate agent service company in China, with many years’ development, our company becomes the leading agency in China. Our head office located in Melbourne, Australia, we also have offices in Shenzhen, Shanghai, Guangzhou, Hefei in Mainland China.</span></p><p style=\"border: 0px none; margin-top: 30px; margin-bottom: 0px; padding: 0px; vertical-align: baseline; color: rgb(99, 99, 99); line-height: 30px; font-family: &quot;Microsoft YaHei&quot;, Helvetica, &quot;STHeiti STXihei&quot;, &quot;Microsoft JhengHei&quot;, Arial; white-space: normal;\"><span style=\"border: 0px none; margin: 0px; padding: 0px; vertical-align: baseline; font-family: arial, helvetica, sans-serif;\">Aumeca Group focus on provide professional overseas real estate consultation service to our customers, and we work closely with overseas developers and become one of the leading partners for major Australian developers for project sales and marketing into China. With expert team and experience on overseas property, we won our customers&#39; trust.</span></p><p style=\"border: 0px none; margin-top: 30px; margin-bottom: 0px; padding: 0px; vertical-align: baseline; color: rgb(99, 99, 99); line-height: 30px; font-family: &quot;Microsoft YaHei&quot;, Helvetica, &quot;STHeiti STXihei&quot;, &quot;Microsoft JhengHei&quot;, Arial; white-space: normal;\"><span style=\"border: 0px none; margin: 0px; padding: 0px; vertical-align: baseline; font-family: arial, helvetica, sans-serif;\">We also cooperate with leading migration companies to provide our customers tailor solution of migration and studying abroad.</span></p><p><br/></p>', '0', '1', '0', '0', null, '2021-02-19', '2021-02-13 22:04:27', '2021-02-13 22:04:27');
+INSERT INTO `article` VALUES ('3', '3', 'uploads/images/nUrqsewHUj.jpg', '这是联系我们', '这是联系我们的描述', '<p style=\"text-align:center\"><img src=\"http://admin.aomeijia.com/uploads/ueditor/image/20210213/1613225383128160.jpg\" title=\"1613225383128160.jpg\"/></p><p style=\"text-align: center;\">回复IE很温柔给个</p><p style=\"text-align:center\"><br/></p><p style=\"text-align: center;\">鸡飞狗叫法迪欧过节费都</p><p style=\"text-align:center\"><img src=\"http://admin.aomeijia.com/uploads/ueditor/image/20210213/1613225385558313.jpg\" title=\"1613225385558313.jpg\"/></p><p style=\"text-align: center;\">和VB会计法单鹄寡凫结婚古代&nbsp;</p><p><br/></p>', '2', '2', '0', '0', null, '2021-02-18', '2021-02-13 22:10:19', '2021-02-23 21:42:15');
+INSERT INTO `article` VALUES ('4', '1', 'uploads/images/RGdfIsTYnc.jpg', '不吧v', '放到沙发上', '<p>555555555555555555555555555555555555555555</p>', '2', '2', '0', '0', null, '0000-00-00', '2021-02-13 22:12:08', '2021-02-23 21:40:04');
+INSERT INTO `article` VALUES ('5', '1', 'uploads/images/HL41Am9QR9.jpg', '公司简介111', '描述111', '<p>范德萨发发生2222222</p>', '22', '1', '22', '0', null, '2021-02-22', '2021-02-21 12:42:50', '2021-02-23 21:39:44');
+INSERT INTO `article` VALUES ('6', '4', 'uploads/images/zW8CLUvPDf.jpg', '223', '223', '<p>范德萨范德萨发放到沙发上aaa</p>', '0', '2', '2233', '0', '2', '2021-02-23', '2021-02-21 12:45:28', '2021-02-28 11:58:47');
+INSERT INTO `article` VALUES ('7', '1', 'uploads/images/yLxTQ5WVNo.jpg', '公司简介', '公司简介描述', '<p>货到付款很过分的后果</p><p><img src=\"http://admin.aomeijia.com/uploads/ueditor/image/20210223/1614087356329315.jpg\" title=\"1614087356329315.jpg\"/></p><p><img src=\"http://admin.aomeijia.com/uploads/ueditor/image/20210223/1614087356845165.jpg\" title=\"1614087356845165.jpg\"/></p><p><br/></p>', '0', '1', '11', '0', null, '2021-02-11', '2021-02-23 21:36:01', '2021-02-23 21:36:01');
+INSERT INTO `article` VALUES ('8', '3', 'uploads/images/qiXfivbgrJ.jpg', '联系我们11', '联系我们描述1111', '<p>光棍节发达国家东富龙</p>', '0', '1', '11', '0', null, '2021-02-12', '2021-02-23 21:41:53', '2021-02-23 21:41:53');
+INSERT INTO `article` VALUES ('10', '5', 'uploads/images/35In8HVB7v.jpg', '集团动态1', '集团动态1描述', '<p><img src=\"http://admin.aomeijia.com/uploads/ueditor/image/20210223/1614087857752923.jpg\" title=\"1614087857752923.jpg\"/></p><p><img src=\"http://admin.aomeijia.com/uploads/ueditor/image/20210223/1614087857640563.jpg\" title=\"1614087857640563.jpg\"/></p><p><img src=\"http://admin.aomeijia.com/uploads/ueditor/image/20210223/1614087858250507.jpg\" title=\"1614087858250507.jpg\"/></p><p><br/></p>', '0', '2', '33', '0', '3', '2021-02-13', '2021-02-23 21:44:23', '2021-02-28 11:55:37');
+INSERT INTO `article` VALUES ('11', '5', 'uploads/images/nXmoI5JSWE.jpg', '项目动态文章', '项目动态文章这是描述', '<p>法第三方士大夫</p>', '0', '1', '12', '0', '2', '2021-02-10', '2021-02-28 11:51:53', '2021-02-28 11:54:22');
+INSERT INTO `article` VALUES ('12', '6', 'uploads/images/Wp5g0tna2s.jpg', '主题12', '这是主题12', '<p><img src=\"http://admin.aomeijia.com/uploads/ueditor/image/20210228/1614486289375160.jpg\" title=\"1614486289375160.jpg\"/></p><p><img src=\"http://admin.aomeijia.com/uploads/ueditor/image/20210228/1614486289628402.jpg\" title=\"1614486289628402.jpg\"/></p><p><img src=\"http://admin.aomeijia.com/uploads/ueditor/image/20210228/1614486289115372.jpg\" title=\"1614486289115372.jpg\"/></p><p><img src=\"http://admin.aomeijia.com/uploads/ueditor/image/20210228/1614486290594132.jpg\" title=\"1614486290594132.jpg\"/></p><p><br/></p>', '2', '2', '12', '0', '0', '2021-02-04', '2021-02-28 12:25:04', '2021-02-28 12:25:25');
 
 -- ----------------------------
 -- Table structure for banner
@@ -381,13 +367,13 @@ DROP TABLE IF EXISTS `enum`;
 CREATE TABLE `enum` (
   `id` int(13) unsigned NOT NULL AUTO_INCREMENT,
   `name` varchar(100) NOT NULL DEFAULT '' COMMENT '枚举名称',
-  `type` int(10) DEFAULT NULL COMMENT '枚举类型，1房产类型,2房产标签,3房产特色,4移民类型,5移民投资金额',
+  `type` int(10) DEFAULT NULL COMMENT '枚举类型，1房产类型,2房产标签,3房产特色,4移民类型,5移民投资金额,6热门资讯类型,7成功案例类型',
   `sort` int(10) NOT NULL DEFAULT '0' COMMENT '排序',
   `status` tinyint(1) NOT NULL DEFAULT '1' COMMENT '是否显示',
   `created_at` varchar(25) NOT NULL,
   `updated_at` varchar(25) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=10 DEFAULT CHARSET=utf8 COMMENT='枚举表';
+) ENGINE=InnoDB AUTO_INCREMENT=20 DEFAULT CHARSET=utf8 COMMENT='枚举表';
 
 -- ----------------------------
 -- Records of enum
@@ -401,6 +387,38 @@ INSERT INTO `enum` VALUES ('6', '学区房', '3', '0', '1', '2021-02-21 15:45:23
 INSERT INTO `enum` VALUES ('7', '投资房', '3', '3', '1', '2021-02-21 15:45:39', '2021-02-21 15:45:39');
 INSERT INTO `enum` VALUES ('8', '不限购', '2', '0', '1', '2021-02-21 20:51:54', '2021-02-21 20:51:54');
 INSERT INTO `enum` VALUES ('9', '自住', '2', '0', '1', '2021-02-21 20:52:10', '2021-02-21 20:52:10');
+INSERT INTO `enum` VALUES ('10', '房产', '6', '0', '1', '2021-02-22 20:43:42', '2021-02-22 20:43:42');
+INSERT INTO `enum` VALUES ('11', '移民', '6', '0', '1', '2021-02-22 20:43:58', '2021-02-22 20:43:58');
+INSERT INTO `enum` VALUES ('12', '教育', '6', '0', '1', '2021-02-22 20:44:10', '2021-02-22 20:44:10');
+INSERT INTO `enum` VALUES ('13', '成功1', '7', '0', '1', '2021-02-22 21:22:04', '2021-02-22 21:22:04');
+INSERT INTO `enum` VALUES ('14', '成功2', '7', '0', '1', '2021-02-22 21:22:04', '2021-02-22 21:22:04');
+INSERT INTO `enum` VALUES ('15', '成功3', '7', '0', '1', '2021-02-22 21:22:04', '2021-02-22 21:22:04');
+INSERT INTO `enum` VALUES ('16', '成功4', '7', '0', '1', '2021-02-22 21:22:04', '2021-02-22 21:22:04');
+INSERT INTO `enum` VALUES ('17', '永久产权', '8', '1', '1', '2021-03-01 20:30:26', '2021-03-01 20:30:26');
+INSERT INTO `enum` VALUES ('18', '0公摊', '8', '0', '1', '2021-03-01 20:30:41', '2021-03-01 20:30:41');
+INSERT INTO `enum` VALUES ('19', '不限购', '8', '0', '1', '2021-03-01 20:30:55', '2021-03-01 20:30:55');
+
+-- ----------------------------
+-- Table structure for faqs
+-- ----------------------------
+DROP TABLE IF EXISTS `faqs`;
+CREATE TABLE `faqs` (
+  `id` int(13) unsigned NOT NULL AUTO_INCREMENT,
+  `city_id` int(11) DEFAULT '0' COMMENT '城市',
+  `questions` varchar(255) NOT NULL DEFAULT '' COMMENT '问题',
+  `answers` varchar(255) NOT NULL DEFAULT '' COMMENT '答案',
+  `sort` int(11) NOT NULL DEFAULT '0' COMMENT '排序',
+  `status` tinyint(1) NOT NULL DEFAULT '1' COMMENT '是否显示',
+  `created_at` varchar(25) NOT NULL,
+  `updated_at` varchar(25) NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8 COMMENT='问答表';
+
+-- ----------------------------
+-- Records of faqs
+-- ----------------------------
+INSERT INTO `faqs` VALUES ('1', '152', '中国是什么', '中国是最强的，\r\n哈哈哈', '0', '1', '2021-02-23 20:25:05', '2021-02-23 20:25:05');
+INSERT INTO `faqs` VALUES ('2', '164', '新加坡问题', '马来西亚答案，新加坡', '12', '2', '2021-02-23 20:25:39', '2021-02-23 20:26:13');
 
 -- ----------------------------
 -- Table structure for holds
@@ -511,6 +529,39 @@ INSERT INTO `hot_search` VALUES ('10', '房产2', '2', '0', '1', '2021-02-21 10:
 INSERT INTO `hot_search` VALUES ('11', '房产3', '2', '3', '2', '2021-02-21 10:33:23', '2021-02-21 10:33:49');
 
 -- ----------------------------
+-- Table structure for information
+-- ----------------------------
+DROP TABLE IF EXISTS `information`;
+CREATE TABLE `information` (
+  `id` int(13) unsigned NOT NULL AUTO_INCREMENT,
+  `category` int(11) DEFAULT '0' COMMENT '类别，1热门资讯，2成功案例',
+  `city_id` int(11) DEFAULT '0' COMMENT '城市',
+  `type_id` int(11) NOT NULL DEFAULT '0' COMMENT '类型id',
+  `thumb` varchar(255) NOT NULL DEFAULT '' COMMENT '封面图',
+  `title` varchar(25) NOT NULL DEFAULT '' COMMENT '标题',
+  `describe` varchar(255) NOT NULL DEFAULT '' COMMENT '描述',
+  `content` text COMMENT '内容',
+  `sort` varchar(25) NOT NULL DEFAULT '0' COMMENT '排序',
+  `status` tinyint(1) NOT NULL DEFAULT '1' COMMENT '是否显示',
+  `read` int(11) NOT NULL DEFAULT '0' COMMENT '阅读量',
+  `real_read` int(11) DEFAULT '0' COMMENT '真实阅读量',
+  `publish_date` date DEFAULT NULL COMMENT '发布时间',
+  `created_at` varchar(25) NOT NULL,
+  `updated_at` varchar(25) NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=14 DEFAULT CHARSET=utf8 COMMENT='百科资讯表';
+
+-- ----------------------------
+-- Records of information
+-- ----------------------------
+INSERT INTO `information` VALUES ('7', '1', '152', '10', 'uploads/images/VmNvhk9Uhm.jpg', '百科资讯1', '这是百科资讯1', '<p>发快递师傅的时间内光华科技干红椒女课程VB刚发的</p>', '0', '1', '11', '0', '2021-02-11', '2021-02-22 21:35:04', '2021-02-22 21:35:04');
+INSERT INTO `information` VALUES ('8', '1', '164', '12', 'uploads/images/X50ip3Zf2c.jpg', '新加坡资讯', '教育相关', '<p>高房价的更好地方<img src=\"http://admin.aomeijia.com/uploads/ueditor/image/20210222/1614001290396636.jpg\" title=\"1614001290396636.jpg\" alt=\"timg (1).jpg\"/></p>', '13', '2', '13', '0', '2021-02-13', '2021-02-22 21:35:51', '2021-02-22 21:41:34');
+INSERT INTO `information` VALUES ('10', '2', '153', '13', 'uploads/images/KmM9eIQ8az.jpg', '案例1', '这是案例1', '<p>12</p>', '12', '1', '12', '0', '2021-02-12', '2021-02-22 21:52:07', '2021-02-22 21:52:07');
+INSERT INTO `information` VALUES ('11', '2', '162', '15', 'uploads/images/iA6a3ABLJt.jpg', '6666', '3', '<p>范德萨发的</p>', '3', '1', '13', '0', '2021-02-13', '2021-02-22 21:52:37', '2021-02-22 21:52:56');
+INSERT INTO `information` VALUES ('12', '1', '103', '11', 'uploads/images/Pc3GQ7P1eh.jpg', '亚洲百科资讯1', '百科描述-亚洲1', '<p>鬼地方个地方</p>', '0', '1', '12', '0', '2021-02-12', '2021-02-23 22:35:34', '2021-02-23 22:37:34');
+INSERT INTO `information` VALUES ('13', '2', '152', '14', 'uploads/images/QzoENp9M9I.jpg', '中国成功2', '中国成功描述222', '<p>个梵蒂冈的</p><p><img src=\"http://admin.aomeijia.com/uploads/ueditor/image/20210223/1614092022343246.jpg\" title=\"1614092022343246.jpg\"/></p><p><img src=\"http://admin.aomeijia.com/uploads/ueditor/image/20210223/1614092022497354.jpg\" title=\"1614092022497354.jpg\"/></p><p><br/></p>', '22', '2', '2222', '0', '2021-02-22', '2021-02-23 22:53:47', '2021-02-23 22:54:11');
+
+-- ----------------------------
 -- Table structure for integral_goods
 -- ----------------------------
 DROP TABLE IF EXISTS `integral_goods`;
@@ -569,6 +620,37 @@ CREATE TABLE `integral_proportion` (
 INSERT INTO `integral_proportion` VALUES ('1', '10', '1C694C95', '2017-03-01 09:39:08', '2017-02-23 10:54:37');
 
 -- ----------------------------
+-- Table structure for invest_country
+-- ----------------------------
+DROP TABLE IF EXISTS `invest_country`;
+CREATE TABLE `invest_country` (
+  `id` int(13) unsigned NOT NULL AUTO_INCREMENT,
+  `city_id` int(11) DEFAULT '0' COMMENT '城市',
+  `tag_id` varchar(50) NOT NULL COMMENT '国家投资攻略标签，enum表中的type=8',
+  `hot` int(11) DEFAULT '0' COMMENT '投资热度，1到5星',
+  `thumb` varchar(255) NOT NULL DEFAULT '' COMMENT '封面图',
+  `advantage_img` varchar(255) NOT NULL DEFAULT '' COMMENT '优势图片',
+  `title` varchar(25) NOT NULL DEFAULT '' COMMENT '标题',
+  `describe` varchar(255) NOT NULL DEFAULT '' COMMENT '描述',
+  `content` text COMMENT '内容',
+  `sort` varchar(25) NOT NULL DEFAULT '0' COMMENT '排序',
+  `status` tinyint(1) NOT NULL DEFAULT '1' COMMENT '是否显示',
+  `read` int(11) NOT NULL DEFAULT '0' COMMENT '阅读量',
+  `real_read` int(11) DEFAULT '0' COMMENT '真实阅读量',
+  `publish_date` date DEFAULT NULL COMMENT '发布时间',
+  `created_at` varchar(25) NOT NULL,
+  `updated_at` varchar(25) NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8 COMMENT='国家攻略表';
+
+-- ----------------------------
+-- Records of invest_country
+-- ----------------------------
+INSERT INTO `invest_country` VALUES ('1', '163', '17;18', '5', 'uploads/images/colwhnXvHH.jpg', 'uploads/images/NoS8z5a6FQ.jpg', '马来西亚投资攻略', '个梵蒂冈电饭锅\r\n分割的空间规划到付款\r\n根据地方各阶段', '<p>购房定个地方</p>', '0', '1', '36', '0', '2021-03-16', '2021-03-01 21:39:28', '2021-03-01 21:39:28');
+INSERT INTO `invest_country` VALUES ('2', '164', '18;19', '0', 'uploads/images/W8RW17s1u0.jpg', 'uploads/images/KELPZKJhR6.jpg', '新加坡投资攻略', '辅导费根深蒂固', '<p>富商大贾讽德诵功</p>', '0', '2', '0', '0', '2021-03-10', '2021-03-01 21:40:30', '2021-03-01 21:40:30');
+INSERT INTO `invest_country` VALUES ('3', '162', '17;18;19', '5', 'uploads/images/Y12UnEUD5Y.jpg', 'uploads/images/eueOUZOBku.jpg', '北京攻略666', '富商大贾购房即可过大会的', '<p>佛挡杀佛高大上6666666666</p>', '6', '2', '6', '0', '2021-03-06', '2021-03-01 21:42:19', '2021-03-01 21:45:35');
+
+-- ----------------------------
 -- Table structure for link
 -- ----------------------------
 DROP TABLE IF EXISTS `link`;
@@ -625,7 +707,7 @@ CREATE TABLE `menu` (
   `menu_url` varchar(100) NOT NULL COMMENT '菜单url',
   `sort` int(11) DEFAULT '0' COMMENT '排序',
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=60 DEFAULT CHARSET=utf8 COMMENT='权限菜单表';
+) ENGINE=InnoDB AUTO_INCREMENT=69 DEFAULT CHARSET=utf8 COMMENT='权限菜单表';
 
 -- ----------------------------
 -- Records of menu
@@ -638,20 +720,15 @@ INSERT INTO `menu` VALUES ('7', '4', 'deptManage', '部门管理', '/department/
 INSERT INTO `menu` VALUES ('8', '4', 'roleManage', '角色权限管理', '/role/roleList', '3');
 INSERT INTO `menu` VALUES ('11', '5', 'linkTypeManage', '链接类型管理', '/link/linkTypeList', '1');
 INSERT INTO `menu` VALUES ('12', '5', 'linManage', '链接管理', '/link/linkList', '3');
-INSERT INTO `menu` VALUES ('17', '8', 'articleTypeManage', '文章类型管理', '/article/articleTypeList', '2');
-INSERT INTO `menu` VALUES ('18', '8', 'articleManage', '文章管理', '/article/articleList', '1');
-INSERT INTO `menu` VALUES ('21', '9', 'integralDetailManage', '宝分明细', '/finance/integralList', '3');
-INSERT INTO `menu` VALUES ('22', '9', 'bankCardManage', '银行卡管理', '/finance/bankCardList', '4');
+INSERT INTO `menu` VALUES ('17', '8', 'caseInformationManage', '成功案例管理', '/information/informationList?category=2', '2');
 INSERT INTO `menu` VALUES ('25', '10', 'orderManage', '线上订单管理', '/order/orderList', '1');
 INSERT INTO `menu` VALUES ('28', '11', 'stocksManage', '修改商品', '/stocks/updateStocks', '0');
-INSERT INTO `menu` VALUES ('32', '9', 'integralWithdrawalManage', '宝分兑现管理', '/finance/integralWithdrawalsList', '4');
 INSERT INTO `menu` VALUES ('33', '4', 'companyConfigManage', '公司资料设置', '/home/companyConfigSet', '4');
 INSERT INTO `menu` VALUES ('34', '10', 'returnManage', '退货管理', '/order/returnList', '2');
-INSERT INTO `menu` VALUES ('35', '5', 'partnerTypeManage', '合作伙伴类型管理', '/partner/partnerTypeList', '5');
+INSERT INTO `menu` VALUES ('35', '16', 'partnerTypeManage', '合作伙伴类型管理', '/partner/partnerTypeList', '5');
 INSERT INTO `menu` VALUES ('39', '12', 'storeManage', '商家管理', '/storeList', '1');
 INSERT INTO `menu` VALUES ('40', '12', 'storeTypeManage', '商家类型管理', '/storeType/storeTypeList', '2');
-INSERT INTO `menu` VALUES ('41', '7', 'memberManage', '用户管理', '/member/userList', '2');
-INSERT INTO `menu` VALUES ('42', '7', 'distributorManage', '渠道商申请管理', '/member/distributorList', '3');
+INSERT INTO `menu` VALUES ('41', '7', 'informationManage', '百科资讯管理', '/information/informationList?category=1', '2');
 INSERT INTO `menu` VALUES ('43', '13', 'channelManage', '分销管理', '/RelationsList', '1');
 INSERT INTO `menu` VALUES ('44', '10', 'downOrderManage', '线下订单管理', '/order/downOrderList', '1');
 INSERT INTO `menu` VALUES ('45', '14', 'stocksManage', '商品管理', '/stocks/stocksList', '0');
@@ -662,13 +739,21 @@ INSERT INTO `menu` VALUES ('49', '1', 'bannerManage', '图片管理', '/banner/b
 INSERT INTO `menu` VALUES ('50', '2', 'cityManage', '城市管理', '/city/cityList', '0');
 INSERT INTO `menu` VALUES ('51', '3', 'articleTypeManage', '文章类型管理', '/article/articleTypeList', '2');
 INSERT INTO `menu` VALUES ('52', '3', 'articleManage', '文章管理', '/article/articleList', '1');
-INSERT INTO `menu` VALUES ('53', '5', 'partnerManage', '合作伙伴管理', '/partner/partnerList', '6');
+INSERT INTO `menu` VALUES ('53', '16', 'partnerManage', '合作伙伴管理', '/partner/partnerList', '6');
 INSERT INTO `menu` VALUES ('54', '5', 'teamMemberManage', '团队成员管理', '/teamMember/teamMemberList', '0');
 INSERT INTO `menu` VALUES ('55', '5', 'hotSearchManage', '热门搜索词管理', '/hotsearch/hotsearchList', '0');
 INSERT INTO `menu` VALUES ('56', '5', 'customerConsultManage', '客户咨询管理', '/customerConsult/customerConsultList', '0');
-INSERT INTO `menu` VALUES ('57', '5', 'tagManage', '标签管理', '/tag/tagList', '0');
 INSERT INTO `menu` VALUES ('58', '5', 'enumManage', '枚举管理', '/enum/enumList', '0');
 INSERT INTO `menu` VALUES ('59', '6', 'houseManage', '海外房产管理', '/house/houseList', '0');
+INSERT INTO `menu` VALUES ('60', '8', 'faqsManage', '投资问答管理', '/faqs/faqsList', '0');
+INSERT INTO `menu` VALUES ('61', '6', 'houseProjectManage', '项目动态', '/article/articleList?type=5', '0');
+INSERT INTO `menu` VALUES ('62', '9', 'companyProfileManage', '公司简介', '/article/articleList?type=1', '0');
+INSERT INTO `menu` VALUES ('63', '9', 'joinUsManage', '加入我们', '/article/articleList?type=2', '0');
+INSERT INTO `menu` VALUES ('64', '9', 'contactUsManage', '联系我们', '/article/articleList?type=3', '0');
+INSERT INTO `menu` VALUES ('65', '9', 'corpManage', '集团动态', '/article/articleList?type=4', '0');
+INSERT INTO `menu` VALUES ('66', '8', 'investThemeManage', '投资主题管理', '/article/articleList?type=6', '0');
+INSERT INTO `menu` VALUES ('67', '8', 'investCountryManage', '国家攻略管理', '/investCountry/investCountryList', '0');
+INSERT INTO `menu` VALUES ('68', '17', 'migrateTestManage', '移民测试管理', '/migrateTest/migrateTestList', '0');
 
 -- ----------------------------
 -- Table structure for menu_role
@@ -682,7 +767,7 @@ CREATE TABLE `menu_role` (
   `sort` int(11) DEFAULT '0' COMMENT '排序',
   PRIMARY KEY (`id`),
   KEY `role_id` (`role_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=428 DEFAULT CHARSET=utf8 COMMENT='菜单角色关联表';
+) ENGINE=InnoDB AUTO_INCREMENT=439 DEFAULT CHARSET=utf8 COMMENT='菜单角色关联表';
 
 -- ----------------------------
 -- Records of menu_role
@@ -768,14 +853,10 @@ INSERT INTO `menu_role` VALUES ('396', '19', 'bannerTypeManage', '15402CB3', '2'
 INSERT INTO `menu_role` VALUES ('397', '19', 'bannerManage', '15402CB3', '1');
 INSERT INTO `menu_role` VALUES ('398', '19', 'apiManage', '15402CB3', '4');
 INSERT INTO `menu_role` VALUES ('399', '19', 'shoppingHomeManage', '15402CB3', '3');
-INSERT INTO `menu_role` VALUES ('407', '13', 'stocksManage', '15402CB3', '1');
-INSERT INTO `menu_role` VALUES ('408', '13', 'holdsManage', '15402CB3', '1');
 INSERT INTO `menu_role` VALUES ('409', '15', 'holdsManage', '', '0');
 INSERT INTO `menu_role` VALUES ('410', '13', 'bannerTypeManage', '', '0');
 INSERT INTO `menu_role` VALUES ('411', '13', 'bannerManage', '', '0');
 INSERT INTO `menu_role` VALUES ('412', '13', 'cityManage', '', '0');
-INSERT INTO `menu_role` VALUES ('413', '13', 'articleManage', '', '1');
-INSERT INTO `menu_role` VALUES ('414', '13', 'articleTypeManage', '', '2');
 INSERT INTO `menu_role` VALUES ('416', '13', 'linkTypeManage', '', '1');
 INSERT INTO `menu_role` VALUES ('419', '13', 'teamMemberManage', '', '0');
 INSERT INTO `menu_role` VALUES ('420', '13', 'linManage', '', '3');
@@ -783,9 +864,19 @@ INSERT INTO `menu_role` VALUES ('421', '13', 'partnerTypeManage', '', '5');
 INSERT INTO `menu_role` VALUES ('422', '13', 'partnerManage', '', '6');
 INSERT INTO `menu_role` VALUES ('423', '13', 'hotSearchManage', '', '0');
 INSERT INTO `menu_role` VALUES ('424', '13', 'customerConsultManage', '', '0');
-INSERT INTO `menu_role` VALUES ('425', '13', 'tagManage', '', '0');
 INSERT INTO `menu_role` VALUES ('426', '13', 'enumManage', '', '0');
 INSERT INTO `menu_role` VALUES ('427', '13', 'houseManage', '', '0');
+INSERT INTO `menu_role` VALUES ('428', '13', 'informationManage', '', '2');
+INSERT INTO `menu_role` VALUES ('429', '13', 'caseInformationManage', '', '2');
+INSERT INTO `menu_role` VALUES ('430', '13', 'faqsManage', '', '0');
+INSERT INTO `menu_role` VALUES ('431', '13', 'houseProjectManage', '', '0');
+INSERT INTO `menu_role` VALUES ('432', '13', 'companyProfileManage', '', '0');
+INSERT INTO `menu_role` VALUES ('433', '13', 'joinUsManage', '', '0');
+INSERT INTO `menu_role` VALUES ('434', '13', 'contactUsManage', '', '0');
+INSERT INTO `menu_role` VALUES ('435', '13', 'corpManage', '', '0');
+INSERT INTO `menu_role` VALUES ('436', '13', 'investThemeManage', '', '0');
+INSERT INTO `menu_role` VALUES ('437', '13', 'investCountryManage', '', '0');
+INSERT INTO `menu_role` VALUES ('438', '13', 'migrateTestManage', '', '0');
 
 -- ----------------------------
 -- Table structure for message
@@ -820,6 +911,34 @@ INSERT INTO `message` VALUES ('33', '151', '', '订单号[2017050940699]退货�
 INSERT INTO `message` VALUES ('34', '154', '', '订单号[2017050839370]退货申请，审核成功,退款0.02元', '-1', '1494482730');
 
 -- ----------------------------
+-- Table structure for migrate_test
+-- ----------------------------
+DROP TABLE IF EXISTS `migrate_test`;
+CREATE TABLE `migrate_test` (
+  `id` int(13) unsigned NOT NULL AUTO_INCREMENT,
+  `name` varchar(100) NOT NULL DEFAULT '' COMMENT '客户名字',
+  `phone` int(11) DEFAULT NULL COMMENT '电话号码',
+  `email` varchar(50) DEFAULT NULL COMMENT '邮箱',
+  `sex` int(1) DEFAULT '1' COMMENT '性别，1先生，2女士',
+  `city` varchar(100) DEFAULT NULL COMMENT '国家，最多选3个',
+  `reason` varchar(100) DEFAULT NULL COMMENT '移民原因，最多选3个',
+  `capital` varchar(100) DEFAULT NULL COMMENT '资产',
+  `education` varchar(100) DEFAULT NULL COMMENT '学历',
+  `oversea_identity` varchar(100) DEFAULT NULL COMMENT '海外身份',
+  `english_level` varchar(100) DEFAULT NULL COMMENT '英语能力',
+  `created_at` varchar(25) NOT NULL,
+  `updated_at` varchar(25) NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8 COMMENT='移民测试表';
+
+-- ----------------------------
+-- Records of migrate_test
+-- ----------------------------
+INSERT INTO `migrate_test` VALUES ('1', '1', '11', '111', '1', '中国;美国', '原因1；原因2', '50万以上', '本科', '护照', '四级', '2021-01-01', '2021-01-01');
+INSERT INTO `migrate_test` VALUES ('3', '2', '22', '222', '2', '中国；日本', '原因2', '50万以上', '研究生', '永久居民', '六级', '2021-01-01', '2021-01-01');
+INSERT INTO `migrate_test` VALUES ('4', '3', '33', '333', '1', '韩国；日本；英国', '原因3', '50万以上', '博士', '签证', '高级', '2021-01-01', '2021-01-01');
+
+-- ----------------------------
 -- Table structure for modular
 -- ----------------------------
 DROP TABLE IF EXISTS `modular`;
@@ -830,19 +949,23 @@ CREATE TABLE `modular` (
   `modular_title` varchar(15) NOT NULL COMMENT '模块名称',
   `sort` int(11) DEFAULT NULL COMMENT '排序',
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=16 DEFAULT CHARSET=utf8 COMMENT='权限某块表';
+) ENGINE=InnoDB AUTO_INCREMENT=18 DEFAULT CHARSET=utf8 COMMENT='权限某块表';
 
 -- ----------------------------
 -- Records of modular
 -- ----------------------------
 INSERT INTO `modular` VALUES ('1', 'bannerManage', 'glyphicon glyphicon-user', '图片管理', '1');
 INSERT INTO `modular` VALUES ('2', 'cityManage', 'glyphicon glyphicon-gift', '城市管理', '2');
-INSERT INTO `modular` VALUES ('3', 'articleManage', 'glyphicon glyphicon-book', '文章管理', '6');
 INSERT INTO `modular` VALUES ('4', 'systemManage', 'glyphicon glyphicon-cog', '系统管理', '10');
 INSERT INTO `modular` VALUES ('5', 'contentManage', 'glyphicon glyphicon-gift', '其他模块管理', '1');
 INSERT INTO `modular` VALUES ('6', 'houseManage', 'glyphicon glyphicon-book', '海外房产管理', null);
+INSERT INTO `modular` VALUES ('7', 'informationManage', 'glyphicon glyphicon-user', '百科资讯管理', null);
+INSERT INTO `modular` VALUES ('8', 'investManage', 'glyphicon glyphicon-user', '投资攻略管理', null);
+INSERT INTO `modular` VALUES ('9', 'corpManage', 'glyphicon glyphicon-book', '集团简介', null);
 INSERT INTO `modular` VALUES ('11', 'shoppingMallManage', 'glyphicon glyphicon-th', '商品管理', '8');
 INSERT INTO `modular` VALUES ('15', 'holdsManage', 'glyphicon glyphicon-user', '持仓管理', '8');
+INSERT INTO `modular` VALUES ('16', 'partnerManage', 'glyphicon glyphicon-th', '合作伙伴管理', null);
+INSERT INTO `modular` VALUES ('17', 'migrateManage', 'glyphicon glyphicon-th', '全球移民管理', null);
 
 -- ----------------------------
 -- Table structure for oversea_house
@@ -946,7 +1069,7 @@ CREATE TABLE `resources` (
   `resources_key` varchar(50) NOT NULL COMMENT '资源key',
   `resources_title` varchar(30) NOT NULL COMMENT '资源名称',
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=220 DEFAULT CHARSET=utf8 COMMENT='权限资源表';
+) ENGINE=InnoDB AUTO_INCREMENT=234 DEFAULT CHARSET=utf8 COMMENT='权限资源表';
 
 -- ----------------------------
 -- Records of resources
@@ -986,72 +1109,30 @@ INSERT INTO `resources` VALUES ('53', '5', '/link/linkTypeList', '链接类型�
 INSERT INTO `resources` VALUES ('54', '5', '/link/addLink', '添加链接');
 INSERT INTO `resources` VALUES ('55', '5', '/link/linkList', '链接列表');
 INSERT INTO `resources` VALUES ('58', '12', '/wechatConfig/addWechatConfig', '添加配置');
-INSERT INTO `resources` VALUES ('60', '7', '/member/distributorList', '经销商列表');
-INSERT INTO `resources` VALUES ('61', '7', '/member/distributorAdd', '添加经销商');
-INSERT INTO `resources` VALUES ('62', '7', '/member/distributorUpdate', '修改经销商');
-INSERT INTO `resources` VALUES ('63', '7', '/member/distributorDetail', '查看经销商');
-INSERT INTO `resources` VALUES ('64', '7', '/member/distributorDelete', '删除经销商');
-INSERT INTO `resources` VALUES ('65', '7', '/member/userList', '普通用户列表');
-INSERT INTO `resources` VALUES ('66', '7', '/member/userAdd', '添加普通用户');
-INSERT INTO `resources` VALUES ('67', '7', '/member/userUpdate', '修改普通用户');
-INSERT INTO `resources` VALUES ('68', '7', '/member/userDetail', '查看普通用户');
-INSERT INTO `resources` VALUES ('69', '7', '/member/userDelete', '删除普通用户');
-INSERT INTO `resources` VALUES ('70', '7', '/member/masterList', '师傅列表');
-INSERT INTO `resources` VALUES ('71', '7', '/member/masterAdd', '添加师傅');
-INSERT INTO `resources` VALUES ('72', '7', '/member/masterUpdate', '修改师傅');
-INSERT INTO `resources` VALUES ('73', '7', '/member/masterDetail', '查看师傅');
-INSERT INTO `resources` VALUES ('74', '7', '/member/masterDelete', '删除师傅');
-INSERT INTO `resources` VALUES ('75', '7', '/member/ajaxDistributorList', 'ajax获取所有经销商（必选）');
-INSERT INTO `resources` VALUES ('76', '7', '/member/memberReceiptList', '获取收货地址列表');
-INSERT INTO `resources` VALUES ('77', '7', '/member/upMemberReceipt', '修改收货地址');
-INSERT INTO `resources` VALUES ('78', '7', '/member/memberReceiptAdd', '增加收货地址');
-INSERT INTO `resources` VALUES ('79', '7', '/member/memberReceiptDelete', '删除收货地址');
-INSERT INTO `resources` VALUES ('80', '7', '/member/workTypeList', '工种列表');
-INSERT INTO `resources` VALUES ('81', '7', '/member/workTypeAdd', '添加工种');
-INSERT INTO `resources` VALUES ('82', '7', '/member/workTypeUpdate', '更新工种');
-INSERT INTO `resources` VALUES ('83', '7', '/member/workTypeDelete', '删除工种');
-INSERT INTO `resources` VALUES ('84', '3', '/article/articleTypeList', '文章类型列表');
-INSERT INTO `resources` VALUES ('85', '3', '/article/articleList', '文章列表');
-INSERT INTO `resources` VALUES ('86', '3', '/article/addArticle', '添加文章');
-INSERT INTO `resources` VALUES ('87', '3', '/article/updateArticle', '编辑文章');
-INSERT INTO `resources` VALUES ('88', '3', '/article/deleteArticle', '删除文章');
-INSERT INTO `resources` VALUES ('89', '3', '/article/seeArticle', '查看文章');
-INSERT INTO `resources` VALUES ('93', '8', '/apiList', 'api模块列表');
-INSERT INTO `resources` VALUES ('94', '8', '/addApi', '添加api模块');
-INSERT INTO `resources` VALUES ('95', '8', '/updateApi', '修改api模块');
-INSERT INTO `resources` VALUES ('96', '8', '/deleteApi', '删除api模块');
-INSERT INTO `resources` VALUES ('97', '7', '/member/changeUserMaster', '修改为师傅');
-INSERT INTO `resources` VALUES ('98', '7', '/member/changeUserDistributor', '修改为经销商');
-INSERT INTO `resources` VALUES ('99', '9', '/integral/goodsList', '积分商品列表');
-INSERT INTO `resources` VALUES ('100', '9', '/integral/goodsAdd', '添加积分商品');
-INSERT INTO `resources` VALUES ('101', '9', '/integral/goodsUpdate', '修改积分商品');
-INSERT INTO `resources` VALUES ('102', '9', '/integral/goodsDelete', '删除积分商品');
-INSERT INTO `resources` VALUES ('103', '9', '/goods/ajaxGoodsList', '获取普通商品（必选）');
-INSERT INTO `resources` VALUES ('104', '9', '/integral/goodsDetail', '查看积分商品');
+INSERT INTO `resources` VALUES ('60', '7', '/information/informationList', '热点资讯列表');
+INSERT INTO `resources` VALUES ('61', '7', '/information/addInformation', '添加热点资讯');
+INSERT INTO `resources` VALUES ('62', '7', '/information/updateInformation', '更新热点资讯');
+INSERT INTO `resources` VALUES ('63', '7', '/information/deleteInformation', '删除热点资讯');
+INSERT INTO `resources` VALUES ('64', '7', '/information/seeInformation', '查看热点资讯');
+INSERT INTO `resources` VALUES ('84', '9', '/article/articleTypeList', '文章类型列表');
+INSERT INTO `resources` VALUES ('85', '9', '/article/articleList', '文章列表');
+INSERT INTO `resources` VALUES ('86', '9', '/article/addArticle', '添加文章');
+INSERT INTO `resources` VALUES ('87', '9', '/article/updateArticle', '编辑文章');
+INSERT INTO `resources` VALUES ('88', '9', '/article/deleteArticle', '删除文章');
+INSERT INTO `resources` VALUES ('89', '9', '/article/seeArticle', '查看文章');
 INSERT INTO `resources` VALUES ('105', '5', '/link/updateLink', '更新链接');
-INSERT INTO `resources` VALUES ('106', '9', '/finance/bankCardList', '银行卡列表');
-INSERT INTO `resources` VALUES ('107', '9', '/finance/bankCardUpdate', '修改银行卡');
 INSERT INTO `resources` VALUES ('108', '5', '/link/deleteLink', '删除链接');
-INSERT INTO `resources` VALUES ('109', '9', '/qrCode/goodsQrCodeList', '商品二维码列表');
-INSERT INTO `resources` VALUES ('110', '9', '/qrCode/goodsQrCodeAdd', '增加商品二维码');
-INSERT INTO `resources` VALUES ('111', '9', '/qrCode/goodsQrCodeDelete', '删除商品二维码');
-INSERT INTO `resources` VALUES ('112', '9', '/qrCode/exportGoodsQrCode', '导出商品二维码');
 INSERT INTO `resources` VALUES ('113', '10', '/order/orderList', '订单列表');
 INSERT INTO `resources` VALUES ('114', '10', '/order/updateOrder', '修改订单');
 INSERT INTO `resources` VALUES ('115', '10', '/order/goodList', '商品详情（必选）');
-INSERT INTO `resources` VALUES ('135', '7', '/distributorLevel/distributorLevelList', '经销商等级列表');
-INSERT INTO `resources` VALUES ('136', '7', '/distributorLevel/distributorLevelAdd', '经销商等级增加');
-INSERT INTO `resources` VALUES ('137', '7', '/distributorLevel/distributorLevelUpdate', '经销商等级修改');
-INSERT INTO `resources` VALUES ('138', '7', '/distributorLevel/distributorLevelDelete', '经销商等级删除');
-INSERT INTO `resources` VALUES ('139', '9', '/integral/integralProportionSet', '积分比例设置');
 INSERT INTO `resources` VALUES ('140', '5', '/link/seeLink', '查看链接');
-INSERT INTO `resources` VALUES ('141', '5', '/partner/partnerTypeList', '合作伙伴类型列表');
+INSERT INTO `resources` VALUES ('141', '16', '/partner/partnerTypeList', '合作伙伴类型列表');
 INSERT INTO `resources` VALUES ('142', '10', '/order/deliverGoodsSet', '设置为已发货');
 INSERT INTO `resources` VALUES ('143', '4', '/home/companyConfigSet', '公司资料设置');
 INSERT INTO `resources` VALUES ('144', '10', '/order/returnList', '退货列表');
-INSERT INTO `resources` VALUES ('146', '5', '/partner/addPartner', '添加合作伙伴');
-INSERT INTO `resources` VALUES ('153', '5', '/partner/partnerList', '合作伙伴列表');
-INSERT INTO `resources` VALUES ('154', '5', '/partner/updatePartner', '更新合作伙伴');
+INSERT INTO `resources` VALUES ('146', '16', '/partner/addPartner', '添加合作伙伴');
+INSERT INTO `resources` VALUES ('153', '16', '/partner/partnerList', '合作伙伴列表');
+INSERT INTO `resources` VALUES ('154', '16', '/partner/updatePartner', '更新合作伙伴');
 INSERT INTO `resources` VALUES ('155', '12', '/storeList', '商家列表');
 INSERT INTO `resources` VALUES ('156', '12', '/updateStore', '商家修改审核');
 INSERT INTO `resources` VALUES ('157', '12', '/seeStore', '查看商家');
@@ -1059,8 +1140,6 @@ INSERT INTO `resources` VALUES ('158', '12', '/storeType/storeTypeList', '商家
 INSERT INTO `resources` VALUES ('159', '12', '/storeType/storeTypeAdd', '商家类型添加');
 INSERT INTO `resources` VALUES ('160', '12', '/storeType/storeTypeUpdate', '商家类型修改');
 INSERT INTO `resources` VALUES ('161', '12', '/storeType/storeTypeDelete', '商家类型删除');
-INSERT INTO `resources` VALUES ('162', '7', '/member/channelUpdate', '添加为渠道商');
-INSERT INTO `resources` VALUES ('163', '7', '/member/agentUpdate', '添加为代理商');
 INSERT INTO `resources` VALUES ('167', '13', '/RelationsList', '分销列表');
 INSERT INTO `resources` VALUES ('168', '12', '/storeOrder', '销量明细');
 INSERT INTO `resources` VALUES ('169', '10', '/order/downOrderList', '线下订单列表');
@@ -1084,10 +1163,10 @@ INSERT INTO `resources` VALUES ('186', '2', '/city/cityAdd', '添加城市');
 INSERT INTO `resources` VALUES ('187', '2', '/city/cityUpdate', '更新城市');
 INSERT INTO `resources` VALUES ('188', '2', '/city/cityDelete', '删除城市');
 INSERT INTO `resources` VALUES ('189', '2', '/city/ajaxcityList', '获取城市列表（必选权限）');
-INSERT INTO `resources` VALUES ('190', '5', '/partner/deletePartner', '删除合作伙伴');
-INSERT INTO `resources` VALUES ('191', '5', '/partner/seePartner', '查看合作伙伴');
-INSERT INTO `resources` VALUES ('192', '5', '/partner/addPartnerType', '添加合作伙伴类型');
-INSERT INTO `resources` VALUES ('193', '5', '/partner/updatePartnerType', '更新合作伙伴类型');
+INSERT INTO `resources` VALUES ('190', '16', '/partner/deletePartner', '删除合作伙伴');
+INSERT INTO `resources` VALUES ('191', '16', '/partner/seePartner', '查看合作伙伴');
+INSERT INTO `resources` VALUES ('192', '16', '/partner/addPartnerType', '添加合作伙伴类型');
+INSERT INTO `resources` VALUES ('193', '16', '/partner/updatePartnerType', '更新合作伙伴类型');
 INSERT INTO `resources` VALUES ('194', '5', '/teamMember/teamMemberList', '团队成员列表');
 INSERT INTO `resources` VALUES ('195', '5', '/teamMember/addTeamMember', '添加团队成员');
 INSERT INTO `resources` VALUES ('196', '5', '/teamMember/updateTeamMember', '更新团队成员');
@@ -1114,6 +1193,18 @@ INSERT INTO `resources` VALUES ('216', '6', '/house/addHouse', '添加海外房�
 INSERT INTO `resources` VALUES ('217', '6', '/house/updateHouse', '更新海外房产');
 INSERT INTO `resources` VALUES ('218', '6', '/house/deleteHouse', '删除海外房产');
 INSERT INTO `resources` VALUES ('219', '6', '/house/seeHouse', '查看海外房产');
+INSERT INTO `resources` VALUES ('222', '8', '/faqs/faqsList', '投资问答列表');
+INSERT INTO `resources` VALUES ('223', '8', '/faqs/addFaqs', '添加投资问答');
+INSERT INTO `resources` VALUES ('224', '8', '/faqs/updateFaqs', '更新投资问答');
+INSERT INTO `resources` VALUES ('225', '8', '/faqs/deleteFaqs', '删除投资问答');
+INSERT INTO `resources` VALUES ('226', '8', '/faqs/seeFaqs', '查看投资问答');
+INSERT INTO `resources` VALUES ('227', '8', '/investCountry/investCountryList', '国家攻略列表');
+INSERT INTO `resources` VALUES ('228', '8', '/investCountry/addInvestCountry', '添加国家攻略');
+INSERT INTO `resources` VALUES ('229', '8', '/investCountry/updateInvestCountry', '更新国家攻略');
+INSERT INTO `resources` VALUES ('230', '8', '/investCountry/deleteInvestCountry', '删除国家攻略');
+INSERT INTO `resources` VALUES ('231', '8', '/investCountry/seeInvestCountry', '查看国家攻略');
+INSERT INTO `resources` VALUES ('232', '17', '/migrateTest/migrateTestList', '移民测试列表');
+INSERT INTO `resources` VALUES ('233', '17', '/migrateTest/seeMigrateTest', '查看移民测试');
 
 -- ----------------------------
 -- Table structure for resources_role
@@ -1126,7 +1217,7 @@ CREATE TABLE `resources_role` (
   `access_key` varchar(25) NOT NULL DEFAULT '' COMMENT '唯一标识',
   PRIMARY KEY (`id`),
   KEY `role_id` (`role_id`) USING BTREE
-) ENGINE=InnoDB AUTO_INCREMENT=1770 DEFAULT CHARSET=utf8 COMMENT='角色资源表';
+) ENGINE=InnoDB AUTO_INCREMENT=1815 DEFAULT CHARSET=utf8 COMMENT='角色资源表';
 
 -- ----------------------------
 -- Records of resources_role
@@ -1549,15 +1640,6 @@ INSERT INTO `resources_role` VALUES ('1654', '19', '/shoppingHome/modularAdd', '
 INSERT INTO `resources_role` VALUES ('1655', '19', '/shoppingHome/modularUpdate', '15402CB3');
 INSERT INTO `resources_role` VALUES ('1656', '19', '/shoppingHome/modularDelete', '15402CB3');
 INSERT INTO `resources_role` VALUES ('1657', '19', '/order/updateReturn', '15402CB3');
-INSERT INTO `resources_role` VALUES ('1695', '13', '/stocks/stocksList', '');
-INSERT INTO `resources_role` VALUES ('1696', '13', '/stocks/addStocks', '');
-INSERT INTO `resources_role` VALUES ('1697', '13', '/stocks/updateStocks', '');
-INSERT INTO `resources_role` VALUES ('1698', '13', '/stocks/deleteStocks', '');
-INSERT INTO `resources_role` VALUES ('1699', '13', '/holds/holdsList', '');
-INSERT INTO `resources_role` VALUES ('1703', '13', '/holds/addHolds', '');
-INSERT INTO `resources_role` VALUES ('1704', '13', '/holds/updateHolds', '');
-INSERT INTO `resources_role` VALUES ('1705', '13', '/holds/deleteHolds', '');
-INSERT INTO `resources_role` VALUES ('1706', '13', '/holds/settlementHolds', '');
 INSERT INTO `resources_role` VALUES ('1707', '15', '/holds/holdsList', '');
 INSERT INTO `resources_role` VALUES ('1709', '13', '/banner/bannerTypeList', '');
 INSERT INTO `resources_role` VALUES ('1711', '13', '/banner/updateType', '');
@@ -1572,12 +1654,6 @@ INSERT INTO `resources_role` VALUES ('1719', '13', '/city/cityAdd', '');
 INSERT INTO `resources_role` VALUES ('1720', '13', '/city/cityUpdate', '');
 INSERT INTO `resources_role` VALUES ('1721', '13', '/city/cityDelete', '');
 INSERT INTO `resources_role` VALUES ('1722', '13', '/city/ajaxcityList', '');
-INSERT INTO `resources_role` VALUES ('1723', '13', '/article/articleTypeList', '');
-INSERT INTO `resources_role` VALUES ('1724', '13', '/article/articleList', '');
-INSERT INTO `resources_role` VALUES ('1725', '13', '/article/addArticle', '');
-INSERT INTO `resources_role` VALUES ('1726', '13', '/article/updateArticle', '');
-INSERT INTO `resources_role` VALUES ('1727', '13', '/article/deleteArticle', '');
-INSERT INTO `resources_role` VALUES ('1728', '13', '/article/seeArticle', '');
 INSERT INTO `resources_role` VALUES ('1729', '13', '/home/companyConfigSet', '');
 INSERT INTO `resources_role` VALUES ('1730', '13', '/link/linkTypeList', '');
 INSERT INTO `resources_role` VALUES ('1731', '13', '/link/addLink', '');
@@ -1619,6 +1695,29 @@ INSERT INTO `resources_role` VALUES ('1766', '13', '/house/addHouse', '');
 INSERT INTO `resources_role` VALUES ('1767', '13', '/house/updateHouse', '');
 INSERT INTO `resources_role` VALUES ('1768', '13', '/house/deleteHouse', '');
 INSERT INTO `resources_role` VALUES ('1769', '13', '/house/seeHouse', '');
+INSERT INTO `resources_role` VALUES ('1782', '13', '/faqs/faqsList', '');
+INSERT INTO `resources_role` VALUES ('1783', '13', '/faqs/addFaqs', '');
+INSERT INTO `resources_role` VALUES ('1784', '13', '/faqs/updateFaqs', '');
+INSERT INTO `resources_role` VALUES ('1785', '13', '/faqs/deleteFaqs', '');
+INSERT INTO `resources_role` VALUES ('1786', '13', '/faqs/seeFaqs', '');
+INSERT INTO `resources_role` VALUES ('1797', '13', '/article/articleList', '');
+INSERT INTO `resources_role` VALUES ('1798', '13', '/article/articleTypeList', '');
+INSERT INTO `resources_role` VALUES ('1799', '13', '/article/addArticle', '');
+INSERT INTO `resources_role` VALUES ('1800', '13', '/article/updateArticle', '');
+INSERT INTO `resources_role` VALUES ('1801', '13', '/article/deleteArticle', '');
+INSERT INTO `resources_role` VALUES ('1802', '13', '/article/seeArticle', '');
+INSERT INTO `resources_role` VALUES ('1803', '13', '/information/informationList', '');
+INSERT INTO `resources_role` VALUES ('1804', '13', '/information/addInformation', '');
+INSERT INTO `resources_role` VALUES ('1805', '13', '/information/updateInformation', '');
+INSERT INTO `resources_role` VALUES ('1806', '13', '/information/deleteInformation', '');
+INSERT INTO `resources_role` VALUES ('1807', '13', '/information/seeInformation', '');
+INSERT INTO `resources_role` VALUES ('1808', '13', '/investCountry/investCountryList', '');
+INSERT INTO `resources_role` VALUES ('1809', '13', '/investCountry/addInvestCountry', '');
+INSERT INTO `resources_role` VALUES ('1810', '13', '/investCountry/updateInvestCountry', '');
+INSERT INTO `resources_role` VALUES ('1811', '13', '/investCountry/deleteInvestCountry', '');
+INSERT INTO `resources_role` VALUES ('1812', '13', '/investCountry/seeInvestCountry', '');
+INSERT INTO `resources_role` VALUES ('1813', '13', '/migrateTest/migrateTestList', '');
+INSERT INTO `resources_role` VALUES ('1814', '13', '/migrateTest/seeMigrateTest', '');
 
 -- ----------------------------
 -- Table structure for role

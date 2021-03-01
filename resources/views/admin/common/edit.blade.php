@@ -319,7 +319,7 @@
                                                                 </div>
                                                                 @endif
                                                             {{--文本域结束--}}
-															
+
 															@if($item['type'] == 'ueditor')
                                 <div class="form-group">
                                     <label class="col-sm-1 control-label">{{$item['text']}}</label>

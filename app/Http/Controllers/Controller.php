@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use App\Models\User;
+use App\Models\Enum;
+use App\Models\City;
 use App\Models\WechatMember;
 use Illuminate\Foundation\Bus\DispatchesJobs;
 use Illuminate\Routing\Controller as BaseController;
@@ -211,6 +213,30 @@ class Controller extends BaseController
         }
         return $childs;
     }
+
+    //得到城市的id与name对应关系
+	function getCityIdName()
+	{
+		$cityData = array();
+		$_cityData = City::select(['id','name'])->orderBy('sort','desc')->get();
+		if($_cityData){
+			foreach($_cityData as $item){
+				$cityData[$item->id] = $item->name;
+			}
+		}
+		return $cityData;
+	}
+
+	//得到某个类型的所有枚举数据
+	function getEnumByType($type)
+	{
+		$objType = Enum::select(['id','name'])->where('status',1)->whereIn('type',$type)->orderBy('sort','desc')->get();
+		$typeData = array();
+		foreach($objType as $item){
+			$typeData[$item->id] = $item->name;
+		}
+		return $typeData;
+	}
 
 
 }

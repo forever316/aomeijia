@@ -98,13 +98,6 @@ Route::group(['domain' => ADMINWEBSITE,'middleware'=>['auth','authority']], func
     Route::match(['get', 'post'], '/article/deleteArticle','Admin\ArticleController@deleteArticle');//删除文章
     Route::match(['get', 'post'], '/article/seeArticle','Admin\ArticleController@seeArticle');//查看文章
 
-    //文章类型管理
-    Route::match(['get', 'post'], '/article/addArticleType','Admin\ArticleController@addArticleType');//增加类型文章
-    Route::match(['get', 'post'], '/article/articleTypeList','Admin\ArticleController@articleTypeList');//文章类型列表
-    Route::match(['get', 'post'], '/article/updateArticleType','Admin\ArticleController@updateArticleType');//修改类型文章
-    Route::match(['get', 'post'], '/article/deleteArticleType','Admin\ArticleController@deleteArticleType');//删除类型文章
-    Route::match(['get', 'post'], '/article/seeArticleType','Admin\ArticleController@seeArticleType');//查看类型文章
-
     //链接管理
     Route::match(['get', 'post'], '/link/linkTypeList','Admin\LinkController@linkTypeList');//链接类型列表
     Route::match(['get', 'post'], '/link/addLink','Admin\LinkController@addLink');//添加链接
@@ -162,6 +155,50 @@ Route::group(['domain' => ADMINWEBSITE,'middleware'=>['auth','authority']], func
     Route::match(['get', 'post'], '/house/updateHouse','Admin\OverseaHouseController@updateHouse');//更新海外房产
     Route::match(['get', 'post'], '/house/deleteHouse','Admin\OverseaHouseController@deleteHouse');//删除海外房产
     Route::match(['get', 'post'], '/house/seeHouse','Admin\OverseaHouseController@seeHouse');//查看海外房产
+
+	//信息管理,热门资讯category=1,成功案例category=2
+	Route::match(['get', 'post'], '/information/informationList','Admin\InformationController@informationList');//热点资讯列表
+	Route::match(['get', 'post'], '/information/addInformation','Admin\InformationController@addInformation');//添加热点资讯
+	Route::match(['get', 'post'], '/information/updateInformation','Admin\InformationController@updateInformation');//更新热点资讯
+	Route::match(['get', 'post'], '/information/deleteInformation','Admin\InformationController@deleteInformation');//删除热点资讯
+	Route::match(['get', 'post'], '/information/seeInformation','Admin\InformationController@seeInformation');//查看热点资讯
+
+
+	/*
+    *投资攻略
+    */
+
+	// //成功案例,删除和查看同热点资讯
+ //    Route::match(['get', 'post'], '/information/caseInformationList','Admin\InformationController@caseInformationList');//成功案例列表
+ //    Route::match(['get', 'post'], '/information/addCaseInformation','Admin\InformationController@addCaseInformation');//添加成功案例
+ //    Route::match(['get', 'post'], '/information/updateCaseInformation','Admin\InformationController@updateCaseInformation');//更新成功案例
+ //    Route::match(['get', 'post'], '/information/deleteCaseInformation','Admin\InformationController@deleteInformation');//删除成功案例
+ //    Route::match(['get', 'post'], '/information/seeCaseInformation','Admin\InformationController@seeInformation');//查看成功案例
+
+    //投资问答管理
+    Route::match(['get', 'post'], '/faqs/faqsList','Admin\FaqsController@faqsList');//投资问答列表
+    Route::match(['get', 'post'], '/faqs/addFaqs','Admin\FaqsController@addFaqs');//添加投资问答
+    Route::match(['get', 'post'], '/faqs/updateFaqs','Admin\FaqsController@updateFaqs');//更新投资问答
+    Route::match(['get', 'post'], '/faqs/deleteFaqs','Admin\FaqsController@deleteFaqs');//删除投资问答
+    Route::match(['get', 'post'], '/faqs/seeFaqs','Admin\FaqsController@seeFaqs');//查看投资问答
+
+    //国家攻略管理
+    Route::match(['get', 'post'], '/investCountry/investCountryList','Admin\InvestCountryController@investCountryList');//国家攻略列表
+    Route::match(['get', 'post'], '/investCountry/addInvestCountry','Admin\InvestCountryController@addInvestCountry');//添加国家攻略
+    Route::match(['get', 'post'], '/investCountry/updateInvestCountry','Admin\InvestCountryController@updateInvestCountry');//更新国家攻略
+    Route::match(['get', 'post'], '/investCountry/deleteInvestCountry','Admin\InvestCountryController@deleteInvestCountry');//删除国家攻略
+    Route::match(['get', 'post'], '/investCountry/seeInvestCountry','Admin\InvestCountryController@seeInvestCountry');//查看国家攻略
+
+
+    /*
+    * 全球移民
+    */
+    //移民测试管理
+    Route::match(['get', 'post'], '/migrateTest/migrateTestList','Admin\MigrateTestController@migrateTestList');//移民测试列表
+    Route::match(['get', 'post'], '/migrateTest/seeMigrateTest','Admin\MigrateTestController@seeMigrateTest');//查看移民测试
+
+
+
 
 
 
