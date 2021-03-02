@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\User;
 use App\Models\Enum;
 use App\Models\City;
+use App\Models\Link;
 use App\Models\WechatMember;
 use Illuminate\Foundation\Bus\DispatchesJobs;
 use Illuminate\Routing\Controller as BaseController;
@@ -237,6 +238,19 @@ class Controller extends BaseController
 		}
 		return $typeData;
 	}
+    ///////////////////////////前台模块
+    /*
+    * 得到所有的友情链接
+    */
+    function getLinkData()
+    {
+        $_linkData = Link::where('status',1)->orderBy('sort','desc')->get()->toArray();
+        $linkData = array();
+        foreach($_linkData as $key=>$val){
+            $linkData[$val['type']][] = $val;
+        }
+        return $linkData;
+    }
 
 
 }

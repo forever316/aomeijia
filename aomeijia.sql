@@ -10,7 +10,7 @@ Target Server Type    : MYSQL
 Target Server Version : 50726
 File Encoding         : 65001
 
-Date: 2021-03-01 23:52:55
+Date: 2021-03-02 23:13:13
 */
 
 SET FOREIGN_KEY_CHECKS=0;
@@ -373,7 +373,7 @@ CREATE TABLE `enum` (
   `created_at` varchar(25) NOT NULL,
   `updated_at` varchar(25) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=20 DEFAULT CHARSET=utf8 COMMENT='枚举表';
+) ENGINE=InnoDB AUTO_INCREMENT=28 DEFAULT CHARSET=utf8 COMMENT='枚举表';
 
 -- ----------------------------
 -- Records of enum
@@ -397,6 +397,14 @@ INSERT INTO `enum` VALUES ('16', '成功4', '7', '0', '1', '2021-02-22 21:22:04'
 INSERT INTO `enum` VALUES ('17', '永久产权', '8', '1', '1', '2021-03-01 20:30:26', '2021-03-01 20:30:26');
 INSERT INTO `enum` VALUES ('18', '0公摊', '8', '0', '1', '2021-03-01 20:30:41', '2021-03-01 20:30:41');
 INSERT INTO `enum` VALUES ('19', '不限购', '8', '0', '1', '2021-03-01 20:30:55', '2021-03-01 20:30:55');
+INSERT INTO `enum` VALUES ('20', '投资创业移民', '4', '0', '1', '2021-03-02 19:39:10', '2021-03-02 19:39:10');
+INSERT INTO `enum` VALUES ('21', '购房移民', '4', '0', '1', '2021-03-02 19:39:27', '2021-03-02 19:39:27');
+INSERT INTO `enum` VALUES ('22', '护照移民', '4', '0', '1', '2021-03-02 19:39:52', '2021-03-02 19:39:52');
+INSERT INTO `enum` VALUES ('23', '技术移民', '4', '0', '1', '2021-03-02 19:40:07', '2021-03-02 19:40:07');
+INSERT INTO `enum` VALUES ('24', '50万以下', '5', '0', '1', '2021-03-02 20:03:16', '2021-03-02 20:03:16');
+INSERT INTO `enum` VALUES ('25', '50~100万', '5', '0', '1', '2021-03-02 20:03:32', '2021-03-02 20:03:32');
+INSERT INTO `enum` VALUES ('26', '100~200万', '5', '0', '1', '2021-03-02 20:03:50', '2021-03-02 20:03:50');
+INSERT INTO `enum` VALUES ('27', '200~300万', '5', '0', '1', '2021-03-02 20:04:06', '2021-03-02 20:04:06');
 
 -- ----------------------------
 -- Table structure for faqs
@@ -707,7 +715,7 @@ CREATE TABLE `menu` (
   `menu_url` varchar(100) NOT NULL COMMENT '菜单url',
   `sort` int(11) DEFAULT '0' COMMENT '排序',
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=69 DEFAULT CHARSET=utf8 COMMENT='权限菜单表';
+) ENGINE=InnoDB AUTO_INCREMENT=70 DEFAULT CHARSET=utf8 COMMENT='权限菜单表';
 
 -- ----------------------------
 -- Records of menu
@@ -718,8 +726,8 @@ INSERT INTO `menu` VALUES ('5', '12', 'wechatConfigManage', '微信配置', '/we
 INSERT INTO `menu` VALUES ('6', '4', 'adminManage', '人员管理', '/user/userList', '1');
 INSERT INTO `menu` VALUES ('7', '4', 'deptManage', '部门管理', '/department/departmentList', '2');
 INSERT INTO `menu` VALUES ('8', '4', 'roleManage', '角色权限管理', '/role/roleList', '3');
-INSERT INTO `menu` VALUES ('11', '5', 'linkTypeManage', '链接类型管理', '/link/linkTypeList', '1');
-INSERT INTO `menu` VALUES ('12', '5', 'linManage', '链接管理', '/link/linkList', '3');
+INSERT INTO `menu` VALUES ('11', '18', 'linkTypeManage', '链接类型管理', '/link/linkTypeList', '1');
+INSERT INTO `menu` VALUES ('12', '18', 'linManage', '链接管理', '/link/linkList', '3');
 INSERT INTO `menu` VALUES ('17', '8', 'caseInformationManage', '成功案例管理', '/information/informationList?category=2', '2');
 INSERT INTO `menu` VALUES ('25', '10', 'orderManage', '线上订单管理', '/order/orderList', '1');
 INSERT INTO `menu` VALUES ('28', '11', 'stocksManage', '修改商品', '/stocks/updateStocks', '0');
@@ -754,6 +762,7 @@ INSERT INTO `menu` VALUES ('65', '9', 'corpManage', '集团动态', '/article/ar
 INSERT INTO `menu` VALUES ('66', '8', 'investThemeManage', '投资主题管理', '/article/articleList?type=6', '0');
 INSERT INTO `menu` VALUES ('67', '8', 'investCountryManage', '国家攻略管理', '/investCountry/investCountryList', '0');
 INSERT INTO `menu` VALUES ('68', '17', 'migrateTestManage', '移民测试管理', '/migrateTest/migrateTestList', '0');
+INSERT INTO `menu` VALUES ('69', '17', 'migrateManage', '全球移民管理', '/migrate/migrateList', '0');
 
 -- ----------------------------
 -- Table structure for menu_role
@@ -767,7 +776,7 @@ CREATE TABLE `menu_role` (
   `sort` int(11) DEFAULT '0' COMMENT '排序',
   PRIMARY KEY (`id`),
   KEY `role_id` (`role_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=439 DEFAULT CHARSET=utf8 COMMENT='菜单角色关联表';
+) ENGINE=InnoDB AUTO_INCREMENT=440 DEFAULT CHARSET=utf8 COMMENT='菜单角色关联表';
 
 -- ----------------------------
 -- Records of menu_role
@@ -877,6 +886,7 @@ INSERT INTO `menu_role` VALUES ('435', '13', 'corpManage', '', '0');
 INSERT INTO `menu_role` VALUES ('436', '13', 'investThemeManage', '', '0');
 INSERT INTO `menu_role` VALUES ('437', '13', 'investCountryManage', '', '0');
 INSERT INTO `menu_role` VALUES ('438', '13', 'migrateTestManage', '', '0');
+INSERT INTO `menu_role` VALUES ('439', '13', 'migrateManage', '', '0');
 
 -- ----------------------------
 -- Table structure for message
@@ -909,6 +919,44 @@ INSERT INTO `message` VALUES ('31', '150', '', '订单号[2017050908573]退货�
 INSERT INTO `message` VALUES ('32', '151', '', '订单号[2017050940699]退货申请，审核失败！如有疑问请联系工作人员。', '1', '1494299890');
 INSERT INTO `message` VALUES ('33', '151', '', '订单号[2017050940699]退货申请，审核成功,退款0.01元', '-1', '1494409737');
 INSERT INTO `message` VALUES ('34', '154', '', '订单号[2017050839370]退货申请，审核成功,退款0.02元', '-1', '1494482730');
+
+-- ----------------------------
+-- Table structure for migrate
+-- ----------------------------
+DROP TABLE IF EXISTS `migrate`;
+CREATE TABLE `migrate` (
+  `id` int(13) unsigned NOT NULL AUTO_INCREMENT,
+  `city_id` int(11) DEFAULT '0' COMMENT '城市',
+  `type_id` int(11) NOT NULL COMMENT '移民类型，enum表中的type=4',
+  `invest_id` int(11) NOT NULL COMMENT '投资类型，enum表中的type=5',
+  `title` varchar(100) NOT NULL DEFAULT '' COMMENT '标题',
+  `img` varchar(255) DEFAULT NULL COMMENT '封面图',
+  `project_charac` varchar(255) NOT NULL DEFAULT '' COMMENT '项目特点',
+  `live_require` varchar(255) NOT NULL DEFAULT '' COMMENT '居住要求',
+  `identity` varchar(255) NOT NULL DEFAULT '' COMMENT '身份类型',
+  `transact_period` varchar(255) NOT NULL DEFAULT '' COMMENT '办理周期',
+  `total_price` decimal(10,2) NOT NULL DEFAULT '0.00' COMMENT '总价,以万为单位',
+  `user_id` int(11) DEFAULT '0' COMMENT '跟踪的团队成员id,用于显示微信图片',
+  `project_brief` text COMMENT '项目简介',
+  `project_advantage` text COMMENT '项目优势',
+  `apply_condition` text COMMENT '申请条件',
+  `apply_process` text COMMENT '项目流程',
+  `sort` varchar(25) NOT NULL DEFAULT '0' COMMENT '排序',
+  `status` tinyint(1) NOT NULL DEFAULT '1' COMMENT '是否显示',
+  `read` int(11) NOT NULL DEFAULT '0' COMMENT '阅读量',
+  `real_read` int(11) DEFAULT '0' COMMENT '真实阅读量',
+  `publish_date` date DEFAULT NULL COMMENT '发布时间',
+  `created_at` varchar(25) NOT NULL,
+  `updated_at` varchar(25) NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8 COMMENT='全球移民表';
+
+-- ----------------------------
+-- Records of migrate
+-- ----------------------------
+INSERT INTO `migrate` VALUES ('1', '152', '21', '25', '中国移民', null, '反倒是开发和思考', '和规范化个', '古典风格', '古典风格', '80.00', '0', '<p>共和国国家股份</p>', '<p>鬼地方个大概</p>', '<p>购房的更好地发挥地方提供</p>', '<p>较高的覅来看估计都给</p>', '', '1', '0', '0', '2021-03-10', '2021-03-02 21:26:27', '2021-03-02 21:26:27');
+INSERT INTO `migrate` VALUES ('2', '163', '22', '26', '马来西亚', 'uploads/images/Wd8vijqfwA.jpg', '项目特点11', '居住要求11', '身份类型11', '办理周期11', '120.88', '2', '<p>佛挡杀佛</p>', '<p>率保持基本</p>', '<p>厉害狂欢节</p>', '<p>基本结构</p>', '3', '1', '23', '0', '2021-03-11', '2021-03-02 21:33:44', '2021-03-02 21:35:51');
+INSERT INTO `migrate` VALUES ('3', '159', '23', '24', '技术移民', 'uploads/images/2xl8OB0JO8.jpg', '22', '22', '22', '22', '22.22', '6', '<p>222222222222</p>', '<p>222652</p>', '<p>22积极</p>', '<p>22比较快回家</p>', '22', '1', '22', '0', '2021-03-22', '2021-03-02 21:36:44', '2021-03-02 21:36:44');
 
 -- ----------------------------
 -- Table structure for migrate_test
@@ -944,28 +992,27 @@ INSERT INTO `migrate_test` VALUES ('4', '3', '33', '333', '1', '韩国；日本�
 DROP TABLE IF EXISTS `modular`;
 CREATE TABLE `modular` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
-  `modular_key` varchar(30) NOT NULL COMMENT '模块Key',
-  `modular_ico` varchar(30) NOT NULL COMMENT '模块图标',
+  `modular_key` varchar(200) NOT NULL COMMENT '模块Key',
+  `modular_ico` varchar(200) NOT NULL COMMENT '模块图标',
   `modular_title` varchar(15) NOT NULL COMMENT '模块名称',
   `sort` int(11) DEFAULT NULL COMMENT '排序',
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=18 DEFAULT CHARSET=utf8 COMMENT='权限某块表';
+) ENGINE=InnoDB AUTO_INCREMENT=19 DEFAULT CHARSET=utf8 COMMENT='权限某块表';
 
 -- ----------------------------
 -- Records of modular
 -- ----------------------------
-INSERT INTO `modular` VALUES ('1', 'bannerManage', 'glyphicon glyphicon-user', '图片管理', '1');
-INSERT INTO `modular` VALUES ('2', 'cityManage', 'glyphicon glyphicon-gift', '城市管理', '2');
+INSERT INTO `modular` VALUES ('1', 'bannerManage', 'glyphicon glyphicon-picture', '图片管理', '1');
+INSERT INTO `modular` VALUES ('2', 'cityManage', 'glyphicon glyphicon-hdd', '城市管理', '2');
 INSERT INTO `modular` VALUES ('4', 'systemManage', 'glyphicon glyphicon-cog', '系统管理', '10');
 INSERT INTO `modular` VALUES ('5', 'contentManage', 'glyphicon glyphicon-gift', '其他模块管理', '1');
 INSERT INTO `modular` VALUES ('6', 'houseManage', 'glyphicon glyphicon-book', '海外房产管理', null);
-INSERT INTO `modular` VALUES ('7', 'informationManage', 'glyphicon glyphicon-user', '百科资讯管理', null);
-INSERT INTO `modular` VALUES ('8', 'investManage', 'glyphicon glyphicon-user', '投资攻略管理', null);
-INSERT INTO `modular` VALUES ('9', 'corpManage', 'glyphicon glyphicon-book', '集团简介', null);
-INSERT INTO `modular` VALUES ('11', 'shoppingMallManage', 'glyphicon glyphicon-th', '商品管理', '8');
-INSERT INTO `modular` VALUES ('15', 'holdsManage', 'glyphicon glyphicon-user', '持仓管理', '8');
-INSERT INTO `modular` VALUES ('16', 'partnerManage', 'glyphicon glyphicon-th', '合作伙伴管理', null);
+INSERT INTO `modular` VALUES ('7', 'informationManage', 'glyphicon glyphicon-list-alt', '百科资讯管理', null);
+INSERT INTO `modular` VALUES ('8', 'investManage', 'glyphicon glyphicon-star', '投资攻略管理', null);
+INSERT INTO `modular` VALUES ('9', 'corpManage', 'glyphicon glyphicon-heart-empty', '集团简介', null);
+INSERT INTO `modular` VALUES ('16', 'partnerManage', 'glyphicon glyphicon-heart', '合作伙伴管理', null);
 INSERT INTO `modular` VALUES ('17', 'migrateManage', 'glyphicon glyphicon-th', '全球移民管理', null);
+INSERT INTO `modular` VALUES ('18', 'linManage', 'glyphicon glyphicon-link', '链接管理', null);
 
 -- ----------------------------
 -- Table structure for oversea_house
@@ -1069,7 +1116,7 @@ CREATE TABLE `resources` (
   `resources_key` varchar(50) NOT NULL COMMENT '资源key',
   `resources_title` varchar(30) NOT NULL COMMENT '资源名称',
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=234 DEFAULT CHARSET=utf8 COMMENT='权限资源表';
+) ENGINE=InnoDB AUTO_INCREMENT=239 DEFAULT CHARSET=utf8 COMMENT='权限资源表';
 
 -- ----------------------------
 -- Records of resources
@@ -1105,9 +1152,9 @@ INSERT INTO `resources` VALUES ('44', '4', '/role/addRole', '增加角色');
 INSERT INTO `resources` VALUES ('45', '4', '/role/updateRole', '修改角色');
 INSERT INTO `resources` VALUES ('46', '4', '/role/seeRole', '查看角色');
 INSERT INTO `resources` VALUES ('47', '4', '/role/deleteRole', '删除角色');
-INSERT INTO `resources` VALUES ('53', '5', '/link/linkTypeList', '链接类型列表');
-INSERT INTO `resources` VALUES ('54', '5', '/link/addLink', '添加链接');
-INSERT INTO `resources` VALUES ('55', '5', '/link/linkList', '链接列表');
+INSERT INTO `resources` VALUES ('53', '18', '/link/linkTypeList', '链接类型列表');
+INSERT INTO `resources` VALUES ('54', '18', '/link/addLink', '添加链接');
+INSERT INTO `resources` VALUES ('55', '18', '/link/linkList', '链接列表');
 INSERT INTO `resources` VALUES ('58', '12', '/wechatConfig/addWechatConfig', '添加配置');
 INSERT INTO `resources` VALUES ('60', '7', '/information/informationList', '热点资讯列表');
 INSERT INTO `resources` VALUES ('61', '7', '/information/addInformation', '添加热点资讯');
@@ -1120,12 +1167,12 @@ INSERT INTO `resources` VALUES ('86', '9', '/article/addArticle', '添加文章'
 INSERT INTO `resources` VALUES ('87', '9', '/article/updateArticle', '编辑文章');
 INSERT INTO `resources` VALUES ('88', '9', '/article/deleteArticle', '删除文章');
 INSERT INTO `resources` VALUES ('89', '9', '/article/seeArticle', '查看文章');
-INSERT INTO `resources` VALUES ('105', '5', '/link/updateLink', '更新链接');
-INSERT INTO `resources` VALUES ('108', '5', '/link/deleteLink', '删除链接');
+INSERT INTO `resources` VALUES ('105', '18', '/link/updateLink', '更新链接');
+INSERT INTO `resources` VALUES ('108', '18', '/link/deleteLink', '删除链接');
 INSERT INTO `resources` VALUES ('113', '10', '/order/orderList', '订单列表');
 INSERT INTO `resources` VALUES ('114', '10', '/order/updateOrder', '修改订单');
 INSERT INTO `resources` VALUES ('115', '10', '/order/goodList', '商品详情（必选）');
-INSERT INTO `resources` VALUES ('140', '5', '/link/seeLink', '查看链接');
+INSERT INTO `resources` VALUES ('140', '18', '/link/seeLink', '查看链接');
 INSERT INTO `resources` VALUES ('141', '16', '/partner/partnerTypeList', '合作伙伴类型列表');
 INSERT INTO `resources` VALUES ('142', '10', '/order/deliverGoodsSet', '设置为已发货');
 INSERT INTO `resources` VALUES ('143', '4', '/home/companyConfigSet', '公司资料设置');
@@ -1205,6 +1252,11 @@ INSERT INTO `resources` VALUES ('230', '8', '/investCountry/deleteInvestCountry'
 INSERT INTO `resources` VALUES ('231', '8', '/investCountry/seeInvestCountry', '查看国家攻略');
 INSERT INTO `resources` VALUES ('232', '17', '/migrateTest/migrateTestList', '移民测试列表');
 INSERT INTO `resources` VALUES ('233', '17', '/migrateTest/seeMigrateTest', '查看移民测试');
+INSERT INTO `resources` VALUES ('234', '17', '/migrate/migrateList', '全球移民列表');
+INSERT INTO `resources` VALUES ('235', '17', '/migrate/addMigrate', '添加全球移民');
+INSERT INTO `resources` VALUES ('236', '17', '/migrate/updateMigrate', '更新全球移民');
+INSERT INTO `resources` VALUES ('237', '17', '/migrate/deleteMigrate', '删除全球移民');
+INSERT INTO `resources` VALUES ('238', '17', '/migrate/seeMigrate', '查看全球移民');
 
 -- ----------------------------
 -- Table structure for resources_role
@@ -1217,7 +1269,7 @@ CREATE TABLE `resources_role` (
   `access_key` varchar(25) NOT NULL DEFAULT '' COMMENT '唯一标识',
   PRIMARY KEY (`id`),
   KEY `role_id` (`role_id`) USING BTREE
-) ENGINE=InnoDB AUTO_INCREMENT=1815 DEFAULT CHARSET=utf8 COMMENT='角色资源表';
+) ENGINE=InnoDB AUTO_INCREMENT=1820 DEFAULT CHARSET=utf8 COMMENT='角色资源表';
 
 -- ----------------------------
 -- Records of resources_role
@@ -1718,6 +1770,11 @@ INSERT INTO `resources_role` VALUES ('1811', '13', '/investCountry/deleteInvestC
 INSERT INTO `resources_role` VALUES ('1812', '13', '/investCountry/seeInvestCountry', '');
 INSERT INTO `resources_role` VALUES ('1813', '13', '/migrateTest/migrateTestList', '');
 INSERT INTO `resources_role` VALUES ('1814', '13', '/migrateTest/seeMigrateTest', '');
+INSERT INTO `resources_role` VALUES ('1815', '13', '/migrate/migrateList', '');
+INSERT INTO `resources_role` VALUES ('1816', '13', '/migrate/addMigrate', '');
+INSERT INTO `resources_role` VALUES ('1817', '13', '/migrate/updateMigrate', '');
+INSERT INTO `resources_role` VALUES ('1818', '13', '/migrate/deleteMigrate', '');
+INSERT INTO `resources_role` VALUES ('1819', '13', '/migrate/seeMigrate', '');
 
 -- ----------------------------
 -- Table structure for role

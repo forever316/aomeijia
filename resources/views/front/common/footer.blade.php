@@ -2,48 +2,49 @@
 			<div class="footer-inner">
 				<div class="footer-left">
 					<div class="footer-logo">
-						<img src="/front/images/footer-logo.png">
+						<img src="{{$data['company']['footer_logo']}}">
 					</div>
 					<div class="footer-phone">
 						<p class="phone-title">
 							<span>全国咨询电话</span>
 						</p>
-						<p class="phone-number">4007 889 229</p>
+						<p class="phone-number">{{$data['company']['custom_service_phone']}}</p>
 					</div>
 				</div>
 				<div class="footer-center">
 					<ul>
 						<li class="first-li">全球房产</li>
-						<li><a href="#">柬埔寨房产</a></li>
-						<li><a href="#">马拉西亚房产</a></li>
-						<li><a href="#">澳洲房产</a></li>
-						<li><a href="#">迪拜房产</a></li>
-						<li><a href="#">美国房产</a></li>
-						<li><a href="#">泰国房产</a></li>
+						@if(isset($data['linkData'][1]))
+							@foreach($data['linkData'][1] as $key=>$val)
+								<li><a href="{{$val['url']}}">{{$val['title']}}</a></li>
+							@endforeach
+						@endif
 					</ul>
 					<ul>
 						<li class="first-li">全球移民</li>
-						<li><a href="#">希购房移民</a></li>
-						<li><a href="#">土耳其移民</a></li>
-						<li><a href="#">爱尔兰移民</a></li>
-						<li><a href="#">加拿大移民</a></li>
-						<li><a href="#">澳大利亚移民</a></li>
+						@if(isset($data['linkData'][2]))
+							@foreach($data['linkData'][2] as $key=>$val)
+								<li><a href="{{$val['url']}}">{{$val['title']}}</a></li>
+							@endforeach
+						@endif
 					</ul>
 					<ul>
 						<li class="first-li">关于公司</li>
-						<li><a href="#">公司简介</a></li>
-						<li><a href="#">联系方式</a></li>
-						<li><a href="#">加入我们</a></li>
+						@if(isset($data['linkData'][3]))
+							@foreach($data['linkData'][3] as $key=>$val)
+								<li><a href="{{$val['url']}}">{{$val['title']}}</a></li>
+							@endforeach
+						@endif
 					</ul>
 				</div>
 				<div class="footer-right">
 					<ul class="footer-right-ul">
 						<li>
-							<img src="/front/images/footer1.jpg" alt="">
+							<img src="{{$data['company']['wechat1_img']}}" alt="">
 							<p>澳美家海外</p>
 						</li>
 						<li>
-							<img src="/front/images/footer2.jpg" alt="">
+							<img src="{{$data['company']['wechat2_img']}}" alt="">
 							<p>财富管理</p>
 						</li>
 					</ul>
@@ -54,20 +55,16 @@
 				<div class="friend-links">
 					<ul>
 						<li class="firend-linkd-title">友情链接：</li>
-						<li class="firend-linkd-first"><a href="#">启德留学</a></li>
-						<li><a href="#">柬单网</a></li>
-						<li><a href="#">移民网</a></li>
-						<li><a href="#">移民网</a></li>
-						<li><a href="#">移民网</a></li>
-						<li><a href="#">移民网</a></li>
-						<li><a href="#">移民网</a></li>
-						<li><a href="#">移民网</a></li>
-						<li><a href="#">移民网</a></li>
-						<li><a href="#">移民网</a></li>
-						<li><a href="#">移民网</a></li>
+						<!-- <li class="firend-linkd-first"><a href="#">启德留学</a></li> -->
+						@if(isset($data['linkData'][4]))
+							@foreach($data['linkData'][4] as $key=>$val)
+								<li @if($key==0)class="firend-linkd-first"@endif><a href="{{$val['url']}}">{{$val['title']}}</a></li>
+							@endforeach
+						@endif
+						
 					</ul>
 				</div>
 				<div class="footer-copyright">
-					<span>版权所有：广东澳美家投资咨询有限公司</span>
+					<span>版权所有：{{$data['company']['copyright']}}</span>
 				</div>
 			</div>

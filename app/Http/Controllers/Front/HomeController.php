@@ -5,7 +5,10 @@ namespace App\Http\Controllers\Front;
 use App\Models\BannerType;
 use App\Models\Banner;
 use App\Models\City;
+use App\Models\Link;
 use App\Models\CompanyConfig;
+use App\Models\PartnerType;
+use App\Models\Partner;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Config;
@@ -29,6 +32,20 @@ class HomeController  extends Controller
         }
         //公司资料设置
         $data['company'] = CompanyConfig::where('id',1)->first()->toArray();
+
+        //友情链接
+        $data['linkData'] = $this->getLinkData();
+        //合作伙伴
+        $_partnerData = Partner::where('status',1)->orderBy('sort','desc')->get()->toArray();
+        $partnerData = array();
+        foreach($_partnerData as $key=>$val){
+            $partnerData[$val['type']][] = $val;
+        }
+        echo '<pre>';
+        var_dump($partnerData);
+        exit;
+
+
 
 
         // echo '<pre>';

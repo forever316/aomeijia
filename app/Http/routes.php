@@ -197,6 +197,13 @@ Route::group(['domain' => ADMINWEBSITE,'middleware'=>['auth','authority']], func
     Route::match(['get', 'post'], '/migrateTest/migrateTestList','Admin\MigrateTestController@migrateTestList');//移民测试列表
     Route::match(['get', 'post'], '/migrateTest/seeMigrateTest','Admin\MigrateTestController@seeMigrateTest');//查看移民测试
 
+    //全球移民管理
+    Route::match(['get', 'post'], '/migrate/migrateList','Admin\MigrateController@migrateList');//全球移民列表
+    Route::match(['get', 'post'], '/migrate/addMigrate','Admin\MigrateController@addMigrate');//添加全球移民
+    Route::match(['get', 'post'], '/migrate/updateMigrate','Admin\MigrateController@updateMigrate');//更新全球移民
+    Route::match(['get', 'post'], '/migrate/deleteMigrate','Admin\MigrateController@deleteMigrate');//删除全球移民
+    Route::match(['get', 'post'], '/migrate/seeMigrate','Admin\MigrateController@seeMigrate');//查看全球移民
+
 
 
 

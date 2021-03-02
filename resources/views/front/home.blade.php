@@ -917,7 +917,7 @@
 					合作伙伴
 					<span>好房源那么多 我们为您精挑细选</span>
 				</p>
-				<p><a href="#">查看更多 > > ></a></p>
+				<p></p>
 			</div>
 			<div class="cooperative-partner-inner">
 				<div class="cooperative-partner-tag-list">
