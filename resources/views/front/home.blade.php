@@ -1,5 +1,11 @@
 @include('front.common.layout')
 <body>
+<style>
+.cooperative-partner-list img{
+	width:150px;
+	height:80px;
+}
+</style>
 	@include('front.common.header')
 		<!-- banner区域 -->
 	<div class="home-banner-wrapper">
@@ -921,67 +927,35 @@
 			</div>
 			<div class="cooperative-partner-inner">
 				<div class="cooperative-partner-tag-list">
-					<span class="chosen">房产</span>
-					<span>移民</span>
-					<span>留学</span>
-					<span>金融</span>
-					<span>律所</span>
+				@foreach($data['partnerData'] as $key=>$val)
+
+						<!-- <span class="chosen">{{$val['type_name']}}</span> -->
+					
+						<span>{{$val['type_name']}}</span>
+				@endforeach
 				</div>
 				<div class="cooperative-partner-list">
-					<ul class="active">
-						<li>
-							<img src="/front/images/cooperative-partner-logo1.jpeg" alt="">
-							<span>房产</span>
-						</li>
-						<li>
-							<img src="/front/images/cooperative-partner-logo1.jpeg" alt="">
-							<span>Land&Houses</span>
-						</li>
-						<li>
-							<img src="/front/images/cooperative-partner-logo1.jpeg" alt="">
-							<span>Land&Houses</span>
-						</li>
-						<li>
-							<img src="/front/images/cooperative-partner-logo1.jpeg" alt="">
-							<span>Land&Houses</span>
-						</li>
-					</ul>
-					<ul>
-						<li>
-							<img src="/front/images/cooperative-partner-logo1.jpeg" alt="">
-							<span>移民</span>
-						</li>
-						<li>
-							<img src="/front/images/cooperative-partner-logo1.jpeg" alt="">
-							<span>Land&Houses</span>
-						</li>
-						<li>
-							<img src="/front/images/cooperative-partner-logo1.jpeg" alt="">
-							<span>Land&Houses</span>
-						</li>
-					</ul>
-					<ul>
-						<li>
-							<img src="/front/images/cooperative-partner-logo1.jpeg" alt="">
-							<span>留学</span>
-						</li>
-						<li>
-							<img src="/front/images/cooperative-partner-logo1.jpeg" alt="">
-							<span>Land&Houses</span>
-						</li>
-					</ul>
-					<ul>
-						<li>
-							<img src="/front/images/cooperative-partner-logo1.jpeg" alt="">
-							<span>金融</span>
-						</li>
-					</ul>
-					<ul>
-						<li>
-							<img src="/front/images/cooperative-partner-logo1.jpeg" alt="">
-							<span>律所</span>
-						</li>
-					</ul>
+					@foreach($data['partnerData'] as $key=>$val)
+						
+							<ul class="active">
+								@foreach($val['partner'] as $pk=>$pv)
+									<li>
+										<img src="{{$pv['logo']}}" alt="">
+										<span>{{$pv['title']}}</span>
+									</li>
+								@endforeach
+							<ul>
+						
+							<!-- <ul>
+								@foreach($val['partner'] as $pk=>$pv)
+									<li>
+										<img src="{{$pv['logo']}}" alt="">
+										<span>{{$pv['title']}}</span>
+									</li>
+								@endforeach
+							</ul> -->
+						
+					@endforeach
 				</div>
 			</div>
 		</div>

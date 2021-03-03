@@ -37,13 +37,20 @@ class HomeController  extends Controller
         $data['linkData'] = $this->getLinkData();
         //合作伙伴
         $_partnerData = Partner::where('status',1)->orderBy('sort','desc')->get()->toArray();
+        $_partnerType = PartnerType::get()->toArray();
+        $partnerType = array();
+        foreach($_partnerType as $key=>$val){
+            $partnerType[$val['id']] = $val['name'];
+        }
         $partnerData = array();
         foreach($_partnerData as $key=>$val){
-            $partnerData[$val['type']][] = $val;
+            $partnerData[$val['type']]['type_name'] = isset($partnerType[$val['type']]) && $partnerType[$val['type']] ? $partnerType[$val['type']] : $val['type'];
+            $partnerData[$val['type']]['partner'][] = $val;
         }
-        echo '<pre>';
-        var_dump($partnerData);
-        exit;
+        $data['partnerData'] = $partnerData;
+        // echo '<pre>';
+        // var_dump($partnerData);
+        // exit;
 
 
 
