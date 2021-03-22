@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>全球移民</title>
+  <link type="text/css" rel="styleSheet" href="../../css/common.css" />
+  <link type="text/css" rel="styleSheet" href="../../css/immigrant/index.css" />
+</head>
+
+<body>
+  <main id="immigrant-page" v-cloak>
+    <section class="banner">
+      <img src="../../images/Immigrant/index/banner.png" alt="">
+    </section>
+
+    <section class="container-wrapper">
+      <div class="router-wrapper">
+        <span>首页</span>
+        <i>></i>
+        <span>全球移民</span>
+      </div>
+
+      <div class="filter-wrapper">
+        <ul>
+          <li v-for="(item, key) in filters" :key="key">
+            <span class="text">{{ item.name }}：</span>
+            <div class="val">
+              <span
+                :class="{ on: item.select == '不限' }"
+                @click="selectFilter(item, '不限')"
+              >
+                不限
+              </span>
+              <span
+                v-for="(el, i) in item.opts"
+                :key="i" :class="{ on: item.select == el }"
+                @click="selectFilter(item, el)">
+                {{ el }}
+              </span>
+            </div>
+          </li>
+        </ul>
+      </div>
+
+      <div class="list-wrapper">
+        <ul class="items">
+          <template v-for="(item, index) in 3" :key="index">
+            <li class="item">
+              <div class="img-box">
+                <img src="../../images/Immigrant/index/img-01.jpg" alt="">
+                <p>加拿大投资移民</p>
+              </div>
+              <div class="detail-box">
+                <p class="desc">
+                  面向人群：有移民加拿大的高净值客户
+                </p>
+                <div class="box">
+                  <span class="tag">项目特点</span>
+                  <span class="val">纳税大户这边请</span>
+                </div>
+                <div class="box">
+                  <span class="tag">办理周期</span>
+                  <span class="val">约2.5-4年</span>
+                  <div class="price">
+                    ￥<span>150万</span>
+                  </div>
+                </div>
+              </div>
+              <div class="btn-wrapper">
+                <a href="./detail.html" class="btn">
+                  点击查看详情
+                </a>
+                <div class="btn appointment" @click="isAppointmentShow = true">
+                  立即预约
+                </div>
+              </div>
+            </li>
+            <li class="item">
+              <div class="img-box">
+                <img src="../../images/Immigrant/index/img-02.jpg" alt="">
+                <p>希腊购房移民</p>
+              </div>
+              <div class="detail-box">
+                <p class="desc">
+                  面向人群：有移民加拿大的高净值客户
+                </p>
+                <div class="box">
+                  <span class="tag">项目特点</span>
+                  <span class="val">一家三代拿永居</span>
+                </div>
+                <div class="box">
+                  <span class="tag">办理周期</span>
+                  <span class="val">约6-8月</span>
+                  <div class="price">
+                    ￥<span>150万</span>
+                  </div>
+                </div>
+              </div>
+              <div class="btn-wrapper">
+                <a href="./detail.html" class="btn">
+                  点击查看详情
+                </a>
+                <div class="btn appointment" @click="isAppointmentShow = true">
+                  立即预约
+                </div>
+              </div>
+            </li>
+            <li class="item">
+              <div class="img-box">
+                <img src="../../images/Immigrant/index/img-03.jpg" alt="">
+                <p>加拿大投资移民</p>
+              </div>
+              <div class="detail-box">
+                <p class="desc">
+                  面向人群：有移民加拿大的高净值客户
+                </p>
+                <div class="box">
+                  <span class="tag">项目特点</span>
+                  <span class="val">纳税大户这边请</span>
+                </div>
+                <div class="box">
+                  <span class="tag">办理周期</span>
+                  <span class="val">3-6个月</span>
+                  <div class="price">
+                    ￥<span>150万</span>
+                  </div>
+                </div>
+              </div>
+              <div class="btn-wrapper">
+                <a href="./detail.html" class="btn">
+                  点击查看详情
+                </a>
+                <div class="btn appointment" @click="isAppointmentShow = true">
+                  立即预约
+                </div>
+              </div>
+            </li>
+          </template>
+        </ul>
+      </div>
+
+      <div class="test">
+        <img src="../../images/Immigrant/index/test.png" alt="">
+      </div>
+    </section>
+
+    <transition name="fade">
+      <section v-if="isAppointmentShow" class="appointment-wrapper" @click.self="isAppointmentShow = false">
+        <div class="appointment-cont">
+          <div class="head">
+            <img src="../../images/overseas-property/detail/appointment-head.png" alt="">
+            <i @click="isAppointmentShow = false">×</i>
+          </div>
+          <div class="text">
+            <i></i>
+            <span>立即预约</span>
+            <i></i>
+          </div>
+          <div class="cont">
+            <form>
+              <input type="text" placeholder="请输入您的姓名">
+              <input type="text" placeholder="请输入您的手机号">
+              <input type="text" placeholder="请输入您的微信">
+              <textarea placeholder="请输入您想了解的更多信息"></textarea>
+              <p class="notice">
+                * 所有信息均已进行加密处理，请放心填写！
+              </p>
+              <button type="submit" @click="isAppointmentShow = false">
+                立即提交
+              </button>
+            </form>
+          </div>
+        </div>
+      </section>
+    </transition>
+  </main>
+
+  <!-- <script src="https://apps.bdimg.com/libs/jquery/2.1.4/jquery.min.js"></script> -->
+  <script src="../../utils/vue.js"></script>
+  <script src="../../js/immigrant/index.js"></script>
+</body>
+</html>

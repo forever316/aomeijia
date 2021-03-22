@@ -1,0 +1,93 @@
+.text-overflow-1 {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  -webkit-text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.text-overflow-2,
+.text-overflow-3 {
+  word-break: break-all;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.text-overflow-2 { -webkit-line-clamp: 2; }
+.text-overflow-3 { -webkit-line-clamp: 3; }
+
+.common-box-header {
+	height: 60px;
+	display: flex;
+	display: -webkit-box;
+	display: -moz-box;
+	display: -ms-flexbox;
+	display: -webkit-flex;
+	justify-content: space-between;
+  -webkit-box-pack: justify;
+  -webkit-justify-content: space-between;
+  -moz-box-pack: justify;
+  -moz-justify-content: space-between;
+  -ms-flex-pack: justify;
+	border-bottom: 1px solid #ddd;
+}
+.common-box-header a {
+	color: #000;
+	text-decoration: none;
+}
+
+.common-box-header a:hover {
+	color: #ee8300;
+}
+.common-box-header > p {
+	font-size: 24px;
+	line-height: 55px;
+	font-weight: 600;
+}
+.common-box-header > p span:last-child {
+	font-size: 13px;
+	font-weight: 100px;
+	color: #88898a;
+}
+.common-box-header > p:last-child {
+	font-size: 12px;
+	line-height: 55px;
+}
+
+
+/*
+* 新添加的样式
+ */
+/*分页样式*/
+#introduction-index-page .banner img{
+	height:320px;
+}
+.page-wrapper .pagination li{
+	width: 30px;
+	height: 28px;
+	line-height: 28px;
+	text-align: center;
+	border: 1px solid #ddd;
+	cursor: pointer;
+	float: left;
+	margin: 7px;
+}
+.page-wrapper .pagination li.active {
+	color: #fff;
+	background: #ee8300;
+	border-color: #ee8300;
+}
+
+a{
+	text-decoration: none;
+	color: #000;
+}
+a:hover{
+	color: #ee8300;
+}
+.router-wrapper {
+	margin-top: 30px !important;
+}
+.filter-wrapper > ul > li .val > span.on a {
+	color: #ee8300;
+}

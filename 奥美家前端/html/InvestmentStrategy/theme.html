@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>投资主题</title>
+  <link type="text/css" rel="styleSheet" href="../../css/common.css" />
+  <link type="text/css" rel="styleSheet" href="../../css/investment-strategy/theme.css" />
+  <link type="text/css" rel="styleSheet" href="../../utils/swiper/swiper-bundle.min.css" />
+</head>
+
+<body>
+  <main id="investment-strategy-theme-page" v-cloak>
+    <section class="container-wrapper">
+      <div class="router-wrapper">
+        <span>首页</span>
+        <i>></i>
+        <span>投资攻略</span>
+        <i>></i>
+        <span>投资主题</span>
+      </div>
+
+      <div class="search-wrapper">
+        <div class="search-left-wrapper">
+          <div class="search-box">
+            <input v-model="keywords" type="text" placeholder="请输入关键字搜索">
+            <div class="btn" @click="search">
+              <img src="../../images/overseas-property/index/search.png" alt="">
+            </div>
+          </div>
+          <div class="hot-box">
+            <span>热门搜索：</span>
+            <span v-for="(item, index) in hots" :key="index" @click="chooseHot(item)">{{ item }}</span>
+          </div>
+        </div>
+        <div class="search-right-wrapper">
+          共找到187个项目
+        </div>
+      </div>
+
+      <div class="list-wrapper">
+        <ul class="items">
+          <li v-for="(item, index) in 20" :key="index" class="item">
+            <a href="./theme-detail.html">
+              <img src="../../images/overseas-property/index/img.png" class="img">
+              <p class="name text-overflow-1">
+                云顶1号 -- 马来西亚云顶高原稀世臻品
+              </p>
+              <p class="desc text-overflow-2">
+                地球度假圣地环球资产钜作，俯瞰吉隆坡云山间的酒店式公寓，华语乐坛巨星巫启贤先生倾情代言。
+              </p>
+            </a>
+          </li>
+        </ul>
+        <div class="page-wrapper">
+          <div class="page-box">
+            <span>《</span>
+            <span class="on">1</span>
+            <span>2</span>
+            <span>3</span>
+            <span>4</span>
+            <span>5</span>
+            <span>》</span>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- <script src="https://apps.bdimg.com/libs/jquery/2.1.4/jquery.min.js"></script> -->
+  <script src="../../utils/swiper/swiper-bundle.min.js"></script>
+  <script src="../../utils/vue.js"></script>
+  <script src="../../js/investment-strategy/theme.js"></script>
+</body>
+</html>

@@ -17,4 +17,11 @@ class Enum extends Model
     protected $fillable = [
         'type','name','sort','status'
     ];//设置哪些属性可以批量赋值
+
+    //获取所有数据
+    public static function getEnumAllData()
+    {
+        $data = self::get()->pluck('name','id')->toArray();
+        return $data;
+    }
 }

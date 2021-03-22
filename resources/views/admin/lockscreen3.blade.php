@@ -6,12 +6,12 @@
     <script src="/assets/admin/login2/js/jQuery v1.7.1 .js"></script>
     <script src="/assets/admin/login2/js/loginJs.js"></script>
     <script>if(window.top !== window.self){ window.top.location = window.location;}</script>
-    <title>致富管理后台 - 登录</title>
+    <title>澳美家管理后台 - 登录</title>
 <title>登录</title>
 </head>
 <body>
      <header>
-         <h1>致富 · 管理系统</h1>
+         <h1>澳美家 · 管理系统</h1>
      </header>
      <form method="post" action="/login2" target="_self">
          <input type="hidden" name="_token" value="{{ csrf_token() }}">

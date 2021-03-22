@@ -1,11 +1,21 @@
-@include('front.common.layout')
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8">
+		<title>澳美家</title>
+		<link type="text/css" rel="styleSheet" href="/front/css/banner.css" />
+		<link type="text/css" rel="styleSheet" href="/front/css/index.css" />
+		<script src="/front/js/index.js"></script>
+		@include('front.common.layout')
+	</head>
 <body>
 <style>
 .cooperative-partner-list img{
-	width:150px;
+	width:140px;
 	height:80px;
 }
 </style>
+
 	@include('front.common.header')
 		<!-- banner区域 -->
 	<div class="home-banner-wrapper">
@@ -790,132 +800,134 @@
 		</div>
 		<!-- 专业团队 -->
 		<div class="special-team-wrapper">
-			<div class="special-team-header">
-				<p>
-					专业团队
-					<span>好房源那么多 我们为您精挑细选</span>
-				</p>
-				<p><a href="#">查看更多 > > ></a></p>
-			</div>
-			<div class="special-team-inner">
-				<dl>
-					<dt>
-						<p>
-							<img src="/front/images/team-portrait1.jpg" alt="">
-						</p>
-						<div class="special-team-inner-desc">
-							<span>Bella 王</span>
-							<span>海外投资销售经理</span>
-							<span>青葱岁月，5年如一日，已为数百位高端客户配置海外资产，服务金额超过5亿人民币，你的一</span>
-							<span>联系TA</span>
-						</div>
-					</dt>
-					<dt>
-						<p>
-							<img src="/front/images/team-portrait1.jpg" alt="">
-						</p>
-						<div class="special-team-inner-desc">
-							<span>Bella 王</span>
-							<span>海外投资销售经理</span>
-							<span>青葱岁月，5年如一日，已为数百位高端客户配置海外资产，服务金额超过5亿人民币，你的一</span>
-							<span>联系TA</span>
-						</div>
-					</dt>
-					<dt>
-						<p>
-							<img src="/front/images/team-portrait1.jpg" alt="">
-						</p>
-						<div class="special-team-inner-desc">
-							<span>Bella 王</span>
-							<span>海外投资销售经理</span>
-							<span>青葱岁月，5年如一日，已为数百位高端客户配置海外资产，服务金额超过5亿人民币，你的一</span>
-							<span>联系TA</span>
-						</div>
-					</dt>
-					<dt>
-						<p>
-							<img src="/front/images/team-portrait1.jpg" alt="">
-						</p>
-						<div class="special-team-inner-desc">
-							<span>Bella 王</span>
-							<span>海外投资销售经理</span>
-							<span>青葱岁月，5年如一日，已为数百位高端客户配置海外资产，服务金额超过5亿人民币，你的一</span>
-							<span>联系TA</span>
-						</div>
-					</dt>
-					<dt>
-						<p>
-							<img src="/front/images/team-portrait1.jpg" alt="">
-						</p>
-						<div class="special-team-inner-desc">
-							<span>Bella 王</span>
-							<span>海外投资销售经理</span>
-							<span>青葱岁月，5年如一日，已为数百位高端客户配置海外资产，服务金额超过5亿人民币，你的一</span>
-							<span>联系TA</span>
-						</div>
-					</dt>
-				</dl>
-			</div>
-		</div>
-		<!-- 专业团队下的内容 -->
-		<div class="special-team-bottom-wrapper">
-			<div class="special-team-bottom-video">
-				<video src="/front/images/video-demo.mp4" controls="controls"></video>
-			</div>
-			<div class="special-team-bottom-info">
-				<p>
-					专业售前售后服务
-				</p>
-				<div class="special-team-bottom-info-list">
-					<dl>
-						<dt>
-							<img src="/front/images/sale-after-logo2.jpeg">
-							<div>
-								<p>严选房源</p>
-								<p>最严风控只选最有资产</p>
+				<div class="special-team-header">
+					<p>
+						专业团队
+						<span>好房源那么多 我们为您精挑细选</span>
+					</p>
+					<p></p>
+				</div>
+				<div class="special-team-inner">
+					<dl class="swiper-wrapper">
+						<dt class="swiper-slide">
+							<p>
+								<img src="../images/team-portrait1.jpg" alt="">
+							</p>
+							<div class="special-team-inner-desc">
+								<span>Bella 王</span>
+								<span>海外投资销售经理</span>
+								<span>青葱岁月，5年如一日，已为数百位高端客户配置海外资产，服务金额超过5亿人民币，你的一</span>
+								<span>联系TA</span>
 							</div>
 						</dt>
-						<dt>
-							<img src="/front/images/sale-after-logo1.jpeg">
-							<div>
-								<p>房屋交易</p>
-								<p>整合专业机构保证交易安全</p>
+						<dt class="swiper-slide">
+							<p>
+								<img src="../images/team-portrait1.jpg" alt="">
+							</p>
+							<div class="special-team-inner-desc">
+								<span>Bella 王</span>
+								<span>海外投资销售经理</span>
+								<span>青葱岁月，5年如一日，已为数百位高端客户配置海外资产，服务金额超过5亿人民币，你的一</span>
+								<span>联系TA</span>
 							</div>
 						</dt>
-						<dt>
-							<img src="/front/images/sale-after-logo1.jpeg">
-							<div>
-								<p>出售变现</p>
-								<p>实时监控出售最佳时机</p>
+						<dt class="swiper-slide">
+							<p>
+								<img src="../images/team-portrait1.jpg" alt="">
+							</p>
+							<div class="special-team-inner-desc">
+								<span>Bella 王</span>
+								<span>海外投资销售经理</span>
+								<span>青葱岁月，5年如一日，已为数百位高端客户配置海外资产，服务金额超过5亿人民币，你的一</span>
+								<span>联系TA</span>
 							</div>
 						</dt>
-					</dl>
-					<dl>
-						<dt>
-							<img src="/front/images/sale-after-logo1.jpeg">
-							<div>
-								<p>贷款服务</p>
-								<p>量身定制还款方案</p>
+						<dt class="swiper-slide">
+							<p>
+								<img src="../images/team-portrait1.jpg" alt="">
+							</p>
+							<div class="special-team-inner-desc">
+								<span>Bella 王</span>
+								<span>海外投资销售经理</span>
+								<span>青葱岁月，5年如一日，已为数百位高端客户配置海外资产，服务金额超过5亿人民币，你的一</span>
+								<span>联系TA</span>
 							</div>
 						</dt>
-						<dt>
-							<img src="/front/images/sale-after-logo1.jpeg">
-							<div>
-								<p>租赁管理</p>
-								<p>房屋管理与管理，保证权益</p>
-							</div>
-						</dt>
-						<dt>
-							<img src="/front/images/sale-after-logo1.jpeg">
-							<div>
-								<p>贷款服务</p>
-								<p>量身定制还款方案</p>
+						<dt class="swiper-slide">
+							<p>
+								<img src="../images/team-portrait1.jpg" alt="">
+							</p>
+							<div class="special-team-inner-desc">
+								<span>Bella 王</span>
+								<span>海外投资销售经理</span>
+								<span>青葱岁月，5年如一日，已为数百位高端客户配置海外资产，服务金额超过5亿人民币，你的一</span>
+								<span>联系TA</span>
 							</div>
 						</dt>
 					</dl>
 				</div>
+				<div class="case-button-next"></div>
+        <div class="case-button-prev"></div>
 			</div>
-		</div>
+			<!-- 专业团队下的内容 -->
+			<div class="special-team-bottom-wrapper">
+				<div class="special-team-bottom-video">
+					<video src="../images/video-demo.mp4" controls="controls"></video>
+				</div>
+				<div class="special-team-bottom-info">
+					<p>
+						专业售前售后服务
+					</p>
+					<div class="special-team-bottom-info-list">
+						<dl>
+							<dt>
+								<img src="../images/sale-after-logo2.jpeg">
+								<div>
+									<p>严选房源</p>
+									<p>最严风控只选最有资产</p>
+								</div>
+							</dt>
+							<dt>
+								<img src="../images/sale-after-logo1.jpeg">
+								<div>
+									<p>房屋交易</p>
+									<p>整合专业机构保证交易安全</p>
+								</div>
+							</dt>
+							<dt>
+								<img src="../images/sale-after-logo1.jpeg">
+								<div>
+									<p>出售变现</p>
+									<p>实时监控出售最佳时机</p>
+								</div>
+							</dt>
+						</dl>
+						<dl>
+							<dt>
+								<img src="../images/sale-after-logo1.jpeg">
+								<div>
+									<p>贷款服务</p>
+									<p>量身定制还款方案</p>
+								</div>
+							</dt>
+							<dt>
+								<img src="../images/sale-after-logo1.jpeg">
+								<div>
+									<p>租赁管理</p>
+									<p>房屋管理与管理，保证权益</p>
+								</div>
+							</dt>
+							<dt>
+								<img src="../images/sale-after-logo1.jpeg">
+								<div>
+									<p>贷款服务</p>
+									<p>量身定制还款方案</p>
+								</div>
+							</dt>
+						</dl>
+					</div>
+				</div>
+			</div>
 		<!-- 合作伙伴 -->
 		<div class="cooperative-partner-wrapper">
 			<div class="cooperative-partner-header">
@@ -928,33 +940,19 @@
 			<div class="cooperative-partner-inner">
 				<div class="cooperative-partner-tag-list">
 				@foreach($data['partnerData'] as $key=>$val)
-
-						<!-- <span class="chosen">{{$val['type_name']}}</span> -->
-					
-						<span>{{$val['type_name']}}</span>
+					<span class="@if($val['class']=='active') chosen  @endif">{{$val['typeName']}}</span>
 				@endforeach
 				</div>
 				<div class="cooperative-partner-list">
 					@foreach($data['partnerData'] as $key=>$val)
-						
-							<ul class="active">
-								@foreach($val['partner'] as $pk=>$pv)
-									<li>
-										<img src="{{$pv['logo']}}" alt="">
-										<span>{{$pv['title']}}</span>
-									</li>
-								@endforeach
-							<ul>
-						
-							<!-- <ul>
-								@foreach($val['partner'] as $pk=>$pv)
-									<li>
-										<img src="{{$pv['logo']}}" alt="">
-										<span>{{$pv['title']}}</span>
-									</li>
-								@endforeach
-							</ul> -->
-						
+						<ul class=" aaa @if($val['class']=='active') active @endif">
+							@foreach($val['partner'] as $pk=>$pv)
+								<li>
+									<img src="{{$pv['logo']}}" alt="">
+									<span>{{$pv['title']}}</span>
+								</li>
+							@endforeach
+						</ul>
 					@endforeach
 				</div>
 			</div>
@@ -999,16 +997,3 @@
 		</a>
 	</div>
 </body>
-<!-- <script type="text/javascript" src="https://apps.bdimg.com/libs/jquery/2.1.4/jquery.min.js"></script>
-<script type="text/javascript">
-	$(function(){
-		$(".hot-header-first~li a").mouseover(function(){
-	        $(".hot-header-first~li a").each(function(i){
-	            $(this).removeClass("active");
-	        });
-	        $(this).addClass("active");
-	    }).mouseout(function(){
-	        $(this).removeClass("active");
-	    });
-	});
-</script> -->

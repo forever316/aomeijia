@@ -1,0 +1,349 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>投资攻略</title>
+  <link type="text/css" rel="styleSheet" href="../../css/common.css" />
+  <link type="text/css" rel="styleSheet" href="../../css/investment-strategy/index.css" />
+  <link type="text/css" rel="styleSheet" href="../../utils/swiper/swiper-bundle.min.css" />
+</head>
+
+<body>
+  <main id="investment-strategy-page" v-cloak>
+    <section class="banner">
+      <img src="../../images/investment-strategy/index/banner.jpg" alt="">
+    </section>
+
+    <section class="container-wrapper">
+      <div class="router-wrapper">
+        <span>首页</span>
+        <i>></i>
+        <span>投资攻略</span>
+        <i>></i>
+        <span>国家攻略</span>
+      </div>
+
+      <div class="area-wrapper">
+        <ul class="items">
+          <li
+            v-for="(item, index) in areas"
+            :key="index"
+            :class="['item', { on: item == areaSelected }]"
+            @click="areaSelected = item"
+          >
+            {{ item }}
+          </li>
+        </ul>
+      </div>
+
+      <div class="strategy-wrapper">
+        <ul class="items">
+          <li v-for="(item, index) in 6" :key="index" class="item">
+            <a href="./detail.html"></a>
+            <p class="name">
+              柬埔寨
+            </p>
+            <div class="hot-wrapper">
+              <div class="hot-box">
+                <span>投资热度</span>
+                <div class="star">
+                  <img v-for="(item, index) in 5" :key="index" src="../../images/investment-strategy/index/star.png" alt="">
+                </div>
+              </div>
+            </div>
+            <img src="../../images/investment-strategy/index/img.jpg" class="img">
+            <p class="desc">
+              相比较国内房产市场，发展前景被看好，中国房产龙头已提前布局，因此选择现在进场，就是完美时机。
+            </p>
+            <div class="tag">
+              <span>永久产权</span>
+              <span>税费低</span>
+              <span>7.5%回报率</span>
+            </div>
+          </li>
+        </ul>
+      </div>
+
+      <div class="house-wrapper">
+        <div class="common-box-header">
+          <p>亚洲热门房产项目</p>
+          <p><a href="#">查看更多 > > ></a></p>
+        </div>
+        <ul class="items">
+          <li v-for="(item, index) in 5" :key="index" class="item">
+            <a href="./detail.html">
+              <div class="img">
+                <img src="../../images/overseas-property/index/img.png" alt="">
+              </div>
+              <div class="detail">
+                <p class="name">
+                  云顶1号 -- 马来西亚云顶高原稀世臻品
+                </p>
+                <p class="sub-name">
+                  地球度假圣地环球资产钜作，俯瞰吉隆坡云山间的酒店式公寓，华语乐坛巨星巫启贤先生倾情代言。
+                </p>
+                <div class="desc">
+                  <img src="../../images/overseas-property/index/house.png" alt="">
+                  <span>公寓</span>
+                  <span>永久产权</span>
+                  <span>预计2021.04交房</span>
+                  <span>公寓</span>
+                  <span>36~108m²</span>
+                  <span>1~3房</span>
+                </div>
+                <div class="location">
+                  <img src="../../images/overseas-property/index/location.png" alt="">
+                  <span>马来西亚 - 吉隆坡</span>
+                </div>
+                <div class="tag">
+                  <span>不限购</span>
+                  <span>大马居留权</span>
+                  <span>投资&自住</span>
+                </div>
+              </div>
+              <div class="price-wrapper">
+                <div class="price-box">
+                  <p class="price">
+                    ￥<span>120</span>万起
+                  </p>
+                  <p class="unit-price">
+                    单价约￥3.3万起
+                  </p>
+                </div>
+              </div>
+            </a>
+          </li>
+        </ul>
+        <div class="more-btn">
+          查看更多
+        </div>
+      </div>
+
+      <div class="immigrant-wrapper">
+        <div class="common-box-header">
+          <p>亚洲热门移民项目</p>
+          <p><a href="#">查看更多 > > ></a></p>
+        </div>
+        <ul class="items">
+          <li class="item">
+            <div class="img-box">
+              <img src="../../images/Immigrant/index/img-01.jpg" alt="">
+              <p>加拿大投资移民</p>
+            </div>
+            <div class="detail-box">
+              <p class="desc">
+                面向人群：有移民加拿大的高净值客户
+              </p>
+              <div class="box">
+                <span class="tag">项目特点</span>
+                <span class="val">纳税大户这边请</span>
+              </div>
+              <div class="box">
+                <span class="tag">办理周期</span>
+                <span class="val">约2.5-4年</span>
+                <div class="price">
+                  ￥<span>150万</span>
+                </div>
+              </div>
+            </div>
+            <div class="btn-wrapper">
+              <a href="../Immigrant/detail.html" class="btn">
+                点击查看详情
+              </a>
+              <div class="btn appointment" @click="isAppointmentShow = true">
+                立即预约
+              </div>
+            </div>
+          </li>
+          <li class="item">
+            <div class="img-box">
+              <img src="../../images/Immigrant/index/img-02.jpg" alt="">
+              <p>希腊购房移民</p>
+            </div>
+            <div class="detail-box">
+              <p class="desc">
+                面向人群：有移民加拿大的高净值客户
+              </p>
+              <div class="box">
+                <span class="tag">项目特点</span>
+                <span class="val">一家三代拿永居</span>
+              </div>
+              <div class="box">
+                <span class="tag">办理周期</span>
+                <span class="val">约6-8月</span>
+                <div class="price">
+                  ￥<span>150万</span>
+                </div>
+              </div>
+            </div>
+            <div class="btn-wrapper">
+              <a href="../Immigrant/detail.html" class="btn">
+                点击查看详情
+              </a>
+              <div class="btn appointment" @click="isAppointmentShow = true">
+                立即预约
+              </div>
+            </div>
+          </li>
+          <li class="item">
+            <div class="img-box">
+              <img src="../../images/Immigrant/index/img-03.jpg" alt="">
+              <p>加拿大投资移民</p>
+            </div>
+            <div class="detail-box">
+              <p class="desc">
+                面向人群：有移民加拿大的高净值客户
+              </p>
+              <div class="box">
+                <span class="tag">项目特点</span>
+                <span class="val">纳税大户这边请</span>
+              </div>
+              <div class="box">
+                <span class="tag">办理周期</span>
+                <span class="val">3-6个月</span>
+                <div class="price">
+                  ￥<span>150万</span>
+                </div>
+              </div>
+            </div>
+            <div class="btn-wrapper">
+              <a href="../Immigrant/detail.html" class="btn">
+                点击查看详情
+              </a>
+              <div class="btn appointment" @click="isAppointmentShow = true">
+                立即预约
+              </div>
+            </div>
+          </li>
+        </ul>
+      </div>
+    </section>
+
+    <section class="page-footer">
+      <div class="page-footer-wrapper">
+        <div class="news-wrapper">
+          <div class="common-box-header">
+            <p>亚洲最新资讯</p>
+            <p><a href="#">查看更多 > > ></a></p>
+          </div>
+          <div class="news-box">
+            <div class="top-wrapper">
+              <a class="news" href="#">
+                <div class="img-wrapper">
+                  <img src="../../images/overseas-property/index/news-01.jpg" alt="">
+                </div>
+                <p class="name">
+                  一张图看懂 东南亚下一个投资机会在哪里？
+                </p> 
+              </a>
+              <div class="inner-wrapper">
+                <a v-for="(item, index) in 2" :key="index" class="box" href="#">
+                  <div class="img-wrapper">
+                    <img src="../../images/overseas-property/index/news-02.png" alt="">
+                  </div>
+                  <div class="right">
+                    <p class="name text-overflow-2">
+                      柬埔寨金边石油局长确认，年前前确保开采出”第一滴石油“
+                    </p>
+                    <p class="desc text-overflow-2">
+                      11月15日，柬埔寨矿产与能源部石油总局局长姜苏向媒体透露，获权开采A区块的KrisEnergy。
+                    </p>
+                  </div>
+                </a>
+              </div>
+            </div>
+            <div class="bottom-wrapper">
+              <a v-for="(item, index) in 4" :key="index" class="box" href="#">
+                <div class="img-wrapper">
+                  <img src="../../images/overseas-property/index/news-02.png" alt="">
+                </div>
+                <div class="right">
+                  <p class="name text-overflow-2">
+                    柬埔寨金边石油局长确认，年前前确保开采出”第一滴石油“
+                  </p>
+                  <p class="desc text-overflow-2">
+                    11月15日，柬埔寨矿产与能源部石油总局局长姜苏向媒体透露，获权开采A区块的KrisEnergy。
+                  </p>
+                </div>
+              </a>
+            </div>
+          </div>
+        </div>
+  
+        <div class="case-wrapper">
+          <div class="common-box-header">
+            <p>亚洲成功案例</p>
+            <p><a href="#">查看更多 > > ></a></p>
+          </div>
+          <div class="case-box">
+            <div class="swiper-wrapper">
+              <template v-for="(item, index) in 3" :key="index">
+                <a class="swiper-slide" href="#">
+                  <div class="img-wrapper">
+                    <img src="../../images/overseas-property/index/case-01.jpg" alt="">
+                  </div>
+                  <p class="name text-overflow-2">
+                    澳美家成功案例分享，葡萄牙黄金居留许可最快多久拿到？
+                  </p>
+                  <p class="desc text-overflow-2">
+                    投资人P先生考虑女儿在葡萄牙念书，为了方便陪读，一心想尽快拿到葡萄牙黄金居留卡，尽快完成全款和SEF事宜。
+                  </p>
+                </a>
+                <a class="swiper-slide" href="#">
+                  <div class="img-wrapper">
+                    <img src="../../images/overseas-property/index/case-02.jpg" alt="">
+                  </div>
+                  <p class="name text-overflow-2">
+                    徐先生一家在希腊买房，四人绿卡刚获批！
+                  </p>
+                  <p class="desc text-overflow-2">
+                    投资人P先生考虑女儿在葡萄牙念书，为了方便陪读，一心想尽快拿到葡萄牙黄金居留卡，尽快完成全款和SEF事宜。
+                  </p>
+                </a>
+              </template>
+            </div>
+          </div>
+          <div class="case-button-next" @click="nextCase"></div>
+          <div class="case-button-prev" @click="prevCase"></div>
+        </div>
+      </div>
+    </section>
+
+    <transition name="fade">
+      <section v-if="isAppointmentShow" class="appointment-wrapper" @click.self="isAppointmentShow = false">
+        <div class="appointment-cont">
+          <div class="head">
+            <img src="../../images/overseas-property/detail/appointment-head.png" alt="">
+            <i @click="isAppointmentShow = false">×</i>
+          </div>
+          <div class="text">
+            <i></i>
+            <span>立即预约</span>
+            <i></i>
+          </div>
+          <div class="cont">
+            <form>
+              <input type="text" placeholder="请输入您的姓名">
+              <input type="text" placeholder="请输入您的手机号">
+              <input type="text" placeholder="请输入您的微信">
+              <textarea placeholder="请输入您想了解的更多信息"></textarea>
+              <p class="notice">
+                * 所有信息均已进行加密处理，请放心填写！
+              </p>
+              <button type="submit" @click="isAppointmentShow = false">
+                立即提交
+              </button>
+            </form>
+          </div>
+        </div>
+      </section>
+    </transition>
+  </main>
+
+  <!-- <script src="https://apps.bdimg.com/libs/jquery/2.1.4/jquery.min.js"></script> -->
+  <script src="../../utils/swiper/swiper-bundle.min.js"></script>
+  <script src="../../utils/vue.js"></script>
+  <script src="../../js/investment-strategy/index.js"></script>
+</body>
+</html>

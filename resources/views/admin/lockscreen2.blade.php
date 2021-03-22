@@ -4,7 +4,7 @@
 <meta charset="utf-8" />
 <link type="text/css" rel="stylesheet" href="/assets/admin/login/css/loginCss.css" />
 <script>if(window.top !== window.self){ window.top.location = window.location;}</script>
-<title>致富管理后台 - 登录</title>
+<title>澳美家管理后台 - 登录</title>
 </head>
 <body>
      <form method="post" action="/login2" target="_self">

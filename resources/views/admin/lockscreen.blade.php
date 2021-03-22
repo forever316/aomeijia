@@ -7,7 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 
-    <title>致富管理后台 - 登录</title>
+    <title>澳美家管理后台 - 登录</title>
 
     <link href="/assets/admin/css/bootstrap.min.css?v=3.3.5" rel="stylesheet">
     <link href="/assets/admin/css/font-awesome.min.css?v=4.4.0" rel="stylesheet">

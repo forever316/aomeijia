@@ -7,6 +7,7 @@ use App\Models\Enum;
 use App\Models\City;
 use App\Models\Link;
 use App\Models\WechatMember;
+use App\Models\CompanyConfig;
 use Illuminate\Foundation\Bus\DispatchesJobs;
 use Illuminate\Routing\Controller as BaseController;
 use Illuminate\Foundation\Validation\ValidatesRequests;
@@ -14,6 +15,9 @@ use Illuminate\Foundation\Auth\Access\AuthorizesRequests;
 use Illuminate\Foundation\Auth\Access\AuthorizesResources;
 use Illuminate\Support\Facades\Session;
 use Illuminate\Support\Facades\DB;
+use App\Models\OverseaHouse;
+use App\Models\Migrate;
+use App\Models\Information;
 
 class Controller extends BaseController
 {
@@ -240,6 +244,13 @@ class Controller extends BaseController
 	}
     ///////////////////////////前台模块
     /*
+    * 得到公司信息
+    */
+    function getCompanyData()
+    {
+        return CompanyConfig::where('id',1)->first()->toArray();
+    }
+    /*
     * 得到所有的友情链接
     */
     function getLinkData()
@@ -251,6 +262,109 @@ class Controller extends BaseController
         }
         return $linkData;
     }
+    /*
+     * 得到其他页面显示的四个热门海外房产项目
+     * $limit取出n条数据
+     * $condition为检索条件
+     */
+    function getShowHouseData($limit,$condition=array())
+    {
+        $date = date('Y-m-d');
+        $query = OverseaHouse::where('status',1)->where('home_show',1)->where('publish_date','<=',$date);
+        if($condition){
+            foreach($condition as $key=>$val){
+                if(is_array($val)){
+                    $query = $query->whereIn($key,$val);
+                }else{
+                    $query = $query->where($key,$val);
+                }
+            }
+        }
+        $data = $query->orderBy('sort','desc')->orderBy('publish_date','desc')->orderBy('id','desc')->take($limit)->get()->toArray();
+        $cityData = City::getCityAllData();//得到城市所有数据
+        $typeData = Enum::getEnumAllData();//得到类型所有数据
+        foreach($data as $key=>$val){
+            $imgArr = array_filter(explode(';',$val['images']));
+            $data[$key]['img'] = $imgArr ? current($imgArr) : '';
+            $data[$key]['city_name'] = isset($cityData[$val['city_id']]) ? $cityData[$val['city_id']] : $val['city_id'];
+            $data[$key]['type_name'] = isset($typeData[$val['type_id']]) ? $typeData[$val['type_id']] : $val['type_id'];
+            $tagArr = array_filter(explode(';',$val['tag_id']));
+            $data[$key]['tag_name'] = array();
+            foreach($tagArr as $k=>$v){
+                $data[$key]['tag_name'][$k] = isset($typeData[$v]) && $typeData[$v] ? $typeData[$v] : $v;
+            }
+        }
+        return $data;
+    }
+
+    /*
+     * 得到其他页面显示的n个热门移民项目
+     * $limit取出n条数据
+     * $condition为检索条件
+     */
+    function getShowMigrateData($limit,$condition=array())
+    {
+        $date = date('Y-m-d');
+        $query = Migrate::where('status',1)->where('publish_date','<=',$date);
+        if($condition){
+            foreach($condition as $key=>$val){
+                if(is_array($val)){
+                    $query = $query->whereIn($key,$val);
+                }else{
+                    $query = $query->where($key,$val);
+                }
+            }
+        }
+        $data = $query->orderBy('sort','desc')->orderBy('publish_date','desc')->orderBy('id','desc')->take($limit)->get()->toArray();
+        return $data;
+    }
+
+    /*
+     * 得到其他页面显示的n个热门资讯项目
+     * $limit取出n条数据
+     * $condition为检索条件
+     * category = 1为热门资讯
+     * category = 2为成功案例
+     */
+    function getShowInfoData($limit,$condition=array())
+    {
+        $date = date('Y-m-d');
+        $query = Information::where('status',1)->where('publish_date','<=',$date);
+        if($condition){
+            foreach($condition as $key=>$val){
+                if(is_array($val)){
+                    $query = $query->whereIn($key,$val);
+                }else{
+                    $query = $query->where($key,$val);
+                }
+            }
+        }
+        $data = $query->orderBy('sort','desc')->orderBy('publish_date','desc')->orderBy('id','desc')->take($limit)->get()->toArray();
+        return $data;
+    }
+
+    /*
+     * 取出7个最新资讯
+     */
+    function getInfoData($countryIds=array())
+    {
+        $data['info'] = $this->getShowInfoData(7,['city_id'=>$countryIds,'category'=>1]);
+        $i=1;
+        $data['info_top'] = $data['info_inner'] = $data['right_top'] = array();
+        foreach($data['info'] as $key=>$val){
+            if($i==1){
+                $data['info_top'] = $val;
+            }elseif($i<=3){
+                $data['info_inner'][] = $val;
+            }else{
+                $data['info_right'][] = $val;
+            }
+            $i++;
+        }
+        return $data;
+    }
+
+
 
 
 }

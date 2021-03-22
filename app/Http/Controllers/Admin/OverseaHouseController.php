@@ -79,7 +79,7 @@ class OverseaHouseController extends Controller
         $user = Session::get('user');
         if($_POST){
             //获取参数
-            $params = ['city_id'=>'string','type_id'=>'string','feature_id'=>'int','images'=>'string','project_atlas'=>'string','unit_price'=>'string','title'=>'string','describe'=>'string','home_show'=>'string','complete_date'=>'string','area'=>'string','house_type'=>'string','total_price'=>'string','property_year'=>'string','first_payment'=>'string','year_return'=>'string','house_standard'=>'string','address'=>'string','sort'=>'string','status'=>'string','watch_number'=>'string','publish_date'=>'string','basic_info'=>'string','main_door'=>'string','surround_facility'=>'string','program_feature'=>'string','invest_analysis'=>'string'];
+            $params = ['city_id'=>'string','type_id'=>'string','feature_id'=>'int','price_range_id'=>'string','images'=>'string','project_atlas'=>'string','unit_price'=>'string','title'=>'string','describe'=>'string','home_show'=>'string','complete_date'=>'string','area'=>'string','house_type'=>'string','total_price'=>'string','property_year'=>'string','first_payment'=>'string','year_return'=>'string','house_standard'=>'string','address'=>'string','sort'=>'string','status'=>'string','watch_number'=>'string','publish_date'=>'string','basic_info'=>'string','main_door'=>'string','surround_facility'=>'string','program_feature'=>'string','invest_analysis'=>'string'];
             
             $data = $this->getInput($this->form,$params,$request);
             $tag_id = $request->input('tag_id');
@@ -96,7 +96,7 @@ class OverseaHouseController extends Controller
             }
         }else{
             //1房产类型,2房产标签,3房产特色
-            $objType = Enum::select(['id','name','type'])->where('status',1)->whereIn('type',array(1,2,3))->orderBy('sort','desc')->get();
+            $objType = Enum::select(['id','name','type'])->where('status',1)->whereIn('type',array(1,2,3,10))->orderBy('sort','desc')->get();
             foreach($objType as $item){
                 if($item->type==1){
                     $this->form['field']['type_id']['value'][$item->id] = $item->name;
@@ -104,6 +104,8 @@ class OverseaHouseController extends Controller
                     $this->form['field']['tag_id']['value'][$item->id] = $item->name;
                 }elseif($item->type==3){
                     $this->form['field']['feature_id']['value'][$item->id] = $item->name;
+                }elseif($item->type==10){
+                    $this->form['field']['price_range_id']['value'][$item->id] = $item->name;
                 }
             }
         }
@@ -123,7 +125,7 @@ class OverseaHouseController extends Controller
 
         if($_POST){
             //获取参数
-            $params = ['city_id'=>'string','type_id'=>'string','feature_id'=>'int','images'=>'string','project_atlas'=>'string','unit_price'=>'string','title'=>'string','describe'=>'string','home_show'=>'string','complete_date'=>'string','area'=>'string','house_type'=>'string','total_price'=>'string','property_year'=>'string','first_payment'=>'string','year_return'=>'string','house_standard'=>'string','address'=>'string','sort'=>'string','status'=>'string','watch_number'=>'string','publish_date'=>'string','basic_info'=>'string','main_door'=>'string','surround_facility'=>'string','program_feature'=>'string','invest_analysis'=>'string'];
+            $params = ['city_id'=>'string','type_id'=>'string','feature_id'=>'int','price_range_id'=>'string','images'=>'string','project_atlas'=>'string','unit_price'=>'string','title'=>'string','describe'=>'string','home_show'=>'string','complete_date'=>'string','area'=>'string','house_type'=>'string','total_price'=>'string','property_year'=>'string','first_payment'=>'string','year_return'=>'string','house_standard'=>'string','address'=>'string','sort'=>'string','status'=>'string','watch_number'=>'string','publish_date'=>'string','basic_info'=>'string','main_door'=>'string','surround_facility'=>'string','program_feature'=>'string','invest_analysis'=>'string'];
             $data = $this->getInput($this->form,$params,$request);
             $tag_id = $request->input('tag_id');
             $detailData->tag_id = implode(';', $tag_id);
@@ -142,7 +144,7 @@ class OverseaHouseController extends Controller
             }
         }else{
             //1房产类型,2房产标签,3房产特色
-            $objType = Enum::select(['id','name','type'])->where('status',1)->whereIn('type',array(1,2,3))->orderBy('sort','desc')->get();
+            $objType = Enum::select(['id','name','type'])->where('status',1)->whereIn('type',array(1,2,3,10))->orderBy('sort','desc')->get();
             foreach($objType as $item){
                 if($item->type==1){
                     $this->form['field']['type_id']['value'][$item->id] = $item->name;
@@ -150,6 +152,8 @@ class OverseaHouseController extends Controller
                     $this->form['field']['tag_id']['value'][$item->id] = $item->name;
                 }elseif($item->type==3){
                     $this->form['field']['feature_id']['value'][$item->id] = $item->name;
+                }elseif($item->type==10){
+                    $this->form['field']['price_range_id']['value'][$item->id] = $item->name;
                 }
             }
             $this->form['field']['images']['value'] = explode(';', $detailData->images);
@@ -169,11 +173,14 @@ class OverseaHouseController extends Controller
             abort(404);
         }else{
             // //1房产类型,2房产标签,3房产特色
-			$typeData = $this->getEnumByType([1,2,3]);
+			$typeData = $this->getEnumByType([1,2,3,10]);
             //类型名称
             $data->type_id = isset($typeData[$data->type_id]) && $typeData[$data->type_id] ? $typeData[$data->type_id] : $data->type_id;
             //特色名称
             $data->feature_id = isset($typeData[$data->feature_id]) && $typeData[$data->feature_id] ? $typeData[$data->feature_id] : $data->feature_id;
+            //房产价格区间
+            $data->price_range_id = isset($typeData[$data->price_range_id]) && $typeData[$data->price_range_id] ? $typeData[$data->price_range_id] : $data->price_range_id;
+
             //标签名称
             $tag_ids = explode(';', $data->tag_id);
             $data->tag_id = '';

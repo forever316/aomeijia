@@ -1,0 +1,340 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>全球移民</title>
+  <link type="text/css" rel="styleSheet" href="../../css/common.css" />
+  <link type="text/css" rel="styleSheet" href="../../css/immigrant/detail.css" />
+  <link type="text/css" rel="styleSheet" href="../../utils/swiper/swiper-bundle.min.css" />
+  <link type="text/css" rel="styleSheet" href="../../utils/sharejs/css/share.min.css" />
+</head>
+
+<body>
+  <main id="immigrant-detail-page" v-cloak>
+    <section ref="banner" class="banner">
+      <img src="../../images/Immigrant/detail/banner.jpg" alt="">
+    </section>
+
+    <section ref="basic" class="container-wrapper">
+      <div class="router-wrapper">
+        <span>首页</span>
+        <i>></i>
+        <span>全球移民</span>
+        <i>></i>
+        <span>希腊</span>
+      </div>
+
+      <div class="basic-content">
+        <img src="../../images/immigrant/detail/img.jpg" alt="">
+        <div class="right-wrapper">
+          <div class="top-box">
+            <div class="share-box">
+              <div class="share-btn" @click="isShareShow = !isShareShow">
+                <img src="../../images/overseas-property/detail/share.png" alt="">
+                <span>分享</span>
+                <div v-show="isShareShow" class="share-wrapper" @click.stop="">
+                  <div id="share"></div>
+                </div>
+              </div>
+            </div>
+            <p class="name">
+              希腊购房移民
+            </p>
+            <p class="desc">
+              面向人群：有移民加拿大的高净值客户
+            </p>
+          </div>
+
+          <div class="center-box">
+            <div class="content-inner">
+              <div>
+                <p class="text">
+                  项目特点
+                </p>
+                <p class="val">
+                  一家三代拿永居
+                </p>
+              </div>
+              <div>
+                <p class="text">
+                  居住要求
+                </p>
+                <p class="val">
+                  无居住要求  
+                </p>
+              </div>
+            </div>
+            <div class="content-inner">
+              <div>
+                <p class="text">
+                  身份类型
+                </p>
+                <p class="val">
+                  永久居民
+                </p>
+              </div>
+              <div>
+                <p class="text">
+                  办理周期
+                </p>
+                <p class="val">
+                  约6-8个月  
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <div class="bottom-box">
+            <div class="tel">
+              <img src="../../images/overseas-property/detail/tel.png" alt="">
+              <span>4007-889-229</span>
+            </div>
+            <div class="btn" @click="isCodeShow = true">
+              <span>免费咨询</span>
+              <div v-if="isCodeShow" class="code-wrapper">
+                <div class="head">
+                  <span>微信扫一扫，加好友</span>
+                  <i @click.stop="isCodeShow = false">×</i>
+                </div>
+                <div class="inner">
+                  <img src="../../images/overseas-property/detail/code.png" alt="">
+                  <div class="text">
+                    <i></i>
+                    <span>微信号</span>
+                    <i></i>
+                  </div>
+                  <p class="val">
+                    13823546295
+                  </p>
+                </div>
+              </div>
+            </div>
+            <div class="btn appointment" @click="isAppointmentShow = true">
+              <span>预约项目</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section :class="['nav-wrapper', { fixed: isNavFixed }]">
+      <div class="nav-box">
+        <div :class="{ on: navSelected == 'introduce' }" @click="toNav('#introduce')">项目简介</div>
+        <div :class="{ on: navSelected == 'advantage' }" @click="toNav('#advantage')">项目优势</div>
+        <div :class="{ on: navSelected == 'conditions' }" @click="toNav('#conditions')">申请条件</div>
+        <div :class="{ on: navSelected == 'steps' }" @click="toNav('#steps')">申请流程</div>
+        <div :class="{ on: navSelected == 'house' }" @click="toNav('#house')">精品房源鉴赏</div>
+      </div>
+    </section>
+
+    <section ref="content" class="container-wrapper">
+      <div class="inner-wrapper">
+        <div ref="introduce" id="introduce" class="box">
+          <div class="header">
+            <span>项目简介</span>
+          </div>
+          <div class="cont">
+            项目简介...
+          </div>
+        </div>
+        <div ref="advantage" id="advantage" class="box">
+          <div class="header">
+            <span>项目优势</span>
+          </div>
+          <div class="cont">
+            项目优势...
+          </div>
+        </div>
+        <div ref="conditions" id="conditions" class="box">
+          <div class="header">
+            <span>申请条件</span>
+          </div>
+          <div class="cont">
+            申请条件...
+          </div>
+        </div>
+        <div ref="steps" id="steps" class="box">
+          <div class="header">
+            <span>申请流程</span>
+          </div>
+          <div class="cont">
+            申请流程...
+          </div>
+        </div>
+        <div ref="house" id="house" class="box">
+          <div class="header">
+            <span>精品房源鉴赏</span>
+          </div>
+          <div class="project-recommend-inner">
+            <dl>
+              <dt v-for="(item, index) in 4" :key="index">
+                <div class="recommend-img-wrapper">
+                  <img src="../../images/hot-recommend-list.jpg" alt="">
+                  <div class="hot-logo">
+                    热门
+                  </div>
+                  <p>价格：￥120万起</p>
+                </div>
+                <div class="recommend-desc-wrapper">
+                  <p class="recommend-desc-title">
+                    云会星光i云会星光i云会星光i星光
+                  </p>
+                  <div class="recommend-desc-info">
+                    <span>
+                      <p>吉隆坡</p>
+                      <p>城市</p>
+                    </span>
+                    <span>
+                      <p>公寓</p>
+                      <p>类型</p>
+                    </span>
+                    <span>
+                      <p>￥3.3万起</p>
+                      <p>单价</p>
+                    </span>
+                    <span>
+                      <p>30%</p>
+                      <p>首付</p>
+                    </span>
+                  </div>
+                </div>
+              </dt>
+            </dl>
+            <div class="more-btn">
+              查看更多
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="page-footer">
+      <div class="page-footer-wrapper">
+        <div class="news-wrapper">
+          <div class="common-box-header">
+            <p>最新资讯</p>
+            <p><a href="#">查看更多 > > ></a></p>
+          </div>
+          <div class="news-box">
+            <div class="top-wrapper">
+              <a class="news" href="#">
+                <div class="img-wrapper">
+                  <img src="../../images/overseas-property/index/news-01.jpg" alt="">
+                </div>
+                <p class="name">
+                  一张图看懂 东南亚下一个投资机会在哪里？
+                </p> 
+              </a>
+              <div class="inner-wrapper">
+                <a v-for="(item, index) in 2" :key="index" class="box" href="#">
+                  <div class="img-wrapper">
+                    <img src="../../images/overseas-property/index/news-02.png" alt="">
+                  </div>
+                  <div class="right">
+                    <p class="name text-overflow-2">
+                      柬埔寨金边石油局长确认，年前前确保开采出”第一滴石油“
+                    </p>
+                    <p class="desc text-overflow-2">
+                      11月15日，柬埔寨矿产与能源部石油总局局长姜苏向媒体透露，获权开采A区块的KrisEnergy。
+                    </p>
+                  </div>
+                </a>
+              </div>
+            </div>
+            <div class="bottom-wrapper">
+              <a v-for="(item, index) in 4" :key="index" class="box" href="#">
+                <div class="img-wrapper">
+                  <img src="../../images/overseas-property/index/news-02.png" alt="">
+                </div>
+                <div class="right">
+                  <p class="name text-overflow-2">
+                    柬埔寨金边石油局长确认，年前前确保开采出”第一滴石油“
+                  </p>
+                  <p class="desc text-overflow-2">
+                    11月15日，柬埔寨矿产与能源部石油总局局长姜苏向媒体透露，获权开采A区块的KrisEnergy。
+                  </p>
+                </div>
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <div class="case-wrapper">
+          <div class="common-box-header">
+            <p>成功案例</p>
+            <p><a href="#">查看更多 > > ></a></p>
+          </div>
+          <div class="case-box">
+            <div class="swiper-wrapper">
+              <template v-for="(item, index) in 3" :key="index">
+                <a class="swiper-slide" href="#">
+                  <div class="img-wrapper">
+                    <img src="../../images/overseas-property/index/case-01.jpg" alt="">
+                  </div>
+                  <p class="name text-overflow-2">
+                    澳美家成功案例分享，葡萄牙黄金居留许可最快多久拿到？
+                  </p>
+                  <p class="desc text-overflow-2">
+                    投资人P先生考虑女儿在葡萄牙念书，为了方便陪读，一心想尽快拿到葡萄牙黄金居留卡，尽快完成全款和SEF事宜。
+                  </p>
+                </a>
+                <a class="swiper-slide" href="#">
+                  <div class="img-wrapper">
+                    <img src="../../images/overseas-property/index/case-02.jpg" alt="">
+                  </div>
+                  <p class="name text-overflow-2">
+                    徐先生一家在希腊买房，四人绿卡刚获批！
+                  </p>
+                  <p class="desc text-overflow-2">
+                    投资人P先生考虑女儿在葡萄牙念书，为了方便陪读，一心想尽快拿到葡萄牙黄金居留卡，尽快完成全款和SEF事宜。
+                  </p>
+                </a>
+              </template>
+            </div>
+          </div>
+          <div class="case-button-next" @click="nextCase"></div>
+          <div class="case-button-prev" @click="prevCase"></div>
+        </div>
+      </div>
+    </section>
+
+    <transition name="fade">
+      <section v-if="isAppointmentShow" class="appointment-wrapper" @click.self="isAppointmentShow = false">
+        <div class="appointment-cont">
+          <div class="head">
+            <img src="../../images/overseas-property/detail/appointment-head.png" alt="">
+            <i @click="isAppointmentShow = false">×</i>
+          </div>
+          <div class="text">
+            <i></i>
+            <span>立即预约</span>
+            <i></i>
+          </div>
+          <div class="cont">
+            <form>
+              <input type="text" placeholder="请输入您的姓名">
+              <input type="text" placeholder="请输入您的手机号">
+              <input type="text" placeholder="请输入您的微信">
+              <textarea placeholder="请输入您想了解的更多信息"></textarea>
+              <p class="notice">
+                * 所有信息均已进行加密处理，请放心填写！
+              </p>
+              <button type="submit" @click="isAppointmentShow = false">
+                立即提交
+              </button>
+            </form>
+          </div>
+        </div>
+      </section>
+    </transition>
+  </main>
+
+  <script src="../../utils/sharejs/js/qrcode.js"></script>
+  <script src="../../utils/sharejs/js/social-share.js"></script>
+  <!-- <script src="https://apps.bdimg.com/libs/jquery/2.1.4/jquery.min.js"></script> -->
+  <script src="../../utils/swiper/swiper-bundle.min.js"></script>
+  <script src="../../utils/vue.js"></script>
+  <script src="../../js/immigrant/detail.js"></script>
+</body>
+</html>

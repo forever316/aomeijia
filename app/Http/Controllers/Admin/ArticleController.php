@@ -13,7 +13,7 @@ use Illuminate\Support\Facades\Session;
 use EasyWeChat\Message\Article as wxArticle;
 
 /*
- * $typeArr = ['1'=>'公司简介','2'=>'加入我们',3=>'联系我们',4=>'集团动态',5=>'项目动态',6=>'投资主题'];
+ * $typeArr = ['1'=>'公司简介','2'=>'加入我们',3=>'联系我们',4=>'集团动态',5=>'项目动态',6=>'投资主题',,7,考察团内容，8往期考察团回顾，9往期活动回顾'];
 */
 class ArticleController extends Controller
 {
@@ -77,9 +77,12 @@ class ArticleController extends Controller
     public function addArticle(Request $request){
         $user = Session::get('user');
         $type = isset($_GET['type']) && $_GET['type'] ? $_GET['type'] : 0;
+        if($type==7){
+            $this->form['field']['close_date'] = ['text'=>'截止时间','type'=>'date','value'=>'','verify'=>['required']];
+        }
         if($_POST){
             //获取参数
-            $params = ['type'=>'string','thumb'=>'string','title'=>'string','content'=>'string','sort'=>'int','status'=>'string','describe'=>'string','read'=>'string','publish_date'=>'string','project_id'=>'int'];
+            $params = ['type'=>'string','thumb'=>'string','title'=>'string','content'=>'string','sort'=>'int','status'=>'string','describe'=>'string','read'=>'string','publish_date'=>'string','project_id'=>'int','close_date'=>'string'];
             $data = $this->getInput($this->form,$params,$request);
             if(isset($data['error'])){
                 unset($data['error']);
@@ -113,10 +116,13 @@ class ArticleController extends Controller
         if(!$detailData){
             abort(404);
         }
+        if($detailData->type==7){
+            $this->form['field']['close_date'] = ['text'=>'截止时间','type'=>'date','value'=>'','verify'=>['required']];
+        }
 
         if($_POST){
             //获取参数
-            $params = ['thumb'=>'string','title'=>'string','content'=>'string','sort'=>'int','status'=>'string','describe'=>'string','read'=>'string','publish_date'=>'string','project_id'=>'int'];
+            $params = ['thumb'=>'string','title'=>'string','content'=>'string','sort'=>'int','status'=>'string','describe'=>'string','read'=>'string','publish_date'=>'string','project_id'=>'int','close_date'=>'string'];
             $data = $this->getInput($this->form,$params,$request);
             if(isset($data['error'])){
                 unset($data['error']);
@@ -132,6 +138,7 @@ class ArticleController extends Controller
             $detailData->read = $data['read'];
             $detailData->publish_date = $data['publish_date'];
             $detailData->project_id = $data['project_id'];
+            $detailData->close_date = $data['close_date'];
             $return = $detailData->save();
             if ($return) {
                 return $this->returnJson(true, '', 'all');
@@ -184,6 +191,9 @@ class ArticleController extends Controller
                 $project = OverseaHouse::select('title')->where('id',$data->project_id)->first();
                 $data['project_id'] = $project->title;
                 $this->form['field']['project_id'] = ['text'=>'关联海外项目','type'=>'span'];
+            }
+            if($data->type==7){
+                $this->form['field']['close_date'] = ['text'=>'截止时间','type'=>'span'];
             }
             return view('admin/common/view',['title'=>WEBNAME.' - 查看图文','form'=>$this->form,'data'=>$data]);
         }

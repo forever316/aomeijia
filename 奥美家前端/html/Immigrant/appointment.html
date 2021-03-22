@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>全球移民</title>
+  <link type="text/css" rel="styleSheet" href="../../css/common.css" />
+  <link type="text/css" rel="styleSheet" href="../../css/immigrant/appointment.css" />
+</head>
+
+<body>
+  <main id="immigrant-appointment-page" v-cloak>
+    <section class="container-wrapper">
+      <p class="title">
+        提交私人定制需求单
+      </p>
+      <p class="desc">
+        请认真填写下述选项，澳美家为您定制最适合您的移民方案。
+      </p>
+      <div class="box">
+        <div class="header">
+          <span class="num">NO.1</span>
+          <span class="star">*</span>
+          <span class="text">您想去的国家？</span>
+          <span class="max">（最多可选3个）</span>
+        </div>
+        <div class="cont">
+          <div
+            v-for="(item, index) in country"
+            :key="index"
+            :class="['opt', { on: countrySelected.indexOf(item) > -1 }]"
+            @click="selectCountry(item)"
+          >
+            {{ item }}
+          </div>
+        </div>
+      </div>
+
+      <div class="box">
+        <div class="header">
+          <span class="num">NO.2</span>
+          <span class="star">*</span>
+          <span class="text">您为什么想移民？</span>
+          <span class="max">（最多可选3个）</span>
+        </div>
+        <div class="cont">
+          <div
+            v-for="(item, index) in reasons"
+            :key="index"
+            :class="['opt', { on: reasonSelected.indexOf(item) > -1 }]"
+            @click="selectReason(item)"
+          >
+            {{ item }}
+          </div>
+        </div>
+      </div>
+
+      <div class="box">
+        <div class="header">
+          <span class="num">NO.3</span>
+          <span class="star">*</span>
+          <span class="text">您的家庭资产？</span>
+          <span class="max">（单位人民币 ）</span>
+        </div>
+        <div class="cont">
+          <div
+            v-for="(item, index) in property"
+            :key="index"
+            :class="['opt', { on: item == propertySelected }]"
+            @click="propertySelected = item"
+          >
+            {{ item }}
+          </div>
+        </div>
+      </div>
+
+      <div class="box">
+        <div class="header">
+          <span class="num">NO.4</span>
+          <span class="star">*</span>
+          <span class="text">您的最高学历？</span>
+        </div>
+        <div class="cont">
+          <div
+            v-for="(item, index) in education"
+            :key="index"
+            :class="['opt', { on: item == educationSelected }]"
+            @click="educationSelected = item"
+          >
+            {{ item }}
+          </div>
+        </div>
+      </div>
+
+      <div class="box">
+        <div class="header">
+          <span class="num">NO.5</span>
+          <span class="star">*</span>
+          <span class="text">您希望获得的海外身份是什么？</span>
+        </div>
+        <div class="cont">
+          <div
+            v-for="(item, index) in expect"
+            :key="index"
+            :class="['opt', { on: item == expectSelected }]"
+            @click="expectSelected = item"
+          >
+            {{ item }}
+          </div>
+        </div>
+      </div>
+
+      <div class="box">
+        <div class="header">
+          <span class="num">NO.6</span>
+          <span class="star">*</span>
+          <span class="text">您的英语能力为多少级？</span>
+        </div>
+        <div class="cont">
+          <div
+            v-for="(item, index) in language"
+            :key="index"
+            :class="['opt', { on: item == languageSelected }]"
+            @click="languageSelected = item"
+          >
+            {{ item }}
+          </div>
+        </div>
+      </div>
+
+      <div class="box">
+        <div class="header">
+          <span class="num">NO.7</span>
+          <span class="star">*</span>
+          <span class="text">您的个人信息</span>
+          <span class="max">（所有信息均已进行加密处理）</span>
+        </div>
+        <div class="message">
+          <div class="inner">
+            <span class="text">姓名：</span>
+            <input v-model="name" type="text" placeholder="请输入您的姓名">
+          </div>
+          <div class="inner">
+            <span class="text">性别：</span>
+            <div class="radio-box">
+              <input type="radio" id="male" value="male" v-model="sex">
+              <label for="male">先生</label>
+              <input type="radio" id="female" value="female" v-model="sex">
+              <label for="female">女士</label>
+            </div>
+          </div>
+          <div class="inner">
+            <span class="text">电话：</span>
+            <input v-model="phone" type="text" placeholder="请输入您的电话">
+          </div>
+          <div class="inner">
+            <span class="text">邮箱：</span>
+            <input v-model="email" type="text" placeholder="请输入您的邮箱">
+          </div>
+          <div class="btn" @click="submitData">
+            立即提交
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- <script src="https://apps.bdimg.com/libs/jquery/2.1.4/jquery.min.js"></script> -->
+  <script src="../../utils/vue.js"></script>
+  <script src="../../js/immigrant/appointment.js"></script>
+</body>
+</html>

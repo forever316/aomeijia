@@ -1,0 +1,409 @@
+html body {
+	height: 100%;
+}
+
+body {
+	background-color: #fff;
+	overflow: scroll;
+}
+
+body, button, dl,dt,div,footer, form, h1, h2, h3, h4, h5, h6, header, hgroup, hr, input, legend, li, menu, nav, ol, p, pre, section, td, textarea, th, ul {
+  margin: 0;
+  padding: 0;
+  outline: none;
+}
+
+* {
+  position: relative;
+  box-sizing: border-box;
+}
+
+ul li {
+  list-style: none;
+}
+
+a {
+	color: #333;
+  text-decoration: none;
+}
+
+[v-cloak] {
+  display: none;
+}
+
+#overseas-property-news-page {
+  color: #333;
+  font-size: 14px;
+}
+
+.container-wrapper {
+  margin: 0 auto;
+  width: 1200px;
+}
+
+
+.router-wrapper {
+  margin-top: 10px;
+  height: 40px;
+  display: flex;
+	display: -webkit-box;
+	display: -moz-box;
+	display: -ms-flexbox;
+	display: -webkit-flex;
+  align-items: center;
+  -webkit-box-align: center;
+  -webkit-align-items: center;
+  -moz-box-align: center;
+  -moz-align-items: center;
+  -ms-flex-align: center;
+  color: #999;
+}
+
+.router-wrapper > span {
+  margin-right: 10px;
+  cursor: pointer;
+}
+
+.router-wrapper > i {
+  margin-right: 10px;
+}
+
+.router-wrapper > span:hover {
+  text-decoration: underline;
+}
+
+
+/* 文章详情 */
+.news-wrapper {
+	margin-top: 60px;
+}
+
+.news-wrapper .title {
+	padding: 0 30px;
+	font-weight: bold;
+	font-size: 20px;
+	text-align: center;
+}
+
+.news-wrapper .info-box {
+	margin-top: 20px;
+	padding-bottom: 30px;
+	display: flex;
+	display: -webkit-box;
+	display: -moz-box;
+	display: -ms-flexbox;
+	display: -webkit-flex;
+	align-items: center;
+  -webkit-box-align: center;
+  -webkit-align-items: center;
+  -moz-box-align: center;
+  -moz-align-items: center;
+  -ms-flex-align: center;
+	justify-content: center;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+  -moz-box-pack: center;
+  -moz-justify-content: center;
+  -ms-flex-pack: center;
+	border-bottom: 1px solid #ddd;
+}
+
+.news-wrapper .info-box .info {
+	font-size: 14px;
+	color: #999;
+}
+
+.news-wrapper .info-box .info > span:not(:first-child) {
+	margin-left: 30px;
+}
+
+.news-wrapper .info-box .share-btn {
+	position: absolute;
+	right: 0;
+  display: flex;
+	display: -webkit-box;
+	display: -moz-box;
+	display: -ms-flexbox;
+	display: -webkit-flex;
+  align-items: center;
+  -webkit-box-align: center;
+  -webkit-align-items: center;
+  -moz-box-align: center;
+  -moz-align-items: center;
+  -ms-flex-align: center;
+  height: 28px;
+  line-height: 28px;
+  padding: 0 10px;
+  color: #fff;
+  font-size: 14px;
+  border-radius: 14px;
+  background: #ee8300;
+  cursor: pointer;
+}
+
+.news-wrapper .info-box .share-btn > img {
+  margin-right: 5px;
+  width: 16px;
+  height: 16px;
+}
+
+.news-wrapper .info-box .share-btn .share-wrapper {
+  position: absolute;
+  bottom: -20px;
+  left: 50%;
+  transform: translate(-50%, 100%);
+  -ms-transform: translate(-50%, 100%);
+  -moz-transform: translate(-50%, 100%);
+  -webkit-transform: translate(-50%, 100%);
+  -o-transform: translate(-50%, 100%);
+  padding: 5px 10px;
+  background: #fff;
+  border-radius: 8px;
+  border: 1px solid #ddd;
+  z-index: 1;
+}
+
+.news-wrapper .info-box .share-btn .share-wrapper::before {
+  position: absolute;
+  top: -16px;
+  left: 50%;
+  transform: translateX(-50%);
+  -ms-transform: translateX(-50%);
+  -moz-transform: translateX(-50%);
+  -webkit-transform: translateX(-50%);
+  -o-transform: translateX(-50%);
+  width: 0;
+  height: 0;
+  border-left: 11px solid transparent;
+	border-right: 11px solid transparent;
+	border-bottom: 16px solid  #ddd;
+  content: '';
+}
+
+.news-wrapper .info-box .share-btn .share-wrapper::after {
+  position: absolute;
+  top: -14px;
+  left: 50%;
+  transform: translateX(-50%);
+  -ms-transform: translateX(-50%);
+  -moz-transform: translateX(-50%);
+  -webkit-transform: translateX(-50%);
+  -o-transform: translateX(-50%);
+  width: 0;
+  height: 0;
+  border-left: 10px solid transparent;
+	border-right: 10px solid transparent;
+	border-bottom: 14px solid  #fff;
+  content: '';
+}
+
+.news-wrapper .info-box .share-btn .share-wrapper #share {
+  display: flex;
+  display: -webkit-box;
+  display: -moz-box;
+  display: -ms-flexbox;
+  display: -webkit-flex;
+  justify-content: center;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+  -moz-box-pack: center;
+  -moz-justify-content: center;
+  -ms-flex-pack: center;
+}
+
+.news-wrapper .detail {
+	padding: 40px 0 80px;
+}
+
+
+.page-footer {
+  padding-top: 50px;
+  background: #f2f2f2;
+}
+
+.page-footer .page-footer-wrapper {
+  margin: 0 auto;
+  width: 1200px;
+}
+
+/* 热门房产项目 */
+.project-recommend-wrapper {
+	margin-top: 30px;
+}
+
+.project-recommend-inner {
+	margin-top: 6px;
+}
+
+.project-recommend-inner dl {
+  display: flex;
+	display: -webkit-box;
+	display: -moz-box;
+	display: -ms-flexbox;
+	display: -webkit-flex;
+  justify-content: space-between;
+  -webkit-box-pack: justify;
+  -webkit-justify-content: space-between;
+  -moz-box-pack: justify;
+  -moz-justify-content: space-between;
+  -ms-flex-pack: justify;
+	flex-wrap: wrap;
+  -ms-flex-wrap: wrap;
+}
+
+.project-recommend-inner dt {
+  margin-top: 20px;	
+	background-color: #fff;
+	cursor: pointer;
+}
+
+.project-recommend-inner dt:hover {
+	box-shadow: 1px 1px 5px 2px #ccc;
+	transition: 0.6s;
+}
+
+.recommend-img-wrapper {
+	width: 292px;
+	height: 254px;
+	overflow: hidden;
+}
+
+.recommend-img-wrapper > img {
+	width: 292px;
+	height: 254px;
+	transition: 0.6s;
+}
+
+.recommend-img-wrapper > p {
+	position: absolute;
+	bottom: 0px;
+	padding: 5px 15px;
+	border-radius: 0 20px 20px 0;
+	font-size: 14px;
+	color: #fff;
+	background-color: #ee8300;
+}
+
+.project-recommend-inner dt:hover .recommend-img-wrapper >img {
+	transform: scale(1.1);
+  -ms-transform: scale(1.1);
+  -moz-transform: scale(1.1);
+  -webkit-transform: scale(1.1);
+  -o-transform: scale(1.1);
+}
+
+.recommend-desc-wrapper {
+	width: 250px;
+	height: 117px;
+  padding: 22px 20px;
+  box-sizing: content-box;
+}
+
+.recommend-desc-wrapper .recommend-desc-title {
+	width: 250px;
+	font-size: 21px;
+	font-weight: 400;
+}
+
+.recommend-desc-wrapper .recommend-desc-title:hover {
+	color: #ee8300;
+}
+
+.recommend-desc-wrapper .recommend-desc-info {
+	margin-top: 10px;
+	display: flex;
+	display: -webkit-box;
+	display: -moz-box;
+	display: -ms-flexbox;
+	display: -webkit-flex;
+	justify-content: space-between;
+  -webkit-box-pack: justify;
+  -webkit-justify-content: space-between;
+  -moz-box-pack: justify;
+  -moz-justify-content: space-between;
+  -ms-flex-pack: justify;
+}
+
+.recommend-desc-wrapper .recommend-desc-info span {
+	text-align: center;
+}
+
+.recommend-desc-wrapper .recommend-desc-info span p:first-child {
+	color: #ee8300;
+	font-size: 16px;
+}
+
+.recommend-desc-wrapper .recommend-desc-info span p:last-child {
+	margin-top: 8px;
+	color: #a8a8a8;
+	font-size: 13px;
+}
+
+
+/* 热门移民项目 */
+.overseas-wrapper {
+  margin-top: 30px;
+  padding-bottom: 50px;
+}
+
+.overseas-bottom-list-wrapper{
+	margin-top: 33px;
+	display: flex;
+	display: -webkit-box;
+	display: -moz-box;
+	display: -ms-flexbox;
+	display: -webkit-flex;
+	justify-content: space-between;
+  -webkit-box-pack: justify;
+  -webkit-justify-content: space-between;
+  -moz-box-pack: justify;
+  -moz-justify-content: space-between;
+  -ms-flex-pack: justify;
+}
+
+.overseas-bottom-list {
+	width: 287px;
+	height: 288px;
+	position: relative;
+}
+
+.overseas-bottom-list .overseas-bottom-list-desc {
+	position: absolute;
+	bottom: 0;
+	width: 257px;
+	height: 148px;
+	padding: 120px 15px 20px 15px;
+  box-sizing: content-box;
+	color: #fff;
+  text-align: center;
+}
+
+.overseas-bottom-list .overseas-bottom-list-desc p:first-child {
+	font-size: 24px;
+}
+
+.overseas-bottom-list .overseas-bottom-list-desc p:nth-child(2) {
+	font-size: 18px;
+	font-weight: 300;
+	margin-top: 15px;
+}
+
+.overseas-bottom-list .overseas-bottom-list-desc p:last-child {
+	font-size: 13px;
+	font-weight: 300;
+	margin-top: 20px;
+}
+
+.overseas-bottom-list .overseas-bottom-list-desc p:last-child span {
+	padding: 2px 5px;
+	border:1px solid #fff;
+	border-radius: 5px;
+}
+
+.overseas-bottom-list .overseas-bottom-list-desc p:last-child span:not(:first-child) {
+	margin-left: 10px;
+}
+
+.overseas-bottom-list-wrapper .overseas-bottom-list:hover {
+	cursor: pointer;
+}

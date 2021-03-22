@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>房产详情</title>
+  <link type="text/css" rel="styleSheet" href="../../css/common.css" />
+  <link type="text/css" rel="styleSheet" href="../../css/introduction/detail.css" />
+  <link type="text/css" rel="styleSheet" href="../../utils/sharejs/css/share.min.css" />
+</head>
+
+<body>
+  <main id="introduction-detail-page" v-cloak>
+    <section class="container-wrapper">
+      <div class="router-wrapper">
+        <span>首页</span>
+        <i>></i>
+        <span>集团动态</span>
+        <i>></i>
+        <span>2020年10月份云顶1号最新进展，建筑主体进展一切顺利</span>
+      </div>
+
+      <div class="news-wrapper">
+        <p class="title">
+          2020年10月份云顶1号最新进展，建筑主体进展一切顺利
+        </p>
+        <div class="info-box">
+          <div class="info">
+            <span>时间：2020-12-18</span>
+            <span>阅读量：1360 次</span>
+          </div>
+          <div class="share-btn" @click="isShareShow = !isShareShow">
+            <img src="../../images/overseas-property/detail/share.png" alt="">
+            <span>分享</span>
+            <div v-show="isShareShow" class="share-wrapper" @click.stop="">
+              <div id="share"></div>
+            </div>
+          </div>
+        </div>
+        <div class="detail">
+          文章详情...
+        </div>
+
+        <div class="about-wrapper">
+          <div class="next-box">
+            <div class="inner">
+              <span class="tag">上一篇</span>
+              <span class="title text-overflow-1">一张图看懂 东南亚下一个投资机会在哪里？</span>
+            </div>
+            <div class="inner">
+              <span class="tag">下一篇</span>
+              <span class="title text-overflow-1">美国移民局恐破产拟涨申请费 绿卡和H-1B受影响</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="page-footer">
+      <div class="page-footer-wrapper">
+        <div class="project-recommend-wrapper">
+          <div class="common-box-header">
+            <p>热门房产项目</p>
+            <p><a href="#">查看更多 > > ></a></p>
+          </div>
+          <div class="project-recommend-inner">
+            <dl>
+              <dt v-for="(item, index) in 4" :key="index">
+                <div class="recommend-img-wrapper">
+                  <img src="../../images/hot-recommend-list.jpg" alt="">
+                  <span class="hot-logo">
+                    热门
+                  </span>
+                  <p>价格：￥120万起</p>
+                </div>
+                <div class="recommend-desc-wrapper">
+                  <p class="recommend-desc-title">
+                    云会星光i云会星光i云会星光i星光
+                  </p>
+                  <div class="recommend-desc-info">
+                    <span>
+                      <p>吉隆坡</p>
+                      <p>城市</p>
+                    </span>
+                    <span>
+                      <p>公寓</p>
+                      <p>类型</p>
+                    </span>
+                    <span>
+                      <p>￥3.3万起</p>
+                      <p>单价</p>
+                    </span>
+                    <span>
+                      <p>30%</p>
+                      <p>首付</p>
+                    </span>
+                  </div>
+                </div>
+              </dt>
+            </dl>
+          </div>
+        </div>
+
+        <div class="overseas-wrapper">
+          <div class="common-box-header">
+            <p>热门移民项目</p>
+            <p><a href="#">查看更多 > > ></a></p>
+          </div>
+          <div class="overseas-bottom-list-wrapper">
+            <div class="overseas-bottom-list">
+              <img src="../../images/overseas-bottom-list1.jpg">
+              <div class="overseas-bottom-list-desc">
+                <p>土耳其购房</p>
+                <p>12.7万欧起</p>
+                <p>
+                  <span>永久产权</span>
+                  <span>永无移民监</span>
+                  <span>三个月</span>
+                </p>
+              </div>
+            </div>
+            <div class="overseas-bottom-list">
+              <img src="../../images/overseas-bottom-list2.jpg">
+              <div class="overseas-bottom-list-desc">
+                <p>土耳其购房</p>
+                <p>12.7万欧起</p>
+                <p>
+                  <span>永久产权</span>
+                  <span>永无移民监</span>
+                  <span>三个月</span>
+                </p>
+              </div>
+            </div>
+            <div class="overseas-bottom-list">
+              <img src="../../images/overseas-bottom-list3.jpg">
+              <div class="overseas-bottom-list-desc">
+                <p>土耳其购房</p>
+                <p>12.7万欧起</p>
+                <p>
+                  <span>永久产权</span>
+                  <span>永无移民监</span>
+                  <span>三个月</span>
+                </p>
+              </div>
+            </div>
+            <div class="overseas-bottom-list">
+              <img src="../../images/overseas-bottom-list4.jpg">
+              <div class="overseas-bottom-list-desc">
+                <p>土耳其购房</p>
+                <p>12.7万欧起</p>
+                <p>
+                  <span>永久产权</span>
+                  <span>永无移民监</span>
+                  <span>三个月</span>
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <script src="../../utils/sharejs/js/qrcode.js"></script>
+  <script src="../../utils/sharejs/js/social-share.js"></script>
+  <!-- <script src="https://apps.bdimg.com/libs/jquery/2.1.4/jquery.min.js"></script> -->
+  <script src="../../utils/vue.js"></script>
+  <script src="../../js/introduction/detail.js"></script>
+</body>
+</html>

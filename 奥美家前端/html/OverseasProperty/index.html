@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>海外房地产</title>
+  <link type="text/css" rel="styleSheet" href="../../css/common.css" />
+  <link type="text/css" rel="styleSheet" href="../../css/overseas-property/index.css" />
+  <link type="text/css" rel="styleSheet" href="../../utils/swiper/swiper-bundle.min.css" />
+</head>
+
+<body>
+  <main id="overseas-property-page" v-cloak>
+    <section class="banner">
+      <img src="../../images/overseas-property/index/banner.jpg" alt="">
+    </section>
+
+    <section class="container-wrapper">
+      <div class="router-wrapper">
+        <span>首页</span>
+        <i>></i>
+        <span>海外房产</span>
+      </div>
+
+      <div class="search-wrapper">
+        <div class="search-left-wrapper">
+          <div class="search-box">
+            <input v-model="keywords" type="text" placeholder="国家 / 城市 / 项目关键字">
+            <div class="btn" @click="search">
+              <img src="../../images/overseas-property/index/search.png" alt="">
+            </div>
+          </div>
+          <div class="hot-box">
+            <span>热门搜索：</span>
+            <span v-for="(item, index) in hots" :key="index" @click="chooseHot(item)">{{ item }}</span>
+          </div>
+        </div>
+        <div class="search-right-wrapper">
+          共找到187个项目
+        </div>
+      </div>
+
+      <div class="filter-wrapper">
+        <ul>
+          <li v-for="(item, key) in filters" :key="key">
+            <span class="text">{{ item.name }}：</span>
+            <div class="val">
+              <span
+                :class="{ on: item.select == '不限' }"
+                @click="selectFilter(item, '不限')"
+              >
+                不限
+              </span>
+              <span
+                v-for="(el, i) in item.opts"
+                :key="i" :class="{ on: item.select == el }"
+                @click="selectFilter(item, el)">
+                {{ el }}
+              </span>
+            </div>
+          </li>
+        </ul>
+      </div>
+
+      <div class="list-wrapper">
+        <ul class="items">
+          <li v-for="(item, index) in 10" :key="index" class="item">
+            <a href="./detail.html">
+              <div class="img">
+                <img src="../../images/overseas-property/index/img.png" alt="">
+              </div>
+              <div class="detail">
+                <p class="name">
+                  云顶1号 -- 马来西亚云顶高原稀世臻品
+                </p>
+                <p class="sub-name">
+                  地球度假圣地环球资产钜作，俯瞰吉隆坡云山间的酒店式公寓，华语乐坛巨星巫启贤先生倾情代言。
+                </p>
+                <div class="desc">
+                  <img src="../../images/overseas-property/index/house.png" alt="">
+                  <span>公寓</span>
+                  <span>永久产权</span>
+                  <span>预计2021.04交房</span>
+                  <span>公寓</span>
+                  <span>36~108m²</span>
+                  <span>1~3房</span>
+                </div>
+                <div class="location">
+                  <img src="../../images/overseas-property/index/location.png" alt="">
+                  <span>马来西亚 - 吉隆坡</span>
+                </div>
+                <div class="tag">
+                  <span>不限购</span>
+                  <span>大马居留权</span>
+                  <span>投资&自住</span>
+                </div>
+              </div>
+              <div class="price-wrapper">
+                <div class="price-box">
+                  <p class="price">
+                    ￥<span>120</span>万起
+                  </p>
+                  <p class="unit-price">
+                    单价约￥3.3万起
+                  </p>
+                </div>
+              </div>
+            </a>
+          </li>
+        </ul>
+        <div class="page-wrapper">
+          <div class="page-box">
+            <span>《</span>
+            <span class="on">1</span>
+            <span>2</span>
+            <span>3</span>
+            <span>4</span>
+            <span>5</span>
+            <span>》</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="page-footer">
+      <div class="page-footer-wrapper">
+        <div class="news-wrapper">
+          <div class="common-box-header">
+            <p>最新资讯</p>
+            <p><a href="#">查看更多 > > ></a></p>
+          </div>
+          <div class="news-box">
+            <div class="top-wrapper">
+              <a class="news" href="#">
+                <div class="img-wrapper">
+                  <img src="../../images/overseas-property/index/news-01.jpg" alt="">
+                </div>
+                <p class="name">
+                  一张图看懂 东南亚下一个投资机会在哪里？
+                </p> 
+              </a>
+              <div class="inner-wrapper">
+                <a v-for="(item, index) in 2" :key="index" class="box" href="#">
+                  <div class="img-wrapper">
+                    <img src="../../images/overseas-property/index/news-02.png" alt="">
+                  </div>
+                  <div class="right">
+                    <p class="name text-overflow-2">
+                      柬埔寨金边石油局长确认，年前前确保开采出”第一滴石油“
+                    </p>
+                    <p class="desc text-overflow-2">
+                      11月15日，柬埔寨矿产与能源部石油总局局长姜苏向媒体透露，获权开采A区块的KrisEnergy。
+                    </p>
+                  </div>
+                </a>
+              </div>
+            </div>
+            <div class="bottom-wrapper">
+              <a v-for="(item, index) in 4" :key="index" class="box" href="#">
+                <div class="img-wrapper">
+                  <img src="../../images/overseas-property/index/news-02.png" alt="">
+                </div>
+                <div class="right">
+                  <p class="name text-overflow-2">
+                    柬埔寨金边石油局长确认，年前前确保开采出”第一滴石油“
+                  </p>
+                  <p class="desc text-overflow-2">
+                    11月15日，柬埔寨矿产与能源部石油总局局长姜苏向媒体透露，获权开采A区块的KrisEnergy。
+                  </p>
+                </div>
+              </a>
+            </div>
+          </div>
+        </div>
+  
+        <div class="case-wrapper">
+          <div class="common-box-header">
+            <p>成功案例</p>
+            <p><a href="#">查看更多 > > ></a></p>
+          </div>
+          <div class="case-box">
+            <div class="swiper-wrapper">
+              <template v-for="(item, index) in 3" :key="index">
+                <a class="swiper-slide" href="#">
+                  <div class="img-wrapper">
+                    <img src="../../images/overseas-property/index/case-01.jpg" alt="">
+                  </div>
+                  <p class="name text-overflow-2">
+                    澳美家成功案例分享，葡萄牙黄金居留许可最快多久拿到？
+                  </p>
+                  <p class="desc text-overflow-2">
+                    投资人P先生考虑女儿在葡萄牙念书，为了方便陪读，一心想尽快拿到葡萄牙黄金居留卡，尽快完成全款和SEF事宜。
+                  </p>
+                </a>
+                <a class="swiper-slide" href="#">
+                  <div class="img-wrapper">
+                    <img src="../../images/overseas-property/index/case-02.jpg" alt="">
+                  </div>
+                  <p class="name text-overflow-2">
+                    徐先生一家在希腊买房，四人绿卡刚获批！
+                  </p>
+                  <p class="desc text-overflow-2">
+                    投资人P先生考虑女儿在葡萄牙念书，为了方便陪读，一心想尽快拿到葡萄牙黄金居留卡，尽快完成全款和SEF事宜。
+                  </p>
+                </a>
+              </template>
+            </div>
+          </div>
+          <div class="case-button-next" @click="nextCase"></div>
+          <div class="case-button-prev" @click="prevCase"></div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- <script src="https://apps.bdimg.com/libs/jquery/2.1.4/jquery.min.js"></script> -->
+  <script src="../../utils/swiper/swiper-bundle.min.js"></script>
+  <script src="../../utils/vue.js"></script>
+  <script src="../../js/overseas-property/index.js"></script>
+</body>
+</html>

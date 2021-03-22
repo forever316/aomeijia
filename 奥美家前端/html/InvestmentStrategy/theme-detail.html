@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>投资主题</title>
+  <link type="text/css" rel="styleSheet" href="../../css/common.css" />
+  <link type="text/css" rel="styleSheet" href="../../css/investment-strategy/theme-detail.css" />
+  <link type="text/css" rel="styleSheet" href="../../utils/sharejs/css/share.min.css" />
+</head>
+
+<body>
+  <main id="investment-strategy-theme-detail-page" v-cloak>
+    <section class="container-wrapper">
+      <div class="router-wrapper">
+        <span>首页</span>
+        <i>></i>
+        <span>投资攻略</span>
+        <i>></i>
+        <span>投资主题</span>
+        <i>></i>
+        <span>澳美家成功案例分享，葡萄牙黄金居留许可最快多久拿到？</span>
+      </div>
+
+      <div class="detail-wrapper">
+        <div class="detail-left-wrapper">
+          <div class="news-wrapper">
+            <div class="info-box">
+              <img src="../../images/overseas-property/detail/news.jpg" alt="">
+              <div class="info-right">
+                <p class="title">
+                  澳美家成功案例分享，葡萄牙黄金居留许可最快多久拿到？
+                </p>
+                <p class="desc">
+                  投资人P先生考虑女儿在葡萄牙念书，为了方便陪读，一心想尽快拿到葡萄牙黄金居留卡，尽快完成全款和SEF事宜。
+                </p>
+              </div>
+            </div>
+            <div class="share-box">
+              <div class="share-btn" @click="isShareShow = !isShareShow">
+                <img src="../../images/overseas-property/detail/share.png" alt="">
+                <span>分享</span>
+                <div v-show="isShareShow" class="share-wrapper" @click.stop="">
+                  <div id="share"></div>
+                </div>
+              </div>
+            </div>
+            <div class="detail">
+              文章详情...
+            </div>
+            <div class="more-case">
+              更多热门成功案例：<span>柬埔寨</span><span>迪拜</span><span>希腊</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="detail-right-wrapper">
+          <div class="news-wrapper">
+            <div class="header">
+              <span class="text">百科资讯</span>
+              <span class="more">更多 ></span>
+            </div>
+            <ul>
+              <li v-for="(item, index) in 5" :key="index">
+                <img src="../../images/overseas-property/detail/news.jpg" alt="">
+                <p class="text-overflow-2">终于知道外国人怎么样在马来西亚买保险啦！</p>
+              </li>
+            </ul>
+          </div>
+
+          <div class="quesstion-wrapper">
+            <div class="header">
+              <span class="text">投资问答</span>
+              <span class="more">更多 ></span>
+            </div>
+            <div class="cont">
+              <div v-for="(item, index) in 4" :key="index" class="question-box">
+                <div class="question">
+                  <span class="tag">问</span>
+                  <p>马来西亚房产现在有哪些优势？</p>
+                </div>
+                <div class="answer text-overflow-2">
+                  1、投资门槛低，随着中国经济发展，海外投资不再只是富人的游戏，今天中国投资者们有很多...
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="contact-wrapper">
+        <div class="contact-box">
+          <div class="left-box">
+            <p class="title">
+              免费咨询
+            </p>
+            <div class="input-box">
+              <div class="input-left">
+                <input type="text" placeholder="请输入您的姓名">
+                <input type="text" placeholder="请输入您的电话">
+                <input type="text" placeholder="请输入您的邮箱">
+              </div>
+              <div class="input-right">
+                <textarea placeholder="请输入您想了解的更多信息"></textarea>
+              </div>
+            </div>
+            <p class="tip">
+              * 所有信息均已进行加密处理，请放心填写！
+            </p>
+            <div class="btn-wrapper">
+              <div class="btn">
+                立即提交
+              </div>
+            </div>
+          </div>
+          <div class="right-box">
+            <div class="tel">
+              <img src="../../images/common/tel.png" alt="">
+              <span>24小时咨询热线</span>
+            </div>
+            <p class="number">
+              4007-889-229
+            </p>
+            <div class="time">
+              <img src="../../images/common/chat.png" alt="">
+              <span>在线咨询，周一至周五，9:00 - 18:00</span>
+            </div>
+            <div class="btn">
+              在线咨询
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="page-footer">
+      <div class="page-footer-wrapper">
+        <div class="project-recommend-wrapper">
+          <div class="common-box-header">
+            <p>热门房产项目</p>
+            <p><a href="#">查看更多 > > ></a></p>
+          </div>
+          <div class="project-recommend-inner">
+            <dl>
+              <dt v-for="(item, index) in 4" :key="index">
+                <div class="recommend-img-wrapper">
+                  <img src="../../images/hot-recommend-list.jpg" alt="">
+                  <span class="hot-logo">
+                    热门
+                  </span>
+                  <p>价格：￥120万起</p>
+                </div>
+                <div class="recommend-desc-wrapper">
+                  <p class="recommend-desc-title">
+                    云会星光i云会星光i云会星光i星光
+                  </p>
+                  <div class="recommend-desc-info">
+                    <span>
+                      <p>吉隆坡</p>
+                      <p>城市</p>
+                    </span>
+                    <span>
+                      <p>公寓</p>
+                      <p>类型</p>
+                    </span>
+                    <span>
+                      <p>￥3.3万起</p>
+                      <p>单价</p>
+                    </span>
+                    <span>
+                      <p>30%</p>
+                      <p>首付</p>
+                    </span>
+                  </div>
+                </div>
+              </dt>
+            </dl>
+          </div>
+        </div>
+
+        <div class="overseas-wrapper">
+          <div class="common-box-header">
+            <p>热门移民项目</p>
+            <p><a href="#">查看更多 > > ></a></p>
+          </div>
+          <div class="overseas-bottom-list-wrapper">
+            <div class="overseas-bottom-list">
+              <img src="../../images/overseas-bottom-list1.jpg">
+              <div class="overseas-bottom-list-desc">
+                <p>土耳其购房</p>
+                <p>12.7万欧起</p>
+                <p>
+                  <span>永久产权</span>
+                  <span>永无移民监</span>
+                  <span>三个月</span>
+                </p>
+              </div>
+            </div>
+            <div class="overseas-bottom-list">
+              <img src="../../images/overseas-bottom-list2.jpg">
+              <div class="overseas-bottom-list-desc">
+                <p>土耳其购房</p>
+                <p>12.7万欧起</p>
+                <p>
+                  <span>永久产权</span>
+                  <span>永无移民监</span>
+                  <span>三个月</span>
+                </p>
+              </div>
+            </div>
+            <div class="overseas-bottom-list">
+              <img src="../../images/overseas-bottom-list3.jpg">
+              <div class="overseas-bottom-list-desc">
+                <p>土耳其购房</p>
+                <p>12.7万欧起</p>
+                <p>
+                  <span>永久产权</span>
+                  <span>永无移民监</span>
+                  <span>三个月</span>
+                </p>
+              </div>
+            </div>
+            <div class="overseas-bottom-list">
+              <img src="../../images/overseas-bottom-list4.jpg">
+              <div class="overseas-bottom-list-desc">
+                <p>土耳其购房</p>
+                <p>12.7万欧起</p>
+                <p>
+                  <span>永久产权</span>
+                  <span>永无移民监</span>
+                  <span>三个月</span>
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <script src="../../utils/sharejs/js/qrcode.js"></script>
+  <script src="../../utils/sharejs/js/social-share.js"></script>
+  <!-- <script src="https://apps.bdimg.com/libs/jquery/2.1.4/jquery.min.js"></script> -->
+  <script src="../../utils/vue.js"></script>
+  <script src="../../js/investment-strategy/theme-detail.js"></script>
+</body>
+</html>

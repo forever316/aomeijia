@@ -35,4 +35,11 @@ class City extends Model
     public function children(){
         return $this->hasMany(get_class($this), "pid",'id');
     }
+
+    //获取所有数据
+    public static function getCityAllData()
+    {
+        $data = self::get()->pluck('name','id')->toArray();
+        return $data;
+    }
 }

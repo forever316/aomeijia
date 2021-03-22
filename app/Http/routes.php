@@ -204,11 +204,18 @@ Route::group(['domain' => ADMINWEBSITE,'middleware'=>['auth','authority']], func
     Route::match(['get', 'post'], '/migrate/deleteMigrate','Admin\MigrateController@deleteMigrate');//删除全球移民
     Route::match(['get', 'post'], '/migrate/seeMigrate','Admin\MigrateController@seeMigrate');//查看全球移民
 
+    //分公司地址管理
+    Route::match(['get', 'post'], '/companyBranch/list','Admin\CompanyBranchController@list');//分公司地址列表
+    Route::match(['get', 'post'], '/companyBranch/add','Admin\CompanyBranchController@add');//添加分公司地址
+    Route::match(['get', 'post'], '/companyBranch/update','Admin\CompanyBranchController@update');//更新分公司地址
+    Route::match(['get', 'post'], '/companyBranch/delete','Admin\CompanyBranchController@delete');//删除分公司地址
 
-
-
-
-
+    //展会活动管理
+    Route::match(['get', 'post'], '/active/list','Admin\ActiveController@list');//展会活动列表
+    Route::match(['get', 'post'], '/active/add','Admin\ActiveController@add');//添加展会活动
+    Route::match(['get', 'post'], '/active/update','Admin\ActiveController@update');//更新展会活动
+    Route::match(['get', 'post'], '/active/delete','Admin\ActiveController@delete');//删除展会活动
+    Route::match(['get', 'post'], '/active/see','Admin\ActiveController@see');//查看展会活动
 
 });
 
@@ -219,6 +226,34 @@ Route::group(['domain' => FRONTWEBSITE,'middleware' => 'access'], function()//,'
 {
     //首页
     Route::get('/','Front\HomeController@index');
+
+    //集团简介
+    Route::get('/corp/corpBrief','Front\CorpController@corpBrief');
+    Route::get('/article','Front\ArticleController@detail');//文章详情页
+
+    //百科资讯
+    Route::get('/information','Front\InformationController@index');//百科资讯汇总页
+    Route::get('/information/detail','Front\InformationController@detail');//百科资讯详情页
+
+    //全球移民
+    Route::get('/migrate','Front\MigrateController@index');//全球移民汇总页
+    Route::get('/migrate/detail','Front\MigrateController@detail');//全球移民详情页
+    Route::get('/migrate/test','Front\MigrateController@test');//全球移民测试页
+
+    //海外房产
+    Route::get('/house','Front\HouseController@index');//全球移民汇总页
+    Route::get('/house/detail','Front\HouseController@detail');//全球移民详情页
+
+
+    //投资攻略
+    Route::get('/invest/country','Front\investCountryController@index');//国家投资攻略汇总页
+    Route::get('/invest/country/detail','Front\investCountryController@detail');//国家投资攻略详情页
+    Route::get('/invest/country/detailInfo','Front\investCountryController@detailInfo');//国家投资攻略详细信息页
+    Route::get('/invest/theme','Front\investThemeController@index');//投资主题汇总页
+    Route::get('/invest/theme/detail','Front\investThemeController@detail');//投资主题详情页
+    Route::get('/invest/faqs','Front\investFaqsController@index');//投资主题汇总页//投资问答faqs
+    Route::get('/invest/case','Front\investCaseController@index');//投资主题汇总页
+    Route::get('/invest/case/detail','Front\investCaseController@detail');//投资主题详情页
 
 
     

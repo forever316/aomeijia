@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>百科资讯</title>
+  <link type="text/css" rel="styleSheet" href="../../css/common.css" />
+  <link type="text/css" rel="styleSheet" href="../../css/news/index.css" />
+  <link type="text/css" rel="styleSheet" href="../../utils/swiper/swiper-bundle.min.css" />
+</head>
+
+<body>
+  <main id="news-index-page" v-cloak>
+    <section class="container-wrapper">
+      <div class="router-wrapper">
+        <span>首页</span>
+        <i>></i>
+        <span>百科咨询</span>
+      </div>
+
+      <div class="detail-wrapper">
+        <div class="detail-left-wrapper">
+          <div class="search-wrapper">
+            <div class="search-box">
+              <input v-model="keywords" type="text" placeholder="请输入关键字搜索">
+              <div class="btn" @click="search">
+                <img src="../../images/overseas-property/index/search.png" alt="">
+              </div>
+            </div>
+            <div class="hot-box">
+              <span>热门搜索：</span>
+              <span v-for="(item, index) in hots" :key="index" @click="chooseHot(item)">{{ item }}</span>
+            </div>
+          </div>
+    
+          <div class="filter-wrapper">
+            <ul>
+              <li v-for="(item, key) in filters" :key="key">
+                <span class="text">{{ item.name }}：</span>
+                <div class="val">
+                  <span
+                    :class="{ on: item.select == '不限' }"
+                    @click="selectFilter(item, '不限')"
+                  >
+                    不限
+                  </span>
+                  <span
+                    v-for="(el, i) in item.opts"
+                    :key="i" :class="{ on: item.select == el }"
+                    @click="selectFilter(item, el)">
+                    {{ el }}
+                  </span>
+                </div>
+              </li>
+            </ul>
+          </div>
+
+          <div class="swiper-container news-swiper">
+            <div class="swiper-wrapper">
+              <a v-for="(item, index) in 3" :key="index" class="swiper-slide" href="./detail.html">
+                <img src="../../images/news/index/news.jpg" alt="">
+                <div class="title-box">
+                  <p class="title">
+                    2020年10月份云顶1号最新进展，建筑主体进展一切顺利 {{ index + 1 }}
+                  </p>
+                  <p class="desc text-overflow-2">
+                    2020年10月份云顶1号最新进展，建筑主体进展一切顺利，2020年10月份云顶1号最新进展，建筑主体进展一切顺利。
+                    2020年10月份云顶1号最新进展，建筑主体进展一切顺利，2020年10月份云顶1号最新进展，建筑主体进展一切顺利。
+                  </p>
+                </div>
+              </a>
+            </div>
+            <div class="swiper-pagination"></div>
+          </div>
+
+          <div class="news-list">
+            <a v-for="(item, index) in 10" :key="index" href="./detail.html">
+              <img src="../../images/overseas-property/detail/img-02.png" alt="">
+              <div class="right">
+                <p class="title text-overflow-2">
+                  2020年10月份云顶1号最新进展，建筑主体进展一切顺利 
+                </p>
+                <p class="text text-overflow-2">
+                  2020年10月份云顶1号最新进展，建筑主体进展一切顺利，2020年10月份云顶1号最新进展，建筑主体进展一切顺利。
+                  2020年10月份云顶1号最新进展，建筑主体进展一切顺利，2020年10月份云顶1号最新进展，建筑主体进展一切顺利。
+                </p>
+                <div class="time">
+                  <span>2020-12-16</span>
+                  <span>1360次阅读</span>
+                </div>
+              </div>
+            </a>
+          </div>
+
+          <div class="page-wrapper">
+            <div class="page-box">
+              <span>《</span>
+              <span class="on">1</span>
+              <span>2</span>
+              <span>3</span>
+              <span>4</span>
+              <span>5</span>
+              <span>》</span>
+            </div>
+          </div>
+        </div>
+  
+        <div class="detail-right-wrapper">
+          <div class="hot-wrapper">
+            <div class="header">
+              <span class="text">热门投资主题</span>
+              <span class="more">更多 ></span>
+            </div>
+            <div class="cont">
+              <div v-for="(item, index) in 3" :key="index" class="hot-box">
+                <img src="../../images/news/index/img.jpg" alt="">
+                <p class="name text-overflow-2">
+                  100万人民币可以买哪些项目？
+                </p>
+                <p class="desc text-overflow-2">
+                  如果您的投资预算是在100万人民币以内，那么这些项目千万别错过！
+                </p>
+              </div>
+            </div>
+          </div>
+          <div class="quesstion-wrapper">
+            <div class="header">
+              <span class="text">投资问答</span>
+              <span class="more">更多 ></span>
+            </div>
+            <div class="cont">
+              <div v-for="(item, index) in 4" :key="index" class="question-box">
+                <div class="question">
+                  <span class="tag">问</span>
+                  <p>马来西亚房产现在有哪些优势？</p>
+                </div>
+                <div class="answer text-overflow-2">
+                  1、投资门槛低，随着中国经济发展，海外投资不再只是富人的游戏，今天中国投资者们有很多...
+                </div>
+              </div>
+            </div>
+          </div>
+          <img src="../../images/news/index/ad.jpg" class="ad">
+        </div>
+      </div>
+    </section>
+
+    <section class="page-footer">
+      <div class="page-footer-wrapper">
+        <div class="project-recommend-wrapper">
+          <div class="common-box-header">
+            <p>热门房产项目</p>
+            <p><a href="#">查看更多 > > ></a></p>
+          </div>
+          <div class="project-recommend-inner">
+            <dl>
+              <dt v-for="(item, index) in 4" :key="index">
+                <div class="recommend-img-wrapper">
+                  <img src="../../images/hot-recommend-list.jpg" alt="">
+                  <span class="hot-logo">
+                    热门
+                  </span>
+                  <p>价格：￥120万起</p>
+                </div>
+                <div class="recommend-desc-wrapper">
+                  <p class="recommend-desc-title">
+                    云会星光i云会星光i云会星光i星光
+                  </p>
+                  <div class="recommend-desc-info">
+                    <span>
+                      <p>吉隆坡</p>
+                      <p>城市</p>
+                    </span>
+                    <span>
+                      <p>公寓</p>
+                      <p>类型</p>
+                    </span>
+                    <span>
+                      <p>￥3.3万起</p>
+                      <p>单价</p>
+                    </span>
+                    <span>
+                      <p>30%</p>
+                      <p>首付</p>
+                    </span>
+                  </div>
+                </div>
+              </dt>
+            </dl>
+          </div>
+        </div>
+
+        <div class="overseas-wrapper">
+          <div class="common-box-header">
+            <p>热门移民项目</p>
+            <p><a href="#">查看更多 > > ></a></p>
+          </div>
+          <div class="overseas-bottom-list-wrapper">
+            <div class="overseas-bottom-list">
+              <img src="../../images/overseas-bottom-list1.jpg">
+              <div class="overseas-bottom-list-desc">
+                <p>土耳其购房</p>
+                <p>12.7万欧起</p>
+                <p>
+                  <span>永久产权</span>
+                  <span>永无移民监</span>
+                  <span>三个月</span>
+                </p>
+              </div>
+            </div>
+            <div class="overseas-bottom-list">
+              <img src="../../images/overseas-bottom-list2.jpg">
+              <div class="overseas-bottom-list-desc">
+                <p>土耳其购房</p>
+                <p>12.7万欧起</p>
+                <p>
+                  <span>永久产权</span>
+                  <span>永无移民监</span>
+                  <span>三个月</span>
+                </p>
+              </div>
+            </div>
+            <div class="overseas-bottom-list">
+              <img src="../../images/overseas-bottom-list3.jpg">
+              <div class="overseas-bottom-list-desc">
+                <p>土耳其购房</p>
+                <p>12.7万欧起</p>
+                <p>
+                  <span>永久产权</span>
+                  <span>永无移民监</span>
+                  <span>三个月</span>
+                </p>
+              </div>
+            </div>
+            <div class="overseas-bottom-list">
+              <img src="../../images/overseas-bottom-list4.jpg">
+              <div class="overseas-bottom-list-desc">
+                <p>土耳其购房</p>
+                <p>12.7万欧起</p>
+                <p>
+                  <span>永久产权</span>
+                  <span>永无移民监</span>
+                  <span>三个月</span>
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- <script src="https://apps.bdimg.com/libs/jquery/2.1.4/jquery.min.js"></script> -->
+  <script src="../../utils/swiper/swiper-bundle.min.js"></script>
+  <script src="../../utils/vue.js"></script>
+  <script src="../../js/news/index.js"></script>
+</body>
+</html>

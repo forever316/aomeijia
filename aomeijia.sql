@@ -10,10 +10,34 @@ Target Server Type    : MYSQL
 Target Server Version : 50726
 File Encoding         : 65001
 
-Date: 2021-03-02 23:13:13
+Date: 2021-03-18 01:21:17
 */
 
 SET FOREIGN_KEY_CHECKS=0;
+
+-- ----------------------------
+-- Table structure for active
+-- ----------------------------
+DROP TABLE IF EXISTS `active`;
+CREATE TABLE `active` (
+  `id` int(11) NOT NULL AUTO_INCREMENT COMMENT 'id',
+  `thumb` varchar(255) NOT NULL DEFAULT '' COMMENT '封面图',
+  `theme` varchar(100) NOT NULL DEFAULT '' COMMENT '主题',
+  `type` varchar(100) NOT NULL DEFAULT '' COMMENT '类型',
+  `time` varchar(100) NOT NULL DEFAULT '' COMMENT '时间',
+  `address` varchar(100) NOT NULL DEFAULT '' COMMENT '地点',
+  `content` text COMMENT '文章详情',
+  `sort` int(3) NOT NULL DEFAULT '1' COMMENT '排序',
+  `status` int(11) NOT NULL DEFAULT '0' COMMENT '状态:1启用2禁用',
+  `updated_at` varchar(50) DEFAULT NULL COMMENT '更新时间',
+  `created_at` varchar(50) DEFAULT NULL COMMENT '创建时间',
+  PRIMARY KEY (`id`)
+) ENGINE=MyISAM AUTO_INCREMENT=2 DEFAULT CHARSET=utf8 COMMENT='展会活动表';
+
+-- ----------------------------
+-- Records of active
+-- ----------------------------
+INSERT INTO `active` VALUES ('1', 'uploads/images/quZiCKCjbh.jpg', '活动主题122', '活动类型122', '时间：2021.3.1422', '深圳福田区世界之窗22', '<p>这是展会活动12222</p>', '22', '1', '2021-03-14 22:40:22', '2021-03-14 22:39:41');
 
 -- ----------------------------
 -- Table structure for admin_user
@@ -108,9 +132,9 @@ INSERT INTO `api_modular` VALUES ('8', '积分商城', 'uploads/images/mo3IeNDZ5
 DROP TABLE IF EXISTS `article`;
 CREATE TABLE `article` (
   `id` int(13) unsigned NOT NULL AUTO_INCREMENT,
-  `type` int(11) NOT NULL DEFAULT '0' COMMENT '文章类型，''1公司简介,2加入我们,3联系我们,4集团动态,5项目动态,6投资主题''',
+  `type` int(11) NOT NULL DEFAULT '0' COMMENT '文章类型，''1公司简介,2加入我们,3联系我们,4集团动态,5项目动态,6投资主题'',7,考察团内容，8往期考察团回顾，9往期活动回顾',
   `thumb` varchar(255) NOT NULL DEFAULT '' COMMENT '封面图',
-  `title` varchar(25) NOT NULL DEFAULT '' COMMENT '文章标题',
+  `title` varchar(255) NOT NULL DEFAULT '' COMMENT '文章标题',
   `describe` varchar(255) NOT NULL DEFAULT '' COMMENT '文章描述',
   `content` text COMMENT '文章详情',
   `sort` varchar(25) NOT NULL DEFAULT '0' COMMENT '排序',
@@ -118,25 +142,62 @@ CREATE TABLE `article` (
   `read` int(11) NOT NULL DEFAULT '0' COMMENT '阅读量',
   `real_read` int(11) DEFAULT '0' COMMENT '真实阅读量',
   `project_id` int(11) DEFAULT NULL COMMENT '项目id,主要是针对海外房产的项目动态',
-  `publish_date` date DEFAULT NULL COMMENT '发布时间',
+  `publish_date` date DEFAULT '1970-01-01' COMMENT '发布时间',
+  `close_date` date DEFAULT '9999-01-01' COMMENT '考察团的报名截止日期',
   `created_at` varchar(25) NOT NULL,
   `updated_at` varchar(25) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=13 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=49 DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Records of article
 -- ----------------------------
-INSERT INTO `article` VALUES ('1', '2', 'uploads/images/8XB9HBqBTk.jpg', '这是加入我们的文章', '', '<p style=\"border: 0px none; margin-top: 30px; margin-bottom: 0px; padding: 0px; vertical-align: baseline; color: rgb(99, 99, 99); line-height: 30px; font-family: &quot;Microsoft YaHei&quot;, Helvetica, &quot;STHeiti STXihei&quot;, &quot;Microsoft JhengHei&quot;, Arial; white-space: normal;\"><span style=\"border: 0px none; margin: 0px; padding: 0px; vertical-align: baseline; font-family: arial, helvetica, sans-serif;\">Aumeca Group is a professional and earliest overseas real estate agent service company in China, with many years’ development, our company becomes the leading agency in China. Our head office located in Melbourne, Australia, we also have offices in Shenzhen, Shanghai, Guangzhou, Hefei in Mainland China.</span></p><p style=\"border: 0px none; margin-top: 30px; margin-bottom: 0px; padding: 0px; vertical-align: baseline; color: rgb(99, 99, 99); line-height: 30px; font-family: &quot;Microsoft YaHei&quot;, Helvetica, &quot;STHeiti STXihei&quot;, &quot;Microsoft JhengHei&quot;, Arial; white-space: normal;\"><span style=\"border: 0px none; margin: 0px; padding: 0px; vertical-align: baseline; font-family: arial, helvetica, sans-serif;\">Aumeca Group focus on provide professional overseas real estate consultation service to our customers, and we work closely with overseas developers and become one of the leading partners for major Australian developers for project sales and marketing into China. With expert team and experience on overseas property, we won our customers&#39; trust.</span></p><p style=\"border: 0px none; margin-top: 30px; margin-bottom: 0px; padding: 0px; vertical-align: baseline; color: rgb(99, 99, 99); line-height: 30px; font-family: &quot;Microsoft YaHei&quot;, Helvetica, &quot;STHeiti STXihei&quot;, &quot;Microsoft JhengHei&quot;, Arial; white-space: normal;\"><span style=\"border: 0px none; margin: 0px; padding: 0px; vertical-align: baseline; font-family: arial, helvetica, sans-serif;\">We also cooperate with leading migration companies to provide our customers tailor solution of migration and studying abroad.</span></p><p><br/></p>', '0', '1', '0', '0', null, '2021-02-19', '2021-02-13 22:04:27', '2021-02-13 22:04:27');
-INSERT INTO `article` VALUES ('3', '3', 'uploads/images/nUrqsewHUj.jpg', '这是联系我们', '这是联系我们的描述', '<p style=\"text-align:center\"><img src=\"http://admin.aomeijia.com/uploads/ueditor/image/20210213/1613225383128160.jpg\" title=\"1613225383128160.jpg\"/></p><p style=\"text-align: center;\">回复IE很温柔给个</p><p style=\"text-align:center\"><br/></p><p style=\"text-align: center;\">鸡飞狗叫法迪欧过节费都</p><p style=\"text-align:center\"><img src=\"http://admin.aomeijia.com/uploads/ueditor/image/20210213/1613225385558313.jpg\" title=\"1613225385558313.jpg\"/></p><p style=\"text-align: center;\">和VB会计法单鹄寡凫结婚古代&nbsp;</p><p><br/></p>', '2', '2', '0', '0', null, '2021-02-18', '2021-02-13 22:10:19', '2021-02-23 21:42:15');
-INSERT INTO `article` VALUES ('4', '1', 'uploads/images/RGdfIsTYnc.jpg', '不吧v', '放到沙发上', '<p>555555555555555555555555555555555555555555</p>', '2', '2', '0', '0', null, '0000-00-00', '2021-02-13 22:12:08', '2021-02-23 21:40:04');
-INSERT INTO `article` VALUES ('5', '1', 'uploads/images/HL41Am9QR9.jpg', '公司简介111', '描述111', '<p>范德萨发发生2222222</p>', '22', '1', '22', '0', null, '2021-02-22', '2021-02-21 12:42:50', '2021-02-23 21:39:44');
-INSERT INTO `article` VALUES ('6', '4', 'uploads/images/zW8CLUvPDf.jpg', '223', '223', '<p>范德萨范德萨发放到沙发上aaa</p>', '0', '2', '2233', '0', '2', '2021-02-23', '2021-02-21 12:45:28', '2021-02-28 11:58:47');
-INSERT INTO `article` VALUES ('7', '1', 'uploads/images/yLxTQ5WVNo.jpg', '公司简介', '公司简介描述', '<p>货到付款很过分的后果</p><p><img src=\"http://admin.aomeijia.com/uploads/ueditor/image/20210223/1614087356329315.jpg\" title=\"1614087356329315.jpg\"/></p><p><img src=\"http://admin.aomeijia.com/uploads/ueditor/image/20210223/1614087356845165.jpg\" title=\"1614087356845165.jpg\"/></p><p><br/></p>', '0', '1', '11', '0', null, '2021-02-11', '2021-02-23 21:36:01', '2021-02-23 21:36:01');
-INSERT INTO `article` VALUES ('8', '3', 'uploads/images/qiXfivbgrJ.jpg', '联系我们11', '联系我们描述1111', '<p>光棍节发达国家东富龙</p>', '0', '1', '11', '0', null, '2021-02-12', '2021-02-23 21:41:53', '2021-02-23 21:41:53');
-INSERT INTO `article` VALUES ('10', '5', 'uploads/images/35In8HVB7v.jpg', '集团动态1', '集团动态1描述', '<p><img src=\"http://admin.aomeijia.com/uploads/ueditor/image/20210223/1614087857752923.jpg\" title=\"1614087857752923.jpg\"/></p><p><img src=\"http://admin.aomeijia.com/uploads/ueditor/image/20210223/1614087857640563.jpg\" title=\"1614087857640563.jpg\"/></p><p><img src=\"http://admin.aomeijia.com/uploads/ueditor/image/20210223/1614087858250507.jpg\" title=\"1614087858250507.jpg\"/></p><p><br/></p>', '0', '2', '33', '0', '3', '2021-02-13', '2021-02-23 21:44:23', '2021-02-28 11:55:37');
-INSERT INTO `article` VALUES ('11', '5', 'uploads/images/nXmoI5JSWE.jpg', '项目动态文章', '项目动态文章这是描述', '<p>法第三方士大夫</p>', '0', '1', '12', '0', '2', '2021-02-10', '2021-02-28 11:51:53', '2021-02-28 11:54:22');
-INSERT INTO `article` VALUES ('12', '6', 'uploads/images/Wp5g0tna2s.jpg', '主题12', '这是主题12', '<p><img src=\"http://admin.aomeijia.com/uploads/ueditor/image/20210228/1614486289375160.jpg\" title=\"1614486289375160.jpg\"/></p><p><img src=\"http://admin.aomeijia.com/uploads/ueditor/image/20210228/1614486289628402.jpg\" title=\"1614486289628402.jpg\"/></p><p><img src=\"http://admin.aomeijia.com/uploads/ueditor/image/20210228/1614486289115372.jpg\" title=\"1614486289115372.jpg\"/></p><p><img src=\"http://admin.aomeijia.com/uploads/ueditor/image/20210228/1614486290594132.jpg\" title=\"1614486290594132.jpg\"/></p><p><br/></p>', '2', '2', '12', '0', '0', '2021-02-04', '2021-02-28 12:25:04', '2021-02-28 12:25:25');
+INSERT INTO `article` VALUES ('1', '2', 'uploads/images/8XB9HBqBTk.jpg', '这是加入我们的文章', '', '<p style=\"border: 0px none; margin-top: 30px; margin-bottom: 0px; padding: 0px; vertical-align: baseline; color: rgb(99, 99, 99); line-height: 30px; font-family: &quot;Microsoft YaHei&quot;, Helvetica, &quot;STHeiti STXihei&quot;, &quot;Microsoft JhengHei&quot;, Arial; white-space: normal;\"><span style=\"border: 0px none; margin: 0px; padding: 0px; vertical-align: baseline; font-family: arial, helvetica, sans-serif;\">Aumeca Group is a professional and earliest overseas real estate agent service company in China, with many years’ development, our company becomes the leading agency in China. Our head office located in Melbourne, Australia, we also have offices in Shenzhen, Shanghai, Guangzhou, Hefei in Mainland China.</span></p><p style=\"border: 0px none; margin-top: 30px; margin-bottom: 0px; padding: 0px; vertical-align: baseline; color: rgb(99, 99, 99); line-height: 30px; font-family: &quot;Microsoft YaHei&quot;, Helvetica, &quot;STHeiti STXihei&quot;, &quot;Microsoft JhengHei&quot;, Arial; white-space: normal;\"><span style=\"border: 0px none; margin: 0px; padding: 0px; vertical-align: baseline; font-family: arial, helvetica, sans-serif;\">Aumeca Group focus on provide professional overseas real estate consultation service to our customers, and we work closely with overseas developers and become one of the leading partners for major Australian developers for project sales and marketing into China. With expert team and experience on overseas property, we won our customers&#39; trust.</span></p><p style=\"border: 0px none; margin-top: 30px; margin-bottom: 0px; padding: 0px; vertical-align: baseline; color: rgb(99, 99, 99); line-height: 30px; font-family: &quot;Microsoft YaHei&quot;, Helvetica, &quot;STHeiti STXihei&quot;, &quot;Microsoft JhengHei&quot;, Arial; white-space: normal;\"><span style=\"border: 0px none; margin: 0px; padding: 0px; vertical-align: baseline; font-family: arial, helvetica, sans-serif;\">We also cooperate with leading migration companies to provide our customers tailor solution of migration and studying abroad.</span></p><p><br/></p>', '0', '1', '0', '0', null, '2021-02-19', '9999-01-01', '2021-02-13 22:04:27', '2021-02-13 22:04:27');
+INSERT INTO `article` VALUES ('3', '3', 'uploads/images/nUrqsewHUj.jpg', '这是联系我们', '这是联系我们的描述', '<p style=\"text-align:center\"><img src=\"http://admin.aomeijia.com/uploads/ueditor/image/20210213/1613225383128160.jpg\" title=\"1613225383128160.jpg\"/></p><p style=\"text-align: center;\">回复IE很温柔给个</p><p style=\"text-align:center\"><br/></p><p style=\"text-align: center;\">鸡飞狗叫法迪欧过节费都</p><p style=\"text-align:center\"><img src=\"http://admin.aomeijia.com/uploads/ueditor/image/20210213/1613225385558313.jpg\" title=\"1613225385558313.jpg\"/></p><p style=\"text-align: center;\">和VB会计法单鹄寡凫结婚古代&nbsp;</p><p><br/></p>', '2', '2', '0', '0', null, '2021-02-18', '9999-01-01', '2021-02-13 22:10:19', '2021-02-23 21:42:15');
+INSERT INTO `article` VALUES ('4', '1', 'uploads/images/RGdfIsTYnc.jpg', '不吧v', '放到沙发上', '<p>555555555555555555555555555555555555555555</p>', '2', '2', '0', '0', null, '2021-03-11', '9999-01-01', '2021-02-13 22:12:08', '2021-02-23 21:40:04');
+INSERT INTO `article` VALUES ('5', '1', 'uploads/images/HL41Am9QR9.jpg', '公司简介111', '描述111', '<p><img src=\"http://admin.aomeijia.com/uploads/ueditor/image/20210317/1615992444835357.jpg\"/></p><p class=\"name\" style=\"position: relative; box-sizing: border-box; margin-top: 0px; margin-bottom: 0px; padding: 0px; outline: none; font-size: 24px; color: rgb(238, 131, 0); font-weight: bold; font-family: \">国内最早从事海外投资咨询的专业机构之一</p><p class=\"desc\" style=\"position: relative; box-sizing: border-box; margin-bottom: 0px; padding: 0px; outline: none; color: rgb(153, 153, 153); font-size: 12px; font-family: \">One of the earliest institutions engaged in overseas investment consultation in China</p><p class=\"text\" style=\"position: relative; box-sizing: border-box; margin-top: 35px; margin-bottom: 0px; padding: 0px; outline: none; text-indent: 2em; line-height: 22px; color: rgb(51, 51, 51); font-family: \">澳美家集团（Aumeca Group）是国内最早从事海外投资咨询的专业机构之一，澳美家总部位于澳大利亚墨尔本，运营网络遍及墨尔本、悉尼、加拿大、香港、深圳、广州等城市。</p><p class=\"text\" style=\"position: relative; box-sizing: border-box; margin-top: 35px; margin-bottom: 0px; padding: 0px; outline: none; text-indent: 2em; line-height: 22px; color: rgb(51, 51, 51); font-family: \">澳美家团队自2008年起专注协助客户进行澳洲地产投资，经过10年的发展，业务已拓展至主流发达国家以及”一带一路“沿线新兴国家，我们的专业服务赢得了数万名客户的信赖。</p><p class=\"text\" style=\"position: relative; box-sizing: border-box; margin-top: 35px; margin-bottom: 0px; padding: 0px; outline: none; text-indent: 2em; line-height: 22px; color: rgb(51, 51, 51); font-family: \">进入第二个十年历程的澳美家，将致力于为高净值客户提供一站式的海外资产配置服务，协助客户在房产、移民、海外保险、海外疗养、高端留学等领域做出专业决策。</p><p><br/></p><p><img src=\"http://admin.aomeijia.com/uploads/ueditor/image/20210317/1615992530450582.png\" title=\"1615992530450582.png\" alt=\"image.png\"/></p><p><br/></p><p><img src=\"http://admin.aomeijia.com/uploads/ueditor/image/20210317/1615993104959406.png\" title=\"1615993104959406.png\" alt=\"image.png\"/></p><p><br/></p><p><img src=\"http://admin.aomeijia.com/uploads/ueditor/image/20210317/1615993128730059.png\" title=\"1615993128730059.png\" alt=\"image.png\"/></p>', '22', '1', '22', '0', '0', '2021-02-22', '9999-01-01', '2021-02-21 12:42:50', '2021-03-17 22:58:50');
+INSERT INTO `article` VALUES ('6', '4', 'uploads/images/zW8CLUvPDf.jpg', '223', '223', '<p>范德萨范德萨发放到沙发上aaa</p>', '0', '2', '2233', '0', '2', '2021-02-23', '9999-01-01', '2021-02-21 12:45:28', '2021-02-28 11:58:47');
+INSERT INTO `article` VALUES ('7', '1', 'uploads/images/yLxTQ5WVNo.jpg', '公司简介', '公司简介描述', '<p>货到付款很过分的后果</p><p><img src=\"http://admin.aomeijia.com/uploads/ueditor/image/20210223/1614087356329315.jpg\" title=\"1614087356329315.jpg\"/></p><p><img src=\"http://admin.aomeijia.com/uploads/ueditor/image/20210223/1614087356845165.jpg\" title=\"1614087356845165.jpg\"/></p><p><br/></p>', '0', '1', '11', '0', null, '2021-02-11', '9999-01-01', '2021-02-23 21:36:01', '2021-02-23 21:36:01');
+INSERT INTO `article` VALUES ('8', '3', 'uploads/images/qiXfivbgrJ.jpg', '联系我们11', '联系我们描述1111', '<p><img src=\"http://admin.aomeijia.com/uploads/ueditor/image/20210317/1615994651812871.jpg\" title=\"1615994651812871.jpg\" alt=\"案例3.jpg\"/></p>', '3', '1', '11', '0', '0', '2021-02-12', '9999-01-01', '2021-02-23 21:41:53', '2021-03-17 23:24:14');
+INSERT INTO `article` VALUES ('10', '5', 'uploads/images/35In8HVB7v.jpg', '集团动态1', '集团动态1描述', '<p><img src=\"http://admin.aomeijia.com/uploads/ueditor/image/20210223/1614087857752923.jpg\" title=\"1614087857752923.jpg\"/></p><p><img src=\"http://admin.aomeijia.com/uploads/ueditor/image/20210223/1614087857640563.jpg\" title=\"1614087857640563.jpg\"/></p><p><img src=\"http://admin.aomeijia.com/uploads/ueditor/image/20210223/1614087858250507.jpg\" title=\"1614087858250507.jpg\"/></p><p><br/></p>', '0', '2', '33', '0', '3', '2021-02-13', '9999-01-01', '2021-02-23 21:44:23', '2021-02-28 11:55:37');
+INSERT INTO `article` VALUES ('11', '5', 'uploads/images/nXmoI5JSWE.jpg', '项目动态文章', '项目动态文章这是描述', '<p>法第三方士大夫</p>', '0', '1', '12', '0', '2', '2021-02-10', '9999-01-01', '2021-02-28 11:51:53', '2021-02-28 11:54:22');
+INSERT INTO `article` VALUES ('12', '6', 'uploads/images/Wp5g0tna2s.jpg', '主题12', '这是主题12', '<p><img src=\"http://admin.aomeijia.com/uploads/ueditor/image/20210228/1614486289375160.jpg\" title=\"1614486289375160.jpg\"/></p><p><img src=\"http://admin.aomeijia.com/uploads/ueditor/image/20210228/1614486289628402.jpg\" title=\"1614486289628402.jpg\"/></p><p><img src=\"http://admin.aomeijia.com/uploads/ueditor/image/20210228/1614486289115372.jpg\" title=\"1614486289115372.jpg\"/></p><p><img src=\"http://admin.aomeijia.com/uploads/ueditor/image/20210228/1614486290594132.jpg\" title=\"1614486290594132.jpg\"/></p><p><br/></p>', '2', '2', '12', '0', '0', '2021-02-04', '9999-01-01', '2021-02-28 12:25:04', '2021-02-28 12:25:25');
+INSERT INTO `article` VALUES ('13', '2', 'uploads/images/E7izbLge6d.jpg', '加入我们', '这是加入我们', '<p class=\"email\" style=\"position: relative; box-sizing: border-box; margin-top: 0px; margin-bottom: 0px; padding: 0px; outline: none; color: rgb(238, 131, 0); font-weight: bold; font-family: \">简历投递邮箱：hr@iaumeca.com</p><p class=\"job-name\" style=\"position: relative; box-sizing: border-box; margin-top: 50px; margin-bottom: 20px; padding: 0px 20px; outline: none; color: rgb(238, 131, 0); font-family: \">海外房产销售顾问</p><p class=\"text\" style=\"position: relative; box-sizing: border-box; margin-bottom: 0px; padding: 0px 50px; outline: none; color: rgb(102, 102, 102); font-family: \">岗位职责</p><p class=\"text\" style=\"position: relative; box-sizing: border-box; margin-bottom: 0px; padding: 0px 50px; outline: none; color: rgb(102, 102, 102); font-family: \">1、落实公司各项营销政策，完成销售考核计划，及其他各项指标的完成；</p><p class=\"text\" style=\"position: relative; box-sizing: border-box; margin-bottom: 0px; padding: 0px 50px; outline: none; color: rgb(102, 102, 102); font-family: \">2、理解客户需求，提供优质房产项目，制定专业投资建议计划书；</p><p class=\"text\" style=\"position: relative; box-sizing: border-box; margin-bottom: 0px; padding: 0px 50px; outline: none; color: rgb(102, 102, 102); font-family: \">3、为客户提供购房法律法规、贷款政策、交房、租赁等环节的专业咨询；</p><p class=\"text\" style=\"position: relative; box-sizing: border-box; margin-bottom: 0px; padding: 0px 50px; outline: none; color: rgb(102, 102, 102); font-family: \">4、负责销售团队管理以及协助下属员工完成下达的任务指标；</p><p class=\"text\" style=\"position: relative; box-sizing: border-box; margin-bottom: 0px; padding: 0px 50px; outline: none; color: rgb(102, 102, 102); font-family: \">5、定期维护跟进客户资源。</p><p class=\"text\" style=\"position: relative; box-sizing: border-box; margin-bottom: 0px; padding: 0px 50px; outline: none; color: rgb(102, 102, 102); font-family: \">任职要求：</p><p class=\"text\" style=\"position: relative; box-sizing: border-box; margin-bottom: 0px; padding: 0px 50px; outline: none; color: rgb(102, 102, 102); font-family: \">1、了解海外房产市场和法律程序优先考虑；</p><p class=\"text\" style=\"position: relative; box-sizing: border-box; margin-bottom: 0px; padding: 0px 50px; outline: none; color: rgb(102, 102, 102); font-family: \">2、熟悉英美房产相关政策优先考虑；</p><p class=\"text\" style=\"position: relative; box-sizing: border-box; margin-bottom: 0px; padding: 0px 50px; outline: none; color: rgb(102, 102, 102); font-family: \">3、高端地产项目销售，大客户销售，奢侈品销售，海外产品销售经验者优先；</p><p class=\"text\" style=\"position: relative; box-sizing: border-box; margin-bottom: 0px; padding: 0px 50px; outline: none; color: rgb(102, 102, 102); font-family: \">4、有一定的英语基础。</p><p class=\"text\" style=\"position: relative; box-sizing: border-box; margin-bottom: 0px; padding: 0px 50px; outline: none; color: rgb(102, 102, 102); font-family: \">职位亮点：</p><p class=\"text\" style=\"position: relative; box-sizing: border-box; margin-bottom: 0px; padding: 0px 50px; outline: none; color: rgb(102, 102, 102); font-family: \">1、国际化的运营模式和业务领域，让你成为全球房产，金融投资行业的精英人才；</p><p class=\"text\" style=\"position: relative; box-sizing: border-box; margin-bottom: 0px; padding: 0px 50px; outline: none; color: rgb(102, 102, 102); font-family: \">2、百万用户平台的实战能力培养，完善的职业培训体系；</p><p class=\"text\" style=\"position: relative; box-sizing: border-box; margin-bottom: 0px; padding: 0px 50px; outline: none; color: rgb(102, 102, 102); font-family: \">3、定期全球培训机会，全方位的职业发展机遇；</p><p class=\"text\" style=\"position: relative; box-sizing: border-box; margin-bottom: 0px; padding: 0px 50px; outline: none; color: rgb(102, 102, 102); font-family: \">4、极具竞争力的薪资，分红、股权等多重激励。</p><p class=\"job-name\" style=\"position: relative; box-sizing: border-box; margin-top: 50px; margin-bottom: 20px; padding: 0px 20px; outline: none; color: rgb(238, 131, 0); font-family: \">VIP业务助理</p><p class=\"text\" style=\"position: relative; box-sizing: border-box; margin-bottom: 0px; padding: 0px 50px; outline: none; color: rgb(102, 102, 102); font-family: \">岗位职责</p><p class=\"text\" style=\"position: relative; box-sizing: border-box; margin-bottom: 0px; padding: 0px 50px; outline: none; color: rgb(102, 102, 102); font-family: \">1、根据部门需求完成各类信息的收集、汇总、分析工作；</p><p class=\"text\" style=\"position: relative; box-sizing: border-box; margin-bottom: 0px; padding: 0px 50px; outline: none; color: rgb(102, 102, 102); font-family: \">2、负责项目统计及分析工作，按进度做好日报、月报、年报；</p><p class=\"text\" style=\"position: relative; box-sizing: border-box; margin-bottom: 0px; padding: 0px 50px; outline: none; color: rgb(102, 102, 102); font-family: \">3、协助部门领导维护本部门人员管理及现有员工评估汇总工作；</p><p class=\"text\" style=\"position: relative; box-sizing: border-box; margin-bottom: 0px; padding: 0px 50px; outline: none; color: rgb(102, 102, 102); font-family: \">4、完成VP交办的其他事项。</p><p class=\"text\" style=\"position: relative; box-sizing: border-box; margin-bottom: 0px; padding: 0px 50px; outline: none; color: rgb(102, 102, 102); font-family: \">任职要求：</p><p class=\"text\" style=\"position: relative; box-sizing: border-box; margin-bottom: 0px; padding: 0px 50px; outline: none; color: rgb(102, 102, 102); font-family: \">1、统招本科以上学历，90后，良好的沟通能力和团队合作精神；</p><p class=\"text\" style=\"position: relative; box-sizing: border-box; margin-bottom: 0px; padding: 0px 50px; outline: none; color: rgb(102, 102, 102); font-family: \">2、熟练操作办公软件制作PPT、EXCEL、PROJECT;</p><p class=\"text\" style=\"position: relative; box-sizing: border-box; margin-bottom: 0px; padding: 0px 50px; outline: none; color: rgb(102, 102, 102); font-family: \">3、能独立处理日常工作，能协调好内外各种关系，具有较好的公关与沟通能力；</p><p class=\"text\" style=\"position: relative; box-sizing: border-box; margin-bottom: 0px; padding: 0px 50px; outline: none; color: rgb(102, 102, 102); font-family: \">4、执行能力强，吃苦耐劳，具备良好的职业道德素养，工作主动性强，有创新能力；</p><p class=\"text\" style=\"position: relative; box-sizing: border-box; margin-bottom: 0px; padding: 0px 50px; outline: none; color: rgb(102, 102, 102); font-family: \">5、具备一定的文字能力，文档的撰写能力等。</p><p class=\"text\" style=\"position: relative; box-sizing: border-box; margin-bottom: 0px; padding: 0px 50px; outline: none; color: rgb(102, 102, 102); font-family: \">职位亮点：</p><p class=\"text\" style=\"position: relative; box-sizing: border-box; margin-bottom: 0px; padding: 0px 50px; outline: none; color: rgb(102, 102, 102); font-family: \">1、国际化的运营模式和业务领域，让你成为全球房产，金融投资行业的精英人才；</p><p class=\"text\" style=\"position: relative; box-sizing: border-box; margin-bottom: 0px; padding: 0px 50px; outline: none; color: rgb(102, 102, 102); font-family: \">2、百万用户平台的实战能力培养，完善的职业培训体系；</p><p class=\"text\" style=\"position: relative; box-sizing: border-box; margin-bottom: 0px; padding: 0px 50px; outline: none; color: rgb(102, 102, 102); font-family: \">3、定期全球培训机会，全方位的职业发展机遇；</p><p class=\"text\" style=\"position: relative; box-sizing: border-box; margin-bottom: 0px; padding: 0px 50px; outline: none; color: rgb(102, 102, 102); font-family: \">4、极具竞争力的薪资，分红、股权等多重激励。</p><p><br/></p>', '3', '1', '22', '0', '0', '2021-03-11', '9999-01-01', '2021-03-08 14:11:17', '2021-03-17 23:22:43');
+INSERT INTO `article` VALUES ('14', '7', 'uploads/images/eBi3MSUaxc.jpg', '考察团文章1', '这是考察团文章1', '<p>这是考察团文章1的内容孵化基地伤口恢复塑复合扭矩的回复你还是</p>', '0', '1', '0', '0', '0', '2021-03-03', '2021-03-14', '2021-03-14 21:35:19', '2021-03-14 21:43:13');
+INSERT INTO `article` VALUES ('15', '7', 'uploads/images/IzjX3b71fj.jpg', '考察团内容2', '这是考察团内容2的描述', '<p>这是考察团内容2的内容</p>', '0', '1', '0', '0', null, '2021-03-11', '2021-03-18', '2021-03-14 21:40:25', '2021-03-14 21:40:25');
+INSERT INTO `article` VALUES ('16', '8', 'uploads/images/7GzNOOp2wO.jpg', '往期考察团内容1', '这是往期考察团内容1', '<p>很高的挥洒复合大师你觉得付款个发你的监管局</p>', '0', '1', '0', '0', null, '2021-03-17', '9999-01-01', '2021-03-14 21:44:29', '2021-03-14 21:44:29');
+INSERT INTO `article` VALUES ('17', '8', 'uploads/images/LxncbOgWJs.jpg', '往期考察团内容2aaa', '这是往期考察团内容2的描述aaa', '<p>回复可见的首付is和 VN程序aaaaaaaa</p>', '0', '1', '0', '0', '0', '2021-03-09', '9999-01-01', '2021-03-14 21:45:30', '2021-03-14 21:45:59');
+INSERT INTO `article` VALUES ('18', '9', 'uploads/images/cZYSTKxjRr.jpg', '往期活动回顾1133', '这是往期活动回顾11的描述33', '<p>这是往期活动回顾11黄金矿工还打算恢复过渡费33</p>', '0', '1', '0', '0', '0', '2021-03-09', '9999-01-01', '2021-03-14 21:47:25', '2021-03-14 21:47:51');
+INSERT INTO `article` VALUES ('19', '4', 'uploads/images/6lufaCzwSH.jpg', '2020年10月份云顶1号最新进展，建筑主体进展一11', '2020年10月份云顶1号最新进展，建筑主体进展一切顺利2020年10月份云顶1号最新进展，建筑主体进展一切顺利2020年10月份云顶1号最新进展，建筑主体进展一切顺利2020年10月份云顶1号最新进展，建筑主体进展一切顺利2020年10月份云顶1号最新进展，建筑主体进展一切顺利', '<p><img src=\"http://admin.aomeijia.com/uploads/ueditor/image/20210317/1615993460882712.jpg\" title=\"1615993460882712.jpg\" alt=\"src=http___5b0988e595225.cdn.sohucs.com_images_20180715_ded25a4f5cd245fb8892aabccc46257e.jpeg&amp;refer=http___5b0988e595225.cdn.sohucs.jpg\"/></p><p>、</p><p><br/></p><p><br/></p><p><img src=\"http://admin.aomeijia.com/uploads/ueditor/image/20210317/1615993484336840.jpg\" title=\"1615993484336840.jpg\" alt=\"5.jpg\"/></p>', '12', '1', '20', '0', null, '2021-03-10', '9999-01-01', '2021-03-17 23:04:56', '2021-03-17 23:04:56');
+INSERT INTO `article` VALUES ('20', '4', 'uploads/images/6lufaCzwSH.jpg', '2020年10月份云顶1号最新进展，建筑主体进展一22', '2020年10月份云顶1号最新进展，建筑主体进展一切顺利2020年10月份云顶1号最新进展，建筑主体进展一切顺利2020年10月份云顶1号最新进展，建筑主体进展一切顺利2020年10月份云顶1号最新进展，建筑主体进展一切顺利2020年10月份云顶1号最新进展，建筑主体进展一切顺利', '<p><img src=\"http://admin.aomeijia.com/uploads/ueditor/image/20210317/1615993460882712.jpg\" title=\"1615993460882712.jpg\" alt=\"src=http___5b0988e595225.cdn.sohucs.com_images_20180715_ded25a4f5cd245fb8892aabccc46257e.jpeg&amp;refer=http___5b0988e595225.cdn.sohucs.jpg\"/></p><p>、</p><p><br/></p><p><br/></p><p><img src=\"http://admin.aomeijia.com/uploads/ueditor/image/20210317/1615993484336840.jpg\" title=\"1615993484336840.jpg\" alt=\"5.jpg\"/></p>', '12', '1', '20', '0', null, '2021-03-12', '9999-01-01', '2021-03-17 23:04:56', '2021-03-17 23:04:56');
+INSERT INTO `article` VALUES ('21', '4', 'uploads/images/6lufaCzwSH.jpg', '2020年10月份云顶1号最新进展，建筑主体进展一33', '2020年10月份云顶1号最新进展，建筑主体进展一切顺利2020年10月份云顶1号最新进展，建筑主体进展一切顺利2020年10月份云顶1号最新进展，建筑主体进展一切顺利2020年10月份云顶1号最新进展，建筑主体进展一切顺利2020年10月份云顶1号最新进展，建筑主体进展一切顺利', '<p><img src=\"http://admin.aomeijia.com/uploads/ueditor/image/20210317/1615993460882712.jpg\" title=\"1615993460882712.jpg\" alt=\"src=http___5b0988e595225.cdn.sohucs.com_images_20180715_ded25a4f5cd245fb8892aabccc46257e.jpeg&amp;refer=http___5b0988e595225.cdn.sohucs.jpg\"/></p><p>、</p><p><br/></p><p><br/></p><p><img src=\"http://admin.aomeijia.com/uploads/ueditor/image/20210317/1615993484336840.jpg\" title=\"1615993484336840.jpg\" alt=\"5.jpg\"/></p>', '12', '1', '20', '0', null, '2021-03-10', '9999-01-01', '2021-03-17 23:04:56', '2021-03-17 23:04:56');
+INSERT INTO `article` VALUES ('22', '4', 'uploads/images/6lufaCzwSH.jpg', '2020年10月份云顶1号最新进展，建筑主体进展一44', '2020年10月份云顶1号最新进展，建筑主体进展一切顺利2020年10月份云顶1号最新进展，建筑主体进展一切顺利2020年10月份云顶1号最新进展，建筑主体进展一切顺利2020年10月份云顶1号最新进展，建筑主体进展一切顺利2020年10月份云顶1号最新进展，建筑主体进展一切顺利', '<p><img src=\"http://admin.aomeijia.com/uploads/ueditor/image/20210317/1615993460882712.jpg\" title=\"1615993460882712.jpg\" alt=\"src=http___5b0988e595225.cdn.sohucs.com_images_20180715_ded25a4f5cd245fb8892aabccc46257e.jpeg&amp;refer=http___5b0988e595225.cdn.sohucs.jpg\"/></p><p>、</p><p><br/></p><p><br/></p><p><img src=\"http://admin.aomeijia.com/uploads/ueditor/image/20210317/1615993484336840.jpg\" title=\"1615993484336840.jpg\" alt=\"5.jpg\"/></p>', '12', '1', '22', '0', null, '2021-03-22', '9999-01-01', '2021-03-17 23:04:56', '2021-03-17 23:04:56');
+INSERT INTO `article` VALUES ('23', '4', 'uploads/images/6lufaCzwSH.jpg', '2020年10月份云顶1号最新进展，建筑主体进展一12', '2020年10月份云顶1号最新进展，建筑主体进展一切顺利2020年10月份云顶1号最新进展，建筑主体进展一切顺利2020年10月份云顶1号最新进展，建筑主体进展一切顺利2020年10月份云顶1号最新进展，建筑主体进展一切顺利2020年10月份云顶1号最新进展，建筑主体进展一切顺利', '<p><img src=\"http://admin.aomeijia.com/uploads/ueditor/image/20210317/1615993460882712.jpg\" title=\"1615993460882712.jpg\" alt=\"src=http___5b0988e595225.cdn.sohucs.com_images_20180715_ded25a4f5cd245fb8892aabccc46257e.jpeg&amp;refer=http___5b0988e595225.cdn.sohucs.jpg\"/></p><p>、</p><p><br/></p><p><br/></p><p><img src=\"http://admin.aomeijia.com/uploads/ueditor/image/20210317/1615993484336840.jpg\" title=\"1615993484336840.jpg\" alt=\"5.jpg\"/></p>', '12', '1', '20', '0', null, '2021-03-10', '9999-01-01', '2021-03-17 23:04:56', '2021-03-17 23:04:56');
+INSERT INTO `article` VALUES ('24', '4', 'uploads/images/6lufaCzwSH.jpg', '2020年10月份云顶1号最新进展，建筑主体进展一13', '2020年10月份云顶1号最新进展，建筑主体进展一切顺利2020年10月份云顶1号最新进展，建筑主体进展一切顺利2020年10月份云顶1号最新进展，建筑主体进展一切顺利2020年10月份云顶1号最新进展，建筑主体进展一切顺利2020年10月份云顶1号最新进展，建筑主体进展一切顺利', '<p><img src=\"http://admin.aomeijia.com/uploads/ueditor/image/20210317/1615993460882712.jpg\" title=\"1615993460882712.jpg\" alt=\"src=http___5b0988e595225.cdn.sohucs.com_images_20180715_ded25a4f5cd245fb8892aabccc46257e.jpeg&amp;refer=http___5b0988e595225.cdn.sohucs.jpg\"/></p><p>、</p><p><br/></p><p><br/></p><p><img src=\"http://admin.aomeijia.com/uploads/ueditor/image/20210317/1615993484336840.jpg\" title=\"1615993484336840.jpg\" alt=\"5.jpg\"/></p>', '12', '1', '20', '0', null, '2021-03-10', '9999-01-01', '2021-03-17 23:04:56', '2021-03-17 23:04:56');
+INSERT INTO `article` VALUES ('25', '4', 'uploads/images/6lufaCzwSH.jpg', '2020年10月份云顶1号最新进展，建筑主体进展一25', '2020年10月份云顶1号最新进展，建筑主体进展一切顺利2020年10月份云顶1号最新进展，建筑主体进展一切顺利2020年10月份云顶1号最新进展，建筑主体进展一切顺利2020年10月份云顶1号最新进展，建筑主体进展一切顺利2020年10月份云顶1号最新进展，建筑主体进展一切顺利', '<p><img src=\"http://admin.aomeijia.com/uploads/ueditor/image/20210317/1615993460882712.jpg\" title=\"1615993460882712.jpg\" alt=\"src=http___5b0988e595225.cdn.sohucs.com_images_20180715_ded25a4f5cd245fb8892aabccc46257e.jpeg&amp;refer=http___5b0988e595225.cdn.sohucs.jpg\"/></p><p>、</p><p><br/></p><p><br/></p><p><img src=\"http://admin.aomeijia.com/uploads/ueditor/image/20210317/1615993484336840.jpg\" title=\"1615993484336840.jpg\" alt=\"5.jpg\"/></p>', '12', '1', '202', '0', null, '2021-03-10', '9999-01-01', '2021-03-17 23:04:56', '2021-03-17 23:04:56');
+INSERT INTO `article` VALUES ('26', '4', 'uploads/images/6lufaCzwSH.jpg', '2020年10月份云顶1号最新进展，建筑主体进展一26', '2020年10月份云顶1号最新进展，建筑主体进展一切顺利2020年10月份云顶1号最新进展，建筑主体进展一切顺利2020年10月份云顶1号最新进展，建筑主体进展一切顺利2020年10月份云顶1号最新进展，建筑主体进展一切顺利2020年10月份云顶1号最新进展，建筑主体进展一切顺利', '<p><img src=\"http://admin.aomeijia.com/uploads/ueditor/image/20210317/1615993460882712.jpg\" title=\"1615993460882712.jpg\" alt=\"src=http___5b0988e595225.cdn.sohucs.com_images_20180715_ded25a4f5cd245fb8892aabccc46257e.jpeg&amp;refer=http___5b0988e595225.cdn.sohucs.jpg\"/></p><p>、</p><p><br/></p><p><br/></p><p><img src=\"http://admin.aomeijia.com/uploads/ueditor/image/20210317/1615993484336840.jpg\" title=\"1615993484336840.jpg\" alt=\"5.jpg\"/></p>', '12', '1', '20', '0', null, '2021-03-10', '9999-01-01', '2021-03-17 23:04:56', '2021-03-17 23:04:56');
+INSERT INTO `article` VALUES ('27', '4', 'uploads/images/6lufaCzwSH.jpg', '2020年10月份云顶1号最新进展，建筑主体进展一27', '2020年10月份云顶1号最新进展，建筑主体进展一切顺利2020年10月份云顶1号最新进展，建筑主体进展一切顺利2020年10月份云顶1号最新进展，建筑主体进展一切顺利2020年10月份云顶1号最新进展，建筑主体进展一切顺利2020年10月份云顶1号最新进展，建筑主体进展一切顺利', '<p><img src=\"http://admin.aomeijia.com/uploads/ueditor/image/20210317/1615993460882712.jpg\" title=\"1615993460882712.jpg\" alt=\"src=http___5b0988e595225.cdn.sohucs.com_images_20180715_ded25a4f5cd245fb8892aabccc46257e.jpeg&amp;refer=http___5b0988e595225.cdn.sohucs.jpg\"/></p><p>、</p><p><br/></p><p><br/></p><p><img src=\"http://admin.aomeijia.com/uploads/ueditor/image/20210317/1615993484336840.jpg\" title=\"1615993484336840.jpg\" alt=\"5.jpg\"/></p>', '15', '1', '20', '0', null, '2021-03-10', '9999-01-01', '2021-03-17 23:04:56', '2021-03-17 23:04:56');
+INSERT INTO `article` VALUES ('28', '4', 'uploads/images/6lufaCzwSH.jpg', '2020年10月份云顶1号最新进展，建筑主体进展一28', '2020年10月份云顶1号最新进展，建筑主体进展一切顺利2020年10月份云顶1号最新进展，建筑主体进展一切顺利2020年10月份云顶1号最新进展，建筑主体进展一切顺利2020年10月份云顶1号最新进展，建筑主体进展一切顺利2020年10月份云顶1号最新进展，建筑主体进展一切顺利', '<p><img src=\"http://admin.aomeijia.com/uploads/ueditor/image/20210317/1615993460882712.jpg\" title=\"1615993460882712.jpg\" alt=\"src=http___5b0988e595225.cdn.sohucs.com_images_20180715_ded25a4f5cd245fb8892aabccc46257e.jpeg&amp;refer=http___5b0988e595225.cdn.sohucs.jpg\"/></p><p>、</p><p><br/></p><p><br/></p><p><img src=\"http://admin.aomeijia.com/uploads/ueditor/image/20210317/1615993484336840.jpg\" title=\"1615993484336840.jpg\" alt=\"5.jpg\"/></p>', '12', '1', '35', '0', null, '2021-03-10', '9999-01-01', '2021-03-17 23:04:56', '2021-03-17 23:04:56');
+INSERT INTO `article` VALUES ('29', '4', 'uploads/images/6lufaCzwSH.jpg', '2020年10月份云顶1号最新进展，建筑主体进展一29', '2020年10月份云顶1号最新进展，建筑主体进展一切顺利2020年10月份云顶1号最新进展，建筑主体进展一切顺利2020年10月份云顶1号最新进展，建筑主体进展一切顺利2020年10月份云顶1号最新进展，建筑主体进展一切顺利2020年10月份云顶1号最新进展，建筑主体进展一切顺利', '<p><img src=\"http://admin.aomeijia.com/uploads/ueditor/image/20210317/1615993460882712.jpg\" title=\"1615993460882712.jpg\" alt=\"src=http___5b0988e595225.cdn.sohucs.com_images_20180715_ded25a4f5cd245fb8892aabccc46257e.jpeg&amp;refer=http___5b0988e595225.cdn.sohucs.jpg\"/></p><p>、</p><p><br/></p><p><br/></p><p><img src=\"http://admin.aomeijia.com/uploads/ueditor/image/20210317/1615993484336840.jpg\" title=\"1615993484336840.jpg\" alt=\"5.jpg\"/></p>', '12', '1', '20', '0', null, '2021-03-10', '9999-01-01', '2021-03-17 23:04:56', '2021-03-17 23:04:56');
+INSERT INTO `article` VALUES ('30', '4', 'uploads/images/6lufaCzwSH.jpg', '2020年10月份云顶1号最新进展，建筑主体进展一30', '2020年10月份云顶1号最新进展，建筑主体进展一切顺利2020年10月份云顶1号最新进展，建筑主体进展一切顺利2020年10月份云顶1号最新进展，建筑主体进展一切顺利2020年10月份云顶1号最新进展，建筑主体进展一切顺利2020年10月份云顶1号最新进展，建筑主体进展一切顺利', '<p><img src=\"http://admin.aomeijia.com/uploads/ueditor/image/20210317/1615993460882712.jpg\" title=\"1615993460882712.jpg\" alt=\"src=http___5b0988e595225.cdn.sohucs.com_images_20180715_ded25a4f5cd245fb8892aabccc46257e.jpeg&amp;refer=http___5b0988e595225.cdn.sohucs.jpg\"/></p><p>、</p><p><br/></p><p><br/></p><p><img src=\"http://admin.aomeijia.com/uploads/ueditor/image/20210317/1615993484336840.jpg\" title=\"1615993484336840.jpg\" alt=\"5.jpg\"/></p>', '12', '1', '2023', '0', null, '2021-03-10', '9999-01-01', '2021-03-17 23:04:56', '2021-03-17 23:04:56');
+INSERT INTO `article` VALUES ('31', '4', 'uploads/images/6lufaCzwSH.jpg', '2020年10月份云顶1号最新进展，建筑主体进展一31', '2020年10月份云顶1号最新进展，建筑主体进展一切顺利2020年10月份云顶1号最新进展，建筑主体进展一切顺利2020年10月份云顶1号最新进展，建筑主体进展一切顺利2020年10月份云顶1号最新进展，建筑主体进展一切顺利2020年10月份云顶1号最新进展，建筑主体进展一切顺利', '<p><img src=\"http://admin.aomeijia.com/uploads/ueditor/image/20210317/1615993460882712.jpg\" title=\"1615993460882712.jpg\" alt=\"src=http___5b0988e595225.cdn.sohucs.com_images_20180715_ded25a4f5cd245fb8892aabccc46257e.jpeg&amp;refer=http___5b0988e595225.cdn.sohucs.jpg\"/></p><p>、</p><p><br/></p><p><br/></p><p><img src=\"http://admin.aomeijia.com/uploads/ueditor/image/20210317/1615993484336840.jpg\" title=\"1615993484336840.jpg\" alt=\"5.jpg\"/></p>', '12', '1', '20', '0', null, '2021-03-10', '9999-01-01', '2021-03-17 23:04:56', '2021-03-17 23:04:56');
+INSERT INTO `article` VALUES ('32', '4', 'uploads/images/6lufaCzwSH.jpg', '2020年10月份云顶1号最新进展，建筑主体进展一32', '2020年10月份云顶1号最新进展，建筑主体进展一切顺利2020年10月份云顶1号最新进展，建筑主体进展一切顺利2020年10月份云顶1号最新进展，建筑主体进展一切顺利2020年10月份云顶1号最新进展，建筑主体进展一切顺利2020年10月份云顶1号最新进展，建筑主体进展一切顺利', '<p><img src=\"http://admin.aomeijia.com/uploads/ueditor/image/20210317/1615993460882712.jpg\" title=\"1615993460882712.jpg\" alt=\"src=http___5b0988e595225.cdn.sohucs.com_images_20180715_ded25a4f5cd245fb8892aabccc46257e.jpeg&amp;refer=http___5b0988e595225.cdn.sohucs.jpg\"/></p><p>、</p><p><br/></p><p><br/></p><p><img src=\"http://admin.aomeijia.com/uploads/ueditor/image/20210317/1615993484336840.jpg\" title=\"1615993484336840.jpg\" alt=\"5.jpg\"/></p>', '12', '1', '20', '0', null, '2021-03-10', '9999-01-01', '2021-03-17 23:04:56', '2021-03-17 23:04:56');
+INSERT INTO `article` VALUES ('33', '4', 'uploads/images/6lufaCzwSH.jpg', '2020年10月份云顶1号最新进展，建筑主体进展一33', '2020年10月份云顶1号最新进展，建筑主体进展一切顺利2020年10月份云顶1号最新进展，建筑主体进展一切顺利2020年10月份云顶1号最新进展，建筑主体进展一切顺利2020年10月份云顶1号最新进展，建筑主体进展一切顺利2020年10月份云顶1号最新进展，建筑主体进展一切顺利', '<p><img src=\"http://admin.aomeijia.com/uploads/ueditor/image/20210317/1615993460882712.jpg\" title=\"1615993460882712.jpg\" alt=\"src=http___5b0988e595225.cdn.sohucs.com_images_20180715_ded25a4f5cd245fb8892aabccc46257e.jpeg&amp;refer=http___5b0988e595225.cdn.sohucs.jpg\"/></p><p>、</p><p><br/></p><p><br/></p><p><img src=\"http://admin.aomeijia.com/uploads/ueditor/image/20210317/1615993484336840.jpg\" title=\"1615993484336840.jpg\" alt=\"5.jpg\"/></p>', '12', '1', '20', '0', null, '2021-03-10', '9999-01-01', '2021-03-17 23:04:56', '2021-03-17 23:04:56');
+INSERT INTO `article` VALUES ('34', '4', 'uploads/images/6lufaCzwSH.jpg', '2020年10月份云顶1号最新进展，建筑主体进展一34', '2020年10月份云顶1号最新进展，建筑主体进展一切顺利2020年10月份云顶1号最新进展，建筑主体进展一切顺利2020年10月份云顶1号最新进展，建筑主体进展一切顺利2020年10月份云顶1号最新进展，建筑主体进展一切顺利2020年10月份云顶1号最新进展，建筑主体进展一切顺利', '<p><img src=\"http://admin.aomeijia.com/uploads/ueditor/image/20210317/1615993460882712.jpg\" title=\"1615993460882712.jpg\" alt=\"src=http___5b0988e595225.cdn.sohucs.com_images_20180715_ded25a4f5cd245fb8892aabccc46257e.jpeg&amp;refer=http___5b0988e595225.cdn.sohucs.jpg\"/></p><p>、</p><p><br/></p><p><br/></p><p><img src=\"http://admin.aomeijia.com/uploads/ueditor/image/20210317/1615993484336840.jpg\" title=\"1615993484336840.jpg\" alt=\"5.jpg\"/></p>', '12', '1', '20', '0', null, '2021-03-10', '9999-01-01', '2021-03-17 23:04:56', '2021-03-17 23:04:56');
+INSERT INTO `article` VALUES ('35', '4', 'uploads/images/6lufaCzwSH.jpg', '2020年10月份云顶1号最新进展，建筑主体进展一35', '2020年10月份云顶1号最新进展，建筑主体进展一切顺利2020年10月份云顶1号最新进展，建筑主体进展一切顺利2020年10月份云顶1号最新进展，建筑主体进展一切顺利2020年10月份云顶1号最新进展，建筑主体进展一切顺利2020年10月份云顶1号最新进展，建筑主体进展一切顺利', '<p><img src=\"http://admin.aomeijia.com/uploads/ueditor/image/20210317/1615993460882712.jpg\" title=\"1615993460882712.jpg\" alt=\"src=http___5b0988e595225.cdn.sohucs.com_images_20180715_ded25a4f5cd245fb8892aabccc46257e.jpeg&amp;refer=http___5b0988e595225.cdn.sohucs.jpg\"/></p><p>、</p><p><br/></p><p><br/></p><p><img src=\"http://admin.aomeijia.com/uploads/ueditor/image/20210317/1615993484336840.jpg\" title=\"1615993484336840.jpg\" alt=\"5.jpg\"/></p>', '12', '1', '20', '0', null, '2021-03-10', '9999-01-01', '2021-03-17 23:04:56', '2021-03-17 23:04:56');
+INSERT INTO `article` VALUES ('36', '4', 'uploads/images/6lufaCzwSH.jpg', '2020年10月份云顶1号最新进展，建筑主体进展一36', '2020年10月份云顶1号最新进展，建筑主体进展一切顺利2020年10月份云顶1号最新进展，建筑主体进展一切顺利2020年10月份云顶1号最新进展，建筑主体进展一切顺利2020年10月份云顶1号最新进展，建筑主体进展一切顺利2020年10月份云顶1号最新进展，建筑主体进展一切顺利', '<p><img src=\"http://admin.aomeijia.com/uploads/ueditor/image/20210317/1615993460882712.jpg\" title=\"1615993460882712.jpg\" alt=\"src=http___5b0988e595225.cdn.sohucs.com_images_20180715_ded25a4f5cd245fb8892aabccc46257e.jpeg&amp;refer=http___5b0988e595225.cdn.sohucs.jpg\"/></p><p>、</p><p><br/></p><p><br/></p><p><img src=\"http://admin.aomeijia.com/uploads/ueditor/image/20210317/1615993484336840.jpg\" title=\"1615993484336840.jpg\" alt=\"5.jpg\"/></p>', '12', '1', '20', '0', null, '2021-03-10', '9999-01-01', '2021-03-17 23:04:56', '2021-03-17 23:04:56');
+INSERT INTO `article` VALUES ('37', '4', 'uploads/images/6lufaCzwSH.jpg', '2020年10月份云顶1号最新进展，建筑主体进展一37', '2020年10月份云顶1号最新进展，建筑主体进展一切顺利2020年10月份云顶1号最新进展，建筑主体进展一切顺利2020年10月份云顶1号最新进展，建筑主体进展一切顺利2020年10月份云顶1号最新进展，建筑主体进展一切顺利2020年10月份云顶1号最新进展，建筑主体进展一切顺利', '<p><img src=\"http://admin.aomeijia.com/uploads/ueditor/image/20210317/1615993460882712.jpg\" title=\"1615993460882712.jpg\" alt=\"src=http___5b0988e595225.cdn.sohucs.com_images_20180715_ded25a4f5cd245fb8892aabccc46257e.jpeg&amp;refer=http___5b0988e595225.cdn.sohucs.jpg\"/></p><p>、</p><p><br/></p><p><br/></p><p><img src=\"http://admin.aomeijia.com/uploads/ueditor/image/20210317/1615993484336840.jpg\" title=\"1615993484336840.jpg\" alt=\"5.jpg\"/></p>', '12', '1', '20', '0', null, '2021-03-10', '9999-01-01', '2021-03-17 23:04:56', '2021-03-17 23:04:56');
+INSERT INTO `article` VALUES ('38', '4', 'uploads/images/6lufaCzwSH.jpg', '2020年10月份云顶1号最新进展，建筑主体进展一38', '2020年10月份云顶1号最新进展，建筑主体进展一切顺利2020年10月份云顶1号最新进展，建筑主体进展一切顺利2020年10月份云顶1号最新进展，建筑主体进展一切顺利2020年10月份云顶1号最新进展，建筑主体进展一切顺利2020年10月份云顶1号最新进展，建筑主体进展一切顺利', '<p><img src=\"http://admin.aomeijia.com/uploads/ueditor/image/20210317/1615993460882712.jpg\" title=\"1615993460882712.jpg\" alt=\"src=http___5b0988e595225.cdn.sohucs.com_images_20180715_ded25a4f5cd245fb8892aabccc46257e.jpeg&amp;refer=http___5b0988e595225.cdn.sohucs.jpg\"/></p><p>、</p><p><br/></p><p><br/></p><p><img src=\"http://admin.aomeijia.com/uploads/ueditor/image/20210317/1615993484336840.jpg\" title=\"1615993484336840.jpg\" alt=\"5.jpg\"/></p>', '12', '1', '20', '0', null, '2021-03-10', '9999-01-01', '2021-03-17 23:04:56', '2021-03-17 23:04:56');
+INSERT INTO `article` VALUES ('39', '4', 'uploads/images/6lufaCzwSH.jpg', '2020年10月份云顶1号最新进展，建筑主体进展一39', '2020年10月份云顶1号最新进展，建筑主体进展一切顺利2020年10月份云顶1号最新进展，建筑主体进展一切顺利2020年10月份云顶1号最新进展，建筑主体进展一切顺利2020年10月份云顶1号最新进展，建筑主体进展一切顺利2020年10月份云顶1号最新进展，建筑主体进展一切顺利', '<p><img src=\"http://admin.aomeijia.com/uploads/ueditor/image/20210317/1615993460882712.jpg\" title=\"1615993460882712.jpg\" alt=\"src=http___5b0988e595225.cdn.sohucs.com_images_20180715_ded25a4f5cd245fb8892aabccc46257e.jpeg&amp;refer=http___5b0988e595225.cdn.sohucs.jpg\"/></p><p>、</p><p><br/></p><p><br/></p><p><img src=\"http://admin.aomeijia.com/uploads/ueditor/image/20210317/1615993484336840.jpg\" title=\"1615993484336840.jpg\" alt=\"5.jpg\"/></p>', '12', '1', '20', '0', null, '2021-03-10', '9999-01-01', '2021-03-17 23:04:56', '2021-03-17 23:04:56');
+INSERT INTO `article` VALUES ('40', '4', 'uploads/images/6lufaCzwSH.jpg', '2020年10月份云顶1号最新进展，建筑主体进展一40', '2020年10月份云顶1号最新进展，建筑主体进展一切顺利2020年10月份云顶1号最新进展，建筑主体进展一切顺利2020年10月份云顶1号最新进展，建筑主体进展一切顺利2020年10月份云顶1号最新进展，建筑主体进展一切顺利2020年10月份云顶1号最新进展，建筑主体进展一切顺利', '<p><img src=\"http://admin.aomeijia.com/uploads/ueditor/image/20210317/1615993460882712.jpg\" title=\"1615993460882712.jpg\" alt=\"src=http___5b0988e595225.cdn.sohucs.com_images_20180715_ded25a4f5cd245fb8892aabccc46257e.jpeg&amp;refer=http___5b0988e595225.cdn.sohucs.jpg\"/></p><p>、</p><p><br/></p><p><br/></p><p><img src=\"http://admin.aomeijia.com/uploads/ueditor/image/20210317/1615993484336840.jpg\" title=\"1615993484336840.jpg\" alt=\"5.jpg\"/></p>', '12', '1', '20', '0', null, '2021-03-10', '9999-01-01', '2021-03-17 23:04:56', '2021-03-17 23:04:56');
+INSERT INTO `article` VALUES ('41', '4', 'uploads/images/6lufaCzwSH.jpg', '2020年10月份云顶1号最新进展，建筑主体进展一41', '2020年10月份云顶1号最新进展，建筑主体进展一切顺利2020年10月份云顶1号最新进展，建筑主体进展一切顺利2020年10月份云顶1号最新进展，建筑主体进展一切顺利2020年10月份云顶1号最新进展，建筑主体进展一切顺利2020年10月份云顶1号最新进展，建筑主体进展一切顺利', '<p><img src=\"http://admin.aomeijia.com/uploads/ueditor/image/20210317/1615993460882712.jpg\" title=\"1615993460882712.jpg\" alt=\"src=http___5b0988e595225.cdn.sohucs.com_images_20180715_ded25a4f5cd245fb8892aabccc46257e.jpeg&amp;refer=http___5b0988e595225.cdn.sohucs.jpg\"/></p><p>、</p><p><br/></p><p><br/></p><p><img src=\"http://admin.aomeijia.com/uploads/ueditor/image/20210317/1615993484336840.jpg\" title=\"1615993484336840.jpg\" alt=\"5.jpg\"/></p>', '12', '1', '20', '0', null, '2021-03-10', '9999-01-01', '2021-03-17 23:04:56', '2021-03-17 23:04:56');
+INSERT INTO `article` VALUES ('42', '4', 'uploads/images/6lufaCzwSH.jpg', '2020年10月份云顶1号最新进展，建筑主体进展一42', '2020年10月份云顶1号最新进展，建筑主体进展一切顺利2020年10月份云顶1号最新进展，建筑主体进展一切顺利2020年10月份云顶1号最新进展，建筑主体进展一切顺利2020年10月份云顶1号最新进展，建筑主体进展一切顺利2020年10月份云顶1号最新进展，建筑主体进展一切顺利', '<p><img src=\"http://admin.aomeijia.com/uploads/ueditor/image/20210317/1615993460882712.jpg\" title=\"1615993460882712.jpg\" alt=\"src=http___5b0988e595225.cdn.sohucs.com_images_20180715_ded25a4f5cd245fb8892aabccc46257e.jpeg&amp;refer=http___5b0988e595225.cdn.sohucs.jpg\"/></p><p>、</p><p><br/></p><p><br/></p><p><img src=\"http://admin.aomeijia.com/uploads/ueditor/image/20210317/1615993484336840.jpg\" title=\"1615993484336840.jpg\" alt=\"5.jpg\"/></p>', '12', '1', '20', '0', null, '2021-03-10', '9999-01-01', '2021-03-17 23:04:56', '2021-03-17 23:04:56');
+INSERT INTO `article` VALUES ('43', '4', 'uploads/images/6lufaCzwSH.jpg', '2020年10月份云顶1号最新进展，建筑主体进展一43', '2020年10月份云顶1号最新进展，建筑主体进展一切顺利2020年10月份云顶1号最新进展，建筑主体进展一切顺利2020年10月份云顶1号最新进展，建筑主体进展一切顺利2020年10月份云顶1号最新进展，建筑主体进展一切顺利2020年10月份云顶1号最新进展，建筑主体进展一切顺利', '<p><img src=\"http://admin.aomeijia.com/uploads/ueditor/image/20210317/1615993460882712.jpg\" title=\"1615993460882712.jpg\" alt=\"src=http___5b0988e595225.cdn.sohucs.com_images_20180715_ded25a4f5cd245fb8892aabccc46257e.jpeg&amp;refer=http___5b0988e595225.cdn.sohucs.jpg\"/></p><p>、</p><p><br/></p><p><br/></p><p><img src=\"http://admin.aomeijia.com/uploads/ueditor/image/20210317/1615993484336840.jpg\" title=\"1615993484336840.jpg\" alt=\"5.jpg\"/></p>', '12', '1', '20', '0', null, '2021-03-10', '9999-01-01', '2021-03-17 23:04:56', '2021-03-17 23:04:56');
+INSERT INTO `article` VALUES ('44', '4', 'uploads/images/6lufaCzwSH.jpg', '2020年10月份云顶1号最新进展，建筑主体进展一44', '2020年10月份云顶1号最新进展，建筑主体进展一切顺利2020年10月份云顶1号最新进展，建筑主体进展一切顺利2020年10月份云顶1号最新进展，建筑主体进展一切顺利2020年10月份云顶1号最新进展，建筑主体进展一切顺利2020年10月份云顶1号最新进展，建筑主体进展一切顺利', '<p><img src=\"http://admin.aomeijia.com/uploads/ueditor/image/20210317/1615993460882712.jpg\" title=\"1615993460882712.jpg\" alt=\"src=http___5b0988e595225.cdn.sohucs.com_images_20180715_ded25a4f5cd245fb8892aabccc46257e.jpeg&amp;refer=http___5b0988e595225.cdn.sohucs.jpg\"/></p><p>、</p><p><br/></p><p><br/></p><p><img src=\"http://admin.aomeijia.com/uploads/ueditor/image/20210317/1615993484336840.jpg\" title=\"1615993484336840.jpg\" alt=\"5.jpg\"/></p>', '12', '1', '20', '0', null, '2021-03-10', '9999-01-01', '2021-03-17 23:04:56', '2021-03-17 23:04:56');
+INSERT INTO `article` VALUES ('45', '4', 'uploads/images/6lufaCzwSH.jpg', '2020年10月份云顶1号最新进展，建筑主体进展一45', '2020年10月份云顶1号最新进展，建筑主体进展一切顺利2020年10月份云顶1号最新进展，建筑主体进展一切顺利2020年10月份云顶1号最新进展，建筑主体进展一切顺利2020年10月份云顶1号最新进展，建筑主体进展一切顺利2020年10月份云顶1号最新进展，建筑主体进展一切顺利', '<p><img src=\"http://admin.aomeijia.com/uploads/ueditor/image/20210317/1615993460882712.jpg\" title=\"1615993460882712.jpg\" alt=\"src=http___5b0988e595225.cdn.sohucs.com_images_20180715_ded25a4f5cd245fb8892aabccc46257e.jpeg&amp;refer=http___5b0988e595225.cdn.sohucs.jpg\"/></p><p>、</p><p><br/></p><p><br/></p><p><img src=\"http://admin.aomeijia.com/uploads/ueditor/image/20210317/1615993484336840.jpg\" title=\"1615993484336840.jpg\" alt=\"5.jpg\"/></p>', '12', '1', '20', '0', null, '2021-03-10', '9999-01-01', '2021-03-17 23:04:56', '2021-03-17 23:04:56');
+INSERT INTO `article` VALUES ('46', '4', 'uploads/images/6lufaCzwSH.jpg', '2020年10月份云顶1号最新进展，建筑主体进展一46', '2020年10月份云顶1号最新进展，建筑主体进展一切顺利2020年10月份云顶1号最新进展，建筑主体进展一切顺利2020年10月份云顶1号最新进展，建筑主体进展一切顺利2020年10月份云顶1号最新进展，建筑主体进展一切顺利2020年10月份云顶1号最新进展，建筑主体进展一切顺利', '<p><img src=\"http://admin.aomeijia.com/uploads/ueditor/image/20210317/1615993460882712.jpg\" title=\"1615993460882712.jpg\" alt=\"src=http___5b0988e595225.cdn.sohucs.com_images_20180715_ded25a4f5cd245fb8892aabccc46257e.jpeg&amp;refer=http___5b0988e595225.cdn.sohucs.jpg\"/></p><p>、</p><p><br/></p><p><br/></p><p><img src=\"http://admin.aomeijia.com/uploads/ueditor/image/20210317/1615993484336840.jpg\" title=\"1615993484336840.jpg\" alt=\"5.jpg\"/></p>', '12', '1', '20', '0', null, '2021-03-10', '9999-01-01', '2021-03-17 23:04:56', '2021-03-17 23:04:56');
+INSERT INTO `article` VALUES ('47', '4', 'uploads/images/6lufaCzwSH.jpg', '2020年10月份云顶1号最新进展，建筑主体进展一47', '2020年10月份云顶1号最新进展，建筑主体进展一切顺利2020年10月份云顶1号最新进展，建筑主体进展一切顺利2020年10月份云顶1号最新进展，建筑主体进展一切顺利2020年10月份云顶1号最新进展，建筑主体进展一切顺利2020年10月份云顶1号最新进展，建筑主体进展一切顺利', '<p><img src=\"http://admin.aomeijia.com/uploads/ueditor/image/20210317/1615993460882712.jpg\" title=\"1615993460882712.jpg\" alt=\"src=http___5b0988e595225.cdn.sohucs.com_images_20180715_ded25a4f5cd245fb8892aabccc46257e.jpeg&amp;refer=http___5b0988e595225.cdn.sohucs.jpg\"/></p><p>、</p><p><br/></p><p><br/></p><p><img src=\"http://admin.aomeijia.com/uploads/ueditor/image/20210317/1615993484336840.jpg\" title=\"1615993484336840.jpg\" alt=\"5.jpg\"/></p>', '12', '1', '20', '0', null, '2021-03-10', '9999-01-01', '2021-03-17 23:04:56', '2021-03-17 23:04:56');
+INSERT INTO `article` VALUES ('48', '4', 'uploads/images/6lufaCzwSH.jpg', '2020年10月份云顶1号最新进展，建筑主体进展一48', '2020年10月份云顶1号最新进展，建筑主体进展一切顺利2020年10月份云顶1号最新进展，建筑主体进展一切顺利2020年10月份云顶1号最新进展，建筑主体进展一切顺利2020年10月份云顶1号最新进展，建筑主体进展一切顺利2020年10月份云顶1号最新进展，建筑主体进展一切顺利', '<p><img src=\"http://admin.aomeijia.com/uploads/ueditor/image/20210317/1615993460882712.jpg\" title=\"1615993460882712.jpg\" alt=\"src=http___5b0988e595225.cdn.sohucs.com_images_20180715_ded25a4f5cd245fb8892aabccc46257e.jpeg&amp;refer=http___5b0988e595225.cdn.sohucs.jpg\"/></p><p>、</p><p><br/></p><p><br/></p><p><img src=\"http://admin.aomeijia.com/uploads/ueditor/image/20210317/1615993484336840.jpg\" title=\"1615993484336840.jpg\" alt=\"5.jpg\"/></p>', '12', '1', '20', '0', null, '2021-03-10', '9999-01-01', '2021-03-17 23:04:56', '2021-03-17 23:04:56');
 
 -- ----------------------------
 -- Table structure for banner
@@ -154,7 +215,7 @@ CREATE TABLE `banner` (
   `updated_at` varchar(50) DEFAULT NULL COMMENT '更新时间',
   `created_at` varchar(50) DEFAULT NULL COMMENT '创建时间',
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM AUTO_INCREMENT=12 DEFAULT CHARSET=utf8 COMMENT='Banner表';
+) ENGINE=MyISAM AUTO_INCREMENT=13 DEFAULT CHARSET=utf8 COMMENT='Banner表';
 
 -- ----------------------------
 -- Records of banner
@@ -168,6 +229,7 @@ INSERT INTO `banner` VALUES ('8', '4', '严选房源', null, 'http://www.baidu.c
 INSERT INTO `banner` VALUES ('9', '1', '贷款服务', '量身定制还款方案', '111', 'uploads/images/coQI7lzxcS.jpg', '2', '1', '2021-02-14 13:00:29', '2021-02-14 12:56:16');
 INSERT INTO `banner` VALUES ('10', '4', '房屋交易', '整合专业机构保证交易安全', '', 'uploads/images/j9vzQ5N1K4.jpg', '111', '1', '2021-02-14 13:00:13', '2021-02-14 12:56:51');
 INSERT INTO `banner` VALUES ('11', '4', '租赁管理', '房屋管理与管理，保证权益', '', 'uploads/images/KIc3VWqKW5.jpeg', '2', '1', '2021-02-14 12:59:01', '2021-02-14 12:59:01');
+INSERT INTO `banner` VALUES ('12', '8', '集团简介banner图片', '', 'http://www.baidu.com', 'uploads/images/12UFvpPoUk.jpg', '1', '1', '2021-03-17 22:13:47', '2021-03-17 22:13:47');
 
 -- ----------------------------
 -- Table structure for banner_type
@@ -181,7 +243,7 @@ CREATE TABLE `banner_type` (
   `updated_at` varchar(50) DEFAULT NULL COMMENT '更新时间',
   `created_at` varchar(50) DEFAULT NULL COMMENT '创建时间',
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM AUTO_INCREMENT=8 DEFAULT CHARSET=utf8 COMMENT='Banner类型表';
+) ENGINE=MyISAM AUTO_INCREMENT=9 DEFAULT CHARSET=utf8 COMMENT='Banner类型表';
 
 -- ----------------------------
 -- Records of banner_type
@@ -193,6 +255,7 @@ INSERT INTO `banner_type` VALUES ('4', '首页售前售后服务', '这是首页
 INSERT INTO `banner_type` VALUES ('5', '海外房产购房流程图片', '这是海外房产购房流程图片', '1', '2021-01-01', '2021-01-01');
 INSERT INTO `banner_type` VALUES ('6', '首页微信文章背景图片', '这是首页微信文章背景图片', '1', '2021-01-01', '2021-01-01');
 INSERT INTO `banner_type` VALUES ('7', '首页宣传图片', '这是首页热门展会下面的宣传图片', '1', '2021-01-01', '2021-01-01');
+INSERT INTO `banner_type` VALUES ('8', '集团简介banner图片', '这是集团简介banner图片', '1', '2021-01-01', '2021-01-01');
 
 -- ----------------------------
 -- Table structure for city
@@ -231,6 +294,28 @@ INSERT INTO `city` VALUES ('161', '152', '福建', null, '', '3', '2', '2021-02-
 INSERT INTO `city` VALUES ('162', '152', '北京', null, 'uploads/city/TrpuwEcbcB.jpeg', '0', '1', '2021-02-14 13:06:21', '2021-02-14 13:06:21');
 INSERT INTO `city` VALUES ('163', '103', '马来西亚', 'Malaysia', 'uploads/city/5PHk0rU93D.jpg', '0', '1', '2021-02-15 17:34:47', '2021-02-15 17:30:10');
 INSERT INTO `city` VALUES ('164', '103', '新加坡', 'Singapore', '', '0', '1', '2021-02-15 17:32:45', '2021-02-15 17:32:45');
+
+-- ----------------------------
+-- Table structure for company_branch
+-- ----------------------------
+DROP TABLE IF EXISTS `company_branch`;
+CREATE TABLE `company_branch` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `company_name` varchar(30) DEFAULT NULL COMMENT '分公司名称',
+  `company_address` varchar(20) DEFAULT NULL COMMENT '分公司地址',
+  `sort` int(11) DEFAULT '0' COMMENT '排序',
+  `updated_at` varchar(20) DEFAULT NULL,
+  `created_at` varchar(20) DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8 COMMENT='分公司信息表';
+
+-- ----------------------------
+-- Records of company_branch
+-- ----------------------------
+INSERT INTO `company_branch` VALUES ('2', '深圳公司', '深圳市南山区深南大道9030号瑞思中心1', '1', '2021-03-08 14:37:36', '2021-03-08 14:37:36');
+INSERT INTO `company_branch` VALUES ('3', '广州公司', '广州市天河区林和西路161号中泰国际广场', '0', '2021-03-08 14:38:27', '2021-03-08 14:38:27');
+INSERT INTO `company_branch` VALUES ('4', '墨尔本公司', '1318/401 hfhdfuhdsfo', '0', '2021-03-08 14:39:27', '2021-03-08 14:39:27');
+INSERT INTO `company_branch` VALUES ('5', '加拿大公司', '203 38 Ave NE,Calgar', '3', '2021-03-08 14:40:14', '2021-03-08 14:39:35');
 
 -- ----------------------------
 -- Table structure for company_config
@@ -715,7 +800,7 @@ CREATE TABLE `menu` (
   `menu_url` varchar(100) NOT NULL COMMENT '菜单url',
   `sort` int(11) DEFAULT '0' COMMENT '排序',
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=70 DEFAULT CHARSET=utf8 COMMENT='权限菜单表';
+) ENGINE=InnoDB AUTO_INCREMENT=75 DEFAULT CHARSET=utf8 COMMENT='权限菜单表';
 
 -- ----------------------------
 -- Records of menu
@@ -763,6 +848,11 @@ INSERT INTO `menu` VALUES ('66', '8', 'investThemeManage', '投资主题管理',
 INSERT INTO `menu` VALUES ('67', '8', 'investCountryManage', '国家攻略管理', '/investCountry/investCountryList', '0');
 INSERT INTO `menu` VALUES ('68', '17', 'migrateTestManage', '移民测试管理', '/migrateTest/migrateTestList', '0');
 INSERT INTO `menu` VALUES ('69', '17', 'migrateManage', '全球移民管理', '/migrate/migrateList', '0');
+INSERT INTO `menu` VALUES ('70', '4', 'companyBranchManage', '分公司地址管理', '/companyBranch/list', '0');
+INSERT INTO `menu` VALUES ('71', '19', 'inspectionManage', '考察团管理', '/article/articleList?type=7', '0');
+INSERT INTO `menu` VALUES ('72', '19', 'pastInspectionManage', '往期考察团管理', '/article/articleList?type=8', '0');
+INSERT INTO `menu` VALUES ('73', '20', 'activeManage', '活动管理', '/active/list', '0');
+INSERT INTO `menu` VALUES ('74', '20', 'pastActiveManage', '往期活动管理', '/article/articleList?type=9', '0');
 
 -- ----------------------------
 -- Table structure for menu_role
@@ -776,7 +866,7 @@ CREATE TABLE `menu_role` (
   `sort` int(11) DEFAULT '0' COMMENT '排序',
   PRIMARY KEY (`id`),
   KEY `role_id` (`role_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=440 DEFAULT CHARSET=utf8 COMMENT='菜单角色关联表';
+) ENGINE=InnoDB AUTO_INCREMENT=445 DEFAULT CHARSET=utf8 COMMENT='菜单角色关联表';
 
 -- ----------------------------
 -- Records of menu_role
@@ -887,6 +977,11 @@ INSERT INTO `menu_role` VALUES ('436', '13', 'investThemeManage', '', '0');
 INSERT INTO `menu_role` VALUES ('437', '13', 'investCountryManage', '', '0');
 INSERT INTO `menu_role` VALUES ('438', '13', 'migrateTestManage', '', '0');
 INSERT INTO `menu_role` VALUES ('439', '13', 'migrateManage', '', '0');
+INSERT INTO `menu_role` VALUES ('440', '13', 'companyBranchManage', '', '0');
+INSERT INTO `menu_role` VALUES ('441', '13', 'activeManage', '', '0');
+INSERT INTO `menu_role` VALUES ('442', '13', 'pastActiveManage', '', '0');
+INSERT INTO `menu_role` VALUES ('443', '13', 'inspectionManage', '', '0');
+INSERT INTO `menu_role` VALUES ('444', '13', 'pastInspectionManage', '', '0');
 
 -- ----------------------------
 -- Table structure for message
@@ -954,9 +1049,10 @@ CREATE TABLE `migrate` (
 -- ----------------------------
 -- Records of migrate
 -- ----------------------------
-INSERT INTO `migrate` VALUES ('1', '152', '21', '25', '中国移民', null, '反倒是开发和思考', '和规范化个', '古典风格', '古典风格', '80.00', '0', '<p>共和国国家股份</p>', '<p>鬼地方个大概</p>', '<p>购房的更好地发挥地方提供</p>', '<p>较高的覅来看估计都给</p>', '', '1', '0', '0', '2021-03-10', '2021-03-02 21:26:27', '2021-03-02 21:26:27');
-INSERT INTO `migrate` VALUES ('2', '163', '22', '26', '马来西亚', 'uploads/images/Wd8vijqfwA.jpg', '项目特点11', '居住要求11', '身份类型11', '办理周期11', '120.88', '2', '<p>佛挡杀佛</p>', '<p>率保持基本</p>', '<p>厉害狂欢节</p>', '<p>基本结构</p>', '3', '1', '23', '0', '2021-03-11', '2021-03-02 21:33:44', '2021-03-02 21:35:51');
-INSERT INTO `migrate` VALUES ('3', '159', '23', '24', '技术移民', 'uploads/images/2xl8OB0JO8.jpg', '22', '22', '22', '22', '22.22', '6', '<p>222222222222</p>', '<p>222652</p>', '<p>22积极</p>', '<p>22比较快回家</p>', '22', '1', '22', '0', '2021-03-22', '2021-03-02 21:36:44', '2021-03-02 21:36:44');
+INSERT INTO `migrate` VALUES ('1', '152', '21', '25', '中国移民', null, '反倒是开发和思考', '和规范化个', '古典风格', '12个月', '80.00', '0', '<p>共和国国家股份</p>', '<p>鬼地方个大概</p>', '<p>购房的更好地发挥地方提供</p>', '<p>较高的覅来看估计都给</p>', '', '1', '0', '0', '2021-03-10', '2021-03-02 21:26:27', '2021-03-02 21:26:27');
+INSERT INTO `migrate` VALUES ('2', '163', '22', '26', '马来西亚', 'uploads/images/Wd8vijqfwA.jpg', '项目特点11', '居住要求11', '身份类型11', '一个月', '120.88', '2', '<p>佛挡杀佛</p>', '<p>率保持基本</p>', '<p>厉害狂欢节</p>', '<p>基本结构</p>', '3', '1', '23', '0', '2021-03-11', '2021-03-02 21:33:44', '2021-03-02 21:35:51');
+INSERT INTO `migrate` VALUES ('3', '159', '23', '24', '技术移民', 'uploads/images/2xl8OB0JO8.jpg', '22', '22', '22', '六个月', '22.22', '6', '<p>222222222222</p>', '<p>222652</p>', '<p>22积极</p>', '<p>22比较快回家</p>', '22', '1', '22', '0', '2021-03-22', '2021-03-02 21:36:44', '2021-03-02 21:36:44');
+INSERT INTO `migrate` VALUES ('4', '152', '21', '25', '中国购房移民', 'uploads/images/LAv6EsKKCN.jpg', '这是项目特点', '居住要求', '身份类型', '三个月', '100.00', '2', '<p><img src=\"http://admin.aomeijia.com/uploads/ueditor/image/20210318/1615997447141029.jpg\" title=\"1615997447141029.jpg\" alt=\"src=http___5b0988e595225.cdn.sohucs.com_images_20180715_ded25a4f5cd245fb8892aabccc46257e.jpeg&amp;refer=http___5b0988e595225.cdn.sohucs.jpg\"/></p>', '<p>项目优势</p>', '<p><span style=\"color: rgb(103, 106, 108); font-family: &quot;open sans&quot;, &quot;Helvetica Neue&quot;, Helvetica, Arial, sans-serif; font-size: 13px; font-weight: 700; text-align: right; background-color: rgb(255, 255, 255);\">申请条件</span></p>', '<p><span style=\"color: rgb(103, 106, 108); font-family: &quot;open sans&quot;, &quot;Helvetica Neue&quot;, Helvetica, Arial, sans-serif; font-size: 13px; font-weight: 700; text-align: right; background-color: rgb(255, 255, 255);\">申请流程</span></p>', '2', '1', '22', '0', '2021-03-17', '2021-03-18 00:11:00', '2021-03-18 00:11:00');
 
 -- ----------------------------
 -- Table structure for migrate_test
@@ -997,7 +1093,7 @@ CREATE TABLE `modular` (
   `modular_title` varchar(15) NOT NULL COMMENT '模块名称',
   `sort` int(11) DEFAULT NULL COMMENT '排序',
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=19 DEFAULT CHARSET=utf8 COMMENT='权限某块表';
+) ENGINE=InnoDB AUTO_INCREMENT=21 DEFAULT CHARSET=utf8 COMMENT='权限某块表';
 
 -- ----------------------------
 -- Records of modular
@@ -1009,10 +1105,12 @@ INSERT INTO `modular` VALUES ('5', 'contentManage', 'glyphicon glyphicon-gift', 
 INSERT INTO `modular` VALUES ('6', 'houseManage', 'glyphicon glyphicon-book', '海外房产管理', null);
 INSERT INTO `modular` VALUES ('7', 'informationManage', 'glyphicon glyphicon-list-alt', '百科资讯管理', null);
 INSERT INTO `modular` VALUES ('8', 'investManage', 'glyphicon glyphicon-star', '投资攻略管理', null);
-INSERT INTO `modular` VALUES ('9', 'corpManage', 'glyphicon glyphicon-heart-empty', '集团简介', null);
+INSERT INTO `modular` VALUES ('9', 'corpManage', 'glyphicon glyphicon-heart-empty', '集团简介管理', null);
 INSERT INTO `modular` VALUES ('16', 'partnerManage', 'glyphicon glyphicon-heart', '合作伙伴管理', null);
 INSERT INTO `modular` VALUES ('17', 'migrateManage', 'glyphicon glyphicon-th', '全球移民管理', null);
 INSERT INTO `modular` VALUES ('18', 'linManage', 'glyphicon glyphicon-link', '链接管理', null);
+INSERT INTO `modular` VALUES ('19', 'inspectionManage', 'glyphicon glyphicon-th', '考察团管理', null);
+INSERT INTO `modular` VALUES ('20', 'activeManage', 'glyphicon glyphicon-th', '活动管理', null);
 
 -- ----------------------------
 -- Table structure for oversea_house
@@ -1051,14 +1149,15 @@ CREATE TABLE `oversea_house` (
   `created_at` varchar(25) NOT NULL,
   `updated_at` varchar(25) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8 COMMENT='海外房产表';
+) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8 COMMENT='海外房产表';
 
 -- ----------------------------
 -- Records of oversea_house
 -- ----------------------------
 INSERT INTO `oversea_house` VALUES ('1', '155', '1', '7', '0', 'uploads/images/Scp0HtJoTI.jpg;uploads/images/uG5NNKOypj.jpg;uploads/images/DRU0A70BhU.jpg', '<p><img src=\"http://admin.aomeijia.com/uploads/ueditor/image/20210221/1613917124877463.jpeg\" title=\"1613917124877463.jpeg\"/></p><p><img src=\"http://admin.aomeijia.com/uploads/ueditor/image/20210221/1613917124865568.jpg\" title=\"1613917124865568.jpg\"/></p><p><img src=\"http://admin.aomeijia.com/uploads/ueditor/image/20210221/1613917124646651.jpg\" title=\"1613917124646651.jpg\"/></p><p><img src=\"http://admin.aomeijia.com/uploads/ueditor/image/20210221/1613917124993797.jpg\" title=\"1613917124993797.jpg\"/></p><p><img src=\"http://admin.aomeijia.com/uploads/ueditor/image/20210221/1613917125633921.jpg\" title=\"1613917125633921.jpg\"/></p><p><br/></p>', '1.00', '天安云谷', '这是天安云谷', '1', '预计2021.9', '120平米', '三房两厅', '120.00', '永久产权', '30%', '7.5%', '交房标准', '深圳', '0', '1', '12', '2021-02-10', '<p>那个积分兑换个健康地方和高科技的</p>', '<p>购房的几个地方建瓯IG将豆腐干豆腐机</p>', '<p>光复节大概几点覅偶感觉到否</p>', '<p>赶紧发达国家的反馈给记得放开了个京东方</p>', '<p>明白不参加补课的分级管控力度附近股票的佛公开课更多反馈&nbsp;</p>', '2021-02-21 22:20:07', '2021-02-21 22:20:07');
-INSERT INTO `oversea_house` VALUES ('2', '154', '1', '7', '8;9', 'uploads/images/Y8u2oFcnem.jpg;uploads/images/usXQ4BBskh.jpg;uploads/images/DU0KJeLauT.jpg', '<p>购房定个地方11111</p>', '3.31', '北京四合院1', '这是北京四合院1', '1', '预计2022.21', '180平米1', '8房1', '3000.31', '701', '31%', '8.18%', '精装修交房1', '北京1', '31', '2', '331', '2021-02-01', '<p>凤凰国际开了个1</p>', '<p>个梵蒂冈电饭锅1</p>', '<p>购房定个地方100000</p>', '<p>购房定个地方1222</p>', '<p>购房定个地方施工123</p>', '2021-02-21 22:23:20', '2021-02-21 22:57:09');
+INSERT INTO `oversea_house` VALUES ('2', '154', '1', '7', '8;9', 'uploads/images/Y8u2oFcnem.jpg;uploads/images/usXQ4BBskh.jpg;uploads/images/DU0KJeLauT.jpg', '<p>购房定个地方11111</p>', '3.31', '北京四合院1', '这是北京四合院1', '1', '预计2022.21', '180平米1', '8房1', '3000.31', '701', '31%', '8.18%', '精装修交房1', '北京1', '31', '1', '331', '2021-02-01', '<p>凤凰国际开了个1</p>', '<p>个梵蒂冈电饭锅1</p>', '<p>购房定个地方100000</p>', '<p>购房定个地方1222</p>', '<p>购房定个地方施工123</p>', '2021-02-21 22:23:20', '2021-03-17 23:35:42');
 INSERT INTO `oversea_house` VALUES ('3', '152', '3', '6', '4;8', 'uploads/images/x4DCR5xPch.jpg;uploads/images/T0SOLI6DuQ.jpeg;uploads/images/v97wnv6FEG.jpg', '<p>项目图集</p><p><img src=\"http://admin.aomeijia.com/uploads/ueditor/image/20210221/1613919560185354.jpeg\" title=\"1613919560185354.jpeg\"/></p><p><img src=\"http://admin.aomeijia.com/uploads/ueditor/image/20210221/1613919560333375.jpg\" title=\"1613919560333375.jpg\"/></p><p><br/></p>', '16.00', '26', '36', '1', '46', '56', '66', '76.00', '86', '96', '17', '27', '37', '47', '1', '57', '2021-02-27', '<p>基本信息</p>', '<p>主力户型</p>', '<p>周边配套</p>', '<p>项目特色</p>', '<p>投资分析</p>', '2021-02-21 22:59:33', '2021-02-21 22:59:33');
+INSERT INTO `oversea_house` VALUES ('4', '163', '1', '7', '4;8;9', 'uploads/images/uHUe0u6R2z.jpg;uploads/images/2mJlSep3JP.jpg;uploads/images/xiwXAUK0dJ.jpg', '<p>项目图集</p>', '10.22', '马来西亚海外房产', '这是马来西亚海外房产', '1', '预计2021.3.15', '100平米', '三房', '100.00', '70年以上', '30%', '2.33%', '交房标准', '马来亚大学', '0', '1', '100', '2021-03-10', '<p><img src=\"http://admin.aomeijia.com/uploads/ueditor/image/20210317/1615995268481476.jpg\" title=\"1615995268481476.jpg\" alt=\"5.jpg\"/></p><p><br/></p><p><br/></p><p><br/></p><p></p>', '<p>主力户型</p>', '<p>周边配套</p>', '<p>项目特色</p>', '<p>投资分析</p>', '2021-03-17 23:35:16', '2021-03-17 23:35:16');
 
 -- ----------------------------
 -- Table structure for partner
@@ -1074,7 +1173,7 @@ CREATE TABLE `partner` (
   `created_at` varchar(25) NOT NULL,
   `updated_at` varchar(25) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Records of partner
@@ -1083,6 +1182,8 @@ INSERT INTO `partner` VALUES ('1', '1', '佳兆业', '', '0', '1', '2021-02-15 1
 INSERT INTO `partner` VALUES ('2', '3', '留学类目伙伴', 'uploads/images/hpuyo3NdFo.jpeg', '3', '1', '2021-02-15 20:56:39', '2021-02-15 21:07:17');
 INSERT INTO `partner` VALUES ('3', '1', '房产2', 'uploads/images/95pmvur0Jq.jpg', '0', '2', '2021-02-15 21:02:21', '2021-02-15 21:02:21');
 INSERT INTO `partner` VALUES ('4', '2', '移民伙伴', 'uploads/images/HYYGL2J1ET.jpg', '0', '1', '2021-02-15 21:04:39', '2021-02-15 21:04:39');
+INSERT INTO `partner` VALUES ('5', '1', '11', 'uploads/images/HYYGL2J1ET.jpg', '0', '1', '2021-02-15 21:04:39', '2021-02-15 21:04:39');
+INSERT INTO `partner` VALUES ('6', '1', '22', 'uploads/images/HYYGL2J1ET.jpg', '0', '1', '2021-02-15 21:04:39', '2021-02-15 21:04:39');
 
 -- ----------------------------
 -- Table structure for partner_type
@@ -1116,7 +1217,7 @@ CREATE TABLE `resources` (
   `resources_key` varchar(50) NOT NULL COMMENT '资源key',
   `resources_title` varchar(30) NOT NULL COMMENT '资源名称',
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=239 DEFAULT CHARSET=utf8 COMMENT='权限资源表';
+) ENGINE=InnoDB AUTO_INCREMENT=248 DEFAULT CHARSET=utf8 COMMENT='权限资源表';
 
 -- ----------------------------
 -- Records of resources
@@ -1257,6 +1358,15 @@ INSERT INTO `resources` VALUES ('235', '17', '/migrate/addMigrate', '添加全�
 INSERT INTO `resources` VALUES ('236', '17', '/migrate/updateMigrate', '更新全球移民');
 INSERT INTO `resources` VALUES ('237', '17', '/migrate/deleteMigrate', '删除全球移民');
 INSERT INTO `resources` VALUES ('238', '17', '/migrate/seeMigrate', '查看全球移民');
+INSERT INTO `resources` VALUES ('239', '4', '/companyBranch/list', '分公司地址列表');
+INSERT INTO `resources` VALUES ('240', '4', '/companyBranch/add', '添加分公司地址');
+INSERT INTO `resources` VALUES ('241', '4', '/companyBranch/update', '编辑分公司地址');
+INSERT INTO `resources` VALUES ('242', '4', '/companyBranch/delete', '删除分公司地址');
+INSERT INTO `resources` VALUES ('243', '20', '/active/list', '展会活动列表');
+INSERT INTO `resources` VALUES ('244', '20', '/active/add', '添加展会活动');
+INSERT INTO `resources` VALUES ('245', '20', '/active/update', '更新展会活动');
+INSERT INTO `resources` VALUES ('246', '20', '/active/delete', '删除展会活动');
+INSERT INTO `resources` VALUES ('247', '20', '/active/see', '查看展会活动');
 
 -- ----------------------------
 -- Table structure for resources_role
@@ -1269,7 +1379,7 @@ CREATE TABLE `resources_role` (
   `access_key` varchar(25) NOT NULL DEFAULT '' COMMENT '唯一标识',
   PRIMARY KEY (`id`),
   KEY `role_id` (`role_id`) USING BTREE
-) ENGINE=InnoDB AUTO_INCREMENT=1820 DEFAULT CHARSET=utf8 COMMENT='角色资源表';
+) ENGINE=InnoDB AUTO_INCREMENT=1829 DEFAULT CHARSET=utf8 COMMENT='角色资源表';
 
 -- ----------------------------
 -- Records of resources_role
@@ -1775,6 +1885,15 @@ INSERT INTO `resources_role` VALUES ('1816', '13', '/migrate/addMigrate', '');
 INSERT INTO `resources_role` VALUES ('1817', '13', '/migrate/updateMigrate', '');
 INSERT INTO `resources_role` VALUES ('1818', '13', '/migrate/deleteMigrate', '');
 INSERT INTO `resources_role` VALUES ('1819', '13', '/migrate/seeMigrate', '');
+INSERT INTO `resources_role` VALUES ('1820', '13', '/companyBranch/list', '');
+INSERT INTO `resources_role` VALUES ('1821', '13', '/companyBranch/add', '');
+INSERT INTO `resources_role` VALUES ('1822', '13', '/companyBranch/update', '');
+INSERT INTO `resources_role` VALUES ('1823', '13', '/companyBranch/delete', '');
+INSERT INTO `resources_role` VALUES ('1824', '13', '/active/list', '');
+INSERT INTO `resources_role` VALUES ('1825', '13', '/active/add', '');
+INSERT INTO `resources_role` VALUES ('1826', '13', '/active/update', '');
+INSERT INTO `resources_role` VALUES ('1827', '13', '/active/delete', '');
+INSERT INTO `resources_role` VALUES ('1828', '13', '/active/see', '');
 
 -- ----------------------------
 -- Table structure for role

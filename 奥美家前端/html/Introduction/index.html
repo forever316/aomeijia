@@ -1,0 +1,464 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>百科资讯</title>
+  <link type="text/css" rel="styleSheet" href="../../css/common.css" />
+  <link type="text/css" rel="styleSheet" href="../../css/introduction/index.css" />
+</head>
+
+<body>
+  <main id="introduction-index-page" v-cloak>
+    <section ref="banner" class="banner">
+      <img src="../../images/introduction/index/banner.png" alt="">
+    </section>
+
+    <section ref="nav" :class="['nav-wrapper', { fixed: isNavFixed }]">
+      <div class="nav-box">
+        <div :class="{ on: navSelected == 'introduce' }" @click="navSelected = 'introduce'">澳美家简介</div>
+        <div :class="{ on: navSelected == 'news' }" @click="navSelected = 'news'">集团动态</div>
+        <div :class="{ on: navSelected == 'contact' }" @click="navSelected = 'contact'">联系我们</div>
+        <div :class="{ on: navSelected == 'join' }" @click="navSelected = 'join'">加入我们</div>
+      </div>
+    </section>
+
+    <section ref="content" class="container-wrapper">
+      <div v-if="navSelected == 'introduce'" class="inner-wrapper">
+        <div class="box">
+          <div class="header">
+            <p>关于我们</p>
+            <p>About Us</p>
+          </div>
+          <div class="cont">
+            <div class="about-wrapper">
+              <div class="about-top-box">
+                <img src="../../images/introduction/index/img.jpg" alt="">
+                <div class="right">
+                  <p class="name">
+                    国内最早从事海外投资咨询的专业机构之一
+                  </p>
+                  <p class="desc">
+                    One of the earliest institutions engaged in overseas investment consultation in China
+                  </p>
+                  <p class="text">
+                    澳美家集团（Aumeca Group）是国内最早从事海外投资咨询的专业机构之一，澳美家总部位于澳大利亚墨尔本，运营网络遍及墨尔本、悉尼、加拿大、香港、深圳、广州等城市。
+                  </p>
+                  <p class="text">
+                    澳美家团队自2008年起专注协助客户进行澳洲地产投资，经过10年的发展，业务已拓展至主流发达国家以及”一带一路“沿线新兴国家，我们的专业服务赢得了数万名客户的信赖。
+                  </p>
+                  <p class="text">
+                    进入第二个十年历程的澳美家，将致力于为高净值客户提供一站式的海外资产配置服务，协助客户在房产、移民、海外保险、海外疗养、高端留学等领域做出专业决策。
+                  </p>
+                </div>
+              </div>
+              <div class="about-bottom-box">
+                <div class="single">
+                  <div class="icon">
+                    <img src="../../images/introduction/index/about-01.png" alt="">
+                    <i>1</i>
+                  </div>
+                  <div class="word">
+                    <p>愿景</p>
+                    <p>为高净值客人提供</p>
+                    <p>专业可靠的理财服务</p>
+                  </div>
+                </div>
+                <div class="single">
+                  <div class="icon">
+                    <img src="../../images/introduction/index/about-02.png" alt="">
+                    <i>2</i>
+                  </div>
+                  <div class="word">
+                    <p>使命</p>
+                    <p>让财富合理配置</p>
+                  </div>
+                </div>
+                <div class="single">
+                  <div class="icon">
+                    <img src="../../images/introduction/index/about-03.png" alt="">
+                    <i>3</i>
+                  </div>
+                  <div class="word">
+                    <p>管理理念</p>
+                    <p>关心团队成长</p>
+                  </div>
+                </div>
+                <div class="single">
+                  <div class="icon">
+                    <img src="../../images/introduction/index/about-04.png" alt="">
+                    <i>4</i>
+                  </div>
+                  <div class="word">
+                    <p>价值观</p>
+                    <p>专业诚信 客户第一</p>
+                    <p>团队合作 开拓创新</p>
+                  </div>
+                </div>
+              </div>
+              <div class="about-desc-box">
+                <p><span>5</span> 家分公司 <span>100</span> 位海外投资专家</p>
+                <p>已服务超 <span>2,000</span> 位高净值人士</p>
+                <p>海外投资总成交逾 <span>10</span> 亿美元</p>
+                <p>推广超过 <span>200</span> 个海外投资项目</p>
+                <p>举办超过 <span>1500</span> 场海外投资说明会</p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="box">
+          <div class="header">
+            <p>澳美家全球业务范围</p>
+            <p>Global business scope</p>
+          </div>
+          <div class="cont">
+            <div class="scope-wrapper">
+              <div class="scope-box">
+                <img src="../../images/introduction/index/scope-01.jpg" alt="">
+                <p class="orange">房产投资</p>
+              </div>
+              <div class="scope-box">
+                <img src="../../images/introduction/index/scope-02.jpg" alt="">
+                <p class="blue">投资移民</p>
+              </div>
+              <div class="scope-box">
+                <img src="../../images/introduction/index/scope-03.jpg" alt="">
+                <p class="brown">保险</p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="box">
+          <div class="header">
+            <p>澳美家全球项目分布</p>
+            <p>Global project division</p>
+          </div>
+          <div class="cont">
+            <img src="../../images/introduction/index/division.png" class="img">
+          </div>
+        </div>
+        <div class="box">
+          <div class="header">
+            <p>澳美家客户专享，您的海外资产移民管家！</p>
+            <p>澳美家鹏汇俱乐部小程序</p>
+          </div>
+          <div class="cont">
+            <img src="../../images/introduction/index/xcx.png" class="img">
+          </div>
+        </div>
+      </div>
+
+      <div v-else-if="navSelected == 'news'" class="news-wrapper">
+        <div class="news-list">
+          <a v-for="(item, index) in 10" :key="index" href="./detail.html">
+            <img src="../../images/overseas-property/detail/img-02.png" alt="">
+            <div class="right">
+              <p class="title text-overflow-2">
+                2020年10月份云顶1号最新进展，建筑主体进展一切顺利 
+              </p>
+              <p class="text text-overflow-2">
+                2020年10月份云顶1号最新进展，建筑主体进展一切顺利，2020年10月份云顶1号最新进展，建筑主体进展一切顺利。
+                2020年10月份云顶1号最新进展，建筑主体进展一切顺利，2020年10月份云顶1号最新进展，建筑主体进展一切顺利。
+              </p>
+              <div class="time">
+                <span>2020-12-16</span>
+                <span>1360次阅读</span>
+              </div>
+            </div>
+          </a>
+        </div>
+        <div class="page-wrapper">
+          <div class="page-box">
+            <span>《</span>
+            <span class="on">1</span>
+            <span>2</span>
+            <span>3</span>
+            <span>4</span>
+            <span>5</span>
+            <span>》</span>
+          </div>
+        </div>
+      </div>
+
+      <div v-else-if="navSelected == 'contact'" class="inner-wrapper">
+        <div class="box">
+          <div class="header">
+            <p>运营网络</p>
+            <p>Operating Network</p>
+          </div>
+          <div class="cont">
+            <img src="../../images/introduction/index/map.jpg" class="img">
+          </div>
+        </div>
+        <div class="box">
+          <div class="header">
+            <p>联系我们</p>
+            <p>Contact us</p>
+          </div>
+          <div class="cont">
+            <div class="contact-wrapper">
+              <div class="left-box">
+                <img src="../../images/introduction/index/contact.jpg" class="bg">
+                <div class="layer"></div>
+                <div class="tel">
+                  <img src="../../images/common/tel.png" alt="">
+                  <span>24小时咨询热线</span>
+                </div>
+                <p class="number">
+                  4007-889-229
+                </p>
+                <div class="time">
+                  <img src="../../images/common/chat.png" alt="">
+                  <span>在线咨询，周一至周五，9:00 - 18:00</span>
+                </div>
+                <div class="btn">
+                  在线咨询
+                </div>
+              </div>
+              <div class="right-box">
+                <div class="inner">
+                  <img src="../../images/common/location.png" alt="">
+                  <span class="company">深圳公司：</span>
+                  <span class="pos">深圳市南山区深南大道9030号瑞思中心10楼</span>
+                </div>
+                <div class="inner">
+                  <img src="../../images/common/location.png" alt="">
+                  <span class="company">广州公司：</span>
+                  <span class="pos">广州市天河区林和西路161号中泰国际广场B座40S1</span>
+                </div>
+                <div class="inner">
+                  <img src="../../images/common/location.png" alt="">
+                  <span class="company">墨尔本公司：</span>
+                  <span class="pos">1318/401 Docklands Drive, Docklands VIC 3008</span>
+                </div>
+                <div class="inner">
+                  <img src="../../images/common/location.png" alt="">
+                  <span class="company">加拿大公司：</span>
+                  <span class="pos">203 38 Ave NE, Calgary, AB, Canada, 邮编T2E 2M3</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div v-else-if="navSelected == 'join'" class="join-wrapper">
+        <p class="email">
+          简历投递邮箱：hr@iaumeca.com
+        </p>
+        <p class="job-name">
+          海外房产销售顾问
+        </p>
+        <p class="text">
+          岗位职责
+        </p>
+        <p class="text">
+          1、落实公司各项营销政策，完成销售考核计划，及其他各项指标的完成；
+        </p>
+        <p class="text">
+          2、理解客户需求，提供优质房产项目，制定专业投资建议计划书；
+        </p>
+        <p class="text">
+          3、为客户提供购房法律法规、贷款政策、交房、租赁等环节的专业咨询；
+        </p>
+        <p class="text">
+          4、负责销售团队管理以及协助下属员工完成下达的任务指标；
+        </p>
+        <p class="text">
+          5、定期维护跟进客户资源。
+        </p>
+        <p class="text">
+          任职要求：
+        </p>
+        <p class="text">
+          1、了解海外房产市场和法律程序优先考虑；
+        </p>
+        <p class="text">
+          2、熟悉英美房产相关政策优先考虑；
+        </p>
+        <p class="text">
+          3、高端地产项目销售，大客户销售，奢侈品销售，海外产品销售经验者优先；
+        </p>
+        <p class="text">
+          4、有一定的英语基础。
+        </p>
+        <p class="text">
+          职位亮点：
+        </p>
+        <p class="text">
+          1、国际化的运营模式和业务领域，让你成为全球房产，金融投资行业的精英人才；
+        </p>
+        <p class="text">
+          2、百万用户平台的实战能力培养，完善的职业培训体系；
+        </p>
+        <p class="text">
+          3、定期全球培训机会，全方位的职业发展机遇；
+        </p>
+        <p class="text">
+          4、极具竞争力的薪资，分红、股权等多重激励。
+        </p>
+
+        <p class="job-name">
+          VIP业务助理
+        </p>
+        <p class="text">
+          岗位职责
+        </p>
+        <p class="text">
+          1、根据部门需求完成各类信息的收集、汇总、分析工作；
+        </p>
+        <p class="text">
+          2、负责项目统计及分析工作，按进度做好日报、月报、年报；
+        </p>
+        <p class="text">
+          3、协助部门领导维护本部门人员管理及现有员工评估汇总工作；
+        </p>
+        <p class="text">
+          4、完成VP交办的其他事项。
+        </p>
+        <p class="text">
+          任职要求：
+        </p>
+        <p class="text">
+          1、统招本科以上学历，90后，良好的沟通能力和团队合作精神；
+        </p>
+        <p class="text">
+          2、熟练操作办公软件制作PPT、EXCEL、PROJECT;
+        </p>
+        <p class="text">
+          3、能独立处理日常工作，能协调好内外各种关系，具有较好的公关与沟通能力；
+        </p>
+        <p class="text">
+          4、执行能力强，吃苦耐劳，具备良好的职业道德素养，工作主动性强，有创新能力；
+        </p>
+        <p class="text">
+          5、具备一定的文字能力，文档的撰写能力等。
+        </p>
+        <p class="text">
+          职位亮点：
+        </p>
+        <p class="text">
+          1、国际化的运营模式和业务领域，让你成为全球房产，金融投资行业的精英人才；
+        </p>
+        <p class="text">
+          2、百万用户平台的实战能力培养，完善的职业培训体系；
+        </p>
+        <p class="text">
+          3、定期全球培训机会，全方位的职业发展机遇；
+        </p>
+        <p class="text">
+          4、极具竞争力的薪资，分红、股权等多重激励。
+        </p>
+      </div>
+    </section>
+
+    <section class="page-footer">
+      <div class="page-footer-wrapper">
+        <div class="project-recommend-wrapper">
+          <div class="common-box-header">
+            <p>热门房产项目</p>
+            <p><a href="#">查看更多 > > ></a></p>
+          </div>
+          <div class="project-recommend-inner">
+            <dl>
+              <dt v-for="(item, index) in 4" :key="index">
+                <div class="recommend-img-wrapper">
+                  <img src="../../images/hot-recommend-list.jpg" alt="">
+                  <span class="hot-logo">
+                    热门
+                  </span>
+                  <p>价格：￥120万起</p>
+                </div>
+                <div class="recommend-desc-wrapper">
+                  <p class="recommend-desc-title">
+                    云会星光i云会星光i云会星光i星光
+                  </p>
+                  <div class="recommend-desc-info">
+                    <span>
+                      <p>吉隆坡</p>
+                      <p>城市</p>
+                    </span>
+                    <span>
+                      <p>公寓</p>
+                      <p>类型</p>
+                    </span>
+                    <span>
+                      <p>￥3.3万起</p>
+                      <p>单价</p>
+                    </span>
+                    <span>
+                      <p>30%</p>
+                      <p>首付</p>
+                    </span>
+                  </div>
+                </div>
+              </dt>
+            </dl>
+          </div>
+        </div>
+
+        <div class="overseas-wrapper">
+          <div class="common-box-header">
+            <p>热门移民项目</p>
+            <p><a href="#">查看更多 > > ></a></p>
+          </div>
+          <div class="overseas-bottom-list-wrapper">
+            <div class="overseas-bottom-list">
+              <img src="../../images/overseas-bottom-list1.jpg">
+              <div class="overseas-bottom-list-desc">
+                <p>土耳其购房</p>
+                <p>12.7万欧起</p>
+                <p>
+                  <span>永久产权</span>
+                  <span>永无移民监</span>
+                  <span>三个月</span>
+                </p>
+              </div>
+            </div>
+            <div class="overseas-bottom-list">
+              <img src="../../images/overseas-bottom-list2.jpg">
+              <div class="overseas-bottom-list-desc">
+                <p>土耳其购房</p>
+                <p>12.7万欧起</p>
+                <p>
+                  <span>永久产权</span>
+                  <span>永无移民监</span>
+                  <span>三个月</span>
+                </p>
+              </div>
+            </div>
+            <div class="overseas-bottom-list">
+              <img src="../../images/overseas-bottom-list3.jpg">
+              <div class="overseas-bottom-list-desc">
+                <p>土耳其购房</p>
+                <p>12.7万欧起</p>
+                <p>
+                  <span>永久产权</span>
+                  <span>永无移民监</span>
+                  <span>三个月</span>
+                </p>
+              </div>
+            </div>
+            <div class="overseas-bottom-list">
+              <img src="../../images/overseas-bottom-list4.jpg">
+              <div class="overseas-bottom-list-desc">
+                <p>土耳其购房</p>
+                <p>12.7万欧起</p>
+                <p>
+                  <span>永久产权</span>
+                  <span>永无移民监</span>
+                  <span>三个月</span>
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- <script src="https://apps.bdimg.com/libs/jquery/2.1.4/jquery.min.js"></script> -->
+  <script src="../../utils/vue.js"></script>
+  <script src="../../js/introduction/index.js"></script>
+</body>
+</html>

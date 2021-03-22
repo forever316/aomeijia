@@ -2,7 +2,7 @@
 			<div class="footer-inner">
 				<div class="footer-left">
 					<div class="footer-logo">
-						<img src="{{$data['company']['footer_logo']}}">
+						<img src="/{{$data['company']['footer_logo']}}">
 					</div>
 					<div class="footer-phone">
 						<p class="phone-title">
@@ -40,11 +40,11 @@
 				<div class="footer-right">
 					<ul class="footer-right-ul">
 						<li>
-							<img src="{{$data['company']['wechat1_img']}}" alt="">
+							<img src="/{{$data['company']['wechat1_img']}}" alt="">
 							<p>澳美家海外</p>
 						</li>
 						<li>
-							<img src="{{$data['company']['wechat2_img']}}" alt="">
+							<img src="/{{$data['company']['wechat2_img']}}" alt="">
 							<p>财富管理</p>
 						</li>
 					</ul>
