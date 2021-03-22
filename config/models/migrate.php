@@ -102,7 +102,7 @@ return [
             'sort'=>['text'=>'排序','type'=>'span'],
             'status'=>['text'=>'状态','type'=>'select','value'=>['1'=>'启用','2'=>'禁用']],
             'read'=>['text'=>'阅读量','type'=>'span'],
-            'real_read'=>['text'=>'真实阅读量','type'=>'span'],
+//            'real_read'=>['text'=>'真实阅读量','type'=>'span'],
             'publish_date'=>['text'=>'发布时间','type'=>'span'],
             'updated_at' => ['text'=>'更新时间','type'=>'span'],
             'created_at' => ['text'=>'创建时间','type'=>'span'],
