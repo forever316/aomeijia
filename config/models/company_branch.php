@@ -1,7 +1,7 @@
 <?php
 
 return [
-    'list' => [
+    'companyBranchList' => [
         'field' => [
             'id' => ['text'=>'ID'],
 			'company_name' => ['text'=>'分公司名称'],
@@ -13,7 +13,7 @@ return [
             'update' => '/companyBranch/update',
             'delete' => '/companyBranch/delete',
         ],
-        'data_url' => '/companyBranch/list',
+        'data_url' => '/companyBranch/companyBranchList',
     ],
     'add' => [
         'field' => [

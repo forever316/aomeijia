@@ -1,7 +1,7 @@
 <?php
 
 return [
-    'list' => [
+    'activeList' => [
         'field' => [
             'id' => ['text'=>'ID'],
 			'theme' => ['text'=>'主题'],
@@ -19,7 +19,7 @@ return [
             'see' => '/active/see',
             'delete' => '/active/delete',
         ],
-        'data_url' => '/active/list',
+        'data_url' => '/active/activeList',
     ],
     'add' => [
         'field' => [

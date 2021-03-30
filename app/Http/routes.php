@@ -205,13 +205,13 @@ Route::group(['domain' => ADMINWEBSITE,'middleware'=>['auth','authority']], func
     Route::match(['get', 'post'], '/migrate/seeMigrate','Admin\MigrateController@seeMigrate');//查看全球移民
 
     //分公司地址管理
-    Route::match(['get', 'post'], '/companyBranch/companyBranchList','Admin\CompanyBranchController@list');//分公司地址列表
+    Route::match(['get', 'post'], '/companyBranch/companyBranchList','Admin\CompanyBranchController@companyBranchList');//分公司地址列表
     Route::match(['get', 'post'], '/companyBranch/add','Admin\CompanyBranchController@add');//添加分公司地址
     Route::match(['get', 'post'], '/companyBranch/update','Admin\CompanyBranchController@update');//更新分公司地址
     Route::match(['get', 'post'], '/companyBranch/delete','Admin\CompanyBranchController@delete');//删除分公司地址
 
     //展会活动管理
-    Route::match(['get', 'post'], '/active/activeList','Admin\ActiveController@list');//展会活动列表
+    Route::match(['get', 'post'], '/active/activeList','Admin\ActiveController@activeList');//展会活动列表
     Route::match(['get', 'post'], '/active/add','Admin\ActiveController@add');//添加展会活动
     Route::match(['get', 'post'], '/active/update','Admin\ActiveController@update');//更新展会活动
     Route::match(['get', 'post'], '/active/delete','Admin\ActiveController@delete');//删除展会活动
