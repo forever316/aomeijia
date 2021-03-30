@@ -21,7 +21,7 @@ class ActiveController extends Controller
         $formUrl = 'models.active.'.$action['method'];
         $this->form = Config::get($formUrl);
     }
-	public function list(Request $request){
+	public function activeList(Request $request){
 		if($request->ajax()){
 			//获取要排序的字段 默认按创建时间倒序
 			$sort = Input::get('sort','created_at');

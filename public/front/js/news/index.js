@@ -16,6 +16,20 @@ window.onload = function () {
     },
 
     mounted () {
+      // 导航菜单的二级菜单
+      $(".nav-list").mouseenter(function () {
+        var el = $(this).find(".sub-nav");
+        if (el) {
+          el.stop().animate({ height : "show" }, 300);
+        }
+      });
+      $(".nav-list").mouseleave(function() {
+        var el = $(this).find(".sub-nav");
+        if (el) {
+          el.stop().animate({ height : "hide" }, 300);
+        }
+      });
+
       var self = this;
       this.$nextTick(function () {
         self.swiper = new Swiper('.news-swiper', {

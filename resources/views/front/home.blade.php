@@ -872,7 +872,7 @@
 			<!-- 专业团队下的内容 -->
 			<div class="special-team-bottom-wrapper">
 				<div class="special-team-bottom-video">
-					<video src="../images/video-demo.mp4" controls="controls"></video>
+					<video src="{{$data['company']['video']}}" controls="controls"></video>
 				</div>
 				<div class="special-team-bottom-info">
 					<p>

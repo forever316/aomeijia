@@ -145,5 +145,24 @@
 <!-- <script src="https://apps.bdimg.com/libs/jquery/2.1.4/jquery.min.js"></script> -->
 {{--<script src="/front/utils/vue.js"></script>--}}
 <script src="/front/js/immigrant/index.js"></script>
+<script>
+    // window.onload=function() {
+        // 导航
+        $(".nav-list").mouseenter(function () {
+            var el = $(this).find(".sub-nav");
+            if (el) {
+                el.stop().animate({height: "show"}, 300);
+            }
+        });
+        $(".nav-list").mouseleave(function () {
+            var el = $(this).find(".sub-nav");
+            if (el) {
+                el.stop().animate({height: "hide"}, 300);
+            }
+        });
+
+    // }
+
+</script>
 </body>
 </html>

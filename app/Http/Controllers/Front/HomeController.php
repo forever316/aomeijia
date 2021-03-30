@@ -76,6 +76,7 @@ class HomeController  extends Controller
         //专业售前售后服务，banner Type=4
         $data['bottomBanner'] = Banner::where('type',4)->where('status',1)->orderBy('sort','desc')->take(6)->get()->toArray();
 
+
         //合作伙伴
         $_partnerData = Partner::where('status',1)->orderBy('sort','desc')->get()->toArray();
         $partnerType = PartnerType::where('status',1)->orderBy('sort','desc')->get()->toArray();
@@ -93,7 +94,6 @@ class HomeController  extends Controller
             }
         }
         $data['partnerData'] = $partnerData;
-
         //友情链接
         $data['linkData'] = $this->getLinkData();
         

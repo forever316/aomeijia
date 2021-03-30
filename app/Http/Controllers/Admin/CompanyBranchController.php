@@ -21,7 +21,7 @@ class CompanyBranchController extends Controller
         $formUrl = 'models.company_branch.'.$action['method'];
         $this->form = Config::get($formUrl);
     }
-	public function list(Request $request){
+	public function companyBranchList(Request $request){
 		if($request->ajax()){
 			//获取要排序的字段 默认按创建时间倒序
 			$sort = Input::get('sort','created_at');
