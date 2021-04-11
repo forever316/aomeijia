@@ -75,6 +75,7 @@ class MigrateController  extends Controller
             $data['url'] .= '&type_invest='.$type_invest;
             $query = $query->where('invest_id',$type_invest);
         }
+        //全球移民是取出所有的数据信息
         $data['data'] = $query->orderBy('sort','desc')->orderBy('publish_date','desc')->orderBy('id','desc')->get()->toArray();
 
         return view('front.migrate.index',[

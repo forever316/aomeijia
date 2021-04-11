@@ -15,7 +15,7 @@
         <div class="router-wrapper">
             <span>首页</span>
             <i>></i>
-            <span>百科咨询</span>
+            <span>百科资讯</span>
         </div>
 
         <div class="detail-wrapper">

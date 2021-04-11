@@ -4,9 +4,10 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>澳美家</title>
-    <link type="text/css" rel="styleSheet" href="/front/css/introduction/index.css" />
-    <script src="/front/js/introduction/index.js"></script>
-    @include('front.common.layout')
+  <link type="text/css" rel="styleSheet" href="/front//css/header.css" />
+  <link type="text/css" rel="styleSheet" href="/front//css/common.css" />
+  <link type="text/css" rel="styleSheet" href="/front//css/introduction/index.css" />
+  @include('front.common.layout')
 </head>
 <body>
   <main id="introduction-index-page" v-cloak>
@@ -57,7 +58,7 @@
         @endforeach
         </div>
         <div class="page-wrapper">
-          {{ $data['dynamic']->links() }}
+          {!! $data['dynamic_html']  !!}
         </div>
         
         <!-- <div class="page-wrapper">
@@ -132,5 +133,8 @@
     </section>
     @include('front.common.footer')
   </main>
+  <script src="https://apps.bdimg.com/libs/jquery/2.1.4/jquery.min.js"></script>
+  <script src="/front/utils/vue.js"></script>
+  <script src="/front/js/introduction/index.js"></script>
 </body>
 </html>

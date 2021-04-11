@@ -37,24 +37,28 @@ class CorpController  extends Controller
         $data['migrate'] = $this->getShowMigrateData(4);
 
         //头部banner,一张图片
-        $data['topBanner'] = Banner::where('type',8)->where('status',1)->orderBy('sort','desc')->orderBy('id','desc')->first()->toArray();
+        $data['topBanner'] = current(Banner::where('type',8)->where('status',1)->orderBy('sort','desc')->orderBy('id','desc')->take(1)->get()->toArray());
         //1公司简介,2加入我们,3联系我们,4集团动态
         //澳美家简介内容,type=1,一条数据
-        $data['brief'] = Article::where('type',1)->where('status',1)->where('publish_date','<=',$date)->orderBy('sort','desc')->orderBy('publish_date','desc')->orderBy('id','desc')->first()->toArray();
+        $data['brief'] = current(Article::where('type',1)->where('status',1)->where('publish_date','<=',$date)->orderBy('sort','desc')->orderBy('publish_date','desc')->orderBy('id','desc')->take(1)->get()->toArray());
         //加入我们
-        $data['join'] = Article::where('type',2)->where('status',1)->where('publish_date','<=',$date)->orderBy('sort','desc')->orderBy('publish_date','desc')->orderBy('id','desc')->first()->toArray();
+        $data['join'] = current(Article::where('type',2)->where('status',1)->where('publish_date','<=',$date)->orderBy('sort','desc')->orderBy('publish_date','desc')->orderBy('id','desc')->take(1)->get()->toArray());
         //联系我们
-        $data['contact'] = Article::where('type',3)->where('status',1)->where('publish_date','<=',$date)->orderBy('sort','desc')->orderBy('publish_date','desc')->orderBy('id','desc')->first()->toArray();
+        $data['contact'] = current(Article::where('type',3)->where('status',1)->where('publish_date','<=',$date)->orderBy('sort','desc')->orderBy('publish_date','desc')->orderBy('id','desc')->take(1)->get()->toArray());
         //联系我们中的下面的分公司
         $data['contact_branch'] = CompanyBranch::orderBy('sort','desc')->take(4)->get()->toArray();
 
         //集团动态
         $data['dynamic'] = Article::where('type',4)->where('status',1)->where('publish_date','<=',$date)->orderBy('sort','desc')->orderBy('publish_date','desc')->orderBy('id','desc')->paginate(10);
-        
+
+        $data['dynamic_html'] = str_replace('corpBrief?page=1','corpBrief?page=1&key=news',$data['dynamic']->links());
+        for($i=1;$i<10;$i++){
+            $data['dynamic_html'] = str_replace('corpBrief?page='.$i,'corpBrief?page='.$i.'&key=news',$data['dynamic_html']);
+        }
+
         return view('front.corp.corp_brief',[
             'title' => '集团简介',
             'data' => $data,
-            
         ]);
     }
 

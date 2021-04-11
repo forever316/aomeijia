@@ -18,6 +18,8 @@ use Illuminate\Support\Facades\DB;
 use App\Models\OverseaHouse;
 use App\Models\Migrate;
 use App\Models\Information;
+use App\Models\Faqs;
+use App\Models\Article;
 
 class Controller extends BaseController
 {
@@ -361,6 +363,25 @@ class Controller extends BaseController
             }
             $i++;
         }
+        return $data;
+    }
+
+    /*
+     * 得到热门主题数据
+     */
+    public function getThemeData($limit)
+    {
+        $date = date('Y-m-d');
+        $data = Article::where('type',6)->where('status',1)->where('publish_date','<=',$date)->orderBy('sort','desc')->orderBy('publish_date','desc')->orderBy('id','desc')->take($limit)->get()->toArray();
+        return $data;
+    }
+
+    /*
+     * 得到投资问答数据
+     */
+    public function getFaqData($limit)
+    {
+        $data = Faqs::where('status',1)->orderBy('sort','desc')->orderBy('id','desc')->take($limit)->get()->toArray();
         return $data;
     }
 

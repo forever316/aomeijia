@@ -40,11 +40,11 @@
 				<div class="footer-right">
 					<ul class="footer-right-ul">
 						<li>
-							<img src="/{{$data['company']['wechat1_img']}}" alt="">
+							<img style="width:150px;height:150px;" src="/{{$data['company']['wechat1_img']}}" alt="">
 							<p>澳美家海外</p>
 						</li>
 						<li>
-							<img src="/{{$data['company']['wechat2_img']}}" alt="">
+							<img style="width:150px;height:150px;" src="/{{$data['company']['wechat2_img']}}" alt="">
 							<p>财富管理</p>
 						</li>
 					</ul>

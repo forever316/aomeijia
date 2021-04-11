@@ -38,7 +38,7 @@ class ArticleController  extends Controller
         //4个热门移民项目
         $data['migrate'] = $this->getShowMigrateData(4);
         //本篇文章的详细内容
-        $data['data'] = Article::where('id',$id)->where('status',1)->where('publish_date','<=',$date)->take(1)->get()->toArray();
+        $data['data'] = Article::where('id',$id)->take(1)->get()->toArray();
         $data['data'] = current($data['data']);
         if($data['data']){
             //上一篇文章

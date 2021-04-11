@@ -51,9 +51,9 @@ class InformationController  extends Controller
         $data['search'] = HotSearch::where('type',4)->where('status',1)->orderBy('sort','desc')->pluck('words','id')->take(3)->toArray();
 
         //三个热门投资主题数据,文章类型，''1公司简介,2加入我们,3联系我们,4集团动态,5项目动态,6投资主题'',7,考察团内容，8往期考察团回顾，9往期活动回顾',
-        $data['theme'] = Article::where('type',6)->where('status',1)->where('publish_date','<=',$date)->orderBy('sort','desc')->orderBy('publish_date','desc')->orderBy('id','desc')->take(3)->get()->toArray();
+        $data['theme'] = $this->getThemeData(3);
         //四个投资问答
-        $data['faqs'] = Faqs::where('status',1)->orderBy('sort','desc')->orderBy('id','desc')->take(4)->get()->toArray();
+        $data['faqs'] = $this->getFaqData(4);
         //宣传图片，百科资讯宣传图片类型为9
         $data['adver_img'] = Banner::where('type',9)->where('status',1)->orderBy('sort','desc')->orderBy('id','desc')->take(1)->get()->toArray();
 
@@ -123,9 +123,9 @@ class InformationController  extends Controller
         //4个热门移民项目
         $data['migrate'] = $this->getShowMigrateData(4);
         //三个热门投资主题数据,文章类型，''1公司简介,2加入我们,3联系我们,4集团动态,5项目动态,6投资主题'',7,考察团内容，8往期考察团回顾，9往期活动回顾',
-        $data['theme'] = Article::where('type',6)->where('status',1)->where('publish_date','<=',$date)->orderBy('sort','desc')->orderBy('publish_date','desc')->orderBy('id','desc')->take(3)->get()->toArray();
+        $data['theme'] = $this->getThemeData(3);
         //四个投资问答
-        $data['faqs'] = Faqs::where('status',1)->orderBy('sort','desc')->orderBy('id','desc')->take(4)->get()->toArray();
+        $data['faqs'] = $this->getFaqData(4);
         //宣传图片，百科资讯宣传图片类型为9
         $data['adver_img'] = Banner::where('type',9)->where('status',1)->orderBy('sort','desc')->orderBy('id','desc')->take(1)->get()->toArray();
 

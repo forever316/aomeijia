@@ -944,16 +944,20 @@
 				@endforeach
 				</div>
 				<div class="cooperative-partner-list">
-					@foreach($data['partnerData'] as $key=>$val)
-						<ul class=" aaa @if($val['class']=='active') active @endif">
-							@foreach($val['partner'] as $pk=>$pv)
-								<li>
-									<img src="{{$pv['logo']}}" alt="">
-									<span>{{$pv['title']}}</span>
-								</li>
-							@endforeach
-						</ul>
-					@endforeach
+					@if($data['partnerData'])
+						@foreach($data['partnerData'] as $key=>$val)
+							<ul class=" aaa @if($val['class']=='active') active @endif">
+								@if($val['partner'])
+									@foreach($val['partner'] as $pk=>$pv)
+										<li>
+											<img src="{{$pv['logo']}}" alt="">
+											<span>{{$pv['title']}}</span>
+										</li>
+									@endforeach
+								@endif
+							</ul>
+						@endforeach
+					@endif
 				</div>
 			</div>
 		</div>
