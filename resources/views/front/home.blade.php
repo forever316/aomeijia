@@ -68,8 +68,8 @@
 				<!-- 一级菜单 -->
 				<dl class="country-list-one">
 					<dt>
-{{--						<img src="/front/images/housing-resources-logo2.jpeg" alt="">--}}
-						<div style="margin-left:28px;">
+						<img src="/front/images/housing-resources-logo1.jpeg" alt="">
+						<div style="margin-left:8px;cursor: pointer;">
 							<a href="/?pid=0" class="menu_city @if($data['pid']==0) on @endif" target="_blank"><p>全球</p></a>
 							<span>></span>
 						</div>
@@ -537,42 +537,6 @@
 	</div>
 {{--@include('front.common.consult')--}}
 	@include('front.common.footer')
-
-	<!--  回到顶部等几个按钮 -->
-	<div class="web_components_sidebar">
-		<a href="" class="web_components_sidebar-item">
-			<img src="/front/images/sidebar1.jpeg" alt="">
-			<!-- <span>全国热线</span> -->
-			<!-- <div class="web_components_sidebar-layer">
-				<img src="" alt="">
-			</div> -->
-		</a>
-		<a target="_blank" href=" http://p.qiao.baidu.com/cps/chat?siteId=6088728&userId=7240211&siteToken=41095c4a656b37c14a45dc99176af78f" class="web_components_sidebar-item">
-			<img src="/front/images/sidebar2.png" alt="">
-			<!-- <span>在线客服</span> -->
-			<!-- <div class="web_components_sidebar-layer">
-				<img src="" alt="">
-			</div> -->
-		</a>
-		<a href="" class="web_components_sidebar-item">
-			<img src="/front/images/sidebar3.jpeg" alt="">
-			<!-- <span>投资报告</span> -->
-			<!-- <div class="web_components_sidebar-layer">
-				<img src="" alt="">
-			</div> -->
-		</a>
-		<a href="" class="web_components_sidebar-item">
-			<img src="/front/images/sidebar4.jpeg" alt="">
-			<!-- <span>官网微信</span> -->
-			<!-- <div class="web_components_sidebar-layer">
-				<img src="" alt="">
-			</div> -->
-		</a>
-		<a href="" class="web_components_sidebar-item back-top">
-			<img src="/front/images/sidebar5.jpeg" alt="">
-			<!-- <span>返回顶部</span> -->
-		</a>
-	</div>
 
 <script>
 	$('.info-menu').click(function(){
