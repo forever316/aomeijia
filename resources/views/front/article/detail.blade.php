@@ -1,9 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>澳美家</title>
     <link type="text/css" rel="styleSheet" href="/front/css/introduction/detail.css" />
     <link type="text/css" rel="styleSheet" href="/front/utils/sharejs/css/share.min.css" />
     @include('front.common.layout')
@@ -45,13 +42,13 @@
                     @if($data['last_article'])
                         <div class="inner">
                             <span class="tag">上一篇</span>
-                            <span class="title text-overflow-1"><a href="/article?id={{$data['last_article']['id']}}">{!!  $data['last_article']['title'] !!}</a></span>
+                            <span class="title text-overflow-1"><a target="_blank" href="/article?id={{$data['last_article']['id']}}">{!!  $data['last_article']['title'] !!}</a></span>
                         </div>
                     @endif
                     @if($data['next_article'])
                         <div class="inner">
                             <span class="tag">下一篇</span>
-                            <span class="title text-overflow-1"><a href="/article?id={{$data['next_article']['id']}}">{!! $data['next_article']['title'] !!}</a></span>
+                            <span class="title text-overflow-1"><a target="_blank" href="/article?id={{$data['next_article']['id']}}">{!! $data['next_article']['title'] !!}</a></span>
                         </div>
                     @endif
                 </div>

@@ -1,9 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>百科资讯</title>
 {{--    <link type="text/css" rel="styleSheet" href="/front/css/common.css" />--}}
     <link type="text/css" rel="styleSheet" href="/front/css/news/detail.css" />
     <link type="text/css" rel="styleSheet" href="/front/utils/sharejs/css/share.min.css" />
@@ -26,15 +23,15 @@
             <div class="detail-left-wrapper">
                 <div class="news-wrapper">
                     <p class="title">
-                        {!! $data['data']['publish_date'] !!}
+                        {!! $data['data']['title'] !!}
                     </p>
                     <div class="info-box">
                         <div class="info">
-                            <span>时间：{!! $data['data']['title'] !!}</span>
+                            <span>时间：{!! $data['data']['publish_date'] !!}</span>
                             <span>阅读量：{!! $data['data']['read'] !!} 次</span>
                         </div>
                         <div class="share-btn" @click="isShareShow = !isShareShow">
-                            <img src="/images/overseas-property/detail/share.png" alt="">
+                            <img src="/front/images/overseas-property/detail/share.png" alt="">
                             <span>分享</span>
                             <div v-show="isShareShow" class="share-wrapper" @click.stop="">
                                 <div id="share"></div>
@@ -56,13 +53,13 @@
                             <div class="inner">
                                 @if($data['last_article'])
                                 <span class="tag">上一篇</span>
-                                <span class="title text-overflow-1"><a href="/information/detail?id={{$data['last_article']['id']}}">{!! $data['last_article']['title'] !!}</a></span>
+                                <span class="title text-overflow-1"><a target="_blank" href="/information/detail?id={{$data['last_article']['id']}}">{!! $data['last_article']['title'] !!}</a></span>
                                 @endif
                             </div>
                             <div class="inner">
                                 @if($data['next_article'])
                                 <span class="tag">下一篇</span>
-                                <span class="title text-overflow-1"><a href="/information/detail?id={{$data['next_article']['id']}}">{!! $data['next_article']['title'] !!}</a></span>
+                                <span class="title text-overflow-1"><a target="_blank" href="/information/detail?id={{$data['next_article']['id']}}">{!! $data['next_article']['title'] !!}</a></span>
                                 @endif
                             </div>
                         </div>

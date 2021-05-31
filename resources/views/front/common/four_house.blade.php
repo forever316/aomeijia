@@ -1,20 +1,23 @@
+@if(isset($data['house']) && $data['house'])
 <div class="project-recommend-wrapper">
     <div class="common-box-header">
         <p>@if(isset($data['searchInfo']['areaName'])){!! $data['searchInfo']['areaName'] !!}@endif热门房产项目</p>
-        <p><a href="#">查看更多 > > ></a></p>
+        <p><a target="_blank" href="/house">查看更多 > > ></a></p>
     </div>
     <div class="project-recommend-inner">
         <dl>
             @foreach($data['house'] as $key=>$val)
                 <dt>
                     <div class="recommend-img-wrapper">
-                        <img src="/{{$val['img']}}" alt="">
+                        <a target="_blank" href="/house/detail?id={{$val['id']}}">
+                            <img src="/{{$val['img']}}" alt="" style="width: 292px;height: 254px;">
+                        </a>
                         <span class="hot-logo">
                     热门
                   </span>
                         <p>价格：￥{{$val['total_price']}}万起</p>
                     </div>
-                    <div class="recommend-desc-wrapper">
+                    <div class="recommend-desc-wrapper none-pointer">
                         <p class="recommend-desc-title">
                             {{$val['title']}}
                         </p>
@@ -42,3 +45,4 @@
         </dl>
     </div>
 </div>
+@endif

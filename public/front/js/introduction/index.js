@@ -8,12 +8,24 @@ window.onload = function () {
     },
 
     mounted () {
+      // 导航菜单的二级菜单
+      $(".nav-list").mouseenter(function () {
+        var el = $(this).find(".sub-nav");
+        if (el) {
+          el.stop().animate({ height : "show" }, 300);
+        }
+      });
+      $(".nav-list").mouseleave(function() {
+        var el = $(this).find(".sub-nav");
+        if (el) {
+          el.stop().animate({ height : "hide" }, 300);
+        }
+      });
+      
       this.handleScroll();
-      if (window.location.search) {
-        var key = '';
-        window.location.search.replace(/key=(.*)/, (a, b) => {
-          key = b;
-        });
+      if (/#/.test(window.location.href)) {
+        var arr = window.location.href.split('#');
+        var key = arr[arr.length - 1];
         this.navSelected = key;
       }
     },
@@ -30,7 +42,9 @@ window.onload = function () {
       },
 
       selectNav (key) {
-        window.location.replace('?key=' + key);
+        console.log(key);
+        window.location.href = '#' + key;
+        this.navSelected = key;
         var self = this;
         this.$nextTick(function () {
           window.scrollTo(0, self.$refs.content.offsetTop - self.$refs.nav.offsetHeight);

@@ -1,9 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>全球移民</title>
 {{--    <link type="text/css" rel="styleSheet" href="/front/css/common.css" />--}}
     <link type="text/css" rel="styleSheet" href="/front/css/immigrant/appointment.css" />
     @include('front.common.layout')
@@ -146,9 +143,9 @@
                 <div class="inner">
                     <span class="text">性别：</span>
                     <div class="radio-box">
-                        <input type="radio" id="male" value="male" v-model="sex">
+                        <input type="radio" id="male" value="1" v-model="sex">
                         <label for="male">先生</label>
-                        <input type="radio" id="female" value="female" v-model="sex">
+                        <input type="radio" id="female" value="2" v-model="sex">
                         <label for="female">女士</label>
                     </div>
                 </div>

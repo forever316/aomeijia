@@ -1,5 +1,7 @@
 <meta charset="UTF-8">
-<title>澳美家</title>
+<title>{{$data['company']['page_title']}}-{{$title}}</title>
+<meta name="description" content="{{$data['company']['page_description']}}">
+<meta name="keywords" content="{{$data['company']['page_keywords']}}">
 <link type="text/css" rel="styleSheet" href="/front/css/header.css" />
 <link type="text/css" rel="styleSheet" href="/front/css/footer.css" />
 <link type="text/css" rel="styleSheet" href="/front/css/common.css" />
@@ -11,3 +13,4 @@
 <script src="/front/utils/swiper/swiper-bundle.min.js"></script>
 <script src="/front/utils/vue.js"></script>
 <script src="/front/js/index.js"></script>
+<script src="/front/js/common.js"></script>

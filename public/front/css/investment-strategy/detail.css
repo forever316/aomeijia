@@ -171,7 +171,7 @@ a {
 .project-recommend-inner dt {
   margin-top: 20px;	
 	background-color: #fff;
-	cursor: pointer;
+	/*cursor: pointer;*/
 }
 
 .project-recommend-inner dt:hover {
@@ -223,7 +223,7 @@ a {
 }
 
 .recommend-desc-wrapper .recommend-desc-title:hover {
-	color: #ee8300;
+	/*color: #ee8300;*/
 }
 
 .recommend-desc-wrapper .recommend-desc-info {

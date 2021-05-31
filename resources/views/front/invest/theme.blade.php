@@ -1,9 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>投资主题</title>
 {{--    <link type="text/css" rel="styleSheet" href="/front/css/common.css" />--}}
     <link type="text/css" rel="styleSheet" href="/front/css/investment-strategy/theme.css" />
 {{--    <link type="text/css" rel="styleSheet" href="/front/utils/swiper/swiper-bundle.min.css" />--}}
@@ -46,7 +43,7 @@
             <ul class="items">
                 @foreach($data['theme'] as $key=>$val)
                 <li  class="item">
-                    <a href="/invest/theme/detail?id={!! $val['id'] !!}">
+                    <a target="_blank" href="/invest/theme/detail?id={!! $val['id'] !!}">
                         <img src="/{!! $val['thumb'] !!}" class="img">
                         <p class="name text-overflow-1">
                             {!! $val['title'] !!}

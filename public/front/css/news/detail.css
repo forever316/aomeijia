@@ -230,6 +230,11 @@ a {
 
 .news-wrapper .detail {
 	padding: 40px 0 80px;
+    width: 819px !important;
+}
+
+.news-wrapper .detail img{
+    max-width: 815px;
 }
 
 .news-wrapper .about-wrapper {

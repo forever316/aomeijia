@@ -1,9 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>投资攻略</title>
     <link type="text/css" rel="styleSheet" href="/front/css/common.css" />
     <link type="text/css" rel="styleSheet" href="/front/css/investment-strategy/index.css" />
 {{--    <link type="text/css" rel="styleSheet" href="/front/utils/swiper/swiper-bundle.min.css" />--}}
@@ -12,6 +9,10 @@
 <style>
     .area-wrapper .items a:hover{
         color: #000000;
+    }
+    .immigrant-wrapper ul:after{
+        content: '';
+        width: 380px;
     }
 </style>
 
@@ -43,7 +44,7 @@
             <ul class="items">
                 @foreach($data['data'] as $key=>$val)
                     <li class="item">
-                        <a href="/invest/country/detail?id={{$val['id']}}"></a>
+                        <a target="_blank" href="/invest/country/detail?id={{$val['id']}}"></a>
                         <p class="name">
                             {!! $val['city_name'] !!}
                         </p>
@@ -56,7 +57,7 @@
                             </div>
                         </div>
                         <img style="height: 226.66px;" src="/{!! $val['thumb'] !!}" class="img">
-                        <p class="desc">
+                        <p class="desc text-overflow-2" style="height:38px;">
                             {!! $val['title'] !!}
                         </p>
                         <div class="tag">
@@ -69,15 +70,16 @@
             </ul>
         </div>
 
+        @if($data['house'])
         <div class="house-wrapper">
             <div class="common-box-header">
                 <p>{!! $data['searchInfo']['areaName'] !!}热门房产项目</p>
-                <p><a href="#">查看更多 > > ></a></p>
+                <p><a target="_blank" href="/house">查看更多 > > ></a></p>
             </div>
             <ul class="items">
                 @foreach($data['house'] as $key=>$val)
                 <li  class="item">
-                    <a href="./detail.html">
+                    <a target="_blank" href="/house/detail?id={{$val['id']}}">
                         <div class="img">
                             <img src="/{!! $val['img'] !!}" alt="">
                         </div>
@@ -121,14 +123,16 @@
                 @endforeach
             </ul>
             <div class="more-btn">
-                查看更多
+                <a target="_blank" href="/house">查看更多</a>
             </div>
         </div>
+        @endif
 
+        @if($data['migrate'])
         <div class="immigrant-wrapper">
             <div class="common-box-header">
                 <p>{!! $data['searchInfo']['areaName'] !!}热门移民项目</p>
-                <p><a href="#">查看更多 > > ></a></p>
+                <p><a target="_blank" href="/migrate">查看更多 > > ></a></p>
             </div>
             <ul class="items">
                 @foreach($data['migrate'] as $key=>$val)
@@ -139,7 +143,7 @@
                     </div>
                     <div class="detail-box">
                         <p class="desc">
-                            面向人群：有移民加拿大的高净值客户
+                            @if($val['face'])面向人群：{{$val['face']}}@endif
                         </p>
                         <div class="box">
                             <span class="tag">项目特点</span>
@@ -154,7 +158,7 @@
                         </div>
                     </div>
                     <div class="btn-wrapper">
-                        <a href="../Immigrant/detail.html" class="btn">
+                        <a target="_blank" href="/migrate/detail?id={{$val['id']}}" class="btn">
                             点击查看详情
                         </a>
                         <div class="btn appointment" @click="isAppointmentShow = true">
@@ -163,8 +167,17 @@
                     </div>
                 </li>
                 @endforeach
+{{--                @if($data['migrate_less']==2)--}}
+{{--                    <li class="item"></li>--}}
+{{--                    <li class="item"></li>--}}
+{{--                @endif--}}
+{{--                @if($data['migrate_less']==1)--}}
+{{--                    <li class="item"></li>--}}
+{{--                @endif--}}
+
             </ul>
         </div>
+        @endif
     </section>
 
     <section class="page-footer">
@@ -174,35 +187,7 @@
         </div>
     </section>
 
-    <transition name="fade">
-        <section v-if="isAppointmentShow" class="appointment-wrapper" @click.self="isAppointmentShow = false">
-            <div class="appointment-cont">
-                <div class="head">
-                    <img src="/front/images/overseas-property/detail/appointment-head.png" alt="">
-                    <i @click="isAppointmentShow = false">×</i>
-                </div>
-                <div class="text">
-                    <i></i>
-                    <span>立即预约</span>
-                    <i></i>
-                </div>
-                <div class="cont">
-                    <form>
-                        <input type="text" placeholder="请输入您的姓名">
-                        <input type="text" placeholder="请输入您的手机号">
-                        <input type="text" placeholder="请输入您的微信">
-                        <textarea placeholder="请输入您想了解的更多信息"></textarea>
-                        <p class="notice">
-                            * 所有信息均已进行加密处理，请放心填写！
-                        </p>
-                        <button type="submit" @click="isAppointmentShow = false">
-                            立即提交
-                        </button>
-                    </form>
-                </div>
-            </div>
-        </section>
-    </transition>
+    @include('front.common.consult')
     @include('front.common.footer')
 </main>
 
@@ -210,5 +195,14 @@
 {{--<script src="/front/utils/swiper/swiper-bundle.min.js"></script>--}}
 {{--<script src="/front/utils/vue.js"></script>--}}
 <script src="/front/js/investment-strategy/index.js"></script>
+
+<script>
+    function consult(){
+        $('#form_consult').find("input[name='type']").val(2);
+        submitConsultData();
+    }
+
+</script>
+
 </body>
 </html>

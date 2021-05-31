@@ -1,8 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
 	<head>
-		<meta charset="UTF-8">
-		<title>澳美家</title>
 		<link type="text/css" rel="styleSheet" href="/front/css/banner.css" />
 		<link type="text/css" rel="styleSheet" href="/front/css/index.css" />
 		<script src="/front/js/index.js"></script>
@@ -14,6 +12,38 @@
 	width:140px;
 	height:80px;
 }
+	.banner_slider_pics img{
+		width:1920px;
+		height:550px;
+	}
+	.hot-info-left-introduction{
+		max-height:36px;
+	}
+	.country-list-one .menu_city:hover{
+		color: #ee8300 !important;
+	}
+	.country-list-one .menu_city{
+		color:#fff;
+	}
+	.country-list-one a.on{
+		color:#ee8300;
+	}
+	.menu-bg-black{
+		background: rgba(0, 0, 0, .5);
+		height: 58px !important;
+		position: absolute;
+		top: -16px;
+		border-radius: 5px;
+	}
+	.country-list-two>dl>dt:first-child~dt span>b {
+		line-height: 58px !important;
+		left: 49% !important;
+		width: 90px !important;
+	}
+	.hot-info-header-list .info-menu{
+		cursor: pointer;
+	}
+
 </style>
 
 	@include('front.common.header')
@@ -24,9 +54,11 @@
 				<!-- 轮播图 -->
 				<div class="banner_slider" id="banner_slider">
 					<div class="banner_slider_pics" id="banner_slider_pics">
-						<a href="#" ><img src="https://pic.qyer.com/public/home/focus/2020/10/26/16036832507188?imageMogr2/interlace/1|imageslim"></a>	
-						<a href="#" ><img src="/front/images/banner1.jpg"></a>	
-						<a href="#"><img src="https://pic.qyer.com/public/home/focus/2020/10/26/16036927436469?imageMogr2/interlace/1|imageslim"></a>
+						@if($data['topBanner'])
+							@foreach($data['topBanner'] as $tp=>$tv)
+							<a target="_blank" href="{{$tv['link']}}"><img src="{{$tv['img_url']}}"></a>
+							@endforeach
+						@endif
 					</div>
 					<div class="banner_slider_arrow">
 						<p class="arrow_item prev" id="arrow_prev">&lt;</p>
@@ -36,9 +68,9 @@
 				<!-- 一级菜单 -->
 				<dl class="country-list-one">
 					<dt>
-						<img src="/front/images/housing-resources-logo1.jpeg" alt="">
-						<div>
-							<p>全球</p>
+{{--						<img src="/front/images/housing-resources-logo2.jpeg" alt="">--}}
+						<div style="margin-left:28px;">
+							<a href="/?pid=0" class="menu_city @if($data['pid']==0) on @endif" target="_blank"><p>全球</p></a>
 							<span>></span>
 						</div>
 						<code class="country-list-two">
@@ -46,168 +78,65 @@
 								<dt>
 									热门城市/地区
 								</dt>
-								<dt>
-									<span>
-										<img src="/front/images/city-logo1.jpg" alt="">
-										<b>澳大利亚1</b>
-									</span>	
-								</dt><dt>
-									<span>
-										<img src="/front/images/city-logo1.jpg" alt="">
-										<b>迪拜</b>
-									</span>	
-								</dt>
-								<dt>
-								<span>
-									<img src="/front/images/city-logo1.jpg" alt="">
-									<b>荷兰</b>
-								</span>	
-								</dt>
-								<dt>
-									<span>
-										<img src="/front/images/city-logo1.jpg" alt="">
-										<b>加拿大</b>
-									</span>	
-								</dt>
-								<dt>
-									<span>
-										<img src="/front/images/city-logo1.jpg" alt="">
-										<b>澳大利亚</b>
-									</span>	
-								</dt>
-								<dt>
-									<span>
-										<img src="/front/images/city-logo1.jpg" alt="">
-										<b>更多</b>
-									</span>	
-								</dt>
+								@if($data['cityList_hot'])
+									@foreach($data['cityList_hot'] as $hot)
+										<dt>
+											<span>
+												<img src="/{{$hot['pic']}}">
+
+													<b class="menu-bg-black">
+														<a href="/?pid=0&id={{$hot['id']}}" class="menu_city @if($data['id']==$hot['id']) on @endif" target="_blank">
+															{{$hot['name']}}
+														</a>
+													</b>
+
+											</span>
+										</dt>
+									@endforeach
+								@endif
 							</dl>
 						</code>
 					</dt>
-					<dt>
-						<img src="/front/images/housing-resources-logo2.jpeg" alt="">
-						<div>
-							<p>亚洲</p>
-							<span>></span>
-						</div>
-						<code class="country-list-two">
-							<dl>
-								<dt>
-									热门城市/地区
-								</dt>
-								<dt>
-									<span>
-										<img src="/front/images/city-logo1.jpg" alt="">
-										<b>澳大利亚2</b>
-									</span>	
-								</dt><dt>
-									<span>
-										<img src="/front/images/city-logo1.jpg" alt="">
-										<b>迪拜</b>
-									</span>	
-								</dt>
-								<dt>
-								<span>
-									<img src="/front/images/city-logo1.jpg" alt="">
-									<b>荷兰</b>
-								</span>	
-								</dt>
-								<dt>
-									<span>
-										<img src="/front/images/city-logo1.jpg" alt="">
-										<b>加拿大</b>
-									</span>	
-								</dt>
-								<dt>
-									<span>
-										<img src="/front/images/city-logo1.jpg" alt="">
-										<b>澳大利亚</b>
-									</span>	
-								</dt>
-								<dt>
-									<span>
-										<img src="/front/images/city-logo1.jpg" alt="">
-										<b>更多</b>
-									</span>	
-								</dt>
-							</dl>
-						</code>
-					</dt>
-					<dt>
-						<img src="/front/images/housing-resources-logo2.jpeg" alt="">
-						<div>
-							<p>欧洲</p>
-							<span>></span>
-						</div>
-						<code class="country-list-two">
-							<dl>
-								<dt>
-									热门城市/地区
-								</dt>
-								<dt>
-									<span>
-										<img src="/front/images/city-logo1.jpg" alt="">
-										<b>澳大利亚3</b>
-									</span>	
-								</dt><dt>
-									<span>
-										<img src="/front/images/city-logo1.jpg" alt="">
-										<b>迪拜</b>
-									</span>	
-								</dt>
-								<dt>
-								<span>
-									<img src="/front/images/city-logo1.jpg" alt="">
-									<b>荷兰</b>
-								</span>	
-								</dt>
-								<dt>
-									<span>
-										<img src="/front/images/city-logo1.jpg" alt="">
-										<b>加拿大</b>
-									</span>	
-								</dt>
-								<dt>
-									<span>
-										<img src="/front/images/city-logo1.jpg" alt="">
-										<b>澳大利亚</b>
-									</span>	
-								</dt>
-								<dt>
-									<span>
-										<img src="/front/images/city-logo1.jpg" alt="">
-										<b>更多</b>
-									</span>	
-								</dt>
-							</dl>
-						</code>
-					</dt>
-					<dt>
-						<img src="/front/images/housing-resources-logo2.jpeg" alt="">
-						<div>
-							<p>北美洲</p>
-							<span>></span>
-						</div>
-					</dt>
-					<dt>
-						<img src="/front/images/housing-resources-logo2.jpeg" alt="">
-						<div>
-							<p>南美洲</p>
-							<span>></span>
-						</div>
-						
-					</dt>
-					<dt>
-						<img src="/front/images/housing-resources-logo2.jpeg" alt="">
-						<div>
-							<p>大洋洲</p>
-							<span>></span>
-						</div>
-					</dt>
+
+					@if($data['cityList'])
+						@foreach($data['cityList'] as $ck=>$cv)
+							<dt>
+								@if($cv['pic'])
+								<img src="/{{$cv['pic']}}" alt="">
+								@endif
+								<div style="margin-left: 8px;cursor: pointer;">
+									<p><a href="/?pid={{$cv['id']}}" class="menu_city @if($data['pid']==$cv['id']) on @endif" target="_blank">{{$cv['name']}}</a></p>
+									<span>></span>
+								</div>
+								<code class="country-list-two">
+									<dl>
+										<dt>
+											城市/地区
+										</dt>
+										@if(isset($cv['childs']) && $cv['childs'])
+											@foreach($cv['childs'] as $child)
+{{--												<a href="/?id={{$child['id']}}" class="menu_city" target="_blank">--}}
+												<dt>
+													<span>
+														<img style="width:89px;height:58px;" src="/{{$child['pic']}}">
+														<b class="menu-bg-black"><a href="/?pid={{$cv['id']}}&id={{$child['id']}}" class="menu_city @if($data['id']==$child['id']) on @endif" target="_blank">{{$child['name']}}</a></b>
+													</span>
+												</dt>
+{{--												</a>--}}
+											@endforeach
+										@endif
+									</dl>
+								</code>
+							</dt>
+
+						@endforeach
+					@endif
 				</dl>
 			</div>
 			<div class="banner-bottom">
-				<img src="/front/images/banner-bottom.jpg">
+				@if(isset($data['serviceBanner']['img_url']))
+					<img src="/{{$data['serviceBanner']['img_url']}}">
+				@endif
 			</div>
 		</div>
 	</div>
@@ -218,51 +147,40 @@
 				<div class="hot-info-header-list">
 					<ul>
 						<li class="hot-header-first">热门资讯</li>
-						<li><a href="#">房产</a></li>
-						<li><a href="#">移民</a></li>
-						<li><a href="#">投资</a></li>
-						<li><a href="#">财富</a></li>
-						<li><a href="#">留学</a></li>
-						<li><a href="#">社会</a></li>
-						<li><a href="#">政策</a></li>
+						@if($data['infoType'])
+							@foreach($data['infoType'] as $tk=>$type)
+								<li class="info-menu @if($tk==0) active @endif" value="{{$type['id']}}">{!! $type['name'] !!}</li>
+							@endforeach
+						@endif
 					</ul>
 				</div>
 				<div class="hot-view-more">
-					<a href=""><p>查看更多 > > ></p></a>
+					<a target="_blank" href="/information"><p>查看更多 > > ></p></a>
 				</div>
 			</div>
 			<div class="hot-info-inner">
 				<div class="hot-info-left">
-					<ul>
-						<li>
-							<img src="/front/images/hot-info1.jpg">
-							<a href="#">
-								<p class="hot-info-left-title">中国希腊签署2021文化和旅游年备忘录</p>
-								<p class="hot-info-left-introduction">雅典国际机场Eleftherios Venizelos是希腊最大的国际机场，雅典市和阿提卡地区提供服务。</p>
-							</a>
-						</li>
-						<li>
-							<img src="/front/images/hot-info.jpg">
-							<a href="#">
-								<p class="hot-info-left-title">中国希腊签署2021文化和旅游年备忘录</p>
-								<p class="hot-info-left-introduction">雅典国际机场Eleftherios Venizelos是希腊最大的国际机场，雅典市和阿提卡地区提供服务。</p>
-							</a>
-						</li>
+					<ul class="info_two">
+						@if($data['info_two'])
+							@foreach($data['info_two'] as $info)
+								<li>
+									<img src="/{{$info['thumb']}}" style="width:310px;height:259px;">
+									<a target="_blank" href="/information/detail?id={{$info['id']}}">
+										<p class="hot-info-left-title text-overflow-1">{{$info['title']}}</p>
+										<p class="hot-info-left-introduction desc text-overflow-2">{!! $info['describe'] !!}</p>
+									</a>
+								</li>
+							@endforeach
+						@endif
 					</ul>
-					
 				</div>
 				<div class="hot-info-right">
-					<ul>
-						<li><a href="#">中国希腊签署2021文化和旅游年备忘录</a></li>
-						<li><a href="#">中国希腊签署2021文化和旅游年备忘录，欧洲排名第二！</a></li>
-						<li><a href="#">中国希腊签署2021文化和旅游年备忘录，欧洲排名第二！</a></li>
-						<li><a href="#">中国希腊签署2021文化和旅游年备忘录，欧洲排名第二！</a></li>
-						<li><a href="#">中国希腊签署2021文化和旅游年备忘录，欧洲排名第二！</a></li>
-						<li><a href="#">中国希腊签署2021文化和旅游年备忘录，欧洲排名第二！</a></li>
-						<li><a href="#">中国希腊签署2021文化和旅游年备忘录，欧洲排名第二！</a></li>
-						<li><a href="#">中国希腊签署2021文化和旅游年备忘录，欧洲排名第二！</a></li>
-						<li><a href="#">中国希腊签署2021文化和旅游年备忘录，欧洲排名第二！</a></li>
-						<li><a href="#">中国希腊签署2021文化和旅游年备忘录，欧洲排名第二！</a></li>
+					<ul class="info_other">
+						@if($data['info_other'])
+							@foreach($data['info_other'] as $infos)
+								<li><a target="_blank" href="/information/detail?id={{$infos['id']}}">{!! $infos['title'] !!}</a></li>
+							@endforeach
+						@endif
 					</ul>
 				</div>
 			</div>
@@ -270,25 +188,11 @@
 		<!-- 热门资讯下的列表 -->
 		<div class="hot-list-bar">
 			<ul>
-				<li>• <a href="#">中国希腊签署2021文化和旅游年备忘录，欧洲排名第二！</a></li>
-				<li>• <a href="#">中国希腊签署2021文化和旅游年备忘录</a></li>
-				<li>• <a href="#">中国希腊签署2021文化和旅游年备忘录</a></li>
-				<li>• <a href="#">中国希腊签署2021文化和旅游年备忘录，欧洲排名第二！</a></li>
-				<li>• <a href="#">中国希腊签署2021文化和旅游年备忘录，欧洲排名第二！</a></li>
-				<li>• <a href="#">中国希腊签署2021文化和旅游年备忘录，欧洲排名第二！</a></li>
-				<li>• <a href="#">中国希腊签署2021文化和旅游年备忘录，欧洲排名第二！</a></li>
-				<li>• <a href="#">中国希腊签署2021文化和旅游年备忘录，欧洲排名第二！</a></li>
-				<li>• <a href="#">中国希腊签署2021文化和旅游年备忘录，欧洲排名第二！</a></li>
-				<li>• <a href="#">中国希腊签署2021文化和旅游年备忘录，欧洲排名第二！</a></li>
-				<li>• <a href="#">中国希腊签署2021文化和旅游年备忘录，欧洲排名第二！</a></li>
-				<li>• <a href="#">中国希腊签署2021文化和旅游年备忘录，欧洲排名第二！</a></li>
-				<li>• <a href="#">中国希腊签署2021文化和旅游年备忘录，欧洲排名第二！</a></li>
-				<li>• <a href="#">中国希腊签署2021文化和旅游年备忘录，欧洲排名第二！</a></li>
-				<li>• <a href="#">中国希腊签署2021文化和旅游年备忘录，欧洲排名第二！</a></li>
-				<li>• <a href="#">中国希腊签署2021文化和旅游年备忘录，欧洲排名第二！</a></li>
-				<li>• <a href="#">中国希腊签署2021文化和旅游年备忘录，欧洲排名第二！</a></li>
-				<li>• <a href="#">中国希腊签署2021文化和旅游年备忘录，欧洲排名第二！</a></li>
-				<!-- <li>• <a href="#">中国希腊签署2021文化和旅游年备忘录</a></li> -->
+				@if($data['wechat'])
+					@foreach($data['wechat'] as $wechat)
+						<li>• <a target="_blank" href="{!! $wechat['url'] !!}">{!! $wechat['title'] !!}</a></li>
+					@endforeach
+				@endif
 			</ul>
 		</div>
 		<!-- 热门展会 + 考察团-->
@@ -296,88 +200,81 @@
 			<!-- 热门展会 -->
 			<div class="hot-exhibitions-wrapper">
 				<div class="hot-exhibitions-header">
-					<div class="exhibitions-header-title">热门展会</div>
-					<div class="exhibitions-header-view-more"><a href="#">查看更多 > > ></a></div>
+					<div class="exhibitions-header-title">热门活动</div>
+					<div class="exhibitions-header-view-more"><a target="_blank" href="#">查看更多 > > ></a></div>
 				</div>
 				<div class="hot-exhibitions-inner">
+					@if($data['active'])
 					<div class="hot-exhibitions-adv">
-						<img src="/front/images/hot-exhibitions.jpg" alt="" >
+						<img src="/{{$data['active']['thumb']}}" alt="" >
 					</div>
 					<div class="hot-exhibitions-info">
-						<span class="hot-exhibitions-info-title">八年后ECEP签订 东盟再获发展新机遇</span>
+						<span class="hot-exhibitions-info-title">{{$data['active']['theme']}}</span>
 						<dl>
-							<dt>深圳站</dt>
+{{--							<dt>深圳站</dt>--}}
 							<dt>
 								<img src="/front/images/time-logo2.jpeg">
-								<span>2020年12月30日 13:00pm</span>
+								<span>{{$data['active']['time']}}</span>
 							</dt>
 							<dt>
 								<img src="/front/images/address-logo.jpeg">
-								<span>深圳市南山区深南大道9030号瑞思中心10楼</span>
+								<span>{{$data['active']['address']}}</span>
 							</dt>
 						</dl>
-						<dl>
-							<dt>广州站</dt>
-							<dt>
-								<img src="/front/images/time-logo2.jpeg">
-								<span>2020年12月30日 13:00pm</span>
-							</dt>
-							<dt>
-								<img src="/front/images/address-logo.jpeg">
-								<span>广州天河区林和西路161号中泰国际广场40楼</span>
-							</dt>
-						</dl>
+{{--						<dl>--}}
+{{--							<dt>广州站</dt>--}}
+{{--							<dt>--}}
+{{--								<img src="/front/images/time-logo2.jpeg">--}}
+{{--								<span>2020年12月30日 13:00pm</span>--}}
+{{--							</dt>--}}
+{{--							<dt>--}}
+{{--								<img src="/front/images/address-logo.jpeg">--}}
+{{--								<span>广州天河区林和西路161号中泰国际广场40楼</span>--}}
+{{--							</dt>--}}
+{{--						</dl>--}}
 						<span class="exhibitions-sign-button">立即预约报名</span>
+{{--						<div class="exhibitions-sign-button btn appointment" @click="isAppointmentShow = true">--}}
+{{--							立即预约报名--}}
+{{--						</div>--}}
 					</div>
+					@endif
 				</div>
 			</div>
 			<!-- 考察团 -->
 			<div class="delegation-wrapper">
 				<div class="delegation-header">
 					<div class="delegation-header-title">考察团</div>
-					<div class="delegation-header-view-more"><a href="#">查看更多 > > ></a></div>
+					<div class="delegation-header-view-more"><a target="_blank" href="#">查看更多 > > ></a></div>
 				</div>
 				<div class="delegation-inner">
-					<a href="#">
+					<a target="_blank" href="#">
 						<div class="delegation-banner">
-							<img src="/front/images/delegation-banner.jpg" alt="">
+							@if(isset($data['inspect'][0]))
+							<img src="/{{$data['inspect'][0]['thumb']}}" style="width:464px;height:197px;">
 							<div class="delegation-banner-describe">
-								<p>柬埔寨金边考察团 3天2晚</p>
+								<p>{{$data['inspect'][0]['title']}}</p>
 								<p>
-									<span>2020年12月20日 结截</span>
+									<span>{{$data['inspect'][0]['end_date']}} 结截</span>
 								</p>
 							</div>
+							@endif
 						</div>
 					</a>
 					<div class="delegation-list">
 						<dl>
-							<dt>
-								<a href="#">
-									<span><img src="/front/images/delegation-list.jpg" alt=""></span>
-									<div class="delegation-list-describe">
-									    <p>柬埔寨金边考察团 3天2晚</p>
-									    <p>柬埔寨金边考察团 3天2晚柬埔寨金边考察团</p>
-									</div>
-								</a>
-							</dt>
-							<dt>
-								<a href="#">
-									<span><img src="/front/images/delegation-list.jpg" alt=""></span>
-									<div class="delegation-list-describe">
-									    <p>柬埔寨金边考察团 3天2晚</p>
-									    <p>柬埔寨金边考察团 3天2晚柬埔寨金边考察团</p>
-									</div>
-								</a>
-							</dt>
-							<dt>
-								<a href="#">
-									<span><img src="/front/images/delegation-list.jpg" alt=""></span>
-									<div class="delegation-list-describe">
-									    <p>柬埔寨金边考察团 3天2晚</p>
-									    <p>柬埔寨金边考察团 3天2晚柬埔寨金边考察团柬埔寨金边考察团 3天2晚柬埔寨金边考察团柬埔寨金边考察团 3天2晚柬埔寨金边考察团柬埔寨金边考察团 3天2晚柬埔寨金边考察团</p>
-									</div>
-								</a>
-							</dt>
+							@foreach($data['inspect'] as $ki=>$kiv)
+								@if($ki>0)
+									<dt>
+										<a target="_blank" href="#">
+											<span><img src="/{{$kiv['thumb']}}" style="width:110px;height:62px;"></span>
+											<div class="delegation-list-describe">
+												<p class="desc text-overflow-1">{{$kiv['title']}}</p>
+												<p class="desc text-overflow-1">{{$kiv['describe']}}</p>
+											</div>
+										</a>
+									</dt>
+								@endif
+							@endforeach
 						</dl>
 					</div>
 				</div>
@@ -385,18 +282,14 @@
 		</div>
 		<!-- 热门展会 考察团下的模块 -->
 		<div class="hot-delegation-bottom">
-			<div class="hot-delegation-bottom-list">
-				<a href="#"><img src="/front/images/delegation-bottom-list1.jpg"></a>
-			</div>
-			<div class="hot-delegation-bottom-list">
-				<a href="#"><img src="/front/images/delegation-bottom-list2.jpg"></a>
-			</div>
-			<div class="hot-delegation-bottom-list">
-				<a href="#"><img src="/front/images/delegation-bottom-list3.jpg"></a>
-			</div>
-			<div class="hot-delegation-bottom-list">
-				<a href="#"><img src="/front/images/delegation-bottom-list4.jpg"></a>
-			</div>
+			@if($data['middleBanner'])
+				@foreach($data['middleBanner'] as $val)
+					<div class="hot-delegation-bottom-list">
+						<img src="/{{$val['img_url']}}">
+					</div>
+				@endforeach
+			@endif
+
 		</div>
 		<!-- 热点项目推荐 -->
 		<div class="project-recommend-wrapper">
@@ -405,250 +298,44 @@
 					热点项目推荐
 					<span>好房源那么多 我们为您精挑细选</span>
 				</p>
-				<p><a href="#">查看更多 > > ></a></p>
+				<p><a target="_blank" href="/house">查看更多 > > ></a></p>
 			</div>
 			<div class="project-recommend-inner">
 				<dl>
-					<dt>
-						<div class="recommend-img-wrapper">
-							<img src="/front/images/hot-recommend-list.jpg" alt="">
-							<span class="hot-logo">
-								热门
-							</span>
-							<p>价格：￥120万起</p>
-						</div>
-						<div class="recommend-desc-wrapper">
-							<p class="recommend-desc-title">
-								云会星光i云会星光i云会星光i星光
-							</p>
-							<div class="recommend-desc-info">
-								<span>
-									<p>吉隆坡</p>
-									<p>城市</p>
-								</span>
-								<span>
-									<p>公寓</p>
-									<p>类型</p>
-								</span>
-								<span>
-									<p>￥3.3万起</p>
-									<p>单价</p>
-								</span>
-								<span>
-									<p>30%</p>
-									<p>首付</p>
-								</span>
+					@foreach($data['house'] as $key=>$val)
+						<dt>
+							<div class="recommend-img-wrapper">
+								<a target="_blank" href="/house/detail?id={{$val['id']}}"><img style="width: 292px;height: 254px;" src="/{{$val['img']}}" alt=""></a>
+								<span class="hot-logo">
+                    热门
+                  </span>
+								<p>价格：￥{{$val['total_price']}}万起</p>
 							</div>
-						</div>
-					</dt>
-					<dt>
-						<div class="recommend-img-wrapper">
-							<img src="/front/images/hot-recommend-list.jpg" alt="">
-							<em class="hot-logo"></em>
-							<p>价格：￥120万起</p>
-						</div>
-						<div class="recommend-desc-wrapper">
-							<p class="recommend-desc-title">
-								云会星光i云会星光i云会星光i星光
-							</p>
-							<div class="recommend-desc-info">
-								<span>
-									<p>吉隆坡</p>
-									<p>城市</p>
-								</span>
-								<span>
-									<p>公寓</p>
-									<p>类型</p>
-								</span>
-								<span>
-									<p>￥3.3万起</p>
-									<p>单价</p>
-								</span>
-								<span>
-									<p>30%</p>
-									<p>首付</p>
-								</span>
+							<div class="recommend-desc-wrapper none-pointer">
+								<p class="recommend-desc-title">
+									{{$val['title']}}
+								</p>
+								<div class="recommend-desc-info">
+                    <span>
+                      <p>{{$val['city_name']}}</p>
+                      <p>城市</p>
+                    </span>
+									<span>
+                      <p>{{$val['type_name']}}</p>
+                      <p>类型</p>
+                    </span>
+									<span>
+                      <p>￥{{$val['unit_price']}}万起</p>
+                      <p>单价</p>
+                    </span>
+									<span>
+                      <p>{{$val['first_payment']}}%</p>
+                      <p>首付</p>
+                    </span>
+								</div>
 							</div>
-						</div>
-					</dt>
-					<dt>
-						<div class="recommend-img-wrapper">
-							<img src="/front/images/hot-recommend-list.jpg" alt="">
-							<em class="hot-logo"></em>
-							<p>价格：￥120万起</p>
-						</div>
-						<div class="recommend-desc-wrapper">
-							<p class="recommend-desc-title">
-								云会星光i云会星光i云会星光i星光
-							</p>
-							<div class="recommend-desc-info">
-								<span>
-									<p>吉隆坡</p>
-									<p>城市</p>
-								</span>
-								<span>
-									<p>公寓</p>
-									<p>类型</p>
-								</span>
-								<span>
-									<p>￥3.3万起</p>
-									<p>单价</p>
-								</span>
-								<span>
-									<p>30%</p>
-									<p>首付</p>
-								</span>
-							</div>
-						</div>
-					</dt>
-					<dt>
-						<div class="recommend-img-wrapper">
-							<img src="/front/images/hot-recommend-list.jpg" alt="">
-							<em class="hot-logo"></em>
-							<p>价格：￥120万起</p>
-						</div>
-						<div class="recommend-desc-wrapper">
-							<p class="recommend-desc-title">
-								云会星光i云会星光i云会星光i星光
-							</p>
-							<div class="recommend-desc-info">
-								<span>
-									<p>吉隆坡</p>
-									<p>城市</p>
-								</span>
-								<span>
-									<p>公寓</p>
-									<p>类型</p>
-								</span>
-								<span>
-									<p>￥3.3万起</p>
-									<p>单价</p>
-								</span>
-								<span>
-									<p>30%</p>
-									<p>首付</p>
-								</span>
-							</div>
-						</div>
-					</dt>
-					<dt>
-						<div class="recommend-img-wrapper">
-							<img src="/front/images/hot-recommend-list.jpg" alt="">
-							<em class="hot-logo"></em>
-							<p>价格：￥120万起</p>
-						</div>
-						<div class="recommend-desc-wrapper">
-							<p class="recommend-desc-title">
-								云会星光i云会星光i云会星光i星光
-							</p>
-							<div class="recommend-desc-info">
-								<span>
-									<p>吉隆坡</p>
-									<p>城市</p>
-								</span>
-								<span>
-									<p>公寓</p>
-									<p>类型</p>
-								</span>
-								<span>
-									<p>￥3.3万起</p>
-									<p>单价</p>
-								</span>
-								<span>
-									<p>30%</p>
-									<p>首付</p>
-								</span>
-							</div>
-						</div>
-					</dt>
-					<dt>
-						<div class="recommend-img-wrapper">
-							<img src="/front/images/hot-recommend-list.jpg" alt="">
-							<em class="hot-logo"></em>
-							<p>价格：￥120万起</p>
-						</div>
-						<div class="recommend-desc-wrapper">
-							<p class="recommend-desc-title">
-								云会星光i云会星光i云会星光i星光
-							</p>
-							<div class="recommend-desc-info">
-								<span>
-									<p>吉隆坡</p>
-									<p>城市</p>
-								</span>
-								<span>
-									<p>公寓</p>
-									<p>类型</p>
-								</span>
-								<span>
-									<p>￥3.3万起</p>
-									<p>单价</p>
-								</span>
-								<span>
-									<p>30%</p>
-									<p>首付</p>
-								</span>
-							</div>
-						</div>
-					</dt><dt>
-						<div class="recommend-img-wrapper">
-							<img src="/front/images/hot-recommend-list.jpg" alt="">
-							<em class="hot-logo"></em>
-							<p>价格：￥120万起</p>
-						</div>
-						<div class="recommend-desc-wrapper">
-							<p class="recommend-desc-title">
-								云会星光i云会星光i云会星光i星光
-							</p>
-							<div class="recommend-desc-info">
-								<span>
-									<p>吉隆坡</p>
-									<p>城市</p>
-								</span>
-								<span>
-									<p>公寓</p>
-									<p>类型</p>
-								</span>
-								<span>
-									<p>￥3.3万起</p>
-									<p>单价</p>
-								</span>
-								<span>
-									<p>30%</p>
-									<p>首付</p>
-								</span>
-							</div>
-						</div>
-					</dt><dt>
-						<div class="recommend-img-wrapper">
-							<img src="/front/images/hot-recommend-list.jpg" alt="">
-							<em class="hot-logo"></em>
-							<p>价格：￥120万起</p>
-						</div>
-						<div class="recommend-desc-wrapper">
-							<p class="recommend-desc-title">
-								云会星光i云会星光i云会星光i星光
-							</p>
-							<div class="recommend-desc-info">
-								<span>
-									<p>吉隆坡</p>
-									<p>城市</p>
-								</span>
-								<span>
-									<p>公寓</p>
-									<p>类型</p>
-								</span>
-								<span>
-									<p>￥3.3万起</p>
-									<p>单价</p>
-								</span>
-								<span>
-									<p>30%</p>
-									<p>首付</p>
-								</span>
-							</div>
-						</div>
-					</dt>
+						</dt>
+					@endforeach
 				</dl>
 			</div>
 		</div>
@@ -659,81 +346,53 @@
 					<span>海外移民</span>
 					<span>好房源那么多 我们为您精挑细选</span>
 				</p>
-				<p><a href="#">查看更多 > > ></a></p>
+				<p><a target="_blank" href="/migrate">查看更多 > > ></a></p>
 			</div>
 			<div class="overseas-migrate-inner">
-				<div class="overseas-migrate-inner-left">
-					<img src="/front/images/overseas-migrate-inner-left.jpg" alt="">
-					<div class="overseas-migrate-inner-info">
-						<span class="view-info-desc">
-							<p><a href="#">希腊购房移民</a></p>
-							<p>25万欧，一家三代拿绿卡</p>
-						</span>
-						<span class="view-info-button"><a href="#">查看详情</a></span>
+				@if($data['migrate_first'])
+					<div class="overseas-migrate-inner-left none-pointer">
+						<img src="/{{$data['migrate_first']['img']}}">
+						<div class="overseas-migrate-inner-info">
+							<span class="view-info-desc">
+								<p>{{$data['migrate_first']['title']}}</p>
+								<p>{{$data['migrate_first']['project_charac']}}</p>
+							</span>
+							<span class="view-info-button"><a target="_blank" href="/migrate/detail?id={{$data['migrate_first']['id']}}">查看详情</a></span>
+						</div>
 					</div>
-				</div>
-				<div class="overseas-migrate-inner-right">
-					<img src="/front/images/overseas-migrate-inner-right.jpg" alt="">
-					<div class="overseas-migrate-inner-info">
-						<span class="view-info-desc">
-							<p><a href="#">希腊购房移民</a></p>
-							<p>25万欧，一家三代拿绿卡</p>
-						</span>
-						<span class="view-info-button"><a href="#">查看详情</a></span>
+				@endif
+				@if($data['migrate_two'])
+					<div class="overseas-migrate-inner-right none-pointer">
+						<img src="/{{$data['migrate_two']['img']}}">
+						<div class="overseas-migrate-inner-info">
+							<span class="view-info-desc">
+								<p>{{$data['migrate_two']['title']}}</p>
+								<p>{{$data['migrate_two']['project_charac']}}</p>
+							</span>
+							<span class="view-info-button"><a target="_blank" href="/migrate/detail?id={{$data['migrate_two']['id']}}">查看详情</a></span>
+						</div>
 					</div>
-				</div>
+				@endif
 			</div>
 		</div>
 		<!-- 海外移民下的list -->
 		<div class="overseas-bottom-list-wrapper">
-			<div class="overseas-bottom-list">
-				<img src="/front/images/overseas-bottom-list1.jpg">
-				<div class="overseas-bottom-list-desc">
-					<p>土耳其购房</p>
-					<p>12.7万欧起</p>
-					<p>
-						<span>永久产权</span>
-						<span>永无移民监</span>
-						<span>三个月</span>
-					</p>
+			@foreach($data['migrate'] as $mkey=>$mval)
+				<div class="overseas-bottom-list" style="height:291px; !important">
+					<a target="_blank" href="/migrate/detail?id={{$mval['id']}}">
+						<img src="/{{$mval['img']}}" style="width:287px;height: 288px;">
+						<div class="overseas-bottom-list-desc bg-black">
+							<p style="font-size: 22px;">{{$mval['title']}}</p>
+							<p>{{$mval['total_price']}}万起</p>
+							<p>
+								<span>{{$mval['project_charac']}}</span>
+								<span>{{$mval['identity']}}</span>
+								<span>{{$mval['transact_period']}}</span>
+							</p>
+						</div>
+					</a>
 				</div>
-			</div>
-			<div class="overseas-bottom-list">
-				<img src="/front/images/overseas-bottom-list2.jpg">
-				<div class="overseas-bottom-list-desc">
-					<p>土耳其购房</p>
-					<p>12.7万欧起</p>
-					<p>
-						<span>永久产权</span>
-						<span>永无移民监</span>
-						<span>三个月</span>
-					</p>
-				</div>
-			</div>
-			<div class="overseas-bottom-list">
-				<img src="/front/images/overseas-bottom-list3.jpg">
-				<div class="overseas-bottom-list-desc">
-					<p>土耳其购房</p>
-					<p>12.7万欧起</p>
-					<p>
-						<span>永久产权</span>
-						<span>永无移民监</span>
-						<span>三个月</span>
-					</p>
-				</div>
-			</div>
-			<div class="overseas-bottom-list">
-				<img src="/front/images/overseas-bottom-list4.jpg">
-				<div class="overseas-bottom-list-desc">
-					<p>土耳其购房</p>
-					<p>12.7万欧起</p>
-					<p>
-						<span>永久产权</span>
-						<span>永无移民监</span>
-						<span>三个月</span>
-					</p>
-				</div>
-			</div>
+			@endforeach
 		</div>
 		<!-- 成功案例 -->
 		<div class="success-case-wrapper">
@@ -742,58 +401,36 @@
 					成功案例
 					<span>好房源那么多 我们为您精挑细选</span>
 				</p>
-				<p><a href="#">查看更多 > > ></a></p>
+				<p><a target="_blank" href="/invest/case">查看更多 > > ></a></p>
 			</div>
 			<div class="success-case-inner">
-				<div class="success-case-inner-left">
-					<img src="/front/images/success-left.jpg" alt="">
-					<div class="success-case-inner-info">
-						<p><a href="#">澳美家2020年3月喜报不断</a></p>
-						<p>恭喜李女士一家三口成功拿到希腊蓝卡，享受地中海</p>
+				@if($data['case'] && isset($data['case'][0]))
+					<div class="success-case-inner-left">
+						<img src="/{!! $data['case'][0]['thumb'] !!}">
+						<div class="success-case-inner-info">
+							<p><a target="_blank" href="/invest/case/detail?id={{$data['case'][0]['id']}}">{!! $data['case'][0]['title'] !!}</a></p>
+							<p class="desc text-overflow-2">{!! $data['case'][0]['describe'] !!}</p>
+						</div>
 					</div>
-				</div>
+				@endif
+
 				<div class="success-case-inner-right">
 					<dl>
-						
-						<dt>
-							<a href="#">
-								<img src="/front/images/succes-right.jpg" alt="">
-								<div class="success-case-list-desc">
-									<p>柬埔寨金边考察团 3天2晚</p>
-									<p>柬埔寨金边考察团 3天2晚柬埔寨金边考察团 3天2晚柬埔寨金边考察团 3天2晚柬埔寨金边考察团 3天2晚柬埔寨金边考察团 3天2晚柬埔寨金边考察团 </p>
-								</div>
-							</a>
-						</dt>
-						</a>
-						
-						<dt>
-							<a href="#">
-								<img src="/front/images/succes-right.jpg" alt="">
-								<div class="success-case-list-desc">
-									<p>柬埔寨金边考察团 3天2晚</p>
-									<p>柬埔寨金边考察团 3天2晚柬埔寨金边考察团 3天2晚柬埔寨金边考察团 3天2晚柬埔寨金边考察团 3天2晚柬埔寨金边考察团 3天2晚柬埔寨金边考察团 </p>
-								</div>
-							</a>
-						</dt>
-						
-						<dt>
-							<a href="#">
-								<img src="/front/images/succes-right.jpg" alt="">
-								<div class="success-case-list-desc">
-									<p>柬埔寨金边考察团 3天2晚</p>
-									<p>柬埔寨金边考察团 3天2晚柬埔寨金边考察团 3天2晚柬埔寨金边考察团 3天2晚柬埔寨金边考察团 3天2晚柬埔寨金边考察团 3天2晚柬埔寨金边考察团 </p>
-								</div>
-							</a>
-						</dt>
-						<dt>
-							<a href="#">
-								<img src="/front/images/succes-right.jpg" alt="">
-								<div class="success-case-list-desc">
-									<p>柬埔寨金边考察团 3天2晚</p>
-									<p>柬埔寨金边考察团 3天2晚柬埔寨金边考察团 3天2晚柬埔寨金边考察团 3天2晚柬埔寨金边考察团 3天2晚柬埔寨金边考察团 3天2晚柬埔寨金边考察团 </p>
-								</div>
-							</a>
-						</dt>
+						@if($data['case'])
+							@foreach($data['case'] as $case_key=>$case_val)
+								@if($case_key>=1)
+									<dt>
+										<a target="_blank" href="/invest/case/detail?id={{$case_val['id']}}">
+											<div><img src="/{!! $case_val['thumb'] !!}" alt=""></div>
+											<div class="success-case-list-desc">
+												<p>{!! $case_val['title'] !!}</p>
+												<p class="desc text-overflow-2">{!! $case_val['describe'] !!} </p>
+											</div>
+										</a>
+									</dt>
+								@endif
+							@endforeach
+						@endif
 					</dl>
 				</div>
 			</div>
@@ -809,61 +446,27 @@
 				</div>
 				<div class="special-team-inner">
 					<dl class="swiper-wrapper">
-						<dt class="swiper-slide">
-							<p>
-								<img src="../images/team-portrait1.jpg" alt="">
-							</p>
-							<div class="special-team-inner-desc">
-								<span>Bella 王</span>
-								<span>海外投资销售经理</span>
-								<span>青葱岁月，5年如一日，已为数百位高端客户配置海外资产，服务金额超过5亿人民币，你的一</span>
-								<span>联系TA</span>
-							</div>
-						</dt>
-						<dt class="swiper-slide">
-							<p>
-								<img src="../images/team-portrait1.jpg" alt="">
-							</p>
-							<div class="special-team-inner-desc">
-								<span>Bella 王</span>
-								<span>海外投资销售经理</span>
-								<span>青葱岁月，5年如一日，已为数百位高端客户配置海外资产，服务金额超过5亿人民币，你的一</span>
-								<span>联系TA</span>
-							</div>
-						</dt>
-						<dt class="swiper-slide">
-							<p>
-								<img src="../images/team-portrait1.jpg" alt="">
-							</p>
-							<div class="special-team-inner-desc">
-								<span>Bella 王</span>
-								<span>海外投资销售经理</span>
-								<span>青葱岁月，5年如一日，已为数百位高端客户配置海外资产，服务金额超过5亿人民币，你的一</span>
-								<span>联系TA</span>
-							</div>
-						</dt>
-						<dt class="swiper-slide">
-							<p>
-								<img src="../images/team-portrait1.jpg" alt="">
-							</p>
-							<div class="special-team-inner-desc">
-								<span>Bella 王</span>
-								<span>海外投资销售经理</span>
-								<span>青葱岁月，5年如一日，已为数百位高端客户配置海外资产，服务金额超过5亿人民币，你的一</span>
-								<span>联系TA</span>
-							</div>
-						</dt>
-						<dt class="swiper-slide">
-							<p>
-								<img src="../images/team-portrait1.jpg" alt="">
-							</p>
-							<div class="special-team-inner-desc">
-								<span>Bella 王</span>
-								<span>海外投资销售经理</span>
-								<span>青葱岁月，5年如一日，已为数百位高端客户配置海外资产，服务金额超过5亿人民币，你的一</span>
-								<span>联系TA</span>
-							</div>
-						</dt>
+						@if($data['member'])
+							@foreach($data['member'] as $member)
+								<dt class="swiper-slide">
+									<p>
+										<img src="{!! $member['photo'] !!}" alt="">
+									</p>
+									<div class="special-team-inner-desc">
+										<span>{!! $member['name'] !!}</span>
+										<span>{!! $member['job'] !!}</span>
+										<span class="text-overflow-3">{!! $member['describe'] !!}</span>
+										<span>
+											<a target="_blank" class="special-a" style="text-decoration: none;
+	color: #fff;" targe="_blank" href=" http://p.qiao.baidu.com/cps/chat?siteId=6088728&userId=7240211&siteToken=41095c4a656b37c14a45dc99176af78f">
+											联系TA
+											</a>
+										</span>
+									</div>
+								</dt>
+							@endforeach
+						@endif
+
 					</dl>
 				</div>
 				<div class="case-button-next"></div>
@@ -872,59 +475,28 @@
 			<!-- 专业团队下的内容 -->
 			<div class="special-team-bottom-wrapper">
 				<div class="special-team-bottom-video">
-					<video src="{{$data['company']['video']}}" controls="controls"></video>
+					<iframe width="592" height="398" src="{{$data['company']['video']}}" frameborder="0" allowfullscreen>
+					</iframe>
+{{--					<video src="{{$data['company']['video']}}" controls="controls"></video>--}}
 				</div>
 				<div class="special-team-bottom-info">
 					<p>
 						专业售前售后服务
 					</p>
 					<div class="special-team-bottom-info-list">
-						<dl>
-							<dt>
-								<img src="../images/sale-after-logo2.jpeg">
-								<div>
-									<p>严选房源</p>
-									<p>最严风控只选最有资产</p>
-								</div>
-							</dt>
-							<dt>
-								<img src="../images/sale-after-logo1.jpeg">
-								<div>
-									<p>房屋交易</p>
-									<p>整合专业机构保证交易安全</p>
-								</div>
-							</dt>
-							<dt>
-								<img src="../images/sale-after-logo1.jpeg">
-								<div>
-									<p>出售变现</p>
-									<p>实时监控出售最佳时机</p>
-								</div>
-							</dt>
-						</dl>
-						<dl>
-							<dt>
-								<img src="../images/sale-after-logo1.jpeg">
-								<div>
-									<p>贷款服务</p>
-									<p>量身定制还款方案</p>
-								</div>
-							</dt>
-							<dt>
-								<img src="../images/sale-after-logo1.jpeg">
-								<div>
-									<p>租赁管理</p>
-									<p>房屋管理与管理，保证权益</p>
-								</div>
-							</dt>
-							<dt>
-								<img src="../images/sale-after-logo1.jpeg">
-								<div>
-									<p>贷款服务</p>
-									<p>量身定制还款方案</p>
-								</div>
-							</dt>
-						</dl>
+						@if($data['bottomBanner'])
+							@foreach($data['bottomBanner'] as $sk=>$service)
+								@if($sk==0 || $sk==3)<dl>@endif
+								<dt>
+									<img src="/{!! $service['img_url'] !!}">
+									<div>
+										<p>{!! $service['title'] !!}</p>
+										<p>{!! $service['describe'] !!}</p>
+									</div>
+								</dt>
+								@if($sk==2 || $sk==5)</dl>@endif
+							@endforeach
+						@endif
 					</div>
 				</div>
 			</div>
@@ -947,7 +519,7 @@
 					@if($data['partnerData'])
 						@foreach($data['partnerData'] as $key=>$val)
 							<ul class=" aaa @if($val['class']=='active') active @endif">
-								@if($val['partner'])
+								@if(isset($val['partner']))
 									@foreach($val['partner'] as $pk=>$pv)
 										<li>
 											<img src="{{$pv['logo']}}" alt="">
@@ -963,6 +535,7 @@
 		</div>
 
 	</div>
+{{--@include('front.common.consult')--}}
 	@include('front.common.footer')
 
 	<!--  回到顶部等几个按钮 -->
@@ -974,8 +547,8 @@
 				<img src="" alt="">
 			</div> -->
 		</a>
-		<a href="" class="web_components_sidebar-item">
-			<img src="/front/images/sidebar1.jpeg" alt="">
+		<a target="_blank" href=" http://p.qiao.baidu.com/cps/chat?siteId=6088728&userId=7240211&siteToken=41095c4a656b37c14a45dc99176af78f" class="web_components_sidebar-item">
+			<img src="/front/images/sidebar2.png" alt="">
 			<!-- <span>在线客服</span> -->
 			<!-- <div class="web_components_sidebar-layer">
 				<img src="" alt="">
@@ -1000,4 +573,44 @@
 			<!-- <span>返回顶部</span> -->
 		</a>
 	</div>
+
+<script>
+	$('.info-menu').click(function(){
+		$('.info-menu').removeClass('active');
+		$(this).addClass('active');
+		var type_id = $(this).attr('value');
+		$.ajax({
+			type: "POST",
+			url: "/index/getInfoByType",
+			data: {type_id:type_id},
+			dataType: "json",
+			success: function(data){
+				var html_info_two = '';
+				var html_info_other = '';
+				$.each(data.info_two, function(index, infoTwo){
+					html_info_two += '<li><img src="/'+infoTwo.thumb+'" style="width:310px;height:259px;"><a target="_blank" href="/information/detail?id='+infoTwo.id+'"> <p class="hot-info-left-title text-overflow-1">'+infoTwo.title+'</p><p class="hot-info-left-introduction text-overflow-3">'+infoTwo.describe+'</p> </a> </li>';
+				});
+
+				$.each(data.info_other, function(index, infoOther){
+					html_info_other += '<li><a target="_blank" href="/information/detail?id='+infoOther.id+'">'+infoOther.title+'</a></li>';
+				});
+				$('.hot-info-inner .hot-info-left .info_two').html(html_info_two);
+				$('.hot-info-inner .hot-info-right .info_other').html(html_info_other);
+			}
+		});
+	})
+
+	function consult(){
+		$('#form_consult').find("input[name='type']").val(4);
+		$.ajax({
+			type: "POST",
+			url: "/consult/add",
+			data: $('#form_consult').serialize(),
+			dataType: "json",
+			success: function(data){
+				alert(data.msg);
+			}
+		});
+	}
+</script>
 </body>

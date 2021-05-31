@@ -1,9 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>房产详情</title>
+
 {{--    <link type="text/css" rel="styleSheet" href="/front/css/header.css" />--}}
 {{--    <link type="text/css" rel="styleSheet" href="/front/css/common.css" />--}}
     <link type="text/css" rel="styleSheet" href="/front/css/overseas-property/detail.css" />
@@ -49,7 +47,7 @@
                 </div>
             </div>
 
-            <div class="basic-content">
+            <div class="basic-content" id="basic-content" data-longitude="{{$data['data']['longitude']}}" data-latitude="{{$data['data']['latitude']}}">
                 <div class="left-wrapper">
                     <div class="swiper-container gallery-top">
                         <div class="swiper-wrapper">
@@ -135,14 +133,14 @@
                                     <i @click.stop="isCodeShow = false">×</i>
                                 </div>
                                 <div class="inner">
-                                    <img src="/front/images/overseas-property/detail/code.png" alt="">
+                                    <img src="/{{$data['company']['consult_wechat_qrcode']}}" alt="">
                                     <div class="text">
                                         <i></i>
                                         <span>微信号</span>
                                         <i></i>
                                     </div>
                                     <p class="val">
-                                        13823546295
+                                        {{$data['company']['consult_wechat_number']}}
                                     </p>
                                 </div>
                             </div>
@@ -154,7 +152,7 @@
                 </div>
             </div>
             <div class="step-wrapper">
-                <img src="/{!! $data['buy_img'] !!}" alt="">
+                <img src="/{!! $data['data']['process_img'] !!}" alt="">
             </div>
         </div>
     </section>
@@ -182,13 +180,13 @@
                     <div class="header">
                         <span>项目位置</span>
                     </div>
+                    @if($data['data']['longitude'] && $data['data']['latitude'])
                     <div class="cont">
                         <div id="map"></div>
-                        <p class="place">
-                            马来西亚国宝级度假胜地 -- 云顶高原半山处（海拔800余米）
-                        </p>
                     </div>
+                    @endif
                 </div>
+                <?php header('Access-Control-Allow-Origin:*'); ?>
                 <div ref="conf" id="conf" class="box">
                     <div class="header">
                         <span>周边配置</span>
@@ -221,30 +219,33 @@
                         {!! $data['data']['invest_analysis'] !!}
                     </div>
                 </div>
-                <div ref="news" id="news" class="box">
-                    <div class="header">
-                        <span>项目动态</span>
-                    </div>
-                    <div class="cont">
-                        <div class="project-news">
-                            <a v-for="(item, index) in 2" :key="index" href="./news.html">
-                                <img src="/front/images/overseas-property/detail/img-02.png" alt="">
-                                <div class="right">
-                                    <p class="title text-overflow-2">
-                                        2020年10月份云顶1号最新进展，建筑主体进展一切顺利
-                                    </p>
-                                    <p class="text text-overflow-2">
-                                        2020年10月份云顶1号最新进展，建筑主体进展一切顺利，2020年10月份云顶1号最新进展，建筑主体进展一切顺利。
-                                        2020年10月份云顶1号最新进展，建筑主体进展一切顺利，2020年10月份云顶1号最新进展，建筑主体进展一切顺利。
-                                    </p>
-                                    <p class="text">
-                                        2020.12.16
-                                    </p>
-                                </div>
-                            </a>
+                @if($data['dynamic'])
+                    <div ref="news" id="news" class="box">
+                        <div class="header">
+                            <span>项目动态</span>
+                        </div>
+                        <div class="cont">
+                            <div class="project-news">
+                                @foreach($data['dynamic'] as $key=>$val)
+                                    <a target="_blank" href="/article?id={{$val['id']}}">
+                                        <img src="/{{$val['thumb']}}" alt="">
+                                        <div class="right">
+                                            <p class="title text-overflow-2">
+                                                {{$val['title']}}
+                                            </p>
+                                            <p class="text text-overflow-2">
+                                                {{$val['describe']}}
+                                            </p>
+                                            <p class="text">
+                                                {{$val['publish_date']}}
+                                            </p>
+                                        </div>
+                                    </a>
+                                @endforeach
+                            </div>
                         </div>
                     </div>
-                </div>
+                @endif
 
                 <div class="contact-box">
                     <div class="contact-header">
@@ -255,21 +256,24 @@
                             所有信息均已进行加密处理，请放心填写！
                         </p>
                     </div>
+                    <form id="form_consult_1">
                     <div class="input-box">
                         <div class="input-left">
-                            <input type="text" placeholder="请输入您的姓名">
-                            <input type="text" placeholder="请输入您的电话">
-                            <input type="text" placeholder="请输入您的邮箱">
+                            <input type="hidden" name="type" value="">
+                            <input type="text" name="name" placeholder="请输入您的姓名">
+                            <input type="text" name="phone" placeholder="请输入您的电话">
+                            <input type="text" name="email" placeholder="请输入您的邮箱">
                         </div>
                         <div class="input-right">
-                            <textarea placeholder="请输入您想了解的更多信息"></textarea>
+                            <textarea name="content" placeholder="请输入您想了解的更多信息"></textarea>
                             <div class="btn-wrapper">
-                                <div class="btn">
+                                <div class="btn" onclick="consult_1(5)">
                                     提交
                                 </div>
                             </div>
                         </div>
                     </div>
+                    </form>
                 </div>
             </div>
 
@@ -315,45 +319,34 @@
         </div>
     </section>
 
-    <transition name="fade">
-        <section v-if="isAppointmentShow" class="appointment-wrapper" @click.self="isAppointmentShow = false">
-            <div class="appointment-cont">
-                <div class="head">
-                    <img src="/front/images/overseas-property/detail/appointment-head.png" alt="">
-                    <i @click="isAppointmentShow = false">×</i>
-                </div>
-                <div class="text">
-                    <i></i>
-                    <span>预约看房</span>
-                    <i></i>
-                </div>
-                <div class="cont">
-                    <form>
-                        <input type="text" placeholder="请输入您的姓名">
-                        <input type="text" placeholder="请输入您的电话">
-                        <input type="text" placeholder="请输入您的邮箱">
-                        <textarea placeholder="请输入您想了解的更多信息"></textarea>
-                        <p class="notice">
-                            * 所有信息均已进行加密处理，请放心填写！
-                        </p>
-                        <button type="submit" @click="isAppointmentShow = false">
-                            立即提交
-                        </button>
-                    </form>
-                </div>
-            </div>
-        </section>
-    </transition>
+    @include('front.common.consult')
     @include('front.common.footer')
 </main>
-
+<script src="https://webapi.amap.com/maps?v=1.4.15&key=be5a980395b91bc587856e35f55e4766"></script>
+{{--    <script src="/front/utils/amap.js"></script>--}}
 <script src="/front/utils/sharejs/js/qrcode.js"></script>
 <script src="/front/utils/sharejs/js/social-share.js"></script>
-<!-- <script src="https://webapi.amap.com/maps?v=1.4.15&key=您申请的key值"></script> -->
-<script src="/front/utils/amap.js"></script>
+
 <!-- <script src="https://apps.bdimg.com/libs/jquery/2.1.4/jquery.min.js"></script> -->
 {{--<script src="/front/utils/swiper/swiper-bundle.min.js"></script>--}}
 {{--<script src="/front/utils/vue.js"></script>--}}
 <script src="/front/js/overseas-property/detail.js"></script>
+<script>
+    function consult($type=1){
+        $('#form_consult').find("input[name='type']").val($type);
+        submitConsultData();
+    }
+    function consult_1($type=1){
+        $('#form_consult_1').find("input[name='type']").val($type);
+        submitConsultData_1();
+    }
+    // window.onload = function () {
+        // 初始化地图
+
+    // }
+
+
+
+</script>
 </body>
 </html>

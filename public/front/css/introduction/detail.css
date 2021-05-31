@@ -430,9 +430,9 @@ a {
 	width: 257px;
 	height: 148px;
 	padding: 120px 15px 20px 15px;
-  box-sizing: content-box;
+    box-sizing: content-box;
 	color: #fff;
-  text-align: center;
+    text-align: center;
 }
 
 .overseas-bottom-list .overseas-bottom-list-desc p:first-child {

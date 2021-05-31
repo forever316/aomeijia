@@ -53,9 +53,9 @@
         .delImg span.cancel:hover {
             background-position: -48px 0;
         }
-        input:enabled{
-            width: 30%;
-        }
+        /*input:enabled{*/
+        /*    width: 30%;*/
+        /*}*/
     </style>
 </head>
 <body class="gray-bg">
@@ -111,6 +111,9 @@
 
                                     $.kh.imgUpload('wechat2_img',limit,folder);
                                     $.kh.photos('wechat2_imglayer-photos');
+
+                                    $.kh.imgUpload('consult_wechat_qrcode',limit,folder);
+                                    $.kh.photos('consult_wechat_qrcodelayer-photos');
 
                                     //工具栏
                                     $('.l').on( 'mouseenter', function() {
@@ -234,7 +237,61 @@
                                 <input name="copyright" type="text" @if(isset($detailData) && !empty($detailData)) value="{{$detailData['copyright']}}"  @endif class="form-control" />
                             </div>
                         </div>
+
+{{--                        新增加的几个参数--}}
                         <div class="hr-line-dashed"></div>
+                        <div class="form-group">
+                            <label class="col-sm-1 control-label">页面标题</label>
+                            <div class="col-md-10" style="width: 70%">
+                                <input name="page_title" type="text" @if(isset($detailData) && !empty($detailData)) value="{{$detailData['page_title']}}"  @endif class="form-control" />
+                            </div>
+                        </div>
+                        <div class="hr-line-dashed"></div>
+                        <div class="form-group">
+                            <label class="col-sm-1 control-label">页面关键字</label>
+                            <div class="col-sm-10" style="width: 70%">
+                                <input name="page_keywords" type="text" @if(isset($detailData) && !empty($detailData)) value="{{$detailData['page_keywords']}}"  @endif class="form-control" />
+                            </div>
+                        </div>
+                        <div class="hr-line-dashed"></div>
+                        <div class="form-group">
+                            <label class="col-sm-1 control-label">页面描述</label>
+                            <div class="col-sm-10" style="width: 70%">
+                                <input name="page_description" type="text" @if(isset($detailData) && !empty($detailData)) value="{{$detailData['page_description']}}"  @endif class="form-control" />
+                            </div>
+                        </div>
+                        <div class="hr-line-dashed"></div>
+                        <div class="form-group">
+                            <label class="col-sm-1 control-label">咨询微信号</label>
+                            <div class="col-sm-10" style="width: 70%">
+                                <input name="consult_wechat_number" type="text" @if(isset($detailData) && !empty($detailData)) value="{{$detailData['consult_wechat_number']}}"  @endif class="form-control" />
+                            </div>
+                        </div>
+                        <div class="hr-line-dashed"></div>
+                        <div class="form-group">
+                            <input type="hidden" name="consult_wechat_qrcode" id="consult_wechat_qrcode_val" @if(isset($detailData) && !empty($detailData)) @if(!empty($detailData['consult_wechat_qrcode'])) value="{{$detailData['consult_wechat_qrcode']}}" @else value="" @endif @else value="" @endif />
+                            <label class="col-sm-1 control-label">咨询微信二维码</label>
+                            <div class="col-sm-10" style="width: 70%" id="consult_wechat_qrcode">
+                                @if(isset($detailData) && !empty($detailData))
+                                    @if(!empty($detailData['consult_wechat_qrcode']))
+                                        <div id="consult_wechat_qrcodelayer-photos" class="layer-photos-demo" style="overflow:hidden;">
+                                            <div class="l" id="consult_wechat_qrcode_1">
+                                                <div class="delImg"><span class="cancel" onclick="delImg('{{$detailData['consult_wechat_qrcode']}}','consult_wechat_qrcode','consult_wechat_qrcode_1')">删除</span></div>
+                                                <img layer-pid="" layer-src="/{{$detailData['consult_wechat_qrcode']}}" src="/{{$detailData['consult_wechat_qrcode']}}" />
+                                            </div>
+                                        </div>
+                                    @endif
+                                @endif
+                                <div class="uploader-demo">
+                                    <!--用来存放item-->
+                                    <div id="consult_wechat_qrcodeList" class="uploader-list"></div>
+                                    <div id="consult_wechat_qrcodePicker">选择图片</div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="hr-line-dashed"></div>
+
+
 
                         <div class="form-group">
                             <div class="col-sm-4 col-sm-offset-1">

@@ -8,7 +8,7 @@
 .text-overflow-2,
 .text-overflow-3 {
   word-break: break-all;
-  display: -webkit-box;
+  display: -webkit-box !important;
   -webkit-box-orient: vertical;
   overflow: hidden;
 }
@@ -34,6 +34,9 @@
 .common-box-header a {
 	color: #000;
 	text-decoration: none;
+}
+.nav-wrapper .header-nav .nav-list .on{
+	color: #ee8300;
 }
 
 .common-box-header a:hover {
@@ -85,9 +88,68 @@ a{
 a:hover{
 	color: #ee8300;
 }
+special-a:hover{
+	color: #000 !important;
+}
 .router-wrapper {
 	margin-top: 30px !important;
 }
 .filter-wrapper > ul > li .val > span.on a {
 	color: #ee8300;
 }
+
+*{text-decoration: none !important;}
+.none-pointer{
+	cursor : auto !important;
+}
+
+.question-box .none-pointer p:hover{
+	color: #000 !important;
+}
+.none-pointer p:hover{
+	color: #000 !important;
+}
+.router-wrapper span{
+	cursor : auto !important;
+}
+
+.recommend-desc-wrapper .recommend-desc-title:hover {
+	color: #333;
+}
+.bg-black{
+	width: 100%;
+	height: 100%;
+	padding: 0 0;
+	background: rgba(0, 0, 0, .5);
+}
+
+.project-recommend-inner dl:after{
+	content: '';
+	width: 292px;
+}
+
+.overseas-bottom-list-wrapper .overseas-bottom-list:after{
+	content: '';
+	width: 287px;
+}
+.list-wrapper .items .item:after{
+	content: '';
+	width: 380px;
+
+}
+
+.overseas-bottom-list .overseas-bottom-list-desc {
+	bottom: 3px !important;
+	height: 149px !important;
+}
+.overseas-bottom-list .overseas-bottom-list-desc p:last-child {
+	font-size: 12px !important;
+}
+.no-color{
+	color:#fff !important;
+}
+
+.no-color:hover{
+	color: #fff !important;
+}
+

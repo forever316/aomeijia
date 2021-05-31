@@ -16,7 +16,7 @@
 						<li class="first-li">全球房产</li>
 						@if(isset($data['linkData'][1]))
 							@foreach($data['linkData'][1] as $key=>$val)
-								<li><a href="{{$val['url']}}">{{$val['title']}}</a></li>
+								<li><a target="_blank" href="{{$val['url']}}">{{$val['title']}}</a></li>
 							@endforeach
 						@endif
 					</ul>
@@ -24,7 +24,7 @@
 						<li class="first-li">全球移民</li>
 						@if(isset($data['linkData'][2]))
 							@foreach($data['linkData'][2] as $key=>$val)
-								<li><a href="{{$val['url']}}">{{$val['title']}}</a></li>
+								<li><a target="_blank" href="{{$val['url']}}">{{$val['title']}}</a></li>
 							@endforeach
 						@endif
 					</ul>
@@ -32,7 +32,7 @@
 						<li class="first-li">关于公司</li>
 						@if(isset($data['linkData'][3]))
 							@foreach($data['linkData'][3] as $key=>$val)
-								<li><a href="{{$val['url']}}">{{$val['title']}}</a></li>
+								<li><a target="_blank" href="{{$val['url']}}">{{$val['title']}}</a></li>
 							@endforeach
 						@endif
 					</ul>
@@ -55,10 +55,9 @@
 				<div class="friend-links">
 					<ul>
 						<li class="firend-linkd-title">友情链接：</li>
-						<!-- <li class="firend-linkd-first"><a href="#">启德留学</a></li> -->
 						@if(isset($data['linkData'][4]))
 							@foreach($data['linkData'][4] as $key=>$val)
-								<li @if($key==0)class="firend-linkd-first"@endif><a href="{{$val['url']}}">{{$val['title']}}</a></li>
+								<li @if($key==0)class="firend-linkd-first"@endif><a target="_blank" href="{{$val['url']}}">{{$val['title']}}</a></li>
 							@endforeach
 						@endif
 						
@@ -68,3 +67,4 @@
 					<span>版权所有：{{$data['company']['copyright']}}</span>
 				</div>
 			</div>
+</div>

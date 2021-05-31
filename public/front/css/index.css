@@ -112,9 +112,9 @@ a:hover{
 	font-weight: 600;
 	margin-top: 15px;
 }
-.hot-info-left-title:hover,.hot-info-left-introduction:hover{
-	color: #ee8300;
-}
+/*.hot-info-left-title:hover,.hot-info-left-introduction:hover{*/
+/*	color: #ee8300;*/
+/*}*/
 .hot-info-left-introduction{
 	width: 290px;
 	color: #88898a;
@@ -133,7 +133,8 @@ a:hover{
 	overflow: hidden;
 }
 .hot-info-right li{
-	margin-top: 15px;
+	/*margin-top: 15px;*/
+	margin-bottom: 15px;
 }
 .hot-info-right a{
 	color: #404142;
@@ -377,9 +378,9 @@ a:hover{
 	font-size: 14px;
 	margin-top: 7px;
 }
-.delegation-list-describe p:hover{
-	color: #ee8300;
-}
+/*.delegation-list-describe p:hover{*/
+/*	color: #ee8300;*/
+/*}*/
 .hot-delegation-bottom{
 	height: 105px;
 	margin-top: 33px;
@@ -511,9 +512,9 @@ a:hover{
 	font-size: 21px;
 	font-weight: 400;
 }
-.recommend-desc-wrapper .recommend-desc-title:hover{
-	color: #ee8300;
-}
+/*.recommend-desc-wrapper .recommend-desc-title:hover{*/
+/*	color: #ee8300;*/
+/*}*/
 .recommend-desc-wrapper .recommend-desc-info{
 	display: flex;
 	display: -webkit-box;
@@ -647,7 +648,7 @@ a:hover{
 	cursor: pointer;
 	box-shadow: 1px 1px 5px 2px #ccc;
 	transition: 0.6s;
-	color: #ee8300;
+	/*color: #ee8300;*/
 }
 
 .overseas-bottom-list-wrapper{
@@ -799,6 +800,7 @@ a:hover{
 	height: 50px;
 	padding: 15px 0 25px 25px;
 	overflow: hidden;
+	width:100%;
 }
 .success-case-list-desc p:last-child{
 	color: #88898a;
@@ -1064,7 +1066,7 @@ a:hover{
 }
 .cooperative-partner-inner{
 	width: 1080px;
-	height: 320px;
+	min-height: 320px;
 	margin-top: 26px;
 	padding: 40px 60px;
 	background-color: #fff;
@@ -1087,7 +1089,7 @@ a:hover{
 }
 .cooperative-partner-list{
 	width: 1080px;
-	height: 270px;
+	min-height: 270px;
 	overflow: hidden;
 }
 .cooperative-partner-list>ul{

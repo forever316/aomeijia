@@ -1,9 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>全球移民</title>
 {{--    <link type="text/css" rel="styleSheet" href="/front/css/header.css" />--}}
 {{--    <link type="text/css" rel="styleSheet" href="/front/css/common.css" />--}}
     <link type="text/css" rel="styleSheet" href="/front/css/immigrant/detail.css" />
@@ -45,8 +42,8 @@
                     <p class="name">
                         {!! $data['data']['title'] !!}
                     </p>
-                    <p class="desc">
-                        面向人群：有移民加拿大的高净值客户
+                    <p class="desc" style="height:16px;">
+                        @if($data['data']['face'])面向人群：{{$data['data']['face']}}@endif
                     </p>
                 </div>
 
@@ -102,14 +99,14 @@
                                 <i @click.stop="isCodeShow = false">×</i>
                             </div>
                             <div class="inner">
-                                <img src="/front/images/overseas-property/detail/code.png" alt="">
+                                <img src="/{{$data['company']['consult_wechat_qrcode']}}" alt="">
                                 <div class="text">
                                     <i></i>
                                     <span>微信号</span>
                                     <i></i>
                                 </div>
                                 <p class="val">
-                                    13823546295
+                                    {{$data['company']['consult_wechat_number']}}
                                 </p>
                             </div>
                         </div>
@@ -174,13 +171,15 @@
                         @foreach($data['house'] as $key=>$val)
                             <dt>
                                 <div class="recommend-img-wrapper">
-                                    <img src="/{{$val['img']}}" alt="">
+                                    <a target="_blank" href="/house/detail?id={{$val['id']}}">
+                                        <img src="/{{$val['img']}}" alt="">
+                                    </a>
 {{--                                    <span class="hot-logo">--}}
                     热门
                   </span>
                                     <p>价格：￥{{$val['total_price']}}万起</p>
                                 </div>
-                                <div class="recommend-desc-wrapper">
+                                <div class="recommend-desc-wrapper none-pointer">
                                     <p class="recommend-desc-title">
                                         {{$val['title']}}
                                     </p>
@@ -207,7 +206,7 @@
                         @endforeach
                     </dl>
                     <div class="more-btn">
-                        查看更多
+                        <a target="_blank" href="/house">查看更多</a>
                     </div>
                 </div>
             </div>
@@ -222,35 +221,7 @@
         </div>
     </section>
 
-    <transition name="fade">
-        <section v-if="isAppointmentShow" class="appointment-wrapper" @click.self="isAppointmentShow = false">
-            <div class="appointment-cont">
-                <div class="head">
-                    <img src="/front/images/overseas-property/detail/appointment-head.png" alt="">
-                    <i @click="isAppointmentShow = false">×</i>
-                </div>
-                <div class="text">
-                    <i></i>
-                    <span>立即预约</span>
-                    <i></i>
-                </div>
-                <div class="cont">
-                    <form>
-                        <input type="text" placeholder="请输入您的姓名">
-                        <input type="text" placeholder="请输入您的手机号">
-                        <input type="text" placeholder="请输入您的微信">
-                        <textarea placeholder="请输入您想了解的更多信息"></textarea>
-                        <p class="notice">
-                            * 所有信息均已进行加密处理，请放心填写！
-                        </p>
-                        <button type="submit" @click="isAppointmentShow = false">
-                            立即提交
-                        </button>
-                    </form>
-                </div>
-            </div>
-        </section>
-    </transition>
+    @include('front.common.consult')
     @include('front.common.footer')
 </main>
 
@@ -260,5 +231,14 @@
 <script src="/front/utils/swiper/swiper-bundle.min.js"></script>
 {{--<script src="/front/utils/vue.js"></script>--}}
 <script src="/front/js/immigrant/detail.js"></script>
+
+<script>
+    function consult(){
+        $('#form_consult').find("input[name='type']").val(2);
+        submitConsultData();
+    }
+
+</script>
+
 </body>
 </html>

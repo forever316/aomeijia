@@ -186,7 +186,7 @@ a {
   font-size: 16px;
 }
 
-.detail-left-wrapper .quesstion-wrapper .question-box .question > p:hover {
+.detail-left-wrapper .quesstion-wrapper > p:hover {
   color: #ee8300; 
 }
 

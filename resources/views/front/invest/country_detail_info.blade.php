@@ -1,9 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>投资攻略</title>
 {{--    <link type="text/css" rel="styleSheet" href="/front/css/common.css" />--}}
     <link type="text/css" rel="styleSheet" href="/front/css/investment-strategy/news.css" />
     <link type="text/css" rel="styleSheet" href="/front/utils/sharejs/css/share.min.css" />
@@ -31,10 +28,10 @@
         <div class="news-wrapper">
             <div class="info-box">
                 <p class="title">
-                    {!! $data['data']['title'] !!}
+                    {!! $data['data']['new_title'] !!}
                 </p>
                 <div class="share-btn" @click="isShareShow = !isShareShow">
-                    <img src="../../images/overseas-property/detail/share.png" alt="">
+                    <img src="/front/images/overseas-property/detail/share.png" alt="">
                     <span>分享</span>
                     <div v-show="isShareShow" class="share-wrapper" @click.stop="">
                         <div id="share"></div>

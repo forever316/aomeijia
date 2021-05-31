@@ -6,7 +6,7 @@ return [
             'name' => ['text'=>'客户名字'],
             'phone' => ['text'=>'电话号码'],
             'email'=>['text'=>'邮箱'],
-            'sex' => ['text'=>'性别','options'=>['1'=>'启用','2'=>'禁用']],
+            'sex' => ['text'=>'性别','options'=>['1'=>'先生','2'=>'女士']],
             'city'=>['text'=>'国家'],
             'reason'=>['text'=>'原因'],
             'capital' => ['text'=>'资产'],

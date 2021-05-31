@@ -1,9 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>成功案例</title>
     @include('front.common.layout')
 {{--    <link type="text/css" rel="styleSheet" href="/front/css/common.css" />--}}
     <link type="text/css" rel="styleSheet" href="/front/css/investment-strategy/case.css" />
@@ -54,7 +51,7 @@
         <div class="list-wrapper">
             <div class="case-box">
                 @foreach($data['data'] as $k=>$v)
-                <a href="/invest/case/detail?id={{$v['id']}}">
+                <a target="_blank" href="/invest/case/detail?id={{$v['id']}}">
                     <div class="img-wrapper">
                         <img src="/{!! $v['thumb'] !!}" alt="">
                     </div>

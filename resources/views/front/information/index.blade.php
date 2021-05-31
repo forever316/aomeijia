@@ -1,9 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>澳美家</title>
     <link type="text/css" rel="styleSheet" href="/front/css/news/index.css" />
     @include('front.common.layout')
 </head>
@@ -67,7 +64,7 @@
                     <div class="swiper-wrapper">
                         @if($data['top_data'])
                             @foreach($data['top_data'] as $tdk=>$tdv)
-                                <a class="swiper-slide" href="/information/detail?id={{$tdv['id']}}">
+                                <a target="_blank" class="swiper-slide" href="/information/detail?id={{$tdv['id']}}">
                                     <img src="/{!! $tdv['thumb'] !!}" alt="">
                                     <div class="title-box">
                                         <p class="title">
@@ -87,7 +84,7 @@
                 <div class="news-list">
                     @if($data['list_data'])
                         @foreach($data['list_data'] as $ldk=>$ldv)
-                            <a href="/information/detail?id={{$ldv['id']}}">
+                            <a target="_blank" href="/information/detail?id={{$ldv['id']}}">
                                 <img src="/{!! $ldv['thumb'] !!}" alt="">
                                 <div class="right">
                                     <p class="title text-overflow-2">

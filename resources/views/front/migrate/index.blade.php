@@ -6,9 +6,6 @@
     }
 </style>
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>全球移民</title>
 {{--    <link type="text/css" rel="styleSheet" href="/front/css/common.css" />--}}
     <link type="text/css" rel="styleSheet" href="/front/css/immigrant/index.css" />
     @include('front.common.layout')
@@ -75,8 +72,8 @@
                             <p>{!! $val['title'] !!}</p>
                         </div>
                         <div class="detail-box">
-                            <p class="desc">
-                                面向人群：有移民加拿大的高净值客户
+                            <p class="desc" style="height:16px;">
+                                @if($val['face'])面向人群：{{$val['face']}}@endif
                             </p>
                             <div class="box">
                                 <span class="tag">项目特点</span>
@@ -91,7 +88,7 @@
                             </div>
                         </div>
                         <div class="btn-wrapper">
-                            <a href="/migrate/detail?id={{$val['id']}}" class="btn">
+                            <a target="_blank" href="/migrate/detail?id={{$val['id']}}" class="btn">
                                 点击查看详情
                             </a>
                             <div class="btn appointment" @click="isAppointmentShow = true">
@@ -106,39 +103,11 @@
         </div>
 
         <div class="test">
-            @if($data['test_img'])<img style="height:150px;" onclick="javascript:location.href='/migrate/test'" src="/{{$data['test_img']['img_url']}}" alt="">@endif
+            @if($data['test_img'])<img style="height:150px;" onclick="javascript:window.open('/migrate/test')" src="/{{$data['test_img']['img_url']}}" alt="">@endif
         </div>
     </section>
 
-    <transition name="fade">
-        <section v-if="isAppointmentShow" class="appointment-wrapper" @click.self="isAppointmentShow = false">
-            <div class="appointment-cont">
-                <div class="head">
-                    <img src="/front/images/overseas-property/detail/appointment-head.png" alt="">
-                    <i @click="isAppointmentShow = false">×</i>
-                </div>
-                <div class="text">
-                    <i></i>
-                    <span>立即预约</span>
-                    <i></i>
-                </div>
-                <div class="cont">
-                    <form>
-                        <input type="text" placeholder="请输入您的姓名">
-                        <input type="text" placeholder="请输入您的手机号">
-                        <input type="text" placeholder="请输入您的微信">
-                        <textarea placeholder="请输入您想了解的更多信息"></textarea>
-                        <p class="notice">
-                            * 所有信息均已进行加密处理，请放心填写！
-                        </p>
-                        <button type="submit" @click="isAppointmentShow = false">
-                            立即提交
-                        </button>
-                    </form>
-                </div>
-            </div>
-        </section>
-    </transition>
+    @include('front.common.consult')
     @include('front.common.footer')
 </main>
 
@@ -162,6 +131,11 @@
         });
 
     // }
+
+    function consult(){
+        $('#form_consult').find("input[name='type']").val(2);
+        submitConsultData();
+    }
 
 </script>
 </body>

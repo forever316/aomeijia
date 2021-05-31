@@ -1,9 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>投资攻略</title>
 {{--    <link type="text/css" rel="styleSheet" href="/front/css/common.css" />--}}
     <link type="text/css" rel="styleSheet" href="/front/css/investment-strategy/detail.css" />
 {{--    <link type="text/css" rel="styleSheet" href="/front/utils/swiper/swiper-bundle.min.css" />--}}
@@ -51,12 +48,10 @@
         <div class="advantage-wrapper">
             <div class="common-box-header">
                 <p>{!! $data['searchInfo']['areaName'] !!}投资优势</p>
-                <p><a href="/invest/country/detailInfo?id={{$data['data']['id']}}">查看更多 > > ></a></p>
+                <p><a target="_blank" href="/invest/country/detailInfo?id={{$data['data']['id']}}">查看更多 > > ></a></p>
             </div>
             <div class="box">
-{{--                <a href="">--}}
-                    <img style="height: 200px;" src="/{!! $data['data']['advantage_img'] !!}" alt="">
-{{--                </a>--}}
+                <img style="height: 200px;" src="/{!! $data['data']['advantage_img'] !!}" alt="">
             </div>
         </div>
 
@@ -66,11 +61,11 @@
         <div class="answer-wrapper">
             <div class="common-box-header">
                 <p>{!! $data['searchInfo']['areaName'] !!}问答</p>
-                <p><a href="#">查看更多 > > ></a></p>
+                <p><a target="_blank" href="/invest/faqs?region={{$data['searchInfo']['region']}}&country={{$data['searchInfo']['country']}}">查看更多 > > ></a></p>
             </div>
             <div class="cont">
                 @foreach($data['faqs'] as $key=>$val)
-                <div  class="question-box">
+                <div  class="question-box none-pointer">
                     <div class="question">
                         <span class="tag">问</span>
                         <p>{!! $val['questions'] !!}</p>
@@ -81,7 +76,9 @@
                 </div>
                 @endforeach
             </div>
-            <img src="/front/images/investment-strategy/detail/img.jpg" class="img">
+            @if($data['advertise_img'])
+            <a target="_blank" href="{{$data['advertise_img']['link']}}"><img src="/{{$data['advertise_img']['img_url']}}" style="height: 200px;" class="img"></a>
+            @endif
         </div>
     </section>
 
