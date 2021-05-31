@@ -60,8 +60,22 @@ class ArticleController  extends Controller
 
         }
 
+        $data['menu'] = 'corp';
+        $data['menu_son'] = '';
+        $title = $data['data']['title'];
+        //5为海外房产详情页的项目动态
+        if($data['data']['type']==5){
+            $data['menu'] = 'house';
+            $data['header_route'] = '<span>首页</span>
+            <i>></i>
+            <span>海外房产</span>
+            <i>></i>
+            <span>'.$data['data']['title'].'</span>';
+        }
+
+
         return view('front.article.detail',[
-            'title' => '集团简介',
+            'title' => $title,
             'data' => $data,
             
         ]);

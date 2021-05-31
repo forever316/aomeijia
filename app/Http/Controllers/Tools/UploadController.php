@@ -23,10 +23,10 @@ class UploadController extends Controller {
         $file = Input::file('file');
         $id = Input::get('id');
         $folder = Input::get('folder','images');
-        if($file->getSize()>2097152){
+        if($file->getSize()>10485760){
             return response()->json( [
                 'success' => false,
-                'error' => '文件不超过2M'
+                'error' => '文件不超过10M'
             ]);
         }
         $allowed_extensions = ["png", "jpg", "gif",'jpeg','bmp'];

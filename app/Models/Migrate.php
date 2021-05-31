@@ -15,6 +15,6 @@ class Migrate extends Model
      * @var array
      */
     protected $fillable = [
-        'city_id','type_id','invest_id','title','project_charac','live_require','identity','transact_period','total_price','user_id','project_brief','project_advantage','apply_condition','apply_process','sort','status','read','real_read','publish_date','img'
+        'city_id','type_id','invest_id','title','project_charac','live_require','identity','transact_period','total_price','user_id','project_brief','project_advantage','apply_condition','apply_process','sort','status','read','real_read','publish_date','img','face'
     ];//设置哪些属性可以批量赋值
 }

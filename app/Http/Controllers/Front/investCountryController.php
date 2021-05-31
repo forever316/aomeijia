@@ -71,7 +71,7 @@ class investCountryController  extends Controller
         //有选择国家的话，就查询出该国家下的所有数据，没有选择国家有选择地区的话，就查询出该地区下的所有国家下的数据
         $query = InvestCountry::where('status',1)->where('publish_date','<=',$date);
         $query = $query->whereIn('city_id',array_keys($data['country']));
-        $data['data'] = $query->orderBy('sort','desc')->orderBy('publish_date','desc')->orderBy('id','desc')->take(6)->get()->toArray();
+        $data['data'] = $query->orderBy('sort','desc')->orderBy('publish_date','desc')->orderBy('id','desc')->get()->toArray();
         foreach($data['data'] as $key=>$val){
             $tagArr = array_filter(explode(';',$val['tag_id']));
             $data['data'][$key]['tag_name'] = array();
@@ -81,9 +81,14 @@ class investCountryController  extends Controller
             $data['data'][$key]['city_name'] = isset($cityArr[$val['city_id']]) && $cityArr[$val['city_id']] ? $cityArr[$val['city_id']] : $val['city_id'];
         }
 
+        $data['menu'] = 'invest';
+        $data['menu_son'] = 'country';
+
+        $data['migrate_less'] = 3-count($data['migrate']);
+
         return view('front.invest.country',[
             'data' => $data,
-
+            'title' => '国家攻略',
         ]);
     }
 
@@ -106,9 +111,11 @@ class investCountryController  extends Controller
         $cityInfo = City::where('id',$city)->orderBy('sort','desc')->first()->toArray();
         //投资攻略的banner图片,类型为10
         $data['banner_img'] = current(Banner::where('type',10)->where('status',1)->orderBy('sort','desc')->orderBy('id','desc')->take(1)->get()->toArray());
+        //投资国家宣传图，1张，id=13
+        $data['advertise_img'] = current(Banner::where('type',13)->where('status',1)->orderBy('sort','desc')->orderBy('id','desc')->take(1)->get()->toArray());
         //获取当前地区的信息，此条数据的pid为地区的id
         $regionName = City::where('pid',0)->where('id',$cityInfo['pid'])->orderBy('sort','desc')->first()->toArray();//
-        $data['searchInfo'] = ['areaName'=>$cityInfo['name'],'english_name'=>$cityInfo['english_name'],'regionName'=>$regionName['name']];
+        $data['searchInfo'] = ['areaName'=>$cityInfo['name'],'english_name'=>$cityInfo['english_name'],'regionName'=>$regionName['name'],'region'=>$cityInfo['pid'],'country'=>$cityInfo['id']];
 
         //4个热门房产项目
         $data['house'] = $this->getShowHouseData(4,['city_id'=>$city]);
@@ -128,8 +135,12 @@ class investCountryController  extends Controller
         $data['case'] = $this->getShowInfoData(6,['city_id'=>$city,'category'=>2]);
         $data['case'] = array_chunk($data['case'],2);
 
+        $data['menu'] = 'invest';
+        $data['menu_son'] = 'country';
+
         return view('front.invest.country_detail', [
             'data' => $data,
+            'title' => $data['data']['title'],
 
         ]);
     }
@@ -161,9 +172,13 @@ class investCountryController  extends Controller
         //4个热门移民项目
         $data['migrate'] = $this->getShowMigrateData(4,['city_id'=>$city]);
 
+        $data['menu'] = 'invest';
+        $data['menu_son'] = 'country';
+        $data['data']['new_title'] = $cityInfo['name'].'投资优势';
+
         return view('front.invest.country_detail_info', [
             'data' => $data,
-
+            'title' => $cityInfo['name'].'投资优势',
         ]);
 
     }

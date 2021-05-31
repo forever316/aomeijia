@@ -32,20 +32,21 @@ class Controller extends BaseController
      * @param Request $request
      * @return array
      */
-    protected function getInput($form,$data = [],$request){
+    protected function getInput($form, $data = [], $request)
+    {
         $return = [];
         //类型验证，避免数据库注入以及数据错误
-        foreach($data as $key=>$item){
+        foreach ($data as $key => $item) {
             $value = $request->input($key);
-            $bool = settype($value,$item);
-            if($bool){
+            $bool = settype($value, $item);
+            if ($bool) {
                 $return[$key] = $value;
             }
         }
         //是否需要表单验证
-        if(!empty($form)){
-            $error = $this->verifyForm($form,$return);
-            if(!empty($error)){
+        if (!empty($form)) {
+            $error = $this->verifyForm($form, $return);
+            if (!empty($error)) {
                 $error['error'] = true;
                 return $error;
             }
@@ -54,62 +55,64 @@ class Controller extends BaseController
         $request->flash();
         return $return;
     }
+
     /**
      **验证表单
      **wlf
      */
-    protected function verifyForm($form,$data){
+    protected function verifyForm($form, $data)
+    {
         $error = [];
-        foreach($data as $key=>$value){
-            if(isset($form['field'][$key]['verify'])){
-                foreach($form['field'][$key]['verify'] as $k=>$item){
+        foreach ($data as $key => $value) {
+            if (isset($form['field'][$key]['verify'])) {
+                foreach ($form['field'][$key]['verify'] as $k => $item) {
 
                     //必填
-                    if($item == 'required'){
-                        if(is_array($value)){
-                            if(!isset($value) || empty($value)){
-                                $error[$key] = '请选择'.$form['field'][$key]['text'];
-								break;
+                    if ($item == 'required') {
+                        if (is_array($value)) {
+                            if (!isset($value) || empty($value)) {
+                                $error[$key] = '请选择' . $form['field'][$key]['text'];
+                                break;
                             }
-                        }else{
-                            if((string)$value != '0'){
-                                if(!isset($value) || empty($value) || $value == ''){
-                                    $error[$key] = $form['field'][$key]['text'].'不能为空';
-                                    if(in_array($form['field'][$key]['type'],['radio','select'])){
-                                        if((string)$value == '0'){
+                        } else {
+                            if ((string)$value != '0') {
+                                if (!isset($value) || empty($value) || $value == '') {
+                                    $error[$key] = $form['field'][$key]['text'] . '不能为空';
+                                    if (in_array($form['field'][$key]['type'], ['radio', 'select'])) {
+                                        if ((string)$value == '0') {
                                             unset($error[$key]);
-                                            $error[$key] = '请选择'.$form['field'][$key]['text'];
-											break;
+                                            $error[$key] = '请选择' . $form['field'][$key]['text'];
+                                            break;
                                         }
                                     }
-									break;
+                                    break;
                                 }
                             }
                         }
                     }
 
                     //只能为数字
-                    if($item == 'number'){
-                        if(!is_numeric($value)){
-                            $error[$key] = $form['field'][$key]['text'].'只能为数字';
+                    if ($item == 'number') {
+                        if (!is_numeric($value)) {
+                            $error[$key] = $form['field'][$key]['text'] . '只能为数字';
                             break;
                         }
                     }
 
                     //手机号
-                    if($item == 'phone'){
-                        $pattern='/^(0|86|17951)?(13[0-9]|15[012356789]|1[78][0-9]|14[57])[0-9]{8}$/';
-                        if(!preg_match($pattern, $value)){
-                            $error[$key] = $form['field'][$key]['text'].'不正确';
+                    if ($item == 'phone') {
+                        $pattern = '/^(0|86|17951)?(13[0-9]|15[012356789]|1[78][0-9]|14[57])[0-9]{8}$/';
+                        if (!preg_match($pattern, $value)) {
+                            $error[$key] = $form['field'][$key]['text'] . '不正确';
                             break;
                         }
                     }
 
                     //邮箱
-                    if($item == 'email'){
-                        $pattern='/\w+([-+.]\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*/';
-                        if(!preg_match($pattern, $value)){
-                            $error[$key] = $form['field'][$key]['text'].'不正确';
+                    if ($item == 'email') {
+                        $pattern = '/\w+([-+.]\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*/';
+                        if (!preg_match($pattern, $value)) {
+                            $error[$key] = $form['field'][$key]['text'] . '不正确';
                             break;
                         }
                     }
@@ -125,14 +128,14 @@ class Controller extends BaseController
      * @param $str
      * @return int
      */
-    protected function abslength($str){
-        if(empty($str)){
+    protected function abslength($str)
+    {
+        if (empty($str)) {
             return 0;
         }
-        if(function_exists('mb_strlen')){
-            return mb_strlen($str,'utf-8');
-        }
-        else {
+        if (function_exists('mb_strlen')) {
+            return mb_strlen($str, 'utf-8');
+        } else {
             preg_match_all("/./u", $str, $ar);
             return count($ar[0]);
         }
@@ -142,16 +145,17 @@ class Controller extends BaseController
      **json格式返回
      **wlf
      */
-    protected function returnJson($bool=true,$msg='',$type="input"){
+    protected function returnJson($bool = true, $msg = '', $type = "input")
+    {
         $return = [];
-        if($bool){
+        if ($bool) {
             $return['status'] = 200;//成功的状态
-            if($msg == ''){
+            if ($msg == '') {
                 $msg = '操作成功';
             }
-        }else{
+        } else {
             $return['status'] = 500;//失败的状态
-            if($msg == ''){
+            if ($msg == '') {
                 $msg = '操作失败';
             }
         }
@@ -161,13 +165,16 @@ class Controller extends BaseController
     }
 
     //返回成功
-    protected function returnTrue($msg='',$status=200){
+    protected function returnTrue($msg = '', $status = 200)
+    {
         $return['msg'] = $msg;
         $return['status'] = $status;
         return json_encode($return);
     }
+
     //返回失败
-    protected function returnError($error=''){
+    protected function returnError($error = '')
+    {
         $return['error'] = $error;
         $return['status'] = 500;
         return json_encode($return);
@@ -184,115 +191,121 @@ class Controller extends BaseController
 
         return ['controller' => $class, 'method' => $method];
     }
+
     /*
      * 获取后台用户数组
      * id=>name 
     */
-    function getAdminUserIdName(){
+    function getAdminUserIdName()
+    {
         $userArray = array();
-        $user = DB::table('admin_user')->get(array('id','name'));
-        foreach($user as $item){
+        $user = DB::table('admin_user')->get(array('id', 'name'));
+        foreach ($user as $item) {
             $userArray[$item->id] = $item->name;
         }
         return $userArray;
     }
 
-    function findChild(&$arr,$id){
-        $childs=array();
-        foreach ($arr as $k => $v){
-            if($v['pid']== $id){
-                $childs[]=$v;
+    function findChild(&$arr, $id)
+    {
+        $childs = array();
+        foreach ($arr as $k => $v) {
+            if ($v['pid'] == $id) {
+                $childs[] = $v;
             }
         }
         return $childs;
     }
 
-    function build_tree($rows,$root_id){
-        $childs=$this->findChild($rows,$root_id);
-        if(empty($childs)){
+    function build_tree($rows, $root_id)
+    {
+        $childs = $this->findChild($rows, $root_id);
+        if (empty($childs)) {
             return null;
         }
-        foreach ($childs as $k => $v){
-            $rescurTree=$this->build_tree($rows,$v['id']);
-            if( null != $rescurTree){
-                $childs[$k]['childs']=$rescurTree;
+        foreach ($childs as $k => $v) {
+            $rescurTree = $this->build_tree($rows, $v['id']);
+            if (null != $rescurTree) {
+                $childs[$k]['childs'] = $rescurTree;
             }
         }
         return $childs;
     }
 
     //得到城市的id与name对应关系
-	function getCityIdName()
-	{
-		$cityData = array();
-		$_cityData = City::select(['id','name'])->orderBy('sort','desc')->get();
-		if($_cityData){
-			foreach($_cityData as $item){
-				$cityData[$item->id] = $item->name;
-			}
-		}
-		return $cityData;
-	}
+    function getCityIdName()
+    {
+        $cityData = array();
+        $_cityData = City::select(['id', 'name'])->orderBy('sort', 'desc')->orderBy('id', 'desc')->get();
+        if ($_cityData) {
+            foreach ($_cityData as $item) {
+                $cityData[$item->id] = $item->name;
+            }
+        }
+        return $cityData;
+    }
 
-	//得到某个类型的所有枚举数据
-	function getEnumByType($type)
-	{
-		$objType = Enum::select(['id','name'])->where('status',1)->whereIn('type',$type)->orderBy('sort','desc')->get();
-		$typeData = array();
-		foreach($objType as $item){
-			$typeData[$item->id] = $item->name;
-		}
-		return $typeData;
-	}
+    //得到某个类型的所有枚举数据
+    function getEnumByType($type)
+    {
+        $objType = Enum::select(['id', 'name'])->where('status', 1)->whereIn('type', $type)->orderBy('sort', 'desc')->get();
+        $typeData = array();
+        foreach ($objType as $item) {
+            $typeData[$item->id] = $item->name;
+        }
+        return $typeData;
+    }
     ///////////////////////////前台模块
     /*
     * 得到公司信息
     */
     function getCompanyData()
     {
-        return CompanyConfig::where('id',1)->first()->toArray();
+        return CompanyConfig::where('id', 1)->first()->toArray();
     }
+
     /*
     * 得到所有的友情链接
     */
     function getLinkData()
     {
-        $_linkData = Link::where('status',1)->orderBy('sort','desc')->get()->toArray();
+        $_linkData = Link::where('status', 1)->orderBy('sort', 'desc')->get()->toArray();
         $linkData = array();
-        foreach($_linkData as $key=>$val){
+        foreach ($_linkData as $key => $val) {
             $linkData[$val['type']][] = $val;
         }
         return $linkData;
     }
+
     /*
      * 得到其他页面显示的四个热门海外房产项目
      * $limit取出n条数据
      * $condition为检索条件
      */
-    function getShowHouseData($limit,$condition=array())
+    function getShowHouseData($limit, $condition = array())
     {
         $date = date('Y-m-d');
-        $query = OverseaHouse::where('status',1)->where('home_show',1)->where('publish_date','<=',$date);
-        if($condition){
-            foreach($condition as $key=>$val){
-                if(is_array($val)){
-                    $query = $query->whereIn($key,$val);
-                }else{
-                    $query = $query->where($key,$val);
+        $query = OverseaHouse::where('status', 1)->where('home_show', 1)->where('publish_date', '<=', $date);
+        if ($condition) {
+            foreach ($condition as $key => $val) {
+                if (is_array($val)) {
+                    $query = $query->whereIn($key, $val);
+                } else {
+                    $query = $query->where($key, $val);
                 }
             }
         }
-        $data = $query->orderBy('sort','desc')->orderBy('publish_date','desc')->orderBy('id','desc')->take($limit)->get()->toArray();
+        $data = $query->orderBy('sort', 'desc')->orderBy('publish_date', 'desc')->orderBy('id', 'desc')->take($limit)->get()->toArray();
         $cityData = City::getCityAllData();//得到城市所有数据
         $typeData = Enum::getEnumAllData();//得到类型所有数据
-        foreach($data as $key=>$val){
-            $imgArr = array_filter(explode(';',$val['images']));
+        foreach ($data as $key => $val) {
+            $imgArr = array_filter(explode(';', $val['images']));
             $data[$key]['img'] = $imgArr ? current($imgArr) : '';
             $data[$key]['city_name'] = isset($cityData[$val['city_id']]) ? $cityData[$val['city_id']] : $val['city_id'];
             $data[$key]['type_name'] = isset($typeData[$val['type_id']]) ? $typeData[$val['type_id']] : $val['type_id'];
-            $tagArr = array_filter(explode(';',$val['tag_id']));
+            $tagArr = array_filter(explode(';', $val['tag_id']));
             $data[$key]['tag_name'] = array();
-            foreach($tagArr as $k=>$v){
+            foreach ($tagArr as $k => $v) {
                 $data[$key]['tag_name'][$k] = isset($typeData[$v]) && $typeData[$v] ? $typeData[$v] : $v;
             }
         }
@@ -304,20 +317,20 @@ class Controller extends BaseController
      * $limit取出n条数据
      * $condition为检索条件
      */
-    function getShowMigrateData($limit,$condition=array())
+    function getShowMigrateData($limit, $condition = array())
     {
         $date = date('Y-m-d');
-        $query = Migrate::where('status',1)->where('publish_date','<=',$date);
-        if($condition){
-            foreach($condition as $key=>$val){
-                if(is_array($val)){
-                    $query = $query->whereIn($key,$val);
-                }else{
-                    $query = $query->where($key,$val);
+        $query = Migrate::where('status', 1)->where('publish_date', '<=', $date);
+        if ($condition) {
+            foreach ($condition as $key => $val) {
+                if (is_array($val)) {
+                    $query = $query->whereIn($key, $val);
+                } else {
+                    $query = $query->where($key, $val);
                 }
             }
         }
-        $data = $query->orderBy('sort','desc')->orderBy('publish_date','desc')->orderBy('id','desc')->take($limit)->get()->toArray();
+        $data = $query->orderBy('sort', 'desc')->orderBy('publish_date', 'desc')->orderBy('id', 'desc')->take($limit)->get()->toArray();
         return $data;
     }
 
@@ -328,37 +341,46 @@ class Controller extends BaseController
      * category = 1为热门资讯
      * category = 2为成功案例
      */
-    function getShowInfoData($limit,$condition=array())
+    function getShowInfoData($limit, $condition = array())
     {
         $date = date('Y-m-d');
-        $query = Information::where('status',1)->where('publish_date','<=',$date);
-        if($condition){
-            foreach($condition as $key=>$val){
-                if(is_array($val)){
-                    $query = $query->whereIn($key,$val);
-                }else{
-                    $query = $query->where($key,$val);
+        $query = Information::where('status', 1)->where('publish_date', '<=', $date);
+        if ($condition) {
+            foreach ($condition as $key => $val) {
+                if (is_array($val)) {
+                    $query = $query->whereIn($key, $val);
+                } else {
+                    $query = $query->where($key, $val);
                 }
             }
         }
-        $data = $query->orderBy('sort','desc')->orderBy('publish_date','desc')->orderBy('id','desc')->take($limit)->get()->toArray();
+        if($limit>0){
+            $data = $query->orderBy('sort', 'desc')->orderBy('publish_date', 'desc')->orderBy('id', 'desc')->take($limit)->get()->toArray();
+        }else{
+            $data = $query->orderBy('sort', 'desc')->orderBy('publish_date', 'desc')->orderBy('id', 'desc')->get()->toArray();
+        }
+
         return $data;
     }
 
     /*
      * 取出7个最新资讯
      */
-    function getInfoData($countryIds=array())
+    function getInfoData($countryIds = array())
     {
-        $data['info'] = $this->getShowInfoData(7,['city_id'=>$countryIds,'category'=>1]);
-        $i=1;
+        $conditions['category'] = 1;
+        if($countryIds){
+            $conditions['city_id'] = $countryIds;
+        }
+        $data['info'] = $this->getShowInfoData(7, $conditions);
+        $i = 1;
         $data['info_top'] = $data['info_inner'] = $data['right_top'] = array();
-        foreach($data['info'] as $key=>$val){
-            if($i==1){
+        foreach ($data['info'] as $key => $val) {
+            if ($i == 1) {
                 $data['info_top'] = $val;
-            }elseif($i<=3){
+            } elseif ($i <= 3) {
                 $data['info_inner'][] = $val;
-            }else{
+            } else {
                 $data['info_right'][] = $val;
             }
             $i++;
@@ -372,7 +394,7 @@ class Controller extends BaseController
     public function getThemeData($limit)
     {
         $date = date('Y-m-d');
-        $data = Article::where('type',6)->where('status',1)->where('publish_date','<=',$date)->orderBy('sort','desc')->orderBy('publish_date','desc')->orderBy('id','desc')->take($limit)->get()->toArray();
+        $data = Article::where('type', 6)->where('status', 1)->where('publish_date', '<=', $date)->orderBy('sort', 'desc')->orderBy('publish_date', 'desc')->orderBy('id', 'desc')->take($limit)->get()->toArray();
         return $data;
     }
 
@@ -381,8 +403,31 @@ class Controller extends BaseController
      */
     public function getFaqData($limit)
     {
-        $data = Faqs::where('status',1)->orderBy('sort','desc')->orderBy('id','desc')->take($limit)->get()->toArray();
+        $data = Faqs::where('status', 1)->orderBy('sort', 'desc')->orderBy('id', 'desc')->take($limit)->get()->toArray();
         return $data;
+    }
+
+    /*
+     * 得到城市列表中，某个id下的所有子类，例如选亚洲得到所有的国家和所有的城市
+     */
+    function get_all_child($array, $id)
+    {
+        $arr = array();
+        foreach ($array as $v) {
+            if ($v['pid'] == $id) {
+                $arr[] = $v['id'];
+                $arr = array_merge($arr, $this->get_all_child($array, $v['id']));
+            };
+        };
+        return $arr;
+    }
+    /*
+     * 通过城市id得到该城市下所有的子城市
+     */
+    public function getSonCityByCity($city)
+    {
+        $cityList = City::orderBy('sort','desc')->orderBy('id','desc')->get();
+        return $this->get_all_child($cityList,$city);
     }
 
 

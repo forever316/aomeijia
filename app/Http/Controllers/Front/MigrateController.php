@@ -24,6 +24,7 @@ use Illuminate\Support\Facades\Input;
 use Illuminate\Support\Facades\Session;
 use Illuminate\Support\Facades\DB;
 use App\Models\InvestCountry;
+use App\Models\MigrateTest;
 
 class MigrateController  extends Controller
 {
@@ -78,8 +79,12 @@ class MigrateController  extends Controller
         //全球移民是取出所有的数据信息
         $data['data'] = $query->orderBy('sort','desc')->orderBy('publish_date','desc')->orderBy('id','desc')->get()->toArray();
 
+        $data['menu'] = 'migrate';
+        $data['menu_son'] = '';
+
         return view('front.migrate.index',[
             'data' => $data,
+            'title' => '全球移民',
 
         ]);
     }
@@ -114,8 +119,12 @@ class MigrateController  extends Controller
         $data['case'] = $this->getShowInfoData(6,['category'=>2]);
         $data['case'] = array_chunk($data['case'],2);
 
+        $data['menu'] = 'migrate';
+        $data['menu_son'] = '';
+
         return view('front.migrate.detail', [
             'data' => $data,
+            'title' => $data['data']['title'],
 
         ]);
     }
@@ -131,9 +140,39 @@ class MigrateController  extends Controller
         $data['company'] = $this->getCompanyData();
         //友情链接
         $data['linkData'] = $this->getLinkData();
+
+        $data['menu'] = 'migrate';
+        $data['menu_son'] = '';
+
         return view('front.migrate.test', [
             'data' => $data,
         ]);
+    }
+    /*
+     * 客户添加私人定制需求单
+     */
+    public function addTest()
+    {
+        $config = array('city','reason','capital','education','oversea_identity','english_level','name','sex','phone','email');
+        $insert = array();
+        $data['status'] = 0;
+        $data['msg'] = '失败';
+        foreach($config as $field){
+            if(isset($_POST[$field]) && $_POST[$field]){
+                $insert[$field] = $_POST[$field];
+            }
+        }
+
+        $insert['created_at'] = date('Y-m-d H:i:s');
+        $insert['updated_at'] = date('Y-m-d H:i:s');
+        if($insert){
+            $res = MigrateTest::insert($insert);
+            if($res){
+                $data['status'] = 1;
+                $data['msg'] = '成功';
+            }
+        }
+        return json_encode($data);
     }
 
 

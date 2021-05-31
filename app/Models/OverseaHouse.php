@@ -17,7 +17,7 @@ class OverseaHouse extends Model
      * @var array
      */
     protected $fillable = [
-        'city_id','type_id','feature_id','price_range_id','images','project_atlas','unit_price','title','describe','home_show','complete_date','area','house_type','total_price','property_year','first_payment','year_return','house_standard','address','sort','status','watch_number','publish_date','basic_info','main_door','surround_facility','program_feature','invest_analysis','tag_id'
+        'city_id','type_id','feature_id','price_range_id','images','project_atlas','unit_price','title','describe','home_show','complete_date','area','house_type','total_price','property_year','first_payment','year_return','house_standard','address','sort','status','watch_number','publish_date','basic_info','main_door','surround_facility','program_feature','invest_analysis','tag_id','latitude','longitude','process_img'
     ];//设置哪些属性可以批量赋值
 
     public function city()

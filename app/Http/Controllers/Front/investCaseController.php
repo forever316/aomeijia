@@ -46,7 +46,7 @@ class investCaseController  extends Controller
         $type = isset($_GET['type']) ? $_GET['type'] : 0;
         $data['searchInfo'] = ['region'=>$region,'country'=>$country,'type'=>$type];
         //成功案例
-        $query = Information::where('status',1)->where('publish_date','<=',$date);
+        $query = Information::where('status',1)->where('category',2)->where('publish_date','<=',$date);
         $data['url'] = '/invest/case?1=1';
 
         $data['country'] = array();
@@ -73,12 +73,16 @@ class investCaseController  extends Controller
             $countryIds = array_keys($data['country']);
         }
         //4个热门房产项目
-        $data['house'] = $this->getShowHouseData(4,['city_id'=>$countryIds]);
+        $data['house'] = $this->getShowHouseData(4);
         //4个热门移民项目
-        $data['migrate'] = $this->getShowMigrateData(4,['city_id'=>$countryIds]);
+        $data['migrate'] = $this->getShowMigrateData(4);
+
+        $data['menu'] = 'invest';
+        $data['menu_son'] = 'case';
+
         return view('front.invest.case',[
             'data' => $data,
-
+            'title' => '成功案例',
         ]);
     }
 
@@ -105,8 +109,12 @@ class investCaseController  extends Controller
         //5个热门资讯
         $data['info'] = Information::where('category',1)->where('status',1)->where('publish_date','<=',$date)->orderBy('sort','desc')->orderBy('publish_date','desc')->orderBy('id','desc')->take(5)->get()->toArray();
 
+        $data['menu'] = 'invest';
+        $data['menu_son'] = 'case';
+
         return view('front.invest.case_detail', [
             'data' => $data,
+            'title' => $data['data']['title'],
 
         ]);
     }

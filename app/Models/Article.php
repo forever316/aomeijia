@@ -17,6 +17,6 @@ class Article extends Model
      * @var array
      */
     protected $fillable = [
-        'type','title', 'content', 'sort','describe','status','thumb','real_read','read','publish_date','close_date'
+        'type','title', 'content', 'sort','describe','status','thumb','real_read','read','publish_date','close_date','project_id'
     ];//设置哪些属性可以批量赋值
 }

@@ -56,6 +56,9 @@ class CorpController  extends Controller
             $data['dynamic_html'] = str_replace('corpBrief?page='.$i,'corpBrief?page='.$i.'&key=news',$data['dynamic_html']);
         }
 
+        $data['menu'] = 'corp';
+        $data['menu_son'] = '';
+
         return view('front.corp.corp_brief',[
             'title' => '集团简介',
             'data' => $data,

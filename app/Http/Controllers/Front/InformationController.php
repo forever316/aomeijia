@@ -101,8 +101,12 @@ class InformationController  extends Controller
             $i++;
         }
 
+        $data['menu'] = 'information';
+        $data['menu_son'] = '';
+
         return view('front.information.index',[
             'data' => $data,
+            'title' => '百科资讯',
 
         ]);
     }
@@ -143,8 +147,12 @@ class InformationController  extends Controller
 
         }
 
+        $data['menu'] = 'information';
+        $data['menu_son'] = '';
+
         return view('front.information.detail',[
             'data' => $data,
+            'title' => $data['data']['title'],
 
         ]);
     }

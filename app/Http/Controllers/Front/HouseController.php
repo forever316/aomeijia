@@ -41,7 +41,7 @@ class HouseController  extends Controller
         $_infoData = $this->getInfoData();
         $data['info_top'] = $_infoData['info_top'];
         $data['info_inner'] = $_infoData['info_inner'];
-        $data['info_right'] = $_infoData['right_top'];
+        $data['info_right'] = $_infoData['info_right'];
         //取出6个成功案例
         $data['case'] = $this->getShowInfoData(6,['category'=>2]);
         $data['case'] = array_chunk($data['case'],2);
@@ -136,10 +136,16 @@ class HouseController  extends Controller
             $data['data'][$key]['tag_name'] = $tag_name;
 
         }
+//        echo '<pre>';
+//        var_dump($data['info_top']);
+//        exit;
+
+        $data['menu'] = 'house';
+        $data['menu_son'] = '';
 
         return view('front.house.index',[
             'data' => $data,
-
+            'title' => '海外房产',
         ]);
     }
 
@@ -180,6 +186,9 @@ class HouseController  extends Controller
             $data['data'][$key]['tag_name'] = $tag_name;
         }
         $data['data'] = $data['data'][0];
+        //详情页的项目动态，article   type==5
+        $data['dynamic'] = Article::where('type',5)->where('project_id',$data['data']['id'])->where('status',1)->where('publish_date','<=',$date)->orderBy('sort','desc')->orderBy('publish_date','desc')->orderBy('id','desc')->get()->toArray();
+
 
         //4个热门房产项目
         $data['house'] = $this->getShowHouseData(4);
@@ -189,10 +198,12 @@ class HouseController  extends Controller
         //取出4个最新资讯
         $data['info'] = $this->getShowInfoData(4,['category'=>1]);
 
+        $data['menu'] = 'house';
+        $data['menu_son'] = '';
 
         return view('front.house.detail', [
             'data' => $data,
-
+            'title' => $data['data']['title'],
         ]);
     }
 

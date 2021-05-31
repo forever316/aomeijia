@@ -85,7 +85,7 @@ class MigrateController extends Controller
     public function addMigrate(Request $request){
         if($_POST){
             //获取参数
-            $params = ['city_id'=>'string','type_id'=>'string','invest_id'=>'int','title'=>'string','img'=>'string','project_charac'=>'string','live_require'=>'string','identity'=>'string','transact_period'=>'string','total_price'=>'string','user_id'=>'string','sort'=>'int','status'=>'string','publish_date'=>'string','read'=>'string','project_brief'=>'string','project_advantage'=>'string','apply_condition'=>'string','apply_process'=>'string'];
+            $params = ['city_id'=>'string','type_id'=>'string','invest_id'=>'int','title'=>'string','img'=>'string','project_charac'=>'string','live_require'=>'string','identity'=>'string','transact_period'=>'string','total_price'=>'string','sort'=>'int','status'=>'string','publish_date'=>'string','read'=>'string','project_brief'=>'string','project_advantage'=>'string','apply_condition'=>'string','apply_process'=>'string','face'=>'string'];
             
             $data = $this->getInput($this->form,$params,$request);
             if(isset($data['error'])){
@@ -101,7 +101,7 @@ class MigrateController extends Controller
         }else{
             $typeData = $this->getEnumByType([4]);
             $investData = $this->getEnumByType([5]);
-            $this->form['field']['user_id']['value'] = TeamMember::getTeamMemberList();
+//            $this->form['field']['user_id']['value'] = TeamMember::getTeamMemberList();
             $this->form['field']['type_id']['value'] = $typeData;
             $this->form['field']['invest_id']['value'] = $investData;
         }
@@ -121,7 +121,7 @@ class MigrateController extends Controller
 
         if($_POST){
             //获取参数
-            $params = ['city_id'=>'string','type_id'=>'string','invest_id'=>'int','title'=>'string','img'=>'string','project_charac'=>'string','live_require'=>'string','identity'=>'string','transact_period'=>'string','total_price'=>'string','user_id'=>'string','sort'=>'string','status'=>'string','publish_date'=>'string','read'=>'string','project_brief'=>'string','project_advantage'=>'string','apply_condition'=>'string','apply_process'=>'string'];
+            $params = ['city_id'=>'string','type_id'=>'string','invest_id'=>'int','title'=>'string','img'=>'string','project_charac'=>'string','live_require'=>'string','identity'=>'string','transact_period'=>'string','total_price'=>'string','sort'=>'string','status'=>'string','publish_date'=>'string','read'=>'string','project_brief'=>'string','project_advantage'=>'string','apply_condition'=>'string','apply_process'=>'string','face'=>'string'];
             $data = $this->getInput($this->form,$params,$request);
         
             if(isset($data['error'])){
@@ -140,7 +140,7 @@ class MigrateController extends Controller
         }else{
             $typeData = $this->getEnumByType([4]);
             $investData = $this->getEnumByType([5]);
-            $this->form['field']['user_id']['value'] = TeamMember::getTeamMemberList();
+//            $this->form['field']['user_id']['value'] = TeamMember::getTeamMemberList();
             $this->form['field']['type_id']['value'] = $typeData;
             $this->form['field']['invest_id']['value'] = $investData;
             //城市名称
@@ -164,7 +164,7 @@ class MigrateController extends Controller
             //移民类型，投资类型
             $data->type_id = isset($typeData[$data->type_id]) && $typeData[$data->type_id] ? $typeData[$data->type_id] : $data->type_id;
             $data->invest_id = isset($investData[$data->invest_id]) && $investData[$data->invest_id] ? $investData[$data->invest_id] : $data->invest_id;
-            $data->user_id = isset($teamMember[$data->user_id]) && $teamMember[$data->user_id] ? $teamMember[$data->user_id] : $data->user_id;
+//            $data->user_id = isset($teamMember[$data->user_id]) && $teamMember[$data->user_id] ? $teamMember[$data->user_id] : $data->user_id;
             //城市名称
             $cityName = City::select(['name'])->where('id',$data->city_id)->first();
             $data->city_id = $cityName->name;

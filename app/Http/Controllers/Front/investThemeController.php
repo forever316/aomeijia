@@ -51,8 +51,12 @@ class investThemeController  extends Controller
         //投资主题的热门搜索词，搜索词类型，1投资主题,2海外房产,3成功案例,4百科资讯',，取出前三条
         $data['search'] = HotSearch::where('type',1)->where('status',1)->orderBy('sort','desc')->pluck('words','id')->take(3)->toArray();
 
+        $data['menu'] = 'invest';
+        $data['menu_son'] = 'theme';
+
         return view('front.invest.theme',[
             'data' => $data,
+            'title' => '投资主题',
         ]);
     }
 
@@ -79,8 +83,12 @@ class investThemeController  extends Controller
         //5个热门资讯
         $data['info'] = Information::where('category',1)->where('status',1)->where('publish_date','<=',$date)->orderBy('sort','desc')->orderBy('publish_date','desc')->orderBy('id','desc')->take(5)->get()->toArray();
 
+        $data['menu'] = 'invest';
+        $data['menu_son'] = 'theme';
+
         return view('front.invest.theme_detail', [
             'data' => $data,
+            'title' => $data['data']['title']
 
         ]);
     }

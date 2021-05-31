@@ -337,6 +337,14 @@ class homeController extends Controller
             $synopsis = Input::get('synopsis',0);
             $video = Input::get('video',0);
             $copyright = Input::get('copyright',0);
+
+            $page_title = Input::get('page_title',0);
+            $page_keywords = Input::get('page_keywords',0);
+            $page_description = Input::get('page_description',0);
+            $consult_wechat_qrcode = Input::get('consult_wechat_qrcode',0);
+            $consult_wechat_number = Input::get('consult_wechat_number',0);
+
+
             if(empty($company_name)){
                 return $this->returnJson(false,'公司名称不允许设置空值','all');
             }
@@ -367,6 +375,11 @@ class homeController extends Controller
                 'wechat2_img'=>$wechat2_img,
                 'video'=>$video,
                 'copyright'=>$copyright,
+                'page_title'=>$page_title,
+                'page_keywords'=>$page_keywords,
+                'page_description'=>$page_description,
+                'consult_wechat_qrcode'=>$consult_wechat_qrcode,
+                'consult_wechat_number'=>$consult_wechat_number,
                 'updated_at' => date('Y-m-d H:i:s'),
             ]);
             if(!$a){

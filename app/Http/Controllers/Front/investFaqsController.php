@@ -70,8 +70,12 @@ class investFaqsController  extends Controller
         //4个热门移民项目
         $data['migrate'] = $this->getShowMigrateData(4);
 
+        $data['menu'] = 'invest';
+        $data['menu_son'] = 'faqs';
+
         return view('front.invest.faqs',[
             'data' => $data,
+            'title' => '投资问答',
         ]);
     }
 

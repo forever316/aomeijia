@@ -226,6 +226,7 @@ Route::group(['domain' => FRONTWEBSITE,'middleware' => 'access'], function()//,'
 {
     //首页
     Route::get('/','Front\HomeController@index');
+    Route::post('/index/getInfoByType','Front\HomeController@getInfoByType');
 
     //集团简介
     Route::get('/corp/corpBrief','Front\CorpController@corpBrief');
@@ -239,6 +240,7 @@ Route::group(['domain' => FRONTWEBSITE,'middleware' => 'access'], function()//,'
     Route::get('/migrate','Front\MigrateController@index');//全球移民汇总页
     Route::get('/migrate/detail','Front\MigrateController@detail');//全球移民详情页
     Route::get('/migrate/test','Front\MigrateController@test');//全球移民测试页
+    Route::post('/migrate/test/add','Front\MigrateController@addTest');//客户填写全球移民测试页
 
     //海外房产
     Route::get('/house','Front\HouseController@index');//全球移民汇总页
@@ -254,6 +256,9 @@ Route::group(['domain' => FRONTWEBSITE,'middleware' => 'access'], function()//,'
     Route::get('/invest/faqs','Front\investFaqsController@index');//投资主题汇总页//投资问答faqs
     Route::get('/invest/case','Front\investCaseController@index');//投资主题汇总页
     Route::get('/invest/case/detail','Front\investCaseController@detail');//投资主题详情页
+
+    //
+    Route::post('/consult/add','Front\CommonController@consultAdd');//客户咨询操作，添加数据到数据库中
 
 
     

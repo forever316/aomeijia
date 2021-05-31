@@ -79,7 +79,7 @@ class OverseaHouseController extends Controller
         $user = Session::get('user');
         if($_POST){
             //获取参数
-            $params = ['city_id'=>'string','type_id'=>'string','feature_id'=>'int','price_range_id'=>'string','images'=>'string','project_atlas'=>'string','unit_price'=>'string','title'=>'string','describe'=>'string','home_show'=>'string','complete_date'=>'string','area'=>'string','house_type'=>'string','total_price'=>'string','property_year'=>'string','first_payment'=>'string','year_return'=>'string','house_standard'=>'string','address'=>'string','sort'=>'string','status'=>'string','watch_number'=>'string','publish_date'=>'string','basic_info'=>'string','main_door'=>'string','surround_facility'=>'string','program_feature'=>'string','invest_analysis'=>'string'];
+            $params = ['city_id'=>'string','type_id'=>'string','feature_id'=>'int','price_range_id'=>'string','images'=>'string','project_atlas'=>'string','unit_price'=>'string','title'=>'string','describe'=>'string','home_show'=>'string','complete_date'=>'string','area'=>'string','house_type'=>'string','total_price'=>'string','property_year'=>'string','first_payment'=>'string','year_return'=>'string','house_standard'=>'string','address'=>'string','sort'=>'string','status'=>'string','watch_number'=>'string','publish_date'=>'string','basic_info'=>'string','main_door'=>'string','surround_facility'=>'string','program_feature'=>'string','invest_analysis'=>'string','latitude'=>'string','longitude'=>'string','process_img'=>'string'];
             
             $data = $this->getInput($this->form,$params,$request);
             $tag_id = $request->input('tag_id');
@@ -125,7 +125,7 @@ class OverseaHouseController extends Controller
 
         if($_POST){
             //获取参数
-            $params = ['city_id'=>'string','type_id'=>'string','feature_id'=>'int','price_range_id'=>'string','images'=>'string','project_atlas'=>'string','unit_price'=>'string','title'=>'string','describe'=>'string','home_show'=>'string','complete_date'=>'string','area'=>'string','house_type'=>'string','total_price'=>'string','property_year'=>'string','first_payment'=>'string','year_return'=>'string','house_standard'=>'string','address'=>'string','sort'=>'string','status'=>'string','watch_number'=>'string','publish_date'=>'string','basic_info'=>'string','main_door'=>'string','surround_facility'=>'string','program_feature'=>'string','invest_analysis'=>'string'];
+            $params = ['city_id'=>'string','type_id'=>'string','feature_id'=>'int','price_range_id'=>'string','images'=>'string','project_atlas'=>'string','unit_price'=>'string','title'=>'string','describe'=>'string','home_show'=>'string','complete_date'=>'string','area'=>'string','house_type'=>'string','total_price'=>'string','property_year'=>'string','first_payment'=>'string','year_return'=>'string','house_standard'=>'string','address'=>'string','sort'=>'string','status'=>'string','watch_number'=>'string','publish_date'=>'string','basic_info'=>'string','main_door'=>'string','surround_facility'=>'string','program_feature'=>'string','invest_analysis'=>'string','latitude'=>'string','longitude'=>'string','process_img'=>'string'];
             $data = $this->getInput($this->form,$params,$request);
             $tag_id = $request->input('tag_id');
             $detailData->tag_id = implode(';', $tag_id);

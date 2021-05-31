@@ -29,7 +29,7 @@ class MigrateTestController extends Controller
 			$search_params = $this->getInput([],$params,$request);
 
 			//获取要排序的字段 默认按创建时间倒序
-			$sort = Input::get('sort','created_at');
+			$sort = Input::get('sort','id');
 			$order = Input::get('order','desc');
 
 			//要返回的数组
@@ -56,7 +56,7 @@ class MigrateTestController extends Controller
 			//显示隐藏
 			foreach ($dataList1['data'] as $key=>$row){
 				foreach($this->form['field'] as $k=>$item){
-					if(in_array($k,['type','status'])){
+					if(in_array($k,['type','status','sex'])){
 						$arr['rows'][$key][$k] = $item['options'][$row[$k]];
 					}else{
 						$arr['rows'][$key][$k] = $row[$k];
