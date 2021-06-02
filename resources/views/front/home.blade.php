@@ -567,6 +567,7 @@
 	function consult_1($type){
 		$('#form_consult_1').find("input[name='type']").val($type);
         submitConsultData_1();
+        $('.web_components_sidebar_info .sidebar_right-invest').css('display','none');
 	}
 </script>
 </body>

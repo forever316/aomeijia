@@ -168,12 +168,12 @@ window.onload=function(){
 	$(".sidebar_right-invest_img").mouseover(function() {
 		$('.sidebar_right-invest').css('display','block');
 	})
-	$(".sidebar_right-invest").mouseout(function() {
-		$('.sidebar_right-invest').css('display','block');
-	})
-	$(".sidebar_right-invest").mouseout(function() {
-		$('.sidebar_right-invest').css('display','none');
-	})
+	// $(".sidebar_right-invest").mouseout(function() {
+	// 	$('.sidebar_right-invest').css('display','block');
+	// })
+	// $(".sidebar_right-invest").mouseout(function() {
+	// 	$('.sidebar_right-invest').css('display','none');
+	// })
 
 	// 右边悬浮框的js---end
 
