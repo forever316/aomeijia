@@ -72,6 +72,37 @@
 <!--  回到顶部等几个按钮 -->
 <div class="web_components_sidebar_info">
 	<div class="sidebar_right-phone">{{$data['company']['custom_service_phone']}}</div>
+	<div class="sidebar_right-invest">
+		<div class="appointment-wrapper-right">
+			<div class="appointment-cont">
+				<div class="head">
+					<img src="/front/images/overseas-property/detail/appointment-head.png" alt="">
+					<i @click="isAppointmentShow = false">×</i>
+				</div>
+				<div class="text">
+					<i></i>
+					<span>立即预约</span>
+					<i></i>
+				</div>
+				<div class="cont">
+					<form id="form_consult_1">
+						<input type="hidden" name="type" value="">
+						<input type="text" placeholder="请输入您的姓名" name="name" value="">
+						<input type="text" placeholder="请输入您的手机号" name="phone" value="">
+						<input type="text" placeholder="请输入您的微信" name="wechat" value="">
+						<textarea placeholder="请输入您想了解的更多信息" name="content" value=""></textarea>
+						<p class="notice">
+							* 所有信息均已进行加密处理，请放心填写！
+						</p>
+						{{--                        @click="isAppointmentShow = false"--}}
+						<button class="submit_btn" type="button" onclick="consult_1(1)" @click="isAppointmentShow = false">
+							立即提交
+						</button>
+					</form>
+				</div>
+			</div>
+		</div>
+	</div>
 	<div class="sidebar_right-wechat"><img src="/{{$data['company']['consult_wechat_qrcode']}}" ></div>
 </div>
 <div class="web_components_sidebar">
@@ -86,7 +117,7 @@
 	</a>
 	{{--		投资报告--}}
 	<a href="" class="web_components_sidebar-item">
-		<img src="/front/images/sidebar3.jpeg" alt="">
+		<img class="sidebar_right-invest_img" src="/front/images/sidebar3.jpeg" alt="">
 	</a>
 	{{--		官网微信--}}
 	<a href="javascript:void(0);" class="web_components_sidebar-item">

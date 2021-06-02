@@ -173,12 +173,20 @@ special-a:hover{
 }
 
 .web_components_sidebar_info .sidebar_right-wechat{
+	top: 60%;
+	position: fixed;
+	right: 115px;
+	z-index: 1000;
+	display:none;
+}
+.web_components_sidebar_info .sidebar_right-invest{
 	top: 62%;
 	position: fixed;
 	right: 115px;
 	z-index: 1000;
 	display:none;
 }
+
 .web_components_sidebar_info .sidebar_right-wechat:hover{
 	cursor: pointer;
 }
@@ -206,5 +214,182 @@ special-a:hover{
 	width: 76px;
 	height: 78px;
 	display: block;
+}
+
+/* 立即预约 */
+.fade-enter-from,
+.fade-leave-to {
+	opacity: 0;
+}
+
+.fade-enter-active,
+.fade-leave-active {
+	transition: all .2s linear;
+}
+
+.appointment-wrapper-right {
+	position: fixed;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	display: flex;
+	display: -webkit-box;
+	display: -moz-box;
+	display: -ms-flexbox;
+	display: -webkit-flex;
+	align-items: center;
+	-webkit-box-align: center;
+	-webkit-align-items: center;
+	-moz-box-align: center;
+	-moz-align-items: center;
+	-ms-flex-align: center;
+	justify-content: center;
+	-webkit-box-pack: center;
+	-webkit-justify-content: center;
+	-moz-box-pack: center;
+	-moz-justify-content: center;
+	-ms-flex-pack: center;
+	background: rgba(0, 0, 0, .3);
+	z-index: 1;
+}
+
+.appointment-wrapper-right .appointment-cont {
+	width: 360px;
+	padding-bottom: 20px;
+	background: #fff;
+	border-radius: 10px;
+	margin-right: -750px;
+}
+
+.appointment-wrapper-right .appointment-cont .head {
+	display: flex;
+	display: -webkit-box;
+	display: -moz-box;
+	display: -ms-flexbox;
+	display: -webkit-flex;
+	align-items: center;
+	-webkit-box-align: center;
+	-webkit-align-items: center;
+	-moz-box-align: center;
+	-moz-align-items: center;
+	-ms-flex-align: center;
+	justify-content: center;
+	-webkit-box-pack: center;
+	-webkit-justify-content: center;
+	-moz-box-pack: center;
+	-moz-justify-content: center;
+	-ms-flex-pack: center;
+	padding-top: 10px;
+}
+
+.appointment-wrapper-right .appointment-cont .head > img {
+	width: 155px;
+	height: 54px;
+}
+
+.appointment-wrapper-right .appointment-cont .head > i {
+	position: absolute;
+	top: 10px;
+	right: 10px;
+	width: 20px;
+	height: 20px;
+	font-size: 20px;
+	line-height: 20px;
+	text-align: center;
+	cursor: pointer;
+}
+
+.appointment-wrapper-right .appointment-cont .text {
+	margin-top: 10px;
+	padding: 0 25px;
+	display: flex;
+	display: -webkit-box;
+	display: -moz-box;
+	display: -ms-flexbox;
+	display: -webkit-flex;
+	align-items: center;
+	-webkit-box-align: center;
+	-webkit-align-items: center;
+	-moz-box-align: center;
+	-moz-align-items: center;
+	-ms-flex-align: center;
+	justify-content: space-between;
+	-webkit-box-pack: justify;
+	-webkit-justify-content: space-between;
+	-moz-box-pack: justify;
+	-moz-justify-content: space-between;
+	-ms-flex-pack: justify;
+}
+
+.appointment-wrapper-right .appointment-cont .text > span {
+	font-size: 16px;
+}
+
+.appointment-wrapper-right .appointment-cont .text > i {
+	width: 100px;
+	height: 1px;
+	background: #ddd;
+}
+
+.appointment-wrapper-right .appointment-cont .cont form {
+	margin-top: 10px;
+	display: flex;
+	display: -webkit-box;
+	display: -moz-box;
+	display: -ms-flexbox;
+	display: -webkit-flex;
+	flex-direction: column;
+	-webkit-box-orient: vertical;
+	-webkit-flex-direction: column;
+	-moz-box-orient: vertical;
+	-moz-flex-direction: column;
+	-ms-flex-direction: column;
+	align-items: center;
+	-webkit-box-align: center;
+	-webkit-align-items: center;
+	-moz-box-align: center;
+	-moz-align-items: center;
+	-ms-flex-align: center;
+}
+
+.appointment-wrapper-right .appointment-cont .cont input {
+	margin-top: 15px;
+	width: 260px;
+	height: 40px;
+	padding: 0 15px;
+	border: 1px solid #ddd;
+}
+
+.appointment-wrapper-right .appointment-cont .cont textarea {
+	margin-top: 15px;
+	width: 260px;
+	height: 90px;
+	padding: 10px 15px;
+	resize: none;
+	border: 1px solid #ddd;
+}
+
+.appointment-wrapper-right .appointment-cont .cont .notice {
+	margin-top: 10px;
+	color: #f00;
+	font-size: 12px;
+	text-align: center;
+}
+
+.appointment-wrapper-right .appointment-cont .cont button {
+	margin: 35px auto 0;
+	width: 100px;
+	height: 40px;
+	line-height: 40px;
+	padding: 0 15px;
+	text-align: center;
+	color: #fff;
+	font-size: 14px;
+	background: #ee8300;
+	outline: 0;
+	border: 0;
+	cursor: pointer;
+	border-radius: 3px;
 }
 

@@ -564,17 +564,9 @@
 		});
 	})
 
-	function consult(){
-		$('#form_consult').find("input[name='type']").val(4);
-		$.ajax({
-			type: "POST",
-			url: "/consult/add",
-			data: $('#form_consult').serialize(),
-			dataType: "json",
-			success: function(data){
-				alert(data.msg);
-			}
-		});
+	function consult_1($type){
+		$('#form_consult_1').find("input[name='type']").val($type);
+        submitConsultData_1();
 	}
 </script>
 </body>
