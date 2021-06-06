@@ -1,5 +1,15 @@
 
 window.onload=function(){
+	$('.home_consult').css('display','block');
+	var app = {
+		data() {
+			return {
+				isAppointmentShow: false,
+			}
+		},
+	}
+
+	Vue.createApp(app).mount('#home-page');
 
 	// 导航
 	$(".nav-list").mouseenter(function () {
@@ -144,56 +154,8 @@ window.onload=function(){
 		teamSwiper.slidePrev();
 	});
 
-
-	// 右边悬浮框的js
-	$(".sidebar_right-phone_img").mouseover(function() {
-		$('.sidebar_right-phone').css('display','block');
-	})
-	$(".sidebar_right-wechat_img").mouseover(function() {
-		$('.sidebar_right-wechat').css('display','block');
-	})
-	$(".sidebar_right-phone").mouseout(function() {
-		$('.sidebar_right-phone').css('display','none');
-	})
-	$(".sidebar_right-phone_img").mouseout(function() {
-		$('.sidebar_right-phone').css('display','none');
-	})
-	$(".sidebar_right-wechat_img").mouseout(function() {
-		$('.sidebar_right-wechat').css('display','none');
-	})
-	$(".sidebar_right-wechat").mouseout(function() {
-		$('.sidebar_right-wechat').css('display','none');
-	})
-	//投资报告
-	$(".sidebar_right-invest_img").mouseover(function() {
-		$('.sidebar_right-invest').css('display','block');
-	})
-	// $(".sidebar_right-invest").mouseout(function() {
-	// 	$('.sidebar_right-invest').css('display','block');
-	// })
-	// $(".sidebar_right-invest").mouseout(function() {
-	// 	$('.sidebar_right-invest').css('display','none');
-	// })
-
-	// 右边悬浮框的js---end
-
-	// 点击回到顶部---start
-	$(".back-top").hide();
-	$(window).scroll(function() {
-		if ($(window).scrollTop() > 50) {
-			$(".back-top").fadeIn(200);
-		} else {
-			$(".back-top").fadeOut(200);
-		}
-	});
-	$(".back-top").click(function() {
-		$('body,html').animate({
-				scrollTop: 0
-			},
-			500);
-		return false;
-	});
-	// 点击回到顶部---end
+	//右边悬浮框的js
+	right_js();
 
 }
 

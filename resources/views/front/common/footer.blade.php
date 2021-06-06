@@ -74,35 +74,35 @@
 	<div class="sidebar_right-phone">{{$data['company']['custom_service_phone']}}</div>
 	<div class="sidebar_right-invest">
 		<transition name="fade">
-			<section v-if="isAppointmentShow" class="appointment-wrapper" @click.self="isAppointmentShow = false">
-				<div class="appointment-cont">
-					<div class="head">
-						<img src="/front/images/overseas-property/detail/appointment-head.png" alt="">
-						<i @click="isAppointmentShow = false">×</i>
-					</div>
-					<div class="text">
-						<i></i>
-						<span>立即预约</span>
-						<i></i>
-					</div>
-					<div class="cont">
-						<form id="form_consult_1">
-							<input type="hidden" name="type" value="8">
-							<input type="text" placeholder="请输入您的姓名" name="name" value="">
-							<input type="text" placeholder="请输入您的手机号" name="phone" value="">
-							<input type="text" placeholder="请输入您的微信" name="wechat" value="">
-							<textarea placeholder="请输入您想了解的更多信息" name="content" value=""></textarea>
-							<p class="notice">
-								* 所有信息均已进行加密处理，请放心填写！
-							</p>
-							{{--                        @click="isAppointmentShow = false"--}}
-							<button class="submit_btn" type="button" onclick="consult_1(8)" @click="isAppointmentShow = false">
-								立即提交
-							</button>
-						</form>
-					</div>
+			<section  class="appointment-wrapper" >
+			<div class="appointment-cont">
+				<div class="head">
+					<img src="/front/images/overseas-property/detail/appointment-head.png" alt="">
+					<i onclick="table_hide()">×</i>
 				</div>
-			</section>
+				<div class="text">
+					<i></i>
+					<span>立即预约</span>
+					<i></i>
+				</div>
+				<div class="cont">
+					<form id="form_consult_right">
+						<input type="hidden" name="type" value="8">
+						<input type="text" placeholder="请输入您的姓名" name="name" value="">
+						<input type="text" placeholder="请输入您的手机号" name="phone" value="">
+						<input type="text" placeholder="请输入您的微信" name="wechat" value="">
+						<textarea placeholder="请输入您想了解的更多信息" name="content" value=""></textarea>
+						<p class="notice">
+							* 所有信息均已进行加密处理，请放心填写！
+						</p>
+						{{--                        @click="isAppointmentShow = false"--}}
+						<button class="submit_btn" type="button" onclick="consult_right(8)" @click="isAppointmentShow = false">
+							立即提交
+						</button>
+					</form>
+				</div>
+			</div>
+		</section>
 		</transition>
 	</div>
 	<div class="sidebar_right-wechat"><img src="/{{$data['company']['consult_wechat_qrcode']}}" ></div>
@@ -131,4 +131,3 @@
 		<img src="/front/images/sidebar5.jpeg" alt="">
 	</a>
 </div>
-

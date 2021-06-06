@@ -98,4 +98,7 @@ window.onload = function () {
     }
 
     Vue.createApp(app).mount('#immigrant-appointment-page');
+
+    //右边悬浮框的js
+    right_js();
 };

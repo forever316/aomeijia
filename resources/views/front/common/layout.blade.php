@@ -14,3 +14,4 @@
 <script src="/front/utils/vue.js"></script>
 <script src="/front/js/index.js"></script>
 <script src="/front/js/common.js"></script>
+

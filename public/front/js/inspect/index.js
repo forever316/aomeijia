@@ -69,7 +69,7 @@ window.onload = function () {
                 var latitude = $('#basic-content').attr('data-latitude');
                 console.log(longitude,latitude);
 
-                    // 初始化地图
+                // 初始化地图
                 var map = new AMap.Map('map', {
                     resizeEnable: true,
                     center: [latitude,longitude],
@@ -160,7 +160,7 @@ window.onload = function () {
         },
     }
 
-    Vue.createApp(app).mount('#overseas-property-detail-page');
+    Vue.createApp(app).mount('#inspect-page');
 
     //右边悬浮框的js
     right_js();

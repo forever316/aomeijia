@@ -118,7 +118,7 @@ class HomeController  extends Controller
         //考察团,4个考察团,考察团内容type为7
         $data['inspect'] = Article::where('type',7)->where('status',1)->where('publish_date','<=',$date)->orderBy('sort','desc')->orderBy('publish_date','desc')->orderBy('id','desc')->take(4)->get()->toArray();
         foreach($data['inspect'] as $key=>$val){
-            $data['inspect'][$key]['end_date'] = date("Y年m月d日");
+            $data['inspect'][$key]['end_date'] = date("Y年m月d日",strtotime($val['close_date']));
         }
 
 

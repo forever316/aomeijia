@@ -44,4 +44,7 @@ window.onload = function () {
   }
   
   Vue.createApp(app).mount('#investment-strategy-theme-page');
+
+  //右边悬浮框的js
+  right_js();
 };

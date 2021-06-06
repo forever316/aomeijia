@@ -41,4 +41,8 @@ window.onload = function () {
   }
   
   Vue.createApp(app).mount('#immigrant-page');
+
+  //右边悬浮框的js
+  right_js();
+
 };

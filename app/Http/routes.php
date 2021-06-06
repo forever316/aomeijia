@@ -260,6 +260,10 @@ Route::group(['domain' => FRONTWEBSITE,'middleware' => 'access'], function()//,'
     //
     Route::post('/consult/add','Front\CommonController@consultAdd');//客户咨询操作，添加数据到数据库中
 
+    //考察团模块
+    Route::get('/inspect','Front\InspectController@index');//考察团汇总页
+    Route::get('/inspect/detail','Front\InspectController@detail');//考察团详情页
+
 
     
 });

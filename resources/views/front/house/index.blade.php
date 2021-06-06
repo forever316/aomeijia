@@ -10,9 +10,7 @@
 <body>
 <main id="overseas-property-page" v-cloak>
     @include('front.common.header')
-    <section class="banner">
-        <img src="/{!! $data['banner_img']['img_url'] !!}" alt="" style="height:405px;">
-    </section>
+    @include('front.common.banner')
 
     <section class="container-wrapper">
         <div class="router-wrapper">

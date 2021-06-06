@@ -43,9 +43,12 @@
 	.hot-info-header-list .info-menu{
 		cursor: pointer;
 	}
+	.web_components_sidebar_info .sidebar_right-phone {
+		width: 110px !important;
+	}
 
 </style>
-
+<main id="home-page" v-cloak>
 	@include('front.common.header')
 		<!-- banner区域 -->
 	<div class="home-banner-wrapper">
@@ -232,7 +235,7 @@
 {{--								<span>广州天河区林和西路161号中泰国际广场40楼</span>--}}
 {{--							</dt>--}}
 {{--						</dl>--}}
-						<span class="exhibitions-sign-button">立即预约报名</span>
+						<span class="btn appointment exhibitions-sign-button" @click="isAppointmentShow = true">立即预约报名</span>
 {{--						<div class="exhibitions-sign-button btn appointment" @click="isAppointmentShow = true">--}}
 {{--							立即预约报名--}}
 {{--						</div>--}}
@@ -244,7 +247,7 @@
 			<div class="delegation-wrapper">
 				<div class="delegation-header">
 					<div class="delegation-header-title">考察团</div>
-					<div class="delegation-header-view-more"><a target="_blank" href="#">查看更多 > > ></a></div>
+					<div class="delegation-header-view-more"><a target="_blank" href="/inspect">查看更多 > > ></a></div>
 				</div>
 				<div class="delegation-inner">
 					<a target="_blank" href="#">
@@ -533,9 +536,11 @@
 				</div>
 			</div>
 		</div>
-
 	</div>
-{{--@include('front.common.consult')--}}
+	<div class="home_consult" style="display:none;">
+		@include('front.common.consult')
+	</div>
+	<div class="sidebar_right-invest">
 	@include('front.common.footer')
 
 <script>
@@ -563,11 +568,10 @@
 			}
 		});
 	})
-
-	function consult_1($type){
-		$('#form_consult_1').find("input[name='type']").val($type);
-        submitConsultData_1();
-        $('.web_components_sidebar_info .sidebar_right-invest').css('display','none');
+	function consult(){
+		$('#form_consult').find("input[name='type']").val(9);
+		submitConsultData();
 	}
+
 </script>
 </body>

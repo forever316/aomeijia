@@ -78,4 +78,7 @@ window.onload = function () {
   }
   
   Vue.createApp(app).mount('#overseas-property-page');
+
+  //右边悬浮框的js
+  right_js();
 };
