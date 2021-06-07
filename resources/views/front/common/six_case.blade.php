@@ -9,22 +9,19 @@
     <div class="case-box">
         <div class="swiper-wrapper">
             @foreach($data['case'] as $key=>$val)
-{{--                <template >--}}
-{{--                style="width:384px;margin:20px;"--}}
-            @foreach($val as $k=>$v)
-                        <a target="_blank" class="swiper-slide" href="/invest/case/detail?id={{$v['id']}}">
-                            <div class="img-wrapper">
-                                <img src="/{!! $v['thumb'] !!}" alt="">
-                            </div>
-                            <p class="name text-overflow-2">
-                                {!! $v['title'] !!}
-                            </p>
-                            <p class="desc text-overflow-2">
-                                {!! $v['describe'] !!}
-                            </p>
-                        </a>
-                    @endforeach
-{{--                </template>--}}
+                @foreach($val as $k=>$v)
+                    <a target="_blank" class="swiper-slide" href="/invest/case/detail?id={{$v['id']}}">
+                        <div class="img-wrapper">
+                            <img src="/{!! $v['thumb'] !!}" alt="">
+                        </div>
+                        <p class="name text-overflow-2">
+                            {!! $v['title'] !!}
+                        </p>
+                        <p class="desc text-overflow-2">
+                            {!! $v['describe'] !!}
+                        </p>
+                    </a>
+                @endforeach
             @endforeach
         </div>
     </div>

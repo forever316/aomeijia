@@ -1,4 +1,4 @@
-<transition name="fade">
+<transition name="fade" flag="0">
     <section v-if="isAppointmentShow" class="appointment-wrapper" @click.self="isAppointmentShow = false">
         <div class="appointment-cont">
             <div class="head">

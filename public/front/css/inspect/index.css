@@ -3,7 +3,7 @@ html body {
 }
 
 body {
-    background-color: #f2f2f2;
+    background-color: #fff;
     overflow: scroll;
 }
 
@@ -259,6 +259,9 @@ a {
 }
 
 /*列表内容*/
+.list-wrapper{
+    margin-bottom: 60px;
+}
 .list-wrapper .items {
     display: flex;
     display: -webkit-box;
@@ -276,9 +279,11 @@ a {
 }
 
 .list-wrapper .items .item {
-    margin-top: 60px;
+    margin-top: 40px;
+    margin-bottom: 20px;
     width: 566px;
     background: #fff;
+    border: 1px solid #ddd;
     /*border-radius: 10px;*/
     /*box-shadow: 1px 1px 10px #aaa;*/
 }
@@ -437,6 +442,7 @@ element.style {
 /*回顾样式*/
 .back-review {
     margin-top: 10px;
+    margin-bottom: 50px;
 }
 
 .back-review ul.items {
@@ -452,34 +458,41 @@ element.style {
 .back-review ul.items li.item {
     margin: 50px 32px 0 0;
     width: 276px;
-    cursor: pointer;
+    background-color: #f2f2f2;
+    /*cursor: pointer;*/
 }
 
 .back-review ul.items li.item:nth-child(4n + 4) {
     margin-right: 0;
 }
 
-.back-review ul.items li.item > a .img {
+.back-review ul.items li.item > .img {
     width: 276px;
     height: 211px;
     /*border-radius: 10px;*/
 }
 
-.back-review ul.items li.item > a .name {
+.back-review ul.items li.item > .name {
     margin-top: 10px;
     font-size: 16px;
+    text-align: center;
 }
 
-.back-review ul.items li.item > a .name:hover {
-    color: #ee8300;
+.back-review ul.items li.item > .name:hover {
+    /*color: #ee8300;*/
 }
 
-.back-review ul.items li.item > a .desc {
+.back-review ul.items li.item .desc {
     margin-top: 5px;
     color: #999;
 }
+.back-review ul.items li.item .detail {
+    margin-top: 20px;
+    text-align: center;
+    margin-bottom: 10px;
+}
 
-.back-review ul.items li.item > a .desc:hover {
+.back-review ul.items li.item > .desc:hover {
     text-decoration: underline;
 }
 

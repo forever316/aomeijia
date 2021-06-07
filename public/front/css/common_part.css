@@ -58,7 +58,7 @@
     height: 40px;
     background: #f00;
     cursor: pointer;
-    background: url(../../images/common/case-arrow.png) no-repeat center / 100% 100%;
+    background: url(/front/images/common/case-arrow.png) no-repeat center / 100% 100%;
     z-index: 1;
 }
 

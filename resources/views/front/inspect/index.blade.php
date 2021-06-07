@@ -53,28 +53,32 @@
         </div>
 
 
-{{--        <div class="common-box-header">--}}
-{{--            <p>往期考察团回顾</p>--}}
-{{--            <p><a target="_blank" href="#">查看更多 > > ></a></p>--}}
-{{--        </div>--}}
-{{--        <div class="back-review">--}}
-{{--            <ul class="items">--}}
-{{--                @foreach($data['back_review'] as $key=>$val)--}}
-{{--                    <li  class="item">--}}
+        <div class="common-box-header">
+            <p>往期考察团回顾</p>
+            <p><a target="_blank" href="#">查看更多 > > ></a></p>
+        </div>
+        <div class="back-review">
+            <ul class="items">
+                @foreach($data['back_review'] as $key=>$val)
+                    <li  class="item">
+{{--                        <div>--}}
 {{--                        <a target="_blank" href="#">--}}
-{{--                            <img src="/{!! $val['thumb'] !!}" class="img">--}}
-{{--                            <p class="name text-overflow-1">--}}
-{{--                                {!! $val['title'] !!}--}}
-{{--                            </p>--}}
-{{--                        <a> < 查看详情 ></a>--}}
+                            <img src="/{!! $val['thumb'] !!}" class="img">
+                            <p class="name text-overflow-1">
+                                {!! $val['title'] !!}
+                            </p>
+                        <p class="detail">
+                            <a target="_blank" href="#" class="desc"> < 查看详情 ></a>
+                        </p>
 {{--                            <p class="desc text-overflow-2">--}}
 {{--                                {!! $val['describe'] !!}--}}
 {{--                            </p>--}}
 {{--                        </a>--}}
-{{--                    </li>--}}
-{{--                @endforeach--}}
-{{--            </ul>--}}
-{{--        </div>--}}
+{{--                        </div>--}}
+                    </li>
+                @endforeach
+            </ul>
+        </div>
 
 
     </section>
@@ -103,20 +107,13 @@
 <script src="/front/js/inspect/index.js"></script>
 <script>
     function consult($type=1){
-        $('#form_consult').find("input[name='type']").val($type);
+        $('#form_consult').find("input[name='type']").val(10);
         submitConsultData();
     }
     function consult_1($type=1){
         $('#form_consult_1').find("input[name='type']").val($type);
         submitConsultData_1();
     }
-    // window.onload = function () {
-    // 初始化地图
-
-    // }
-
-
-
 </script>
 </body>
 </html>
