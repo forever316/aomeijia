@@ -576,5 +576,9 @@ special-a:hover{
 .news-box .box .right {
 	width: 390px !important;
 }
+/*联系表单的右侧在线联系部分高度问题*/
+.contact-box .right-box {
+	height: 368px;
+}
 
 

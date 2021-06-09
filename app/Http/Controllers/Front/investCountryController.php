@@ -105,8 +105,11 @@ class investCountryController  extends Controller
         //友情链接
         $data['linkData'] = $this->getLinkData();
 
-        $data['data'] = InvestCountry::where('status',1)->where('publish_date','<=',$date)->where('id',$id)->take(1)->get()->toArray();//当前详情页的本条数据
+        //当前详情页的本条数据
+        $data['data'] = InvestCountry::where('status',1)->where('publish_date','<=',$date)->where('id',$id)->take(1)->get()->toArray();
         $data['data'] = current($data['data']);
+        $data['data']['describe'] = nl2br($data['data']['describe']);
+
         $city = $data['data']['city_id'];
         $cityInfo = City::where('id',$city)->orderBy('sort','desc')->first()->toArray();
         //投资攻略的banner图片,类型为10

@@ -46,6 +46,21 @@
 	.web_components_sidebar_info .sidebar_right-phone {
 		width: 110px !important;
 	}
+	.hot-delegation-bottom {
+		height: 125px !important;
+	}
+    .hot-delegation-bottom .hot-delegation-bottom-list{
+        margin:10px;
+    }
+	.hot-delegation-bottom .hot-delegation-bottom-list img{
+		width:282px;
+		height:100%;
+	}
+    /*解决列表不向左对齐问题*/
+    .hot-delegation-bottom::after {
+        content: "";
+        flex: auto;
+    }
 
 </style>
 <main id="home-page" v-cloak>
@@ -250,7 +265,7 @@
 					<div class="delegation-header-view-more"><a target="_blank" href="/inspect">查看更多 > > ></a></div>
 				</div>
 				<div class="delegation-inner">
-					<a target="_blank" href="#">
+					<a target="_blank" href="/inspect/detail?id={{$data['inspect'][0]['id']}}">
 						<div class="delegation-banner">
 							@if(isset($data['inspect'][0]))
 							<img src="/{{$data['inspect'][0]['thumb']}}" style="width:464px;height:197px;">
@@ -268,7 +283,7 @@
 							@foreach($data['inspect'] as $ki=>$kiv)
 								@if($ki>0)
 									<dt>
-										<a target="_blank" href="#">
+										<a target="_blank" href="/inspect/detail?id={{$kiv['id']}}">
 											<span><img src="/{{$kiv['thumb']}}" style="width:110px;height:62px;"></span>
 											<div class="delegation-list-describe">
 												<p class="desc text-overflow-1">{{$kiv['title']}}</p>
@@ -285,10 +300,10 @@
 		</div>
 		<!-- 热门展会 考察团下的模块 -->
 		<div class="hot-delegation-bottom">
-			@if($data['middleBanner'])
-				@foreach($data['middleBanner'] as $val)
+			@if($data['past_content'])
+				@foreach($data['past_content'] as $val)
 					<div class="hot-delegation-bottom-list">
-						<img src="/{{$val['img_url']}}">
+						<a href=""><img src="/{{$val}}"></a>
 					</div>
 				@endforeach
 			@endif

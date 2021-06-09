@@ -40,7 +40,7 @@
                             </p>
                         </div>
                         <div class="btn-wrapper">
-                            <a target="_blank" href="#" class="black-btn btn">
+                            <a target="_blank" href="/inspect/detail?id={{$val['id']}}" class="black-btn btn">
                                 查看详情
                             </a>
                             <div class="btn appointment" @click="isAppointmentShow = true">

@@ -215,3 +215,230 @@
 .banner > img {
     width: 100%;
 }
+
+/* 免费咨询 */
+.contact-wrapper {
+    padding: 80px 0;
+}
+
+.contact-wrapper .contact-box {
+    margin: 0 auto;
+    width: 980px;
+    display: flex;
+    display: -webkit-box;
+    display: -moz-box;
+    display: -ms-flexbox;
+    display: -webkit-flex;
+    border-radius: 10px;
+    box-shadow: 0 0 10px #ccc;
+}
+
+.contact-box .left-box {
+    flex: 1;
+    -webkit-box-flex: 1;
+    -webkit-flex: 1;
+    -moz-box-flex: 1;
+    -moz-flex: 1;
+    -ms-flex: 1;
+    padding: 30px;
+    background: #f2f2f2;
+    border-top-left-radius: 10px;
+    border-bottom-left-radius: 10px;
+}
+
+.contact-box .left-box .title {
+    font-size: 18px;
+    color: #ee8300;
+    font-weight: bold;
+}
+
+.contact-box .left-box .input-box {
+    margin-top: 30px;
+    display: flex;
+    display: -webkit-box;
+    display: -moz-box;
+    display: -ms-flexbox;
+    display: -webkit-flex;
+}
+
+.contact-box .left-box .input-box .input-left {
+    display: flex;
+    display: -webkit-box;
+    display: -moz-box;
+    display: -ms-flexbox;
+    display: -webkit-flex;
+    flex-direction: column;
+    -webkit-box-orient: vertical;
+    -webkit-flex-direction: column;
+    -moz-box-orient: vertical;
+    -moz-flex-direction: column;
+    -ms-flex-direction: column;
+}
+
+.contact-box .left-box .input-box .input-left > input {
+    padding: 0 15px;
+    width: 280px;
+    height: 36px;
+    background: transparent;
+    border: 1px solid #ddd;
+}
+
+.contact-box .left-box .input-box .input-left > input:not(:first-child) {
+    margin-top: 20px;
+}
+
+.contact-box .left-box .input-box .input-left > input:focus {
+    border-color: #ee8300;
+}
+
+.contact-box .left-box .input-box .input-right {
+    margin-left: 20px;
+    flex: 1;
+    -webkit-box-flex: 1;
+    -webkit-flex: 1;
+    -moz-box-flex: 1;
+    -moz-flex: 1;
+    -ms-flex: 1;
+}
+
+.contact-box .left-box .input-box .input-right > textarea {
+    padding: 12px;
+    width: 100%;
+    height: 100%;
+    background: transparent;
+    border: 1px solid #ddd;
+    resize: none;
+}
+
+.contact-box .left-box .input-box .input-right > textarea:focus {
+    border-color: #ee8300;
+}
+
+.contact-box .left-box .tip {
+    margin-top: 10px;
+    color: #f00;
+    font-size: 12px;
+    text-align: right;
+}
+
+.contact-box .left-box .btn-wrapper {
+    margin-top: 20px;
+    display: flex;
+    display: -webkit-box;
+    display: -moz-box;
+    display: -ms-flexbox;
+    display: -webkit-flex;
+    justify-content: flex-end;
+}
+
+.contact-box .left-box .btn-wrapper .btn {
+    width: 100px;
+    height: 40px;
+    line-height: 40px;
+    color: #fff;
+    text-align: center;
+    background: #ee8300;
+    cursor: pointer;
+}
+
+
+.contact-box .right-box {
+    width: 300px;
+    height: 350px;
+    padding-top: 42px;
+    background: #383838;
+    border-top-right-radius: 10px;
+    border-bottom-right-radius: 10px;
+}
+
+.contact-box .right-box .tel {
+    display: flex;
+    display: -webkit-box;
+    display: -moz-box;
+    display: -ms-flexbox;
+    display: -webkit-flex;
+    align-items: center;
+    -webkit-box-align: center;
+    -webkit-align-items: center;
+    -moz-box-align: center;
+    -moz-align-items: center;
+    -ms-flex-align: center;
+    justify-content: center;
+    -webkit-box-pack: center;
+    -webkit-justify-content: center;
+    -moz-box-pack: center;
+    -moz-justify-content: center;
+    -ms-flex-pack: center;
+    color: #ee8300;
+}
+
+.contact-box .right-box .tel > img {
+    margin-right: 10px;
+    width: 16px;
+    height: 16px;
+}
+
+.contact-box .right-box .number {
+    margin-top: 20px;
+    padding-bottom: 40px;
+    color: #fff;
+    font-size: 24px;
+    font-weight: bold;
+    text-align: center;
+}
+
+.contact-box .right-box .number::after {
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    -ms-transform: translateX(-50%);
+    -moz-transform: translateX(-50%);
+    -webkit-transform: translateX(-50%);
+    -o-transform: translateX(-50%);
+    width: 270px;
+    height: 1px;
+    background: #777;
+    content: '';
+}
+
+.contact-box .right-box .time {
+    margin-top: 50px;
+    display: flex;
+    display: -webkit-box;
+    display: -moz-box;
+    display: -ms-flexbox;
+    display: -webkit-flex;
+    align-items: center;
+    -webkit-box-align: center;
+    -webkit-align-items: center;
+    -moz-box-align: center;
+    -moz-align-items: center;
+    -ms-flex-align: center;
+    justify-content: center;
+    -webkit-box-pack: center;
+    -webkit-justify-content: center;
+    -moz-box-pack: center;
+    -moz-justify-content: center;
+    -ms-flex-pack: center;
+    color: #ee8300;
+}
+
+.contact-box .right-box .time > img {
+    margin-right: 10px;
+    width: 16px;
+    height: 16px;
+}
+
+.contact-box .right-box .btn {
+    margin: 20px auto 0;
+    width: 100px;
+    height: 40px;
+    line-height: 40px;
+    color: #fff;
+    font-size: 15px;
+    text-align: center;
+    cursor: pointer;
+    background: #ee8300;
+}
+/*免费咨询结束*/
