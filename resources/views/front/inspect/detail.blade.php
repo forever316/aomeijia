@@ -59,4 +59,8 @@
         $('#form_consult').find("input[name='type']").val(10);
         submitConsultData();
     }
+    function consult_1($type=1){
+        $('#form_consult_1').find("input[name='type']").val($type);
+        submitConsultData_1();
+    }
 </script>

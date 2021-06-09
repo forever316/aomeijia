@@ -91,4 +91,37 @@ class InspectController  extends Controller
             'data' => $data,
         ]);
     }
+
+    //往期考察团汇总页
+    public function reviewIndex()
+    {
+        //公共模块
+        $date = date('Y-m-d');
+        //取出7个最新资讯
+        $data = $this->getInfoData();
+        //公司资料设置
+        $data['company'] = $this->getCompanyData();
+        //友情链接
+        $data['linkData'] = $this->getLinkData();
+        //考察团banner图片，类型为14
+        $data['banner_img'] = current(Banner::where('type',14)->where('status',1)->orderBy('sort','desc')->orderBy('id','desc')->take(1)->get()->toArray());
+
+        //取出6个成功案例
+        $data['case'] = $this->getShowInfoData(6,['category'=>2]);
+        $data['case'] = array_chunk($data['case'],2);
+
+        //取出往期考察团回顾内容，type=8
+        $data['data'] = Article::where('type',8)->where('status',1)->where('publish_date','<=',$date)->orderBy('sort','desc')->orderBy('publish_date', 'desc')->orderBy('id','desc')->paginate(16);
+
+
+        $data['menu'] = 'index';
+        $data['menu_son'] = '';
+        $title = '往期考察团回顾';
+        return view('front.inspect.review_index',[
+            'title' => $title,
+            'data' => $data,
+
+        ]);
+
+    }
 }
