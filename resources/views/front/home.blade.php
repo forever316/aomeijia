@@ -300,14 +300,16 @@
 		</div>
 		<!-- 热门展会 考察团下的模块 -->
 		<div class="hot-delegation-bottom">
-			@if($data['past_content'])
-				@foreach($data['past_content'] as $val)
-					<div class="hot-delegation-bottom-list">
-						<a href=""><img src="/{{$val}}"></a>
-					</div>
-				@endforeach
-			@endif
-
+			@foreach($data['past_active'] as $val)
+				<div class="hot-delegation-bottom-list">
+					<a target="_blank" href=""><img src="/{{$val['thumb']}}"></a>
+				</div>
+			@endforeach
+			@foreach($data['past_inspect'] as $val)
+				<div class="hot-delegation-bottom-list">
+					<a target="_blank" href="/inspect/review/detail?id={{$val['id']}}"><img src="/{{$val['thumb']}}"></a>
+				</div>
+			@endforeach
 		</div>
 		<!-- 热点项目推荐 -->
 		<div class="project-recommend-wrapper">

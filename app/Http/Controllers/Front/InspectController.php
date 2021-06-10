@@ -62,7 +62,7 @@ class InspectController  extends Controller
         ]);
 
     }
-    //考察团的详情页
+    //考察团的详情页,往期考察团回顾的详情页，7,考察团内容，8往期考察团回顾
     public function detail()
     {
         $id = isset($_GET['id']) && $_GET['id'] ? $_GET['id'] : 0;
@@ -79,9 +79,12 @@ class InspectController  extends Controller
         //本篇文章的详细内容
         $data['data'] = Article::where('id',$id)->take(1)->get()->toArray();
         $data['data'] = current($data['data']);
-
         $title = $data['data']['title'];
-        $data['header_route'] = '<span>首页</span><i>></i><span>考察团</span><i>></i>'.$title;
+        if($data['data']['type']==7){
+            $data['header_route'] = '<span>首页</span><i>></i><span>考察团</span><i>></i>'.$title;
+        }elseif($data['data']['type']==8){
+            $data['header_route'] = '<span>首页</span><i>></i><span>往期考察团回顾</span><i>></i>'.$title;
+        }
 
         $data['menu'] = 'index';
         $data['menu_son'] = '';

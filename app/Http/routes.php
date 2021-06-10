@@ -266,7 +266,7 @@ Route::group(['domain' => FRONTWEBSITE,'middleware' => 'access'], function()//,'
 
     //往期考察团模块
     Route::get('/inspect/review','Front\InspectController@reviewIndex');//考察团汇总页
-    Route::get('/inspect/review/detail','Front\InspectController@reviewDetail');//考察团详情页
+    Route::get('/inspect/review/detail','Front\InspectController@detail');//考察团详情页
 
 
     

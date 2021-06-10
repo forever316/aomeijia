@@ -121,17 +121,9 @@ class HomeController  extends Controller
             $data['inspect'][$key]['end_date'] = date("Y年m月d日",strtotime($val['close_date']));
         }
 
-
         //热门展会考察团下方的内容，亮条往期活动和两条往期考察团内容,8往期考察团回顾，9往期活动回顾'
         $data['past_active'] = Article::where('type',9)->where('status',1)->where('publish_date','<=',$date)->orderBy('sort','desc')->orderBy('publish_date','desc')->orderBy('id','desc')->take(2)->get()->toArray();
         $data['past_inspect'] = Article::where('type',8)->where('status',1)->where('publish_date','<=',$date)->orderBy('sort','desc')->orderBy('publish_date','desc')->orderBy('id','desc')->take(2)->get()->toArray();
-        $data['past_content'] = array();
-        foreach($data['past_active'] as $_val){
-            $data['past_content'][] = $_val['thumb'];
-        }
-        foreach($data['past_inspect'] as $_val){
-            $data['past_content'][] = $_val['thumb'];
-        }
 
         //热点项目推荐为海外房产，显示8条数据
         $condition = array();
