@@ -265,8 +265,16 @@ Route::group(['domain' => FRONTWEBSITE,'middleware' => 'access'], function()//,'
     Route::get('/inspect/detail','Front\InspectController@detail');//考察团详情页
 
     //往期考察团模块
-    Route::get('/inspect/review','Front\InspectController@reviewIndex');//考察团汇总页
-    Route::get('/inspect/review/detail','Front\InspectController@detail');//考察团详情页
+    Route::get('/inspect/review','Front\InspectController@reviewIndex');//往期考察团汇总页
+    Route::get('/inspect/review/detail','Front\InspectController@detail');//往期考察团详情页
+
+    //展会活动模块
+    Route::get('/active','Front\ActiveController@index');//展会活动汇总页
+    Route::get('/active/detail','Front\ActiveController@detail');//展会活动详情页
+
+    //往期展会活动模块
+    Route::get('/active/review','Front\ActiveController@reviewIndex');//往期展会活动汇总页
+    Route::get('/active/review/detail','Front\ActiveController@reviewDetail');//往期展会活动详情页
 
 
     

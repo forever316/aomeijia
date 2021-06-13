@@ -20,6 +20,7 @@ use App\Models\Migrate;
 use App\Models\Information;
 use App\Models\Faqs;
 use App\Models\Article;
+use App\Models\Active;
 
 class Controller extends BaseController
 {
@@ -428,6 +429,16 @@ class Controller extends BaseController
     {
         $cityList = City::orderBy('sort','desc')->orderBy('id','desc')->get();
         return $this->get_all_child($cityList,$city);
+    }
+
+    /*
+     * 获取热门展会数据
+     */
+    public function getActive($limit)
+    {
+        $date = date('Y-m-d');
+        $data = Active::where('status',1)->where('show_start_date','<=',$date)->where('show_end_date','>=',$date)->orderBy('sort','desc')->orderBy('show_end_date','asc')->orderBy('id','desc')->take($limit)->get()->toArray();
+        return $data;
     }
 
 

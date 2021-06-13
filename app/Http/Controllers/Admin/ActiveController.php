@@ -54,7 +54,7 @@ class ActiveController extends Controller
 	public function add(Request $request){
 		if($_POST){
 			//获取参数
-			$params = ['thumb'=>'string','theme'=>'string','type'=>'string','time'=>'string','address'=>'string','content'=>'string','sort'=>'int','status'=>'string'];
+			$params = ['thumb'=>'string','theme'=>'string','type'=>'string','time'=>'string','show_start_date'=>'string','show_end_date'=>'string','address'=>'string','content'=>'string','sort'=>'int','status'=>'string'];
 			$data = $this->getInput($this->form,$params,$request);
 			if(isset($data['error'])){
 				unset($data['error']);
@@ -82,7 +82,7 @@ class ActiveController extends Controller
 
 		if($_POST){
 			//获取参数
-			$params = ['thumb'=>'string','theme'=>'string','type'=>'string','time'=>'string','address'=>'string','content'=>'string','sort'=>'int','status'=>'string'];
+			$params = ['thumb'=>'string','theme'=>'string','type'=>'string','time'=>'string','show_start_date'=>'string','show_end_date'=>'string','address'=>'string','content'=>'string','sort'=>'int','status'=>'string'];
 			$data = $this->getInput($this->form,$params,$request);
 			if(isset($data['error'])){
 				unset($data['error']);

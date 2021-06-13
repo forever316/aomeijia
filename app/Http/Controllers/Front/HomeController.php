@@ -113,7 +113,7 @@ class HomeController  extends Controller
         //微信文章标题
         $data['wechat'] = Link::where('type',5)->where('status',1)->orderBy('sort','desc')->orderBy('id','desc')->take(20)->get()->toArray();
         //热门展会,1个热门展会
-        $data['active'] = current(Active::where('status',1)->orderBy('sort','desc')->orderBy('id','desc')->take(1)->get()->toArray());
+        $data['active'] = current($this->getActive(1));
 
         //考察团,4个考察团,考察团内容type为7
         $data['inspect'] = Article::where('type',7)->where('status',1)->where('publish_date','<=',$date)->orderBy('sort','desc')->orderBy('publish_date','desc')->orderBy('id','desc')->take(4)->get()->toArray();

@@ -15,6 +15,6 @@ class Active extends Model
      * @var array
      */
     protected $fillable = [
-        'thumb','theme','type','time','address','content','sort','status'
+        'thumb','theme','type','time','address','content','sort','status','show_start_date','show_end_date'
     ];//设置哪些属性可以批量赋值
 }

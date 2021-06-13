@@ -219,7 +219,7 @@
 			<div class="hot-exhibitions-wrapper">
 				<div class="hot-exhibitions-header">
 					<div class="exhibitions-header-title">热门活动</div>
-					<div class="exhibitions-header-view-more"><a target="_blank" href="#">查看更多 > > ></a></div>
+					<div class="exhibitions-header-view-more"><a target="_blank" href="/active">查看更多 > > ></a></div>
 				</div>
 				<div class="hot-exhibitions-inner">
 					@if($data['active'])
@@ -302,7 +302,7 @@
 		<div class="hot-delegation-bottom">
 			@foreach($data['past_active'] as $val)
 				<div class="hot-delegation-bottom-list">
-					<a target="_blank" href=""><img src="/{{$val['thumb']}}"></a>
+					<a target="_blank" href="/active/review/detail?id={{$val['id']}}"><img src="/{{$val['thumb']}}"></a>
 				</div>
 			@endforeach
 			@foreach($data['past_inspect'] as $val)
