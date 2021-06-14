@@ -96,6 +96,7 @@ class HomeController  extends Controller
             foreach($data['info'] as $key_info=>$val_info){
                 if($i<=2){
                     //前面两个热门资讯
+//                    $val_info['thumb'] = $this->crop_img($val_info['thumb'],310,260);
                     $data['info_two'][] = $val_info;
                 }else{
                     //后面十个热门资讯

@@ -553,3 +553,8 @@ element.style {
 .page-wrapper .page-box > span:not(:first-child) {
     margin-left: 10px;
 }
+/*处理使用justify-content: space-between出现的排版问题*/
+.list-wrapper .items:after{
+    content: '' !important;
+    width: 360px !important;
+}

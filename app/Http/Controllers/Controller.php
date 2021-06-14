@@ -441,6 +441,31 @@ class Controller extends BaseController
         return $data;
     }
 
+    /*
+     * 外部链接直接返回图片地址
+     */
+    function crop_img($img, $width = 200, $height = 200) {
+
+        $img_info = parse_url($img);
+
+        /* 外部链接直接返回图片地址 */
+
+        if (!empty($img_info['host']) && $img_info['host'] != $_SERVER['HTTP_HOST']) {
+
+            return $img;
+
+        } else {
+
+            $pos = strrpos($img, '.');
+
+            $img = substr($img, 0, $pos) . '_' . $width . '_' . $height . substr($img, $pos);
+
+            return $img;
+
+        }
+
+    }
+
 
 
 

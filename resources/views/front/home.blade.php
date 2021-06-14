@@ -224,7 +224,7 @@
 				<div class="hot-exhibitions-inner">
 					@if($data['active'])
 					<div class="hot-exhibitions-adv">
-						<img src="/{{$data['active']['thumb']}}" alt="" >
+						<a target="_blank" href="/active/detail?id={{$data['active']['id']}}"><img src="/{{$data['active']['thumb']}}" alt="" ></a>
 					</div>
 					<div class="hot-exhibitions-info">
 						<span class="hot-exhibitions-info-title">{{$data['active']['theme']}}</span>
@@ -251,9 +251,6 @@
 {{--							</dt>--}}
 {{--						</dl>--}}
 						<span class="btn appointment exhibitions-sign-button" @click="isAppointmentShow = true">立即预约报名</span>
-{{--						<div class="exhibitions-sign-button btn appointment" @click="isAppointmentShow = true">--}}
-{{--							立即预约报名--}}
-{{--						</div>--}}
 					</div>
 					@endif
 				</div>
