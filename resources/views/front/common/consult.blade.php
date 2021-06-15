@@ -1,7 +1,7 @@
 <transition name="fade" flag="0">
     <section v-if="isAppointmentShow" class="appointment-wrapper" @click.self="isAppointmentShow = false">
         <div class="appointment-cont">
-            <div class="head">
+            <div class="head" style="position:relative;box-sizing:border-box;">
                 <img src="/front/images/overseas-property/detail/appointment-head.png" alt="">
                 <i @click="isAppointmentShow = false">×</i>
             </div>

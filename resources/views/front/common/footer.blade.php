@@ -76,7 +76,7 @@
 		<transition name="fade">
 			<section  class="appointment-wrapper" >
 			<div class="appointment-cont">
-				<div class="head">
+				<div class="head" style="position:relative;box-sizing:border-box;">
 					<img src="/front/images/overseas-property/detail/appointment-head.png" alt="">
 					<i onclick="table_hide()">×</i>
 				</div>

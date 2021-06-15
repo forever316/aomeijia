@@ -322,7 +322,7 @@
 					@foreach($data['house'] as $key=>$val)
 						<dt>
 							<div class="recommend-img-wrapper">
-								<a target="_blank" href="/house/detail?id={{$val['id']}}"><img style="width: 292px;height: 254px;" src="/{{$val['img']}}" alt=""></a>
+								<a target="_blank" href="/house/detail?id={{$val['id']}}"><img style="width: 292px;height: 254px;" src="/{{$val['min_img']}}" alt=""></a>
 								<span class="hot-logo">
                     热门
                   </span>
@@ -368,7 +368,7 @@
 			<div class="overseas-migrate-inner">
 				@if($data['migrate_first'])
 					<div class="overseas-migrate-inner-left none-pointer">
-						<img src="/{{$data['migrate_first']['img']}}">
+						<img src="/{{$data['migrate_first']['max_img']}}">
 						<div class="overseas-migrate-inner-info">
 							<span class="view-info-desc">
 								<p>{{$data['migrate_first']['title']}}</p>
@@ -380,7 +380,7 @@
 				@endif
 				@if($data['migrate_two'])
 					<div class="overseas-migrate-inner-right none-pointer">
-						<img src="/{{$data['migrate_two']['img']}}">
+						<img src="/{{$data['migrate_two']['middle_img']}}">
 						<div class="overseas-migrate-inner-info">
 							<span class="view-info-desc">
 								<p>{{$data['migrate_two']['title']}}</p>
@@ -397,7 +397,7 @@
 			@foreach($data['migrate'] as $mkey=>$mval)
 				<div class="overseas-bottom-list" style="height:291px; !important">
 					<a target="_blank" href="/migrate/detail?id={{$mval['id']}}">
-						<img src="/{{$mval['img']}}" style="width:287px;height: 288px;">
+						<img src="/{{$mval['min_img']}}" style="width:287px;height: 288px;">
 						<div class="overseas-bottom-list-desc bg-black">
 							<p style="font-size: 22px;">{{$mval['title']}}</p>
 							<p>{{$mval['total_price']}}万起</p>
@@ -423,7 +423,7 @@
 			<div class="success-case-inner">
 				@if($data['case'] && isset($data['case'][0]))
 					<div class="success-case-inner-left">
-						<img src="/{!! $data['case'][0]['thumb'] !!}">
+						<img src="/{!! $data['case'][0]['max_thumb'] !!}">
 						<div class="success-case-inner-info">
 							<p><a target="_blank" href="/invest/case/detail?id={{$data['case'][0]['id']}}">{!! $data['case'][0]['title'] !!}</a></p>
 							<p class="desc text-overflow-2">{!! $data['case'][0]['describe'] !!}</p>
@@ -438,7 +438,7 @@
 								@if($case_key>=1)
 									<dt>
 										<a target="_blank" href="/invest/case/detail?id={{$case_val['id']}}">
-											<div><img src="/{!! $case_val['thumb'] !!}" alt=""></div>
+											<div><img src="/{!! $case_val['min_thumb'] !!}" alt=""></div>
 											<div class="success-case-list-desc">
 												<p>{!! $case_val['title'] !!}</p>
 												<p class="desc text-overflow-2">{!! $case_val['describe'] !!} </p>

@@ -95,11 +95,11 @@ class HomeController  extends Controller
             $i=1;
             foreach($data['info'] as $key_info=>$val_info){
                 if($i<=2){
-                    //前面两个热门资讯
-//                    $val_info['thumb'] = $this->crop_img($val_info['thumb'],310,260);
+                    //前面两个热门资讯，此处有图片
+                    $val_info['thumb'] = $this->crop_img($val_info['thumb'],310,260);
                     $data['info_two'][] = $val_info;
                 }else{
-                    //后面十个热门资讯
+                    //后面十个热门资讯，这边没有图片
                     $data['info_other'][] = $val_info;
                 }
                 $i++;
@@ -113,18 +113,28 @@ class HomeController  extends Controller
         }
         //微信文章标题
         $data['wechat'] = Link::where('type',5)->where('status',1)->orderBy('sort','desc')->orderBy('id','desc')->take(20)->get()->toArray();
-        //热门展会,1个热门展会
+
+        //热门展会,1个热门展会,活动,此处有图片
         $data['active'] = current($this->getActive(1));
+        $data['active']['thumb'] = $this->crop_img($data['active']['thumb'],330,460);
 
         //考察团,4个考察团,考察团内容type为7
         $data['inspect'] = Article::where('type',7)->where('status',1)->where('publish_date','<=',$date)->orderBy('sort','desc')->orderBy('publish_date','desc')->orderBy('id','desc')->take(4)->get()->toArray();
         foreach($data['inspect'] as $key=>$val){
             $data['inspect'][$key]['end_date'] = date("Y年m月d日",strtotime($val['close_date']));
+            if($key==0){
+                $data['inspect'][$key]['thumb'] = $this->crop_img($data['inspect'][$key]['thumb'],464,197);
+            }else{
+                $data['inspect'][$key]['thumb'] = $this->crop_img($data['inspect'][$key]['thumb'],110,62);
+            }
         }
 
         //热门展会考察团下方的内容，亮条往期活动和两条往期考察团内容,8往期考察团回顾，9往期活动回顾'
         $data['past_active'] = Article::where('type',9)->where('status',1)->where('publish_date','<=',$date)->orderBy('sort','desc')->orderBy('publish_date','desc')->orderBy('id','desc')->take(2)->get()->toArray();
         $data['past_inspect'] = Article::where('type',8)->where('status',1)->where('publish_date','<=',$date)->orderBy('sort','desc')->orderBy('publish_date','desc')->orderBy('id','desc')->take(2)->get()->toArray();
+        foreach($data['past_active'] as $key=>$val) {
+            $data['past_active'][$key]['thumb'] = $this->crop_img($data['past_active'][$key]['thumb'],282,105);
+        }
 
         //热点项目推荐为海外房产，显示8条数据
         $condition = array();

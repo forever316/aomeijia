@@ -302,6 +302,9 @@ class Controller extends BaseController
         foreach ($data as $key => $val) {
             $imgArr = array_filter(explode(';', $val['images']));
             $data[$key]['img'] = $imgArr ? current($imgArr) : '';
+            //min_img为其他页面显示的图片，一行4条数据
+            $data[$key]['min_img'] = $this->crop_img($data[$key]['img'],292,254);
+
             $data[$key]['city_name'] = isset($cityData[$val['city_id']]) ? $cityData[$val['city_id']] : $val['city_id'];
             $data[$key]['type_name'] = isset($typeData[$val['type_id']]) ? $typeData[$val['type_id']] : $val['type_id'];
             $tagArr = array_filter(explode(';', $val['tag_id']));
@@ -332,6 +335,11 @@ class Controller extends BaseController
             }
         }
         $data = $query->orderBy('sort', 'desc')->orderBy('publish_date', 'desc')->orderBy('id', 'desc')->take($limit)->get()->toArray();
+        foreach($data as $key=>$val){
+            $data[$key]['max_img'] = $this->crop_img($data[$key]['img'],789,419);
+            $data[$key]['middle_img'] = $this->crop_img($data[$key]['img'],390,419);
+            $data[$key]['min_img'] = $this->crop_img($data[$key]['img'],288,288);
+        }
         return $data;
     }
 
@@ -359,6 +367,10 @@ class Controller extends BaseController
             $data = $query->orderBy('sort', 'desc')->orderBy('publish_date', 'desc')->orderBy('id', 'desc')->take($limit)->get()->toArray();
         }else{
             $data = $query->orderBy('sort', 'desc')->orderBy('publish_date', 'desc')->orderBy('id', 'desc')->get()->toArray();
+        }
+        foreach($data as $key=>$val){
+            $data[$key]['max_thumb'] = $this->crop_img($data[$key]['thumb'],547,362);
+            $data[$key]['min_thumb'] = $this->crop_img($data[$key]['thumb'],140,91);
         }
 
         return $data;
@@ -444,15 +456,16 @@ class Controller extends BaseController
     /*
      * 外部链接直接返回图片地址
      */
-    function crop_img($img, $width = 200, $height = 200) {
+    public function crop_img($img, $width = 200, $height = 200) {
 
+        $source_img = $img;
         $img_info = parse_url($img);
 
         /* 外部链接直接返回图片地址 */
 
         if (!empty($img_info['host']) && $img_info['host'] != $_SERVER['HTTP_HOST']) {
 
-            return $img;
+            //$img
 
         } else {
 
@@ -460,13 +473,77 @@ class Controller extends BaseController
 
             $img = substr($img, 0, $pos) . '_' . $width . '_' . $height . substr($img, $pos);
 
-            return $img;
-
         }
+
+        //图片不存在，裁剪生成新的图片
+        if (!file_exists($img)) {
+            $this->imageCropper($source_img, $width, $height,$img);
+        }
+
+        return $img;
 
     }
 
 
-
+    /**
+     * imageCropper
+     * @param string $source_path
+     * @param string $target_width
+     * @param string $target_height
+     * 裁切,如果要求的宽高比 大于原图宽高比,那么就保持最大显示宽度,居中裁切上下多余部分,如果要求宽高比小于原图宽高比,那么就保持最大高度,居中裁切左右多余部分,总而言之,在保持不变形的前提下 ,把图片缩小,而且最大保留图片的内容
+     */
+    public function imageCropper($source_path, $target_width, $target_height,$target_filename)
+    {
+        $source_info = getimagesize($source_path);
+        $source_width = $source_info[0];
+        $source_height = $source_info[1];
+        $source_mime = $source_info['mime'];
+        $source_ratio = $source_height / $source_width;//原图比例
+        $target_ratio = $target_height / $target_width;//目标图比例
+        if ($source_ratio > $target_ratio) {//原图比例大于目标图比例，全高度
+            // image-to-height
+            $cropped_width = $source_width;
+            $cropped_height = $source_width * $target_ratio;
+            $source_x = 0;
+            $source_y = ($source_height - $cropped_height) / 2;
+        } elseif ($source_ratio < $target_ratio) {//原图比例小于目标图比例，全宽度
+            //image-to-widht
+            $cropped_width = $source_height / $target_ratio;
+            $cropped_height = $source_height;
+            $source_x = ($source_width - $cropped_width) / 2;
+            $source_y = 0;
+        } else {//原图比例等于目标图比例
+            //image-size-ok
+            $cropped_width = $source_width;
+            $cropped_height = $source_height;
+            $source_x = 0;
+            $source_y = 0;
+        }
+        switch ($source_mime) {
+            case 'image/gif':
+                $source_image = imagecreatefromgif($source_path);
+                break;
+            case 'image/jpeg':
+                $source_image = imagecreatefromjpeg($source_path);
+                break;
+            case 'image/png':
+                $source_image = imagecreatefrompng($source_path);
+                break;
+            default:
+                return;
+                break;
+        }
+        $target_image = imagecreatetruecolor($target_width, $target_height);
+        $cropped_image = imagecreatetruecolor($cropped_width, $cropped_height);
+        // copy
+        imagecopy($cropped_image, $source_image, 0, 0, $source_x, $source_y, $cropped_width, $cropped_height);
+        // zoom
+        imagecopyresampled($target_image, $cropped_image, 0, 0, 0, 0, $target_width, $target_height, $cropped_width, $cropped_height);
+//        header('Content-Type: image/jpeg');
+        imagejpeg($target_image,$target_filename,100);
+        imagedestroy($source_image);
+        imagedestroy($target_image);
+        imagedestroy($cropped_image);
+    }
 
 }
