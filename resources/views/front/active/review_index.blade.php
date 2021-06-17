@@ -25,13 +25,15 @@
             <ul class="items">
                 @foreach($data['data'] as $key=>$val)
                     <li  class="item">
-                        <img src="/{!! $val['thumb'] !!}" class="img">
+                        <a target="_blank" href="/active/review/detail?id={{$val['id']}}" class="desc">
+                        <img src="/{!! $val['thumb'] !!}" class="img" style="width: 276px;height: 211px;">
                         <p class="name text-overflow-1">
                             {!! $val['title'] !!}
                         </p>
                         <p class="detail">
                             <a target="_blank" href="/active/review/detail?id={{$val['id']}}" class="desc"> < 查看详情 ></a>
                         </p>
+                        </a>
                     </li>
                 @endforeach
             </ul>

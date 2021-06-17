@@ -227,7 +227,7 @@
 						<a target="_blank" href="/active/detail?id={{$data['active']['id']}}"><img src="/{{$data['active']['thumb']}}" alt="" ></a>
 					</div>
 					<div class="hot-exhibitions-info">
-						<span class="hot-exhibitions-info-title">{{$data['active']['theme']}}</span>
+						<span class="hot-exhibitions-info-title"><a target="_blank" href="/active/detail?id={{$data['active']['id']}}">{{$data['active']['theme']}}</a></span>
 						<dl>
 {{--							<dt>深圳站</dt>--}}
 							<dt>

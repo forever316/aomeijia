@@ -17,14 +17,14 @@ body, button, div,footer, form, h1, h2, h3, h4, h5, h6, header, hgroup, hr, inpu
 /*一级菜单*/
 .country-list-one{
 	/*width: 191px;*/
-	height: 250px;
+	/*height: 250px;*/
 	color: #fff;
 	padding: 50px 40px;
 	background-color: #000;
 	border-radius: 20px;
 	opacity: 0.8;
 	/*overflow: hidden;*/
-	bottom: 70px;
+	bottom: 100px;
 	left: calc((100vw - 1200px) / 2);
 	position: absolute;
 }

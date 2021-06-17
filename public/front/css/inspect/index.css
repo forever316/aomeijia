@@ -295,7 +295,7 @@ a {
     /*border-top-right-radius: 10px;*/
 }
 
-.list-wrapper .items .item .img-box > img {
+.list-wrapper .items .item .img-box img {
     width: 100%;
     height: 100%;
 }
@@ -466,7 +466,7 @@ element.style {
     margin-right: 0;
 }
 
-.back-review ul.items li.item > .img {
+.back-review ul.items li.item .img {
     width: 276px;
     height: 211px;
     /*border-radius: 10px;*/
