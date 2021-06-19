@@ -8,7 +8,7 @@
         @foreach($data['migrate'] as $key=>$val)
             <div class="overseas-bottom-list">
                 <a target="_blank" href="/migrate/detail?id={{$val['id']}}" >
-                <img src="/{{$val['img']}}" style="width:287px;height: 288px;">
+                <img src="/{{$val['img_287_288']}}" style="width:287px;height: 288px;">
                 <div class="overseas-bottom-list-desc bg-black">
                     <p style="font-size: 22px;">{{$val['title']}}</p>
                     <p>{{$val['total_price']}}万起</p>

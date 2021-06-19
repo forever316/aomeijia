@@ -10,7 +10,7 @@
                 <dt>
                     <div class="recommend-img-wrapper">
                         <a target="_blank" href="/house/detail?id={{$val['id']}}">
-                            <img src="/{{$val['img']}}" alt="" style="width: 292px;height: 254px;">
+                            <img src="/{{$val['img_292_254']}}" alt="" style="width: 292px;height: 254px;">
                         </a>
                         <span class="hot-logo">
                     热门

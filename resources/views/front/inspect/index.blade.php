@@ -26,7 +26,7 @@
                 @foreach($data['data'] as $key=>$val)
                     <li class="item">
                         <div class="img-box">
-                            <a target="_blank" href="/inspect/detail?id={{$val['id']}}" class="black-btn btn"><img src="/{!! $val['thumb'] !!}" alt=""></a>
+                            <a target="_blank" href="/inspect/detail?id={{$val['id']}}" class="black-btn btn"><img src="/{!! $val['thumb_564_280'] !!}" alt=""></a>
                             <div class="delegation-banner-describe">
                                 <p>{{$val['title']}}</p>
                                 <p>
@@ -62,7 +62,7 @@
                 @foreach($data['back_review'] as $key=>$val)
                     <li  class="item">
                         <a target="_blank" href="/inspect/review/detail?id={{$val['id']}}" class="desc">
-                        <img src="/{!! $val['thumb'] !!}" class="img">
+                        <img src="/{!! $val['thumb_276_211'] !!}" class="img">
                         <p class="name text-overflow-1">
                             {!! $val['title'] !!}
                         </p>

@@ -8,7 +8,7 @@
             @if($data['info_top'])
                 <a target="_blank" class="news" href="/information/detail?id={{$data['info_top']['id']}}">
                     <div class="img-wrapper">
-                        <img src="/{!! $data['info_top']['thumb'] !!}" alt="">
+                        <img src="/{!! $data['info_top']['thumb_590_230'] !!}" alt="">
                     </div>
                     <p class="name">
                         {!! $data['info_top']['title'] !!}
@@ -20,7 +20,7 @@
                     @foreach($data['info_inner'] as $key=>$val)
                         <a target="_blank" class="box" href="/information/detail?id={{$val['id']}}">
                             <div class="img-wrapper">
-                                <img src="/{!! $val['thumb'] !!}" alt="">
+                                <img src="/{!! $val['thumb_200_110'] !!}" alt="">
                             </div>
                             <div class="right">
                                 <p class="name text-overflow-1">
@@ -39,7 +39,7 @@
             @foreach($data['info_right'] as $key=>$val)
                 <a target="_blank" class="box" href="/information/detail?id={{$val['id']}}">
                     <div class="img-wrapper">
-                        <img src="/{!! $val['thumb'] !!}" alt="">
+                        <img src="/{!! $val['thumb_200_110'] !!}" alt="">
                     </div>
                     <div class="right">
                         <p class="name text-overflow-1">

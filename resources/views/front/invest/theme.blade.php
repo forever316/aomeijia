@@ -44,7 +44,7 @@
                 @foreach($data['theme'] as $key=>$val)
                 <li  class="item">
                     <a target="_blank" href="/invest/theme/detail?id={!! $val['id'] !!}">
-                        <img src="/{!! $val['thumb'] !!}" class="img">
+                        <img src="/{!! $val['thumb_276_211'] !!}" class="img">
                         <p class="name text-overflow-1">
                             {!! $val['title'] !!}
                         </p>

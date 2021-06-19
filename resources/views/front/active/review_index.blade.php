@@ -26,7 +26,7 @@
                 @foreach($data['data'] as $key=>$val)
                     <li  class="item">
                         <a target="_blank" href="/active/review/detail?id={{$val['id']}}" class="desc">
-                        <img src="/{!! $val['thumb'] !!}" class="img" style="width: 276px;height: 211px;">
+                        <img src="/{!! $val['thumb_276_211'] !!}" class="img" style="width: 276px;height: 211px;">
                         <p class="name text-overflow-1">
                             {!! $val['title'] !!}
                         </p>

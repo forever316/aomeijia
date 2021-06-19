@@ -65,7 +65,7 @@
                         @if($data['top_data'])
                             @foreach($data['top_data'] as $tdk=>$tdv)
                                 <a target="_blank" class="swiper-slide" href="/information/detail?id={{$tdv['id']}}">
-                                    <img src="/{!! $tdv['thumb'] !!}" alt="">
+                                    <img src="/{!! $tdv['thumb_800_380'] !!}" alt="">
                                     <div class="title-box">
                                         <p class="title">
                                             {!! $tdv['title'] !!}
@@ -85,7 +85,7 @@
                     @if($data['list_data'])
                         @foreach($data['list_data'] as $ldk=>$ldv)
                             <a target="_blank" href="/information/detail?id={{$ldv['id']}}">
-                                <img src="/{!! $ldv['thumb'] !!}" alt="">
+                                <img src="/{!! $ldv['thumb_180_120'] !!}" alt="">
                                 <div class="right">
                                     <p class="title text-overflow-2">
                                         {!! $ldv['title'] !!}

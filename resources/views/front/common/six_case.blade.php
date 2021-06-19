@@ -12,7 +12,7 @@
                 @foreach($val as $k=>$v)
                     <a target="_blank" class="swiper-slide" href="/invest/case/detail?id={{$v['id']}}">
                         <div class="img-wrapper">
-                            <img src="/{!! $v['thumb'] !!}" alt="">
+                            <img src="/{!! $v['thumb_385_240'] !!}" alt="">
                         </div>
                         <p class="name text-overflow-2">
                             {!! $v['title'] !!}

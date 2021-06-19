@@ -68,7 +68,7 @@
                 @foreach($data['data'] as $key=>$val)
                     <li class="item">
                         <div class="img-box">
-                            <img src="/{!! $val['img'] !!}" alt="">
+                            <img src="/{!! $val['img_380_280'] !!}" alt="">
                             <p>{!! $val['title'] !!}</p>
                         </div>
                         <div class="detail-box">

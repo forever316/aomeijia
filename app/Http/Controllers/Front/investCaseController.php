@@ -67,6 +67,9 @@ class investCaseController  extends Controller
         }
 
         $data['data'] = $query->orderBy('sort','desc')->orderBy('publish_date','desc')->orderBy('id','desc')->paginate(9);
+        foreach($data['data'] as $key=>$val){
+            $data['data'][$key]['thumb_385_240'] = $this->crop_img($val['thumb'],385,240);
+        }
 
         $countryIds = array();
         if($region){
@@ -100,14 +103,15 @@ class investCaseController  extends Controller
         $data['linkData'] = $this->getLinkData();
 
         $data['data'] = current(Information::where('status',1)->where('publish_date','<=',$date)->where('id',$id)->take(1)->get()->toArray());//当前详情页的本条数据
+        $data['data']['thumb_120_80'] = $this->crop_img($data['data']['thumb'],120,80);
         //4个热门房产项目
         $data['house'] = $this->getShowHouseData(4);
         //4个热门移民项目
         $data['migrate'] = $this->getShowMigrateData(4);
         //4个投资问答
         $data['faqs'] = Faqs::where('status',1)->orderBy('sort','desc')->orderBy('id','desc')->take(4)->get()->toArray();
-        //5个热门资讯
-        $data['info'] = Information::where('category',1)->where('status',1)->where('publish_date','<=',$date)->orderBy('sort','desc')->orderBy('publish_date','desc')->orderBy('id','desc')->take(5)->get()->toArray();
+        //取出5个最新资讯
+        $data['info'] = $this->getShowInfoData(5,['category'=>1]);
 
         $data['menu'] = 'invest';
         $data['menu_son'] = 'case';

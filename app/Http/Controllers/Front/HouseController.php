@@ -121,6 +121,7 @@ class HouseController  extends Controller
         foreach($data['data'] as $key=>$val){
             $imgArr = array_filter(explode(';',$val['images']));
             $data['data'][$key]['img'] = $imgArr ? current($imgArr) : '';
+            $data['data'][$key]['img'] = $this->crop_img($data['data'][$key]['img'],430,247);
             $city_parent = City::where('id',$val['city_id'])->first();
             $data['data'][$key]['country_name'] = isset($cityData[$city_parent->pid]) ? $cityData[$city_parent->pid] : $city_parent->pid;
             $data['data'][$key]['city_name'] = isset($cityData[$val['city_id']]) ? $cityData[$val['city_id']] : $val['city_id'];
@@ -188,6 +189,9 @@ class HouseController  extends Controller
         $data['data'] = $data['data'][0];
         //详情页的项目动态，article   type==5
         $data['dynamic'] = Article::where('type',5)->where('project_id',$data['data']['id'])->where('status',1)->where('publish_date','<=',$date)->orderBy('sort','desc')->orderBy('publish_date','desc')->orderBy('id','desc')->get()->toArray();
+        foreach($data['dynamic'] as $dk=>$dv){
+            $data['dynamic'][$dk]['thumb_180_120'] = $this->crop_img($dv['thumb'],180,120);
+        }
 
 
         //4个热门房产项目

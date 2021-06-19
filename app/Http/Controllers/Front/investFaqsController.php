@@ -63,8 +63,8 @@ class investFaqsController  extends Controller
 
         $data['data'] = $query->orderBy('sort','desc')->orderBy('id','desc')->paginate(10);
 
-        //5个热门资讯
-        $data['info'] = Information::where('category',1)->where('status',1)->where('publish_date','<=',$date)->orderBy('sort','desc')->orderBy('publish_date','desc')->orderBy('id','desc')->take(5)->get()->toArray();
+        //取出5个最新资讯
+        $data['info'] = $this->getShowInfoData(5,['category'=>1]);
         //4个热门房产项目
         $data['house'] = $this->getShowHouseData(4);
         //4个热门移民项目

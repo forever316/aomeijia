@@ -25,7 +25,7 @@
             <div class="detail-left-wrapper">
                 <div class="news-wrapper">
                     <div class="info-box">
-                        <img src="/{!! $data['data']['thumb'] !!}" alt="">
+                        <img src="/{!! $data['data']['thumb_120_80'] !!}" alt="">
                         <div class="info-right">
                             <p class="title">
                                 {!! $data['data']['title'] !!}

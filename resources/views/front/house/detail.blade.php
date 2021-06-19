@@ -228,7 +228,7 @@
                             <div class="project-news">
                                 @foreach($data['dynamic'] as $key=>$val)
                                     <a target="_blank" href="/article?id={{$val['id']}}">
-                                        <img src="/{{$val['thumb']}}" alt="">
+                                        <img src="/{{$val['thumb_180_120']}}" alt="">
                                         <div class="right">
                                             <p class="title text-overflow-2">
                                                 {{$val['title']}}

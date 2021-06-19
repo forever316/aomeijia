@@ -9,7 +9,7 @@
         <div class="cont">
             @foreach($data['theme'] as $tk=>$tv)
                 <div class="hot-box">
-                    <img src="/{{$tv['thumb']}}" alt="">
+                    <img src="/{{$tv['thumb_276_210']}}" alt="">
                     <p class="name text-overflow-2">
                         <a target="_blank" href="/invest/theme/detail?id={{$tv['id']}}">
                         {{$tv['title']}}

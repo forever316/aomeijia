@@ -79,6 +79,7 @@ class investCountryController  extends Controller
                 $data['data'][$key]['tag_name'][] = isset($typeData[$v]) && $typeData[$v] ? $typeData[$v] : $v;
             }
             $data['data'][$key]['city_name'] = isset($cityArr[$val['city_id']]) && $cityArr[$val['city_id']] ? $cityArr[$val['city_id']] : $val['city_id'];
+            $data['data'][$key]['thumb_340_227'] = $this->crop_img($val['thumb'],340,227);
         }
 
         $data['menu'] = 'invest';

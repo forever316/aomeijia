@@ -304,6 +304,8 @@ class Controller extends BaseController
             $data[$key]['img'] = $imgArr ? current($imgArr) : '';
             //min_img为其他页面显示的图片，一行4条数据
             $data[$key]['min_img'] = $this->crop_img($data[$key]['img'],292,254);
+            $data[$key]['img_292_254'] = $this->crop_img($data[$key]['img'],292,254);
+            $data[$key]['img_430_247'] = $this->crop_img($data[$key]['img'],430,247);
 
             $data[$key]['city_name'] = isset($cityData[$val['city_id']]) ? $cityData[$val['city_id']] : $val['city_id'];
             $data[$key]['type_name'] = isset($typeData[$val['type_id']]) ? $typeData[$val['type_id']] : $val['type_id'];
@@ -339,6 +341,8 @@ class Controller extends BaseController
             $data[$key]['max_img'] = $this->crop_img($data[$key]['img'],789,419);
             $data[$key]['middle_img'] = $this->crop_img($data[$key]['img'],390,419);
             $data[$key]['min_img'] = $this->crop_img($data[$key]['img'],288,288);
+            $data[$key]['img_380_280'] = $this->crop_img($data[$key]['img'],380,280);
+            $data[$key]['img_287_288'] = $this->crop_img($data[$key]['img'],287,288);
         }
         return $data;
     }
@@ -371,6 +375,8 @@ class Controller extends BaseController
         foreach($data as $key=>$val){
             $data[$key]['max_thumb'] = $this->crop_img($data[$key]['thumb'],547,362);
             $data[$key]['min_thumb'] = $this->crop_img($data[$key]['thumb'],140,91);
+            $data[$key]['thumb_385_240'] = $this->crop_img($data[$key]['thumb'],385,240);
+            $data[$key]['thumb_100_60'] = $this->crop_img($data[$key]['thumb'],100,60);
         }
 
         return $data;
@@ -389,6 +395,8 @@ class Controller extends BaseController
         $i = 1;
         $data['info_top'] = $data['info_inner'] = $data['right_top'] = array();
         foreach ($data['info'] as $key => $val) {
+            $val['thumb_590_230'] = $this->crop_img($val['thumb'],590,230);
+            $val['thumb_200_110'] = $this->crop_img($val['thumb'],200,110);
             if ($i == 1) {
                 $data['info_top'] = $val;
             } elseif ($i <= 3) {
@@ -408,6 +416,9 @@ class Controller extends BaseController
     {
         $date = date('Y-m-d');
         $data = Article::where('type', 6)->where('status', 1)->where('publish_date', '<=', $date)->orderBy('sort', 'desc')->orderBy('publish_date', 'desc')->orderBy('id', 'desc')->take($limit)->get()->toArray();
+        foreach($data as $key=>$val){
+            $data[$key]['thumb_276_210'] = $this->crop_img($val['thumb'],276,210);
+        }
         return $data;
     }
 

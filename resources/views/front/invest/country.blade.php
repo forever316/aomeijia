@@ -56,7 +56,7 @@
                                 </div>
                             </div>
                         </div>
-                        <img style="height: 226.66px;" src="/{!! $val['thumb'] !!}" class="img">
+                        <img style="height: 226.66px;" src="/{!! $val['thumb_340_227'] !!}" class="img">
                         <p class="desc text-overflow-2" style="height:38px;">
                             {!! $val['title'] !!}
                         </p>
@@ -81,7 +81,7 @@
                 <li  class="item">
                     <a target="_blank" href="/house/detail?id={{$val['id']}}">
                         <div class="img">
-                            <img src="/{!! $val['img'] !!}" alt="">
+                            <img src="/{!! $val['img_430_247'] !!}" alt="">
                         </div>
                         <div class="detail">
                             <p class="name">
@@ -138,7 +138,7 @@
                 @foreach($data['migrate'] as $key=>$val)
                 <li class="item">
                     <div class="img-box">
-                        <img src="/{!! $val['img'] !!}" alt="">
+                        <img src="/{!! $val['img_380_280'] !!}" alt="">
                         <p>{!! $val['title'] !!}</p>
                     </div>
                     <div class="detail-box">

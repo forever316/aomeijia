@@ -50,6 +50,9 @@ class CorpController  extends Controller
 
         //集团动态
         $data['dynamic'] = Article::where('type',4)->where('status',1)->where('publish_date','<=',$date)->orderBy('sort','desc')->orderBy('publish_date','desc')->orderBy('id','desc')->paginate(10);
+        foreach($data['dynamic'] as $key=>$val) {
+            $data['dynamic'][$key]['thumb_280_180'] = $this->crop_img($val['thumb'], 280, 180);
+        }
 
         $data['dynamic_html'] = str_replace('corpBrief?page=1','corpBrief?page=1&key=news',$data['dynamic']->links());
         for($i=1;$i<10;$i++){

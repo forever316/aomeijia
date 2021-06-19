@@ -45,10 +45,14 @@ class InspectController  extends Controller
         $data['data'] = Article::where('type',7)->where('status',1)->where('publish_date','<=',$date)->orderBy('sort','desc')->orderBy('publish_date', 'desc')->orderBy('id','desc')->get()->toArray();
         foreach($data['data'] as $key=>$val){
             $data['data'][$key]['end_date'] = date("Y年m月d日",strtotime($val['close_date']));
+            $data['data'][$key]['thumb_564_280'] = $this->crop_img($val['thumb'], 564, 280);
         }
 
         //取出4条往期考察团回顾内容，type=8
         $data['back_review'] = Article::where('type',8)->where('status',1)->where('publish_date','<=',$date)->orderBy('sort','desc')->orderBy('publish_date', 'desc')->orderBy('id','desc')->take(4)->get()->toArray();
+        foreach($data['back_review'] as $key=>$val) {
+            $data['back_review'][$key]['thumb_276_211'] = $this->crop_img($val['thumb'], 276, 211);
+        }
 
 
 
@@ -115,6 +119,9 @@ class InspectController  extends Controller
 
         //取出往期考察团回顾内容，type=8
         $data['data'] = Article::where('type',8)->where('status',1)->where('publish_date','<=',$date)->orderBy('sort','desc')->orderBy('publish_date', 'desc')->orderBy('id','desc')->paginate(16);
+        foreach($data['data'] as $key=>$val) {
+            $data['data'][$key]['thumb_276_211'] = $this->crop_img($val['thumb'], 276, 211);
+        }
 
 
         $data['menu'] = 'index';

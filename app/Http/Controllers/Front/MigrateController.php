@@ -78,6 +78,9 @@ class MigrateController  extends Controller
         }
         //全球移民是取出所有的数据信息
         $data['data'] = $query->orderBy('sort','desc')->orderBy('publish_date','desc')->orderBy('id','desc')->get()->toArray();
+        foreach($data['data'] as $m=>$mv){
+            $data['data'][$m]['img_380_280'] = $this->crop_img($mv['img'],380,280);
+        }
 
         $data['menu'] = 'migrate';
         $data['menu_son'] = '';
@@ -146,6 +149,7 @@ class MigrateController  extends Controller
 
         return view('front.migrate.test', [
             'data' => $data,
+            'title' => '全球移民测试',
         ]);
     }
     /*

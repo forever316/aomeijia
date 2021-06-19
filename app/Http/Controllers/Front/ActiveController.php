@@ -43,9 +43,15 @@ class ActiveController  extends Controller
 
         //取出9条热门活动内容，分页展示
         $data['data'] = Active::where('status',1)->where('show_start_date','<=',$date)->where('show_end_date','>=',$date)->orderBy('sort','desc')->orderBy('show_end_date','asc')->orderBy('id','desc')->paginate(9);
+        foreach($data['data'] as $key=>$val) {
+            $data['data'][$key]['thumb_358_640'] = $this->crop_img($val['thumb'], 358, 640);
+        }
 
         //取出4条往期活动回顾内容，type=9
         $data['back_review'] = Article::where('type',9)->where('status',1)->where('publish_date','<=',$date)->orderBy('sort','desc')->orderBy('publish_date', 'desc')->orderBy('id','desc')->take(4)->get()->toArray();
+        foreach($data['back_review'] as $key=>$val) {
+            $data['back_review'][$key]['thumb_276_211'] = $this->crop_img($val['thumb'], 276, 211);
+        }
 
         $data['menu'] = 'index';
         $data['menu_son'] = '';
@@ -107,6 +113,9 @@ class ActiveController  extends Controller
 
         //取出往期活动回顾内容，type=9
         $data['data'] = Article::where('type',9)->where('status',1)->where('publish_date','<=',$date)->orderBy('sort','desc')->orderBy('publish_date', 'desc')->orderBy('id','desc')->paginate(16);
+        foreach($data['data'] as $key=>$val) {
+            $data['data'][$key]['thumb_276_211'] = $this->crop_img($val['thumb'], 276, 211);
+        }
 
         $data['menu'] = 'index';
         $data['menu_son'] = '';

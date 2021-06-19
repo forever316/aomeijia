@@ -48,6 +48,9 @@ class investThemeController  extends Controller
             });
         }
         $data['theme'] = $query->orderBy('sort','desc')->orderBy('publish_date','desc')->orderBy('id','desc')->paginate(20);
+        foreach($data['theme'] as $key=>$val){
+            $data['theme'][$key]['thumb_276_211'] = $this->crop_img($val['thumb'],276,211);
+        }
         //投资主题的热门搜索词，搜索词类型，1投资主题,2海外房产,3成功案例,4百科资讯',，取出前三条
         $data['search'] = HotSearch::where('type',1)->where('status',1)->orderBy('sort','desc')->pluck('words','id')->take(3)->toArray();
 
@@ -74,14 +77,15 @@ class investThemeController  extends Controller
         $data['linkData'] = $this->getLinkData();
 
         $data['data'] = current(Article::where('type',6)->where('status',1)->where('publish_date','<=',$date)->where('id',$id)->take(1)->get()->toArray());//当前详情页的本条数据
+        $data['data']['thumb_120_80'] = $this->crop_img($data['data']['thumb'],120,80);
         //4个热门房产项目
         $data['house'] = $this->getShowHouseData(4);
         //4个热门移民项目
         $data['migrate'] = $this->getShowMigrateData(4);
         //4个投资问答
         $data['faqs'] = Faqs::where('status',1)->orderBy('sort','desc')->orderBy('id','desc')->take(4)->get()->toArray();
-        //5个热门资讯
-        $data['info'] = Information::where('category',1)->where('status',1)->where('publish_date','<=',$date)->orderBy('sort','desc')->orderBy('publish_date','desc')->orderBy('id','desc')->take(5)->get()->toArray();
+        //取出5个最新资讯
+        $data['info'] = $this->getShowInfoData(5,['category'=>1]);
 
         $data['menu'] = 'invest';
         $data['menu_son'] = 'theme';

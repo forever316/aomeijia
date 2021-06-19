@@ -93,6 +93,8 @@ class InformationController  extends Controller
         $i = 1;
         $data['top_data'] = $data['list_data'] = array();
         foreach($data['data'] as $key=>$val){
+            $val['thumb_800_380'] = $this->crop_img($val['thumb'],800,380);
+            $val['thumb_180_120'] = $this->crop_img($val['thumb'],180,120);
             if($i<=3){
                 $data['top_data'][$key] = $val;//轮播文章，为前面3条数据
             }else{
