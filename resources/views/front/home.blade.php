@@ -100,7 +100,7 @@
 									@foreach($data['cityList_hot'] as $hot)
 										<dt>
 											<span>
-												<img src="/{{$hot['pic']}}">
+												<img src="/{{$hot['pic']}}" style="width: 89px; height: 58px;">
 
 													<b class="menu-bg-black">
 														<a href="/?pid=0&id={{$hot['id']}}" class="menu_city @if($data['id']==$hot['id']) on @endif" target="_blank">
@@ -196,7 +196,7 @@
 					<ul class="info_other">
 						@if($data['info_other'])
 							@foreach($data['info_other'] as $infos)
-								<li><a target="_blank" href="/information/detail?id={{$infos['id']}}">{!! $infos['title'] !!}</a></li>
+								<li><a target="_blank" href="/information/detail?id={{$infos['id']}}"><p class="text-overflow-1">{!! $infos['title'] !!}</p></a></li>
 							@endforeach
 						@endif
 					</ul>
@@ -558,30 +558,7 @@
 	@include('front.common.footer')
 
 <script>
-	$('.info-menu').click(function(){
-		$('.info-menu').removeClass('active');
-		$(this).addClass('active');
-		var type_id = $(this).attr('value');
-		$.ajax({
-			type: "POST",
-			url: "/index/getInfoByType",
-			data: {type_id:type_id},
-			dataType: "json",
-			success: function(data){
-				var html_info_two = '';
-				var html_info_other = '';
-				$.each(data.info_two, function(index, infoTwo){
-					html_info_two += '<li><img src="/'+infoTwo.thumb+'" style="width:310px;height:259px;"><a target="_blank" href="/information/detail?id='+infoTwo.id+'"> <p class="hot-info-left-title text-overflow-1">'+infoTwo.title+'</p><p class="hot-info-left-introduction text-overflow-3">'+infoTwo.describe+'</p> </a> </li>';
-				});
 
-				$.each(data.info_other, function(index, infoOther){
-					html_info_other += '<li><a target="_blank" href="/information/detail?id='+infoOther.id+'">'+infoOther.title+'</a></li>';
-				});
-				$('.hot-info-inner .hot-info-left .info_two').html(html_info_two);
-				$('.hot-info-inner .hot-info-right .info_other').html(html_info_other);
-			}
-		});
-	})
 	function consult(){
 		$('#form_consult').find("input[name='type']").val(9);
 		submitConsultData();

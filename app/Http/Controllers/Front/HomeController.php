@@ -214,7 +214,7 @@ class HomeController  extends Controller
         $type_id = isset($_POST['type_id']) ? $_POST['type_id'] : 0;
         $date = date('Y-m-d');
         //默认只显示第一个类型的热门资讯，其他类型的热门资讯根据ajax点击请求数据获得
-        $_data = Information::where('category',1)->where('type_id',$type_id)->where('status',1)->where('publish_date','<=',$date)->orderBy('sort','desc')->orderBy('id','desc')->take(12)->get()->toArray();//两条大数据加10条10个标题
+        $_data = Information::where('category',1)->where('type_id',$type_id)->where('status',1)->where('publish_date','<=',$date)->orderBy('sort','desc')->orderBy('publish_date', 'desc')->orderBy('id','desc')->take(12)->get()->toArray();//两条大数据加10条10个标题
 
         $i=1;
         $data['info_two'] = $data['info_other'] = array();

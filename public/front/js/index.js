@@ -157,6 +157,32 @@ window.onload=function(){
 	//右边悬浮框的js
 	right_js();
 
+	$('.info-menu').click(function(){
+		console.log(222);
+		$('.info-menu').removeClass('active');
+		$(this).addClass('active');
+		var type_id = $(this).attr('value');
+		$.ajax({
+			type: "POST",
+			url: "/index/getInfoByType",
+			data: {type_id:type_id},
+			dataType: "json",
+			success: function(data){
+				var html_info_two = '';
+				var html_info_other = '';
+				$.each(data.info_two, function(index, infoTwo){
+					html_info_two += '<li><img src="/'+infoTwo.thumb+'" style="width:310px;height:259px;"><a target="_blank" href="/information/detail?id='+infoTwo.id+'"> <p class="hot-info-left-title text-overflow-1">'+infoTwo.title+'</p><p class="hot-info-left-introduction text-overflow-3">'+infoTwo.describe+'</p> </a> </li>';
+				});
+
+				$.each(data.info_other, function(index, infoOther){
+					html_info_other += '<li><a target="_blank" href="/information/detail?id='+infoOther.id+'"><p class="text-overflow-1">'+infoOther.title+'</p></a></li>';
+				});
+				$('.hot-info-inner .hot-info-left .info_two').html(html_info_two);
+				$('.hot-info-inner .hot-info-right .info_other').html(html_info_other);
+			}
+		});
+	})
+
 }
 
 
