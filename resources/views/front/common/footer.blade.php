@@ -1,5 +1,5 @@
 <div class="footer-wrapper">
-	<div class="footer-inner">
+	<div class="footer-inner" style="box-sizing: content-box;">
 		<div class="footer-left">
 			<div class="footer-logo">
 				<img src="/{{$data['company']['footer_logo']}}">
