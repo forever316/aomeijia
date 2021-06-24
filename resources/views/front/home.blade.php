@@ -4,6 +4,8 @@
 		<link type="text/css" rel="styleSheet" href="/front/css/banner.css" />
 		<link type="text/css" rel="styleSheet" href="/front/css/index.css" />
 		<script src="/front/js/index.js"></script>
+        <script src="/assets/jslbt/js/js.js" type="text/javascript" charset="utf-8"></script>
+        <link rel="stylesheet" type="text/css" href="/assets/jslbt/css/css.css"/>
 		@include('front.common.layout')
 	</head>
 <body>
@@ -70,19 +72,31 @@
 		<div class="home-banner">
 			<div class="banner-main">
 				<!-- 轮播图 -->
-				<div class="banner_slider" id="banner_slider">
-					<div class="banner_slider_pics" id="banner_slider_pics">
-						@if($data['topBanner'])
-							@foreach($data['topBanner'] as $tp=>$tv)
-							<a target="_blank" href="{{$tv['link']}}"><img src="{{$tv['img_url']}}"></a>
-							@endforeach
-						@endif
-					</div>
-					<div class="banner_slider_arrow">
-						<p class="arrow_item prev" id="arrow_prev">&lt;</p>
-						<p class="arrow_item next" id="arrow_next">&gt;</p>
-					</div>
-				</div>
+                <div id="box_lbt">
+                    <ul id="img">
+                        @if($data['topBanner'])
+                            @foreach($data['topBanner'] as $tp=>$tv)
+                            <li class="{{$tp}}  @if($tp==0) current @endif">
+                                <a target="_blank" href="{{$tv['link']}}">
+                                    <img src="{{$tv['img_url']}}">
+                                </a>
+                            </li>
+                            @endforeach
+                        @endif
+                    </ul>
+                    <ul id="li">
+						@foreach($data['topBanner'] as $tp=>$tv)
+							<li class="{{$tp}}  @if($tp==0) on @endif">
+
+							</li>
+						@endforeach
+                    </ul>
+                    <div style="clear: both;"></div>
+                    <div class="an" id="an">
+                        <a href="javascript:;" id="prev"><</a>
+                        <a href="javascript:;" id="next" class="an-a2">></a>
+                    </div>
+                </div>
 				<!-- 一级菜单 -->
 				<dl class="country-list-one">
 					<dt>
@@ -563,6 +577,7 @@
 		$('#form_consult').find("input[name='type']").val(9);
 		submitConsultData();
 	}
+
 
 </script>
 </body>

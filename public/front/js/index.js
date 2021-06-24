@@ -157,6 +157,19 @@ window.onload=function(){
 	//右边悬浮框的js
 	right_js();
 
+	//轮播图插件的启动
+	hdp({
+		li:"li",	//默认值：li;默认用li包裹
+		boxid:"box_lbt",	//最外面div  id
+		imgid:"img",	//图片外面id
+		optid:"li",	//opt外面id
+		an:"an",		//左右按钮id，用于移上显示和隐藏
+		prev:"prev",	//左边箭头id
+		next:"next",	//右边箭头id
+		ms:3000		//多少毫秒切换一张,默认800毫秒
+	})
+	
+	//最新资讯的点击切换
 	$('.info-menu').click(function(){
 		console.log(222);
 		$('.info-menu').removeClass('active');

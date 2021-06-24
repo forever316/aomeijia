@@ -196,7 +196,7 @@ class HomeController  extends Controller
         $data['linkData'] = $this->getLinkData();
 
 //        echo '<pre>';
-//        var_dump($data['migrate_first']);
+//        var_dump($data['topBanner']);
 //        exit;
 
         $data['menu'] = 'index';
