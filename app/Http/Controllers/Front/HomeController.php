@@ -115,8 +115,17 @@ class HomeController  extends Controller
         $data['wechat'] = Link::where('type',5)->where('status',1)->orderBy('sort','desc')->orderBy('id','desc')->take(20)->get()->toArray();
 
         //热门展会,1个热门展会,活动,此处有图片
-        $data['active'] = current($this->getActive(1));
-        $data['active']['thumb'] = $this->crop_img($data['active']['thumb'],330,460);
+        $data['main_active'] = $this->getActive(3);
+        $data['active'] = $data['active_extra'] = array();
+        foreach($data['main_active'] as $key=>$val){
+            if($key==0){
+                $val['thumb'] = $this->crop_img($val['thumb'],330,460);
+                $data['active'] = $val;
+            }else{
+                $val['thumb'] = $this->crop_img($val['thumb'],60,85);
+                $data['active_extra'][] = $val;
+            }
+        }
 
         //考察团,4个考察团,考察团内容type为7
         $data['inspect'] = Article::where('type',7)->where('status',1)->where('publish_date','<=',$date)->orderBy('sort','desc')->orderBy('publish_date','desc')->orderBy('id','desc')->take(4)->get()->toArray();
@@ -196,7 +205,7 @@ class HomeController  extends Controller
         $data['linkData'] = $this->getLinkData();
 
 //        echo '<pre>';
-//        var_dump($data['topBanner']);
+//        var_dump($data['active_extra']);
 //        exit;
 
         $data['menu'] = 'index';

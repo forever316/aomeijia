@@ -6,9 +6,9 @@ body{
 	overflow: scroll;
 }
 body, button, dl,dt,div,footer, form, h1, h2, h3, h4, h5, h6, header, hgroup, hr, input, legend, li, menu, nav, ol, p, pre, section, td, textarea, th, ul {
-    margin: 0;
-    padding: 0;
-    outline: none;
+	margin: 0;
+	padding: 0;
+	outline: none;
 }
 a{
 	text-decoration: none;
@@ -31,11 +31,11 @@ a:hover{
 	display: -ms-flexbox;
 	display: -webkit-flex;
 	justify-content: space-between;
-  -webkit-box-pack: justify;
-  -webkit-justify-content: space-between;
-  -moz-box-pack: justify;
-  -moz-justify-content: space-between;
-  -ms-flex-pack: justify;
+	-webkit-box-pack: justify;
+	-webkit-justify-content: space-between;
+	-moz-box-pack: justify;
+	-moz-justify-content: space-between;
+	-ms-flex-pack: justify;
 }
 .hot-info-header-list{
 	margin-top: 50px;
@@ -94,11 +94,11 @@ a:hover{
 	display: -ms-flexbox;
 	display: -webkit-flex;
 	justify-content: space-between;
-  -webkit-box-pack: justify;
-  -webkit-justify-content: space-between;
-  -moz-box-pack: justify;
-  -moz-justify-content: space-between;
-  -ms-flex-pack: justify;
+	-webkit-box-pack: justify;
+	-webkit-justify-content: space-between;
+	-moz-box-pack: justify;
+	-moz-justify-content: space-between;
+	-ms-flex-pack: justify;
 	list-style: none;
 }
 
@@ -157,13 +157,13 @@ a:hover{
 	display: -ms-flexbox;
 	display: -webkit-flex;
 	justify-content: space-between;
-  -webkit-box-pack: justify;
-  -webkit-justify-content: space-between;
-  -moz-box-pack: justify;
-  -moz-justify-content: space-between;
-  -ms-flex-pack: justify;
+	-webkit-box-pack: justify;
+	-webkit-justify-content: space-between;
+	-moz-box-pack: justify;
+	-moz-justify-content: space-between;
+	-ms-flex-pack: justify;
 	flex-wrap: wrap;
-  -ms-flex-wrap: wrap;
+	-ms-flex-wrap: wrap;
 }
 .hot-list-bar li{
 	width: 540px;
@@ -179,7 +179,7 @@ a:hover{
 	color: #ee8300;
 }
 
- /*热门展会 + 考察团*/
+/*热门展会 + 考察团*/
 .exhibitions-delegation-wrapper{
 	height: 510px;
 	margin-top:35px;
@@ -189,11 +189,11 @@ a:hover{
 	display: -ms-flexbox;
 	display: -webkit-flex;
 	justify-content: space-between;
-  -webkit-box-pack: justify;
-  -webkit-justify-content: space-between;
-  -moz-box-pack: justify;
-  -moz-justify-content: space-between;
-  -ms-flex-pack: justify;
+	-webkit-box-pack: justify;
+	-webkit-justify-content: space-between;
+	-moz-box-pack: justify;
+	-moz-justify-content: space-between;
+	-ms-flex-pack: justify;
 }
 /*热门展会*/
 .hot-exhibitions-wrapper{
@@ -209,11 +209,11 @@ a:hover{
 	display: -ms-flexbox;
 	display: -webkit-flex;
 	justify-content: space-between;
-  -webkit-box-pack: justify;
-  -webkit-justify-content: space-between;
-  -moz-box-pack: justify;
-  -moz-justify-content: space-between;
-  -ms-flex-pack: justify;
+	-webkit-box-pack: justify;
+	-webkit-justify-content: space-between;
+	-moz-box-pack: justify;
+	-moz-justify-content: space-between;
+	-ms-flex-pack: justify;
 }
 .exhibitions-header-title{
 	line-height: 50px;
@@ -231,11 +231,11 @@ a:hover{
 	display: -ms-flexbox;
 	display: -webkit-flex;
 	justify-content: space-between;
-  -webkit-box-pack: justify;
-  -webkit-justify-content: space-between;
-  -moz-box-pack: justify;
-  -moz-justify-content: space-between;
-  -ms-flex-pack: justify;
+	-webkit-box-pack: justify;
+	-webkit-justify-content: space-between;
+	-moz-box-pack: justify;
+	-moz-justify-content: space-between;
+	-ms-flex-pack: justify;
 }
 .hot-exhibitions-adv{
 	width: 330px;
@@ -248,14 +248,14 @@ a:hover{
 .hot-exhibitions-info{
 	width: 370px;
 	height: 360px;
-	padding: 50px 30px;
+	padding: 36px 30px;
 }
 .hot-exhibitions-info-title{
 	font-size: 16px;
 	color: #3c3d3e;
 }
 .hot-exhibitions-info dl{
-	margin-top: 30px;
+	margin-top: 25px;
 }
 .hot-exhibitions-info dl dt{
 	margin-top: 20px;
@@ -278,7 +278,7 @@ a:hover{
 	font-size: 13px;
 }
 .exhibitions-sign-button{
-	margin-top: 40px;
+	margin-top: 30px;
 	background-color: #ee8300;
 	color:#fff;
 	font-size: 15px;
@@ -301,11 +301,11 @@ a:hover{
 	display: -ms-flexbox;
 	display: -webkit-flex;
 	justify-content: space-between;
-  -webkit-box-pack: justify;
-  -webkit-justify-content: space-between;
-  -moz-box-pack: justify;
-  -moz-justify-content: space-between;
-  -ms-flex-pack: justify;
+	-webkit-box-pack: justify;
+	-webkit-justify-content: space-between;
+	-moz-box-pack: justify;
+	-moz-justify-content: space-between;
+	-ms-flex-pack: justify;
 }
 .delegation-header-title{
 	line-height: 50px;
@@ -334,11 +334,11 @@ a:hover{
 	display: -ms-flexbox;
 	display: -webkit-flex;
 	justify-content: space-between;
-  -webkit-box-pack: justify;
-  -webkit-justify-content: space-between;
-  -moz-box-pack: justify;
-  -moz-justify-content: space-between;
-  -ms-flex-pack: justify;
+	-webkit-box-pack: justify;
+	-webkit-justify-content: space-between;
+	-moz-box-pack: justify;
+	-moz-justify-content: space-between;
+	-ms-flex-pack: justify;
 }
 .delegation-banner-describe p:nth-child(2){
 	line-height: 25px;
@@ -356,11 +356,11 @@ a:hover{
 	display: -ms-flexbox;
 	display: -webkit-flex;
 	justify-content: space-between;
-  -webkit-box-pack: justify;
-  -webkit-justify-content: space-between;
-  -moz-box-pack: justify;
-  -moz-justify-content: space-between;
-  -ms-flex-pack: justify;
+	-webkit-box-pack: justify;
+	-webkit-justify-content: space-between;
+	-moz-box-pack: justify;
+	-moz-justify-content: space-between;
+	-ms-flex-pack: justify;
 	margin-top: 18px;
 	padding: 2px 25px;
 }
@@ -390,11 +390,11 @@ a:hover{
 	display: -ms-flexbox;
 	display: -webkit-flex;
 	justify-content: space-between;
-  -webkit-box-pack: justify;
-  -webkit-justify-content: space-between;
-  -moz-box-pack: justify;
-  -moz-justify-content: space-between;
-  -ms-flex-pack: justify;
+	-webkit-box-pack: justify;
+	-webkit-justify-content: space-between;
+	-moz-box-pack: justify;
+	-moz-justify-content: space-between;
+	-ms-flex-pack: justify;
 }
 .hot-delegation-bottom-list:hover{
 	box-shadow: 1px 1px 5px 2px #ccc;
@@ -413,11 +413,11 @@ a:hover{
 	display: -ms-flexbox;
 	display: -webkit-flex;
 	justify-content: space-between;
-  -webkit-box-pack: justify;
-  -webkit-justify-content: space-between;
-  -moz-box-pack: justify;
-  -moz-justify-content: space-between;
-  -ms-flex-pack: justify;
+	-webkit-box-pack: justify;
+	-webkit-justify-content: space-between;
+	-moz-box-pack: justify;
+	-moz-justify-content: space-between;
+	-ms-flex-pack: justify;
 	border-bottom: 1px solid #ccc;
 }
 .project-recommend-header p:first-child{
@@ -454,7 +454,7 @@ a:hover{
 }
 .project-recommend-inner dt{
 	background-color: #fff;
-	margin-top: 20px;	
+	margin-top: 20px;
 }
 .recommend-img-wrapper{
 	width: 292px;
@@ -490,10 +490,10 @@ a:hover{
 .project-recommend-inner dt:hover .recommend-img-wrapper>img{
 	transform: scale(1.1);
 	transform: scale(1.1);
-  -ms-transform: scale(1.1);
-  -moz-transform: scale(1.1);
-  -webkit-transform: scale(1.1);
-  -o-transform: scale(1.1);
+	-ms-transform: scale(1.1);
+	-moz-transform: scale(1.1);
+	-webkit-transform: scale(1.1);
+	-o-transform: scale(1.1);
 }
 .project-recommend-inner dt:nth-child(2),
 .project-recommend-inner dt:nth-child(3),
@@ -522,11 +522,11 @@ a:hover{
 	display: -ms-flexbox;
 	display: -webkit-flex;
 	justify-content: space-between;
-  -webkit-box-pack: justify;
-  -webkit-justify-content: space-between;
-  -moz-box-pack: justify;
-  -moz-justify-content: space-between;
-  -ms-flex-pack: justify;
+	-webkit-box-pack: justify;
+	-webkit-justify-content: space-between;
+	-moz-box-pack: justify;
+	-moz-justify-content: space-between;
+	-ms-flex-pack: justify;
 	margin-top: 10px;
 }
 .recommend-desc-wrapper .recommend-desc-info span{
@@ -554,11 +554,11 @@ a:hover{
 	display: -ms-flexbox;
 	display: -webkit-flex;
 	justify-content: space-between;
-  -webkit-box-pack: justify;
-  -webkit-justify-content: space-between;
-  -moz-box-pack: justify;
-  -moz-justify-content: space-between;
-  -ms-flex-pack: justify;
+	-webkit-box-pack: justify;
+	-webkit-justify-content: space-between;
+	-moz-box-pack: justify;
+	-moz-justify-content: space-between;
+	-ms-flex-pack: justify;
 	border-bottom: 1px solid #ccc;
 }
 .overseas-migrate-header p span:first-child{
@@ -584,16 +584,16 @@ a:hover{
 	display: -ms-flexbox;
 	display: -webkit-flex;
 	justify-content: space-between;
-  -webkit-box-pack: justify;
-  -webkit-justify-content: space-between;
-  -moz-box-pack: justify;
-  -moz-justify-content: space-between;
-  -ms-flex-pack: justify;
+	-webkit-box-pack: justify;
+	-webkit-justify-content: space-between;
+	-moz-box-pack: justify;
+	-moz-justify-content: space-between;
+	-ms-flex-pack: justify;
 }
 .overseas-migrate-inner-left{
 	width: 789;
 	background-color: #fff;
-	
+
 }
 .overseas-migrate-inner-info{
 	display: flex;
@@ -602,11 +602,11 @@ a:hover{
 	display: -ms-flexbox;
 	display: -webkit-flex;
 	justify-content: space-between;
-  -webkit-box-pack: justify;
-  -webkit-justify-content: space-between;
-  -moz-box-pack: justify;
-  -moz-justify-content: space-between;
-  -ms-flex-pack: justify;
+	-webkit-box-pack: justify;
+	-webkit-justify-content: space-between;
+	-moz-box-pack: justify;
+	-moz-justify-content: space-between;
+	-ms-flex-pack: justify;
 	padding: 25px 20px;
 }
 .overseas-migrate-inner-left img{
@@ -659,11 +659,11 @@ a:hover{
 	display: -ms-flexbox;
 	display: -webkit-flex;
 	justify-content: space-between;
-  -webkit-box-pack: justify;
-  -webkit-justify-content: space-between;
-  -moz-box-pack: justify;
-  -moz-justify-content: space-between;
-  -ms-flex-pack: justify;
+	-webkit-box-pack: justify;
+	-webkit-justify-content: space-between;
+	-moz-box-pack: justify;
+	-moz-justify-content: space-between;
+	-ms-flex-pack: justify;
 }
 .overseas-bottom-list{
 	width: 287px;
@@ -717,11 +717,11 @@ a:hover{
 	display: -ms-flexbox;
 	display: -webkit-flex;
 	justify-content: space-between;
-  -webkit-box-pack: justify;
-  -webkit-justify-content: space-between;
-  -moz-box-pack: justify;
-  -moz-justify-content: space-between;
-  -ms-flex-pack: justify;
+	-webkit-box-pack: justify;
+	-webkit-justify-content: space-between;
+	-moz-box-pack: justify;
+	-moz-justify-content: space-between;
+	-ms-flex-pack: justify;
 	border-bottom: 1px solid #ccc;
 }
 .success-case-header p:first-child{
@@ -747,11 +747,11 @@ a:hover{
 	display: -ms-flexbox;
 	display: -webkit-flex;
 	justify-content: space-between;
-  -webkit-box-pack: justify;
-  -webkit-justify-content: space-between;
-  -moz-box-pack: justify;
-  -moz-justify-content: space-between;
-  -ms-flex-pack: justify;
+	-webkit-box-pack: justify;
+	-webkit-justify-content: space-between;
+	-moz-box-pack: justify;
+	-moz-justify-content: space-between;
+	-ms-flex-pack: justify;
 
 }
 .success-case-inner-left{
@@ -760,7 +760,7 @@ a:hover{
 .success-case-inner-left img{
 	width: 547px;
 	height: 362px;
-	
+
 }
 .success-case-inner-info{
 	width: 507px;
@@ -787,11 +787,11 @@ a:hover{
 	display: -ms-flexbox;
 	display: -webkit-flex;
 	justify-content: space-between;
-  -webkit-box-pack: justify;
-  -webkit-justify-content: space-between;
-  -moz-box-pack: justify;
-  -moz-justify-content: space-between;
-  -ms-flex-pack: justify;
+	-webkit-box-pack: justify;
+	-webkit-justify-content: space-between;
+	-moz-box-pack: justify;
+	-moz-justify-content: space-between;
+	-ms-flex-pack: justify;
 }
 .success-case-inner-right dl dt:first-child~dt{
 	margin-top: 38px;
@@ -821,11 +821,11 @@ a:hover{
 	display: -ms-flexbox;
 	display: -webkit-flex;
 	justify-content: space-between;
-  -webkit-box-pack: justify;
-  -webkit-justify-content: space-between;
-  -moz-box-pack: justify;
-  -moz-justify-content: space-between;
-  -ms-flex-pack: justify;
+	-webkit-box-pack: justify;
+	-webkit-justify-content: space-between;
+	-moz-box-pack: justify;
+	-moz-justify-content: space-between;
+	-ms-flex-pack: justify;
 	border-bottom: 1px solid #ccc;
 }
 .special-team-header p:first-child{
@@ -853,11 +853,11 @@ a:hover{
 	display: -ms-flexbox;
 	display: -webkit-flex;
 	justify-content: space-between;
-  -webkit-box-pack: justify;
-  -webkit-justify-content: space-between;
-  -moz-box-pack: justify;
-  -moz-justify-content: space-between;
-  -ms-flex-pack: justify;
+	-webkit-box-pack: justify;
+	-webkit-justify-content: space-between;
+	-moz-box-pack: justify;
+	-moz-justify-content: space-between;
+	-ms-flex-pack: justify;
 }
 .special-team-inner dl dt{
 	width: 230px;
@@ -874,8 +874,8 @@ a:hover{
 	width: 155px;
 	height: 155px;
 	/*height: 348px;*/
-	 border-radius:50%;
-	 margin-left: 40px;
+	border-radius:50%;
+	margin-left: 40px;
 }
 .special-team-inner-desc{
 	padding: 15px 15px;
@@ -910,32 +910,32 @@ a:hover{
 }
 .special-team-wrapper .case-button-next,
 .special-team-wrapper .case-button-prev {
-  position: absolute;
-  top: 50%;
-  width: 40px;
-  height: 40px;
-  background: #f00;
-  cursor: pointer;
-  background: url(../images/common/case-arrow.png) no-repeat center / 100% 100%;
-  z-index: 1;
+	position: absolute;
+	top: 50%;
+	width: 40px;
+	height: 40px;
+	background: #f00;
+	cursor: pointer;
+	background: url(../images/common/case-arrow.png) no-repeat center / 100% 100%;
+	z-index: 1;
 }
 
 .special-team-wrapper .case-button-next {
-  right: -20px;
-  transform: translate(100%, -50%);
-  -ms-transform: translate(100%, -50%);
-  -moz-transform: translate(100%, -50%);
-  -webkit-transform: translate(100%, -50%);
-  -o-transform: translate(100%, -50%);
+	right: -20px;
+	transform: translate(100%, -50%);
+	-ms-transform: translate(100%, -50%);
+	-moz-transform: translate(100%, -50%);
+	-webkit-transform: translate(100%, -50%);
+	-o-transform: translate(100%, -50%);
 }
 
 .special-team-wrapper .case-button-prev {
-  left: -20px;
-  transform: translate(-100%, -50%) rotate(180deg);
-  -ms-transform: translate(-100%, -50%) rotate(180deg);
-  -moz-transform: translate(-100%, -50%) rotate(180deg);
-  -webkit-transform: translate(-100%, -50%) rotate(180deg);
-  -o-transform: translate(-100%, -50%) rotate(180deg);
+	left: -20px;
+	transform: translate(-100%, -50%) rotate(180deg);
+	-ms-transform: translate(-100%, -50%) rotate(180deg);
+	-moz-transform: translate(-100%, -50%) rotate(180deg);
+	-webkit-transform: translate(-100%, -50%) rotate(180deg);
+	-o-transform: translate(-100%, -50%) rotate(180deg);
 }
 
 /*专业团队下的内容*/
@@ -948,11 +948,11 @@ a:hover{
 	display: -ms-flexbox;
 	display: -webkit-flex;
 	justify-content: space-between;
-  -webkit-box-pack: justify;
-  -webkit-justify-content: space-between;
-  -moz-box-pack: justify;
-  -moz-justify-content: space-between;
-  -ms-flex-pack: justify;
+	-webkit-box-pack: justify;
+	-webkit-justify-content: space-between;
+	-moz-box-pack: justify;
+	-moz-justify-content: space-between;
+	-ms-flex-pack: justify;
 }
 .special-team-bottom-wrapper .special-team-bottom-video,video{
 	width: 591px;
@@ -964,7 +964,7 @@ a:hover{
 	height: 308px;
 	background-color: #fff;
 	padding: 45px 30px;
-	
+
 }
 .special-team-bottom-info>p{
 	font-size: 24px;
@@ -990,11 +990,11 @@ a:hover{
 	display: -ms-flexbox;
 	display: -webkit-flex;
 	justify-content: space-between;
-  -webkit-box-pack: justify;
-  -webkit-justify-content: space-between;
-  -moz-box-pack: justify;
-  -moz-justify-content: space-between;
-  -ms-flex-pack: justify;
+	-webkit-box-pack: justify;
+	-webkit-justify-content: space-between;
+	-moz-box-pack: justify;
+	-moz-justify-content: space-between;
+	-ms-flex-pack: justify;
 	margin-top: 25px;
 }
 .special-team-bottom-info-list dl{
@@ -1008,12 +1008,12 @@ a:hover{
 	display: -ms-flexbox;
 	display: -webkit-flex;
 	justify-content: space-between;
-  -webkit-box-pack: justify;
-  -webkit-justify-content: space-between;
-  -moz-box-pack: justify;
-  -moz-justify-content: space-between;
-  -ms-flex-pack: justify;
-	
+	-webkit-box-pack: justify;
+	-webkit-justify-content: space-between;
+	-moz-box-pack: justify;
+	-moz-justify-content: space-between;
+	-ms-flex-pack: justify;
+
 }
 .special-team-bottom-info-list dl img{
 	width: 57px;
@@ -1044,11 +1044,11 @@ a:hover{
 	display: -ms-flexbox;
 	display: -webkit-flex;
 	justify-content: space-between;
-  -webkit-box-pack: justify;
-  -webkit-justify-content: space-between;
-  -moz-box-pack: justify;
-  -moz-justify-content: space-between;
-  -ms-flex-pack: justify;
+	-webkit-box-pack: justify;
+	-webkit-justify-content: space-between;
+	-moz-box-pack: justify;
+	-moz-justify-content: space-between;
+	-ms-flex-pack: justify;
 	border-bottom: 1px solid #ccc;
 }
 .cooperative-partner-header p:first-child{

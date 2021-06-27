@@ -64,6 +64,27 @@
         flex: auto;
     }
 
+	/*热门活动的两个列表  */
+	.active-list{
+		margin-top:30px;
+	}
+	.active-list .active-list-one {
+		margin-top: 13px;
+		position: relative;
+	}
+	.active-list .active-list-one{
+		font-size: 20px;
+	}
+	.active-list .active-list-one .active-list-describe{
+		display: inline-block;
+		width: 240px;
+		padding-left: 10px;
+	}
+	.active-list .active-list-one .active-list-describe p{
+		font-size: 12px;
+		margin-top:10px;
+	}
+
 </style>
 <main id="home-page" v-cloak>
 	@include('front.common.header')
@@ -240,7 +261,7 @@
 					<div class="hot-exhibitions-adv">
 						<a target="_blank" href="/active/detail?id={{$data['active']['id']}}"><img src="/{{$data['active']['thumb']}}" alt="" ></a>
 					</div>
-					<div class="hot-exhibitions-info">
+					<div class="hot-exhibitions-info" style="height:220px;">
 						<span class="hot-exhibitions-info-title"><a target="_blank" href="/active/detail?id={{$data['active']['id']}}">{{$data['active']['theme']}}</a></span>
 						<dl>
 {{--							<dt>深圳站</dt>--}}
@@ -253,19 +274,44 @@
 								<span>{{$data['active']['address']}}</span>
 							</dt>
 						</dl>
-{{--						<dl>--}}
-{{--							<dt>广州站</dt>--}}
-{{--							<dt>--}}
-{{--								<img src="/front/images/time-logo2.jpeg">--}}
-{{--								<span>2020年12月30日 13:00pm</span>--}}
-{{--							</dt>--}}
-{{--							<dt>--}}
-{{--								<img src="/front/images/address-logo.jpeg">--}}
-{{--								<span>广州天河区林和西路161号中泰国际广场40楼</span>--}}
-{{--							</dt>--}}
-{{--						</dl>--}}
 						<span class="btn appointment exhibitions-sign-button" @click="isAppointmentShow = true">立即预约报名</span>
+
+						<div class="active-list">
+						@foreach($data['active_extra'] as $mak=>$mav)
+							<div value="{{$mak}}" class="active-list-one">
+								<a target="_blank" href="/active/detail?id={{$mav['id']}}">
+									<img src="/{{$mav['thumb']}}" style="width:60px;height:85px;">
+									<span>
+										<div class="active-list-describe">
+											<p class="desc text-overflow-1">{{$mav['theme']}}</p>
+											<p class="desc text-overflow-1">{{$mav['time']}}</p>
+											<p class="desc text-overflow-1" style="margin-bottom: 12px;">{{$mav['address']}}</p>
+										</div>
+									</span>
+								</a>
+							</div>
+						@endforeach
+						</div>
 					</div>
+
+{{--                    热门活动额外的几条数据--}}
+{{--					<div class="hot-exhibitions-extra">--}}
+{{--						<div class="hot-exhibitions-extra-list">--}}
+{{--							<dl>--}}
+{{--								@foreach($data['main_active'] as $ki=>$kiv)--}}
+{{--									<dt>--}}
+{{--										<a target="_blank" href="/inspect/detail?id={{$kiv['id']}}">--}}
+{{--											<span><img src="/{{$kiv['thumb']}}" style="width:110px;height:62px;"></span>--}}
+{{--											<div class="hot-exhibitions-extra-list-describe">--}}
+{{--												<p class="desc text-overflow-1">{{$kiv['theme']}}</p>--}}
+{{--												<p class="desc text-overflow-1">{{$kiv['time']}}</p>--}}
+{{--											</div>--}}
+{{--										</a>--}}
+{{--									</dt>--}}
+{{--								@endforeach--}}
+{{--							</dl>--}}
+{{--						</div>--}}
+{{--					</div>--}}
 					@endif
 				</div>
 			</div>
