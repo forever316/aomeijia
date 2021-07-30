@@ -1,6 +1,7 @@
 <meta charset="UTF-8">
 <title>{{$data['company']['page_title']}}-{{$title}}</title>
 <meta name="description" content="{{$data['company']['page_description']}}">
+<meta name="referrer" content="never">
 <meta name="keywords" content="{{$data['company']['page_keywords']}}">
 <link type="text/css" rel="styleSheet" href="/front/css/header.css" />
 <link type="text/css" rel="styleSheet" href="/front/css/footer.css" />

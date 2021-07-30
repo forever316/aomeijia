@@ -229,10 +229,11 @@ class HomeController  extends Controller
         $data['info_two'] = $data['info_other'] = array();
         foreach($_data as $key_info=>$val_info){
             if($i<=2){
-                //前面两个热门资讯
+                //前面两个热门资讯，此处有图片
+                $val_info['thumb'] = $this->crop_img($val_info['thumb'],310,260);
                 $data['info_two'][] = $val_info;
             }else{
-                //后面十个热门资讯
+                //后面十个热门资讯，这边没有图片
                 $data['info_other'][] = $val_info;
             }
             $i++;
