@@ -361,7 +361,7 @@ class Uploader
     {
         return array(
             "state" => $this->stateInfo,
-            "url" => 'http://'.$_SERVER['HTTP_HOST'].$this->fullName,
+            "url" => 'https://www.iaumeca.com'.$this->fullName,
             "title" => $this->fileName,
             "original" => $this->oriName,
             "type" => $this->fileType,
