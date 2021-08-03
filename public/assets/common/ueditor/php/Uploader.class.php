@@ -208,11 +208,26 @@ class Uploader
             return;
         }
         //格式验证(扩展名验证和Content-Type验证)
-        $fileType = strtolower(strrchr($imgUrl, '.'));
-        if (!in_array($fileType, $this->config['allowFiles']) || !isset($heads['Content-Type']) || !stristr($heads['Content-Type'], "image")) {
-            $this->stateInfo = $this->getStateInfo("ERROR_HTTP_CONTENTTYPE");
+        if (!isset($heads['Content-Type']) || (!stristr($heads['Content-Type'], "image") && !stristr($heads['Content-Type'], "application/octet-stream"))) {
+            $this->stateInfo = $this->getStateInfo("ERROR_HTTP_CONTENTTYPE").$heads['Content-Type'];
             return;
+        }else{
+            if (count($this->config['allowFiles']) > 0){
+                $fileType = strtolower(strrchr($imgUrl, '.'));
+                if (strpos($fileType, "?")){
+                    $fileType = strstr($fileType, "?", true);
+                }
+                if (!in_array($fileType, $this->config['allowFiles'])){
+                    //$this->stateInfo = $this->getStateInfo("ERROR_HTTP_ALLOWFILES");
+                    //return;
+                }
+            }
         }
+//        $fileType = strtolower(strrchr($imgUrl, '.'));
+//        if (!in_array($fileType, $this->config['allowFiles']) || !isset($heads['Content-Type']) || !stristr($heads['Content-Type'], "image")) {
+//            $this->stateInfo = $this->getStateInfo("ERROR_HTTP_CONTENTTYPE");
+//            return;
+//        }
 
         //打开输出缓冲区并获取远程图片
         ob_start();
@@ -226,7 +241,20 @@ class Uploader
         ob_end_clean();
         preg_match("/[\/]([^\/]*)[\.]?[^\.\/]*$/", $imgUrl, $m);
 
+//        $this->oriName = $m ? $m[1]:"";
         $this->oriName = $m ? $m[1]:"";
+        if (!strpos($this->oriName, ".")){
+            if (strpos($heads['Content-Type'], '/')){
+                $extn = substr($heads['Content-Type'], strpos($heads['Content-Type'], '/')+1);
+                if (stristr($extn, "octet-stream")){
+                    $this->oriName .= ".png";
+                }else{
+                    $this->oriName .= ".".$extn;
+                }
+            }else{
+                $this->oriName .= ".png";
+            }
+        }
         $this->fileSize = strlen($img);
         $this->fileType = $this->getFileExt();
         $this->fullName = $this->getFullName();
